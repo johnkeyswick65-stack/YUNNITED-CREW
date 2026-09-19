@@ -1,12 +1,201 @@
+html
 <!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YUNNITED CREW</title>
+  <meta name="description" content="YUNNITED CREW — World Library, Acessórios, Moda e Nhonga. Compre livros digitais, electrónica e moda em Moçambique.">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>YUNNITED CREW</h1>
-  <p>O site está funcionando!</p>
+  <h1>YUNNITED CREW </h1>
+  <p>o site está funcionando!</p>
+
+  <!-- ================= CABEÇALHO ================= -->
+  <header class="site-heade
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <span>⚡ Entrega digital imediata • Pagamento via M-Pesa / e-Mola</span>
+        <span class="topbar__contact">📞 +258 85 617 8099</span>
+      </div>
+    </div>
+
+    <div class="header-main container">
+      <a class="brand" href="index.html">
+        <span class="brand__mark">YC</span>
+        <span class="brand__text">
+          <strong>YUNNITED CREW</strong>
+          <small>O maior mercado digital de Moçambique</small>
+        </span>
+      </a>
+
+      <div class="search">
+        <input id="searchInput" type="search" placeholder="Pesquisar livros, acessórios, moda..." aria-label="Pesquisar">
+        <button type="button" aria-label="Pesquisar">🔍</button>
+      </div>
+
+      <a class="btn btn--wa btn--header"
+         href="https://wa.me/258856178099?text=Ol%C3%A1%20YUNNITED%20CREW!%20Vim%20pelo%20site."
+         target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24m-3.6 4.2c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.03 2.6c.13.16 1.76 2.79 4.35 3.8 2.15.85 2.59.68 3.06.63.47-.04 1.5-.61 1.72-1.21.21-.6.21-1.11.15-1.21-.06-.11-.23-.17-.48-.29-.25-.13-1.5-.74-1.73-.82-.23-.09-.4-.13-.57.12-.17.25-.65.83-.8 1-.15.16-.29.18-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.66-1.25-1.48-1.4-1.73-.14-.25-.01-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.56-.43-.14 0-.31-.01-.48-.01"/></svg>
+        WhatsApp
+      </a>
+    </div>
+
+    <nav class="catnav">
+      <div class="container catnav__inner">
+        <a href="index.html" class="is-active">Início</a>
+        <a href="world-library.html">World Library</a>
+        <a href="acessorios.html">Acessórios</a>
+        <a href="moda.html">Moda</a>
+        <a href="nhonga.html">Nhonga</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <span class="hero__tag">🇲🇿 100% Moçambicano</span>
+        <h1>Tudo o que precisas, num só lugar.</h1>
+        <p>Livros digitais, acessórios electrónicos, moda e o espaço <strong>Nhonga</strong> para venderes os teus produtos.</p>
+      </div>
+      <div class="hero__stats">
+        <div><strong>4</strong><span>Categorias</span></div>
+        <div><strong>24h</strong><span>Atendimento</span></div>
+        <div><strong>0 MT</strong><span>Taxa de adesão</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CATEGORIAS ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2><span class="dot"></span> Categorias</h2>
+        <span class="section__hint">Escolhe uma categoria e explora</span>
+      </div>
+      <div class="cat-grid" id="categoriesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= ANÚNCIOS ================= -->
+  <section class="ads">
+    <div class="container ads__inner">
+      <span class="ads__label">ANÚNCIOS</span>
+      <a class="ads__item" href="https://wa.me/258856178099?text=Ol%C3%A1!%20Quero%20anunciar%20na%20YUNNITED%20CREW." target="_blank" rel="noopener">
+        📢 Divulgue o seu negócio aqui — fale connosco
+      </a>
+      <a class="ads__item" href="world-library.html">📚 Promoção: Pack de 3 livros digitais por 199,9 MT</a>
+      <a class="ads__item" href="nhonga.html">🤝 Nhonga: cadastre os seus produtos grátis</a>
+    </div>
+  </section>
+
+  <!-- ================= PRODUTOS POPULARES ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2><span class="dot"></span> Produtos Populares</h2>
+        <span class="section__hint">Os mais pedidos da semana</span>
+      </div>
+      <div class="grid grid--4" id="popularGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= WORLD LIBRARY ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2><span class="dot"></span> 📚 World Library</h2>
+        <a class="link-more" href="world-library.html">Ver mais →</a>
+      </div>
+      <div class="grid grid--4" data-row="world-library"></div>
+    </div>
+  </section>
+
+  <!-- ================= ACESSÓRIOS ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2><span class="dot"></span> 🔌 Acessórios</h2>
+        <a class="link-more" href="acessorios.html">Ver mais →</a>
+      </div>
+      <div class="grid grid--4" data-row="acessorios"></div>
+    </div>
+  </section>
+
+  <!-- ================= MODA ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2><span class="dot"></span> 👕 Moda</h2>
+        <a class="link-more" href="moda.html">Ver mais →</a>
+      </div>
+      <div class="grid grid--4" data-row="moda"></div>
+    </div>
+  </section>
+
+  <!-- ================= NHONGA ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2><span class="dot"></span> 🤝 Nhonga</h2>
+        <a class="link-more" href="nhonga.html">Ver mais →</a>
+      </div>
+      <div class="grid grid--4" data-row="nhonga"></div>
+    </div>
+  </section>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div>
+        <a class="brand brand--footer" href="index.html">
+          <span class="brand__mark">YC</span>
+          <span class="brand__text">
+            <strong>YUNNITED CREW</strong>
+            <small>O maior mercado digital de Moçambique</small>
+          </span>
+        </a>
+        <p class="footer__about">Compra e venda de livros digitais, acessórios, moda e produtos de vendedores locais. Sem registo, sem complicação.</p>
+      </div>
+
+      <div>
+        <h4>Categorias</h4>
+        <ul>
+          <li><a href="world-library.html">World Library</a></li>
+          <li><a href="acessorios.html">Acessórios</a></li>
+          <li><a href="moda.html">Moda</a></li>
+          <li><a href="nhonga.html">Nhonga</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/258856178099" target="_blank" rel="noopener">WhatsApp: +258 85 617 8099</a></li>
+          <li><span>Atendimento 24h / 7 dias</span></li>
+          <li><span>Maputo • Moçambique</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <span>© <span id="year"></span> YUNNITED CREW. Todos os direitos reservados.</span>
+        <span>Feito em Moçambique 🇲🇿</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante WhatsApp -->
+  <a class="fab"
+     href="https://wa.me/258856178099?text=Ol%C3%A1%20YUNNITED%20CREW!"
+     target="_blank" rel="noopener" aria-label="Falar no WhatsApp">💬</a>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
 </body>
-  </html>
+      </html>
+      html
