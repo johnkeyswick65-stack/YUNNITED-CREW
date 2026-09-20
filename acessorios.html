@@ -1,0 +1,82 @@
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessórios | YUNNITED-CREW</title>
+    <!-- Link para o seu CSS existente -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="logo">
+            <h1>YUNNITED-CREW</h1>
+        </div>
+        <nav class="navbar">
+            <a href="index.html">Início</a>
+            <a href="acessorios.html" class="active">Acessórios</a>
+            <a href="world-library.html">Biblioteca</a>
+            <a href="nhonga.html">Nhonga</a>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <h2 class="section-title">Nossos Acessórios</h2>
+        
+        <!-- Grid de Produtos -->
+        <div class="products-grid" id="acessorios-grid">
+            
+            <!-- Item 1 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Boné Yunnited">
+                <h3>Boné Yunnited</h3>
+                <p class="price">MZN 450,00</p>
+                <button class="btn-add" onclick="adicionarAoCarrinho('Boné Yunnited', 450)">Adicionar</button>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Cinto de Couro">
+                <h3>Cinto de Couro</h3>
+                <p class="price">MZN 800,00</p>
+                <button class="btn-add" onclick="adicionarAoCarrinho('Cinto de Couro', 800)">Adicionar</button>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Óculos de Sol">
+                <h3>Óculos de Sol</h3>
+                <p class="price">MZN 1.200,00</p>
+                <button class="btn-add" onclick="adicionarAoCarrinho('Óculos de Sol', 1200)">Adicionar</button>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Relógio">
+                <h3>Relógio Casual</h3>
+                <p class="price">MZN 2.500,00</p>
+                <button class="btn-add" onclick="adicionarAoCarrinho('Relógio Casual', 2500)">Adicionar</button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2026 YUNNITED-CREW. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Link para o seu JavaScript existente -->
+    <script src="main.js"></script>
+    <script>
+        // Função simples de exemplo para o botão de adicionar
+        function adicionarAoCarrinho(nome, preco) {
+            alert(`Adicionado: ${nome} - MZN ${preco}`);
+            // Aqui você pode integrar com o seu products.js ou main.js
+        }
+    </script>
+</body>
+          </html>
