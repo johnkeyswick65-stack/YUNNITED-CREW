@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Library | YUNNITED-CREW</title>
+    <!-- Link para o seu CSS existente -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="logo">
+            <h1>YUNNITED-CREW</h1>
+        </div>
+        <nav class="navbar">
+            <a href="index.html">Início</a>
+            <a href="acessorios.html">Acessórios</a>
+            <a href="world-library.html" class="active">Biblioteca</a>
+            <a href="nhonga.html">Nhonga</a>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <h2 class="section-title">World Library</h2>
+        <p class="section-description">Explore nossa coleção de livros, documentos e recursos digitais.</p>
+        
+        <!-- Grid da Biblioteca -->
+        <div class="library-grid" id="library-grid">
+            
+            <!-- Item 1 -->
+            <div class="library-card">
+                <div class="library-cover">
+                    <img src="https://via.placeholder.com/200x300" alt="Capa do Livro 1">
+                </div>
+                <div class="library-info">
+                    <h3>O Poder da Mente</h3>
+                    <p class="author">Autor: John Doe</p>
+                    <p class="category">Categoria: Desenvolvimento Pessoal</p>
+                    <button class="btn-read" onclick="abrirLivro('O Poder da Mente')">Ler Agora</button>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="library-card">
+                <div class="library-cover">
+                    <img src="https://via.placeholder.com/200x300" alt="Capa do Livro 2">
+                </div>
+                <div class="library-info">
+                    <h3>História de Moçambique</h3>
+                    <p class="author">Autor: Maria Silva</p>
+                    <p class="category">Categoria: História</p>
+                    <button class="btn-read" onclick="abrirLivro('História de Moçambique')">Ler Agora</button>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="library-card">
+                <div class="library-cover">
+                    <img src="https://via.placeholder.com/200x300" alt="Capa do Livro 3">
+                </div>
+                <div class="library-info">
+                    <h3>Programação Web Moderna</h3>
+                    <p class="author">Autor: Tech Dev</p>
+                    <p class="category">Categoria: Tecnologia</p>
+                    <button class="btn-read" onclick="abrirLivro('Programação Web Moderna')">Ler Agora</button>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="library-card">
+                <div class="library-cover">
+                    <img src="https://via.placeholder.com/200x300" alt="Capa do Livro 4">
+                </div>
+                <div class="library-info">
+                    <h3>Arte e Cultura Africana</h3>
+                    <p class="author">Autor: Ana Costa</p>
+                    <p class="category">Categoria: Arte</p>
+                    <button class="btn-read" onclick="abrirLivro('Arte e Cultura Africana')">Ler Agora</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2026 YUNNITED-CREW. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Link para o seu JavaScript existente -->
+    <script src="main.js"></script>
+    <script>
+        // Função simples de exemplo para o botão de leitura
+        function abrirLivro(titulo) {
+            alert(`Abrindo o livro: ${titulo}`);
+            // Aqui você pode redirecionar para um leitor de PDF ou modal
+            // window.location.href = `leitor.html?livro=${encodeURIComponent(titulo)}`;
+        }
+    </script>
+</body>
+              </html>
