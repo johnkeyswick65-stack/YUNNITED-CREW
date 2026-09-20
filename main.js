@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (categoriesGrid) {
     categoriesGrid.innerHTML = CATEGORIAS.map(cat => `
       <a class="cat-card" href="${cat.link}">
-        <span class="cat-card__icon">${cat.icone}</span>
+        <span class="cat-card__icon">${cat.svg}</span>
         <h3>${cat.nome}</h3>
         <p>${cat.desc}</p>
         <span class="cat-card__link">Explorar →</span>
@@ -60,10 +60,17 @@ function criarCardProduto(p) {
   const preco = p.preco === 0 ? 'Grátis' : `${p.preco.toFixed(2).replace('.', ',')} MT`;
   const badge = p.badge ? `<span class="product-card__badge">${p.badge}</span>` : '';
   const msg = encodeURIComponent(`Olá YUNNITED CREW! Tenho interesse em: ${p.nome} (${preco}).`);
+
+  const visual = p.imagem
+    ? `<div class="product-card__image">
+        <img src="${p.imagem}" alt="${p.nome}" loading="lazy">
+      </div>`
+    : `<div class="product-card__icon">${p.svg || p.icone}</div>`;
+
   return `
     <article class="product-card">
       ${badge}
-      <div class="product-card__icon">${p.icone}</div>
+      ${visual}
       <h3 class="product-card__name">${p.nome}</h3>
       <p class="product-card__desc">${p.desc}</p>
       <div class="product-card__footer">

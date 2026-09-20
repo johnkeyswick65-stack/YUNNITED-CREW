@@ -1,91 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moda | YUNNITED-CREW</title>
-    <!-- Link para o seu CSS existente -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nhonga | YUNNITED CREW</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- Cabeçalho -->
-    <header class="header">
-        <div class="logo">
-            <h1>YUNNITED-CREW</h1>
-        </div>
-        <nav class="navbar">
-            <a href="index.html">Início</a>
-            <a href="moda.html" class="active">Moda</a>
-            <a href="acessorios.html">Acessórios</a>
-            <a href="world-library.html">Biblioteca</a>
-            <a href="nhonga.html">Nhonga</a>
-        </nav>
-    </header>
+  <!-- ================= CABEÇALHO ================= -->
+  <header class="header">
+    <div class="logo">
+      <h1>YUNNITED CREW</h1>
+    </div>
 
-    <!-- Conteúdo Principal -->
-    <main class="container">
-        <h2 class="section-title">Coleção de Moda</h2>
-        <p class="section-description">Explore as últimas tendências e estilos exclusivos da YUNNITED-CREW.</p>
-        
-        <!-- Grid de Moda -->
-        <div class="products-grid" id="moda-grid">
-            
-            <!-- Item 1 -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x400" alt="Camiseta Oversized">
-                <div class="product-info">
-                    <h3>Camiseta Oversized</h3>
-                    <p class="price">MZN 750,00</p>
-                    <button class="btn-add" onclick="adicionarAoCarrinho('Camiseta Oversized', 750)">Comprar</button>
-                </div>
-            </div>
+    <nav class="navbar">
+      <a href="index.html">Início</a>
+      <a href="world-library.html">World Library</a>
+      <a href="acessorios.html">Acessórios</a>
+      <a href="moda.html">Moda</a>
+      <a href="nhonga.html" class="active">Nhonga</a>
+    </nav>
+  </header>
 
-            <!-- Item 2 -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x400" alt="Calça Cargo">
-                <div class="product-info">
-                    <h3>Calça Cargo</h3>
-                    <p class="price">MZN 1.200,00</p>
-                    <button class="btn-add" onclick="adicionarAoCarrinho('Calça Cargo', 1200)">Comprar</button>
-                </div>
-            </div>
+  <!-- ================= NHONGA ================= -->
+  <main class="container">
+    <section class="section">
 
-            <!-- Item 3 -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x400" alt="Jaqueta de Jeans">
-                <div class="product-info">
-                    <h3>Jaqueta de Jeans</h3>
-                    <p class="price">MZN 1.800,00</p>
-                    <button class="btn-add" onclick="adicionarAoCarrinho('Jaqueta de Jeans', 1800)">Comprar</button>
-                </div>
-            </div>
+      <div class="section__head">
+        <h2>
+          <span class="dot"></span>
+          Nhonga
+        </h2>
+      </div>
 
-            <!-- Item 4 -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x400" alt="Tênis Urbano">
-                <div class="product-info">
-                    <h3>Tênis Urbano</h3>
-                    <p class="price">MZN 2.200,00</p>
-                    <button class="btn-add" onclick="adicionarAoCarrinho('Tênis Urbano', 2200)">Comprar</button>
-                </div>
-            </div>
+      <p>
+        Cadastre os seus produtos, divulgue o seu negócio
+        e venda através da YUNNITED CREW.
+      </p>
 
-        </div>
-    </main>
+      <div class="grid grid--4">
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <p>&copy; 2026 YUNNITED-CREW. Todos os direitos reservados.</p>
-    </footer>
+        <!-- CADASTRE O SEU PRODUTO -->
+        <article class="product-card">
+          <img src="imagens/cadastre-produto.png" alt="Cadastre o seu produto">
 
-    <!-- Link para o seu JavaScript existente -->
-    <script src="main.js"></script>
-    <script>
-        // Função de exemplo para o botão de compra (você pode mover isso para o main.js depois)
-        function adicionarAoCarrinho(nome, preco) {
-            alert(`Adicionado ao carrinho: ${nome} - MZN ${preco}`);
-        }
-    </script>
+          <div class="product-info">
+            <h3>Cadastre o seu produto</h3>
+            <p>Venda os seus produtos na YUNNITED CREW.</p>
+
+            <a class="btn-add" href="https://wa.me/258856178099">
+              Falar no WhatsApp
+            </a>
+          </div>
+        </article>
+
+        <!-- DIVULGUE O SEU NEGÓCIO -->
+        <article class="product-card">
+          <img src="imagens/divulgue-negocio.jpg" alt="Divulgue o seu negócio">
+
+          <div class="product-info">
+            <h3>Divulgue o seu negócio</h3>
+            <p>Apresente o seu negócio para novos clientes.</p>
+
+            <a class="btn-add" href="https://wa.me/258856178099">
+              Falar no WhatsApp
+            </a>
+          </div>
+        </article>
+
+        <!-- TORNE-SE VENDEDOR -->
+        <article class="product-card">
+          <img src="imagens/torne-se-vendedor.jpg" alt="Torne-se vendedor">
+
+          <div class="product-info">
+            <h3>Torne-se vendedor</h3>
+            <p>Entre para o mercado da YUNNITED CREW.</p>
+
+            <a class="btn-add" href="https://wa.me/258856178099">
+              Falar no WhatsApp
+            </a>
+          </div>
+        </article>
+
+        <!-- SUPORTE NHONGA -->
+        <article class="product-card">
+          <img src="imagens/suporte-nhonga.png" alt="Suporte Nhonga">
+
+          <div class="product-info">
+            <h3>Suporte Nhonga</h3>
+            <p>Precisa de ajuda para cadastrar o seu produto?</p>
+
+            <a class="btn-add" href="https://wa.me/258856178099">
+              Falar no WhatsApp
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="footer">
+    <p>© 2026 YUNNITED CREW. Todos os direitos reservados.</p>
+  </footer>
+
 </body>
-                      </html>
+</html>

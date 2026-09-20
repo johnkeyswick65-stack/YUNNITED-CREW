@@ -1,3 +1,17 @@
+:root {
+  --bg: #0b0b0d;
+  --bg-2: #121216;
+  --bg-3: #1a1a20;
+  --border: #26262e;
+  --text: #f2f2f5;
+  --muted: #9a9aa8;
+  --accent: #ffffff;
+  --accent-2: #ffffff;
+  --wa: #25d366;
+  --radius: 14px;
+  --container: 1200px;
+}
+
 
 * { box-sizing: border-box; 
    margin: 0;
@@ -39,7 +53,7 @@ img {
   padding: 8px 16px;
   gap: 12px;
 }
-.topbar__contact { color: var(--accent); font-weight: 600; }
+.topbar__contact { color: #ffffff; font-weight: 600; }
 
 /* ================= CABEÇALHO ================= */
 .site-header {
@@ -64,15 +78,16 @@ img {
   flex-shrink: 0;
 }
 .brand__mark {
+  color: #000;
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: #ffffff;
   display: grid;
   place-items: center;
   font-weight: 800;
   font-size: 18px;
-  color: #fff;
+  color: #000;
 }
 .brand__text { display: flex; flex-direction: column; line-height: 1.1; }
 .brand__text strong { font-size: 17px; letter-spacing: .5px; }
@@ -97,6 +112,7 @@ img {
   font-size: 14px;
 }
 .search button {
+  flex-shrink: 0;
   background: var(--accent);
   border: 0;
   padding: 0 20px;
@@ -146,7 +162,10 @@ img {
 
 /* ================= HERO ================= */
 .hero {
-  background: radial-gradient(circle at 20% 0%, #1a1008, var(--bg));
+  background-image: url("imagens/fundo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-bottom: 1px solid var(--border);
   padding: 50px 0;
 }
@@ -159,9 +178,9 @@ img {
 }
 .hero__tag {
   display: inline-block;
-  background: rgba(255,106,0,.12);
+  background: rgba(255,255,255,.12);
   color: var(--accent);
-  border: 1px solid rgba(255,106,0,.3);
+  border: 1px solid rgba(255,255,255,.4);
   padding: 6px 14px;
   border-radius: 999px;
   font-size: 12px;
@@ -217,14 +236,14 @@ img {
 /* ================= CATEGORIAS ================= */
 .cat-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 .cat-card {
   background: var(--bg-2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 24px 20px;
+  padding: 16px 14px;
   transition: .2s;
   display: flex;
   flex-direction: column;
@@ -396,9 +415,18 @@ img {
 }
 
 @media (max-width: 600px) {
-  .cat-grid, .grid--4 { grid-template-columns: 1fr; }
+  .cat-grid, .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr; }
   .hero__stats { width: 100%; justify-content: space-between; }
   .topbar__inner { flex-direction: column; gap: 4px; text-align: center; }
   .btn--header { display: none; }
   }
+
+/* ================= IMAGENS NHONGA ================= */
+.product-card > img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius);
+}
