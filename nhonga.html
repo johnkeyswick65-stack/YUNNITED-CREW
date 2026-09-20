@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moda | YUNNITED-CREW</title>
+    <!-- Link para o seu CSS existente -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="logo">
+            <h1>YUNNITED-CREW</h1>
+        </div>
+        <nav class="navbar">
+            <a href="index.html">Início</a>
+            <a href="moda.html" class="active">Moda</a>
+            <a href="acessorios.html">Acessórios</a>
+            <a href="world-library.html">Biblioteca</a>
+            <a href="nhonga.html">Nhonga</a>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <h2 class="section-title">Coleção de Moda</h2>
+        <p class="section-description">Explore as últimas tendências e estilos exclusivos da YUNNITED-CREW.</p>
+        
+        <!-- Grid de Moda -->
+        <div class="products-grid" id="moda-grid">
+            
+            <!-- Item 1 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400" alt="Camiseta Oversized">
+                <div class="product-info">
+                    <h3>Camiseta Oversized</h3>
+                    <p class="price">MZN 750,00</p>
+                    <button class="btn-add" onclick="adicionarAoCarrinho('Camiseta Oversized', 750)">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400" alt="Calça Cargo">
+                <div class="product-info">
+                    <h3>Calça Cargo</h3>
+                    <p class="price">MZN 1.200,00</p>
+                    <button class="btn-add" onclick="adicionarAoCarrinho('Calça Cargo', 1200)">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400" alt="Jaqueta de Jeans">
+                <div class="product-info">
+                    <h3>Jaqueta de Jeans</h3>
+                    <p class="price">MZN 1.800,00</p>
+                    <button class="btn-add" onclick="adicionarAoCarrinho('Jaqueta de Jeans', 1800)">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400" alt="Tênis Urbano">
+                <div class="product-info">
+                    <h3>Tênis Urbano</h3>
+                    <p class="price">MZN 2.200,00</p>
+                    <button class="btn-add" onclick="adicionarAoCarrinho('Tênis Urbano', 2200)">Comprar</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2026 YUNNITED-CREW. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Link para o seu JavaScript existente -->
+    <script src="main.js"></script>
+    <script>
+        // Função de exemplo para o botão de compra (você pode mover isso para o main.js depois)
+        function adicionarAoCarrinho(nome, preco) {
+            alert(`Adicionado ao carrinho: ${nome} - MZN ${preco}`);
+        }
+    </script>
+</body>
+                      </html>
