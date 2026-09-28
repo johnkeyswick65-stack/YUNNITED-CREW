@@ -1,0 +1,27 @@
+{
+  "name": "yunnited-crew-github",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnkeyswick65-stack/YUNNITED-CREW.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/johnkeyswick65-stack/YUNNITED-CREW/issues"
+  },
+  "homepage": "https://github.com/johnkeyswick65-stack/YUNNITED-CREW#readme",
+  "dependencies": {
+    "dotenv": "^18.0.2",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "multer": "^2.4.0"
+  }
+}

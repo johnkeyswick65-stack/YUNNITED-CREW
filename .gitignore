@@ -1,0 +1,7 @@
+.env
+node_modules/
+cookies.txt
+*.backup
+*.backup-*
+*.bak
+backend/**/*backup*

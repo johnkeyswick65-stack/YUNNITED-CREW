@@ -227,11 +227,37 @@ img {
   font-size: 13px;
   color: var(--muted);
 }
+
 .link-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 8px 15px;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 800;
+  white-space: nowrap;
+  transition:
+    transform .18s ease,
+    background .18s ease,
+    color .18s ease,
+    box-shadow .18s ease;
 }
-.link-more:hover { text-decoration: underline; }
+
+.link-more:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.12);
+}
+
+.link-more:active {
+  transform: translateY(0);
+}
 
 /* ================= CATEGORIAS ================= */
 .cat-grid {
@@ -422,6 +448,81 @@ img {
   .btn--header { display: none; }
   }
 
+
+/* ================= CABEÇALHO MOBILE ================= */
+
+@media (max-width: 700px) {
+
+  .header-main {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .brand {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .menu-toggle {
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 0;
+    z-index: 1102;
+  }
+
+  .search-row {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .search-row .search {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    max-width: none;
+  }
+
+  .search-row .search input {
+    min-width: 0;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .search-row .search button {
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .btn--header {
+    grid-column: auto;
+    grid-row: 2;
+    display: inline-flex;
+    align-self: stretch;
+    justify-content: center;
+    padding: 10px 9px;
+    font-size: 12px;
+    gap: 4px;
+    min-width: 78px;
+    max-width: 92px;
+  }
+
+  .btn--header svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+}
+
 /* ================= IMAGENS NHONGA ================= */
 .product-card > img {
   width: 100%;
@@ -430,3 +531,1954 @@ img {
   display: block;
   border-radius: var(--radius);
 }
+
+.search-status {
+  margin: 12px 0;
+  font-size: 14px;
+  color: #aaa;
+  text-align: center;
+}
+
+
+/* ================= WORLD LIBRARY ================= */
+
+.wl-category-head {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 12px;
+}
+
+.wl-category-head h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+}
+
+.wl-search-section {
+  padding-top: 0;
+}
+
+.wl-search {
+  max-width: 100%;
+}
+
+.wl-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.wl-genre {
+  background: var(--bg-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.wl-genre:hover,
+.wl-genre.active {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+.book-card {
+  min-height: 190px;
+}
+
+.book-card .product-card__icon {
+  font-size: 28px;
+}
+
+@media (max-width: 600px) {
+  .wl-category-head h1 {
+    font-size: 23px;
+  }
+
+  .wl-category-head {
+    padding: 18px;
+  }
+
+  .wl-genres {
+    gap: 8px;
+  }
+
+  .wl-genre {
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+}
+
+
+/* ================= WORLD LIBRARY - GRID DOS LIVROS ================= */
+
+#popularBooks,
+#categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+#popularBooks .product-card,
+#categoryGrid .product-card {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  #popularBooks,
+  #categoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #popularBooks,
+  #categoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ================= ACESSÓRIOS ================= */
+
+.accessories-page {
+  background:
+    radial-gradient(circle at top right, #202020 0%, #050505 45%);
+}
+
+.accessories-main {
+  padding-top: 40px;
+}
+
+.accessories-hero {
+  padding: 35px;
+  margin-bottom: 35px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #171717, #080808);
+}
+
+.accessories-label {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.accessories-hero .section-title {
+  margin: 12px 0 8px;
+  font-size: 38px;
+}
+
+.accessories-hero p {
+  color: #aaa;
+  margin: 0;
+}
+
+.accessories-products {
+  margin-bottom: 40px;
+}
+
+.accessories-products .section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.accessories-products .section__head h2 {
+  margin: 0;
+}
+
+.accessories-products .section__head span {
+  color: #888;
+  font-size: 13px;
+}
+
+#categoryGrid .product-card__image {
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+#categoryGrid .product-card__image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: transform .3s ease;
+}
+
+#categoryGrid .product-card:hover .product-card__image img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .accessories-hero {
+    padding: 25px 20px;
+  }
+
+  .accessories-hero .section-title {
+    font-size: 30px;
+  }
+
+  .accessories-products .section__head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+
+/* CORREÇÃO DO GRID DE ACESSÓRIOS */
+
+@media (min-width: 901px) {
+  #categoryGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  #categoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+
+/* CORREÇÕES MOBILE - ACESSÓRIOS */
+
+.catnav__inner {
+  justify-content: flex-start;
+  scrollbar-width: none;
+}
+
+.catnav__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px 16px;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  .footer p {
+    line-height: 1.6;
+  }
+}
+
+
+/* ================= MODA ================= */
+
+.fashion-page {
+  background:
+    radial-gradient(circle at top right, #211b24 0%, #050505 45%);
+}
+
+.fashion-main {
+  padding-top: 40px;
+}
+
+.fashion-hero {
+  padding: 35px;
+  margin-bottom: 35px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #211b24, #080808);
+}
+
+.fashion-label {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.fashion-hero .section-title {
+  margin: 12px 0 8px;
+  font-size: 38px;
+}
+
+.fashion-hero p {
+  color: #aaa;
+  margin: 0;
+}
+
+/* BUSCA DA MODA */
+.fashion-search {
+  margin: 0 0 35px;
+}
+
+.fashion-search .search {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.fashion-search .search input {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .fashion-search {
+    margin-bottom: 30px;
+  }
+
+  .fashion-search .search {
+    max-width: 100%;
+  }
+}
+
+.fashion-products {
+  margin-bottom: 40px;
+}
+
+.fashion-products .section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.fashion-products .section__head h2 {
+  margin: 0;
+}
+
+.fashion-products .section__head span {
+  color: #888;
+  font-size: 13px;
+}
+
+#categoryGrid .product-card__image {
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+#categoryGrid .product-card__image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: transform .3s ease;
+}
+
+#categoryGrid .product-card:hover .product-card__image img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .fashion-hero {
+    padding: 25px 20px;
+  }
+
+  .fashion-hero .section-title {
+    font-size: 30px;
+  }
+
+  .fashion-products .section__head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* =========================================================
+   MENU HAMBÚRGUER — YUNNITED CREW
+   ========================================================= */
+
+.header-main {
+  position: relative;
+}
+
+/* Botão */
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin-left: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-2);
+  color: currentColor;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1102;
+  transition: transform .2s ease;
+}
+
+.menu-toggle:active {
+  transform: scale(.90);
+}
+
+.menu-toggle span {
+  width: 21px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform .25s ease, opacity .2s ease;
+}
+
+.menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Menu separado */
+.mobile-menu {
+  display: none;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  /* Esconde apenas a barra de categorias no celular.
+     Ela continua existindo no HTML e no desktop. */
+  .site-header > .catnav {
+    display: none;
+  }
+
+  /* Menu flutuante: não ocupa espaço no layout */
+  .mobile-menu {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    max-width: 320px;
+    min-width: 190px;
+    z-index: 1100;
+
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-top: 0;
+    border-right: 0;
+    border-radius: 0 0 0 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.18);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition:
+      opacity .22s ease,
+      transform .25s ease,
+      visibility .22s ease;
+  }
+
+  .mobile-menu.menu-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .mobile-menu__inner {
+    display: flex;
+    flex-direction: column;
+    padding: 64px 10px 12px;
+    gap: 4px;
+  }
+
+  .mobile-menu__inner a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 10px;
+    border-radius: 9px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    transition:
+      background .18s ease,
+      transform .18s ease;
+  }
+
+  .mobile-menu__inner a:active {
+    transform: scale(.97);
+  }
+
+  .mobile-menu__inner a:hover {
+    background: var(--bg-3);
+  }
+
+  .mobile-menu__inner a:last-child {
+    margin-top: 6px;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    padding-top: 14px;
+  }
+}
+
+/* Desktop: botão e menu flutuante não aparecem */
+@media (min-width: 701px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+
+/* ================= POSIÇÃO DO BOTÃO DO MENU ================= */
+
+@media (max-width: 700px) {
+
+  .header-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-width: 0;
+    padding-right: 56px;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    margin: 0;
+    width: 44px;
+    height: 44px;
+  }
+
+  .search-row {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .search-row .search {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .btn--header {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-self: stretch;
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .search {
+    max-width: 100%;
+  }
+
+  .search input {
+    padding-left: 12px;
+    padding-right: 10px;
+    font-size: 13px;
+  }
+
+  .search button {
+    padding: 0 12px;
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .search-row .search {
+    width: 85%;
+    max-width: 85%;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .btn--header {
+    margin-left: 8px;
+  }
+}
+
+
+/* ================= CABEÇALHO MOBILE - AJUSTE FINAL ================= */
+
+@media (max-width: 700px) {
+
+  .header-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    row-gap: 10px;
+    align-items: center;
+    padding: 12px 16px;
+  }
+
+  /* Logo */
+  .brand {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-width: 0;
+    padding-right: 55px;
+  }
+
+  /* Menu */
+  .menu-toggle {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    z-index: 1102;
+  }
+
+  /* Pesquisa */
+  .search-row {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+  }
+
+  .search-row .search {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .search-row .search input {
+    min-width: 0;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .search-row .search button {
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  /* WhatsApp */
+  .btn--header {
+    grid-column: 2;
+    grid-row: 2;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 9px 10px;
+    min-width: 82px;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .btn--header svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+}
+
+/* Em telas muito pequenas, reduzir um pouco o espaço */
+@media (max-width: 380px) {
+  .header-main {
+    column-gap: 8px;
+  }
+
+  .btn--header {
+    min-width: 76px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+
+/* ================= MOBILE - ESPAÇO ENTRE PESQUISA E WHATSAPP ================= */
+
+@media (max-width: 700px) {
+
+  .header-main {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 92px !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 12px !important;
+    row-gap: 10px !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
+  }
+
+  /* Logo */
+  .brand {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    padding-right: 52px !important;
+  }
+
+  /* Menu */
+  .menu-toggle {
+    position: absolute !important;
+    top: 16px !important;
+    right: 16px !important;
+    width: 44px !important;
+    height: 44px !important;
+    margin: 0 !important;
+    z-index: 1102 !important;
+  }
+
+  /* Barra de pesquisa */
+  .search-row {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+  }
+
+  .search-row .search {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+
+  .search-row .search input {
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 10px 8px !important;
+    font-size: 12px !important;
+  }
+
+  .search-row .search button {
+    flex-shrink: 0 !important;
+    padding: 0 9px !important;
+    font-size: 12px !important;
+  }
+
+  /* WhatsApp */
+  .btn--header {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    position: static !important;
+    width: 92px !important;
+    min-width: 92px !important;
+    max-width: 92px !important;
+    margin: 0 !important;
+    padding: 9px 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    font-size: 11px !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+  }
+
+  .btn--header svg {
+    width: 15px !important;
+    height: 15px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* Telemóveis muito pequenos */
+@media (max-width: 380px) {
+
+  .header-main {
+    grid-template-columns: minmax(0, 1fr) 84px !important;
+    column-gap: 8px !important;
+  }
+
+  .btn--header {
+    width: 84px !important;
+    min-width: 84px !important;
+    max-width: 84px !important;
+  }
+
+  .search-row .search button {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+}
+
+
+/* ================= ESPAÇO VERTICAL DO CABEÇALHO MOBILE ================= */
+
+@media (max-width: 700px) {
+  .header-main {
+    row-gap: 18px !important;
+    padding-top: 14px !important;
+    padding-bottom: 16px !important;
+  }
+
+  .brand {
+    padding-bottom: 4px !important;
+  }
+
+  .search-row,
+  .btn--header {
+    margin-top: 2px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .header-main {
+    row-gap: 15px !important;
+  }
+}
+
+
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    top: 12px !important;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    top: 8px !important;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    top: 6px !important;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    top: 3px !important;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    top: 0 !important;
+  }
+}
+
+
+/* ================= ANIMAÇÃO DO PLACEHOLDER - WORLD LIBRARY ================= */
+
+.wl-search input::placeholder {
+  transition: opacity 0.35s ease;
+}
+
+.wl-search input.placeholder-changing::placeholder {
+  opacity: 0;
+}
+
+
+/* YUNNITED LIBRARY NO CABEÇALHO */
+.wl-header-title {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.wl-header-title strong {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.wl-header-title strong span {
+  color: red;
+}
+
+.wl-header-title small {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.wl-header-title strong {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.wl-header-title strong span {
+  color: red;
+}
+
+.wl-header-title em {
+  color: #fff;
+  font-style: normal;
+}
+
+/* BRILHO DA WORLD LIBRARY */
+body[data-category="world-library"] {
+  background:
+    radial-gradient(circle at top right, #202020 0%, #050505 45%);
+}
+
+/* CAPAS DOS LIVROS - WORLD LIBRARY */
+body[data-category="world-library"] .product-card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+body[data-category="world-library"] .product-card {
+  overflow: hidden;
+}
+
+
+/* ================= WHATSAPP — EFEITO WORMHOLE ================= */
+
+.btn--header {
+  position: relative;
+  overflow: visible;
+}
+
+.whatsapp-wormhole {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.wormhole-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 70px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,.8);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: wormhole-spin 2.4s linear infinite;
+}
+
+.line-1 { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+.line-2 { transform: translate(-50%, -50%) rotate(36deg) scale(.92); animation-delay: -.35s; }
+.line-3 { transform: translate(-50%, -50%) rotate(72deg) scale(.84); animation-delay: -.7s; }
+.line-4 { transform: translate(-50%, -50%) rotate(108deg) scale(.76); animation-delay: -1.05s; }
+.line-5 { transform: translate(-50%, -50%) rotate(144deg) scale(.68); animation-delay: -1.4s; }
+
+.whatsapp-core {
+  position: relative;
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  box-shadow:
+    0 0 12px rgba(37,211,102,.75),
+    0 0 28px rgba(37,211,102,.35);
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
+
+.whatsapp-logo {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+@keyframes wormhole-spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scaleX(1);
+    opacity: .9;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scaleX(.55);
+    opacity: .45;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scaleX(1);
+    opacity: .9;
+  }
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+/* ================= HERO — FUNDO DE MOÇAMBIQUE ================= */
+
+.hero {
+  background-image:
+    radial-gradient(
+      ellipse at center,
+      rgba(0,0,0,0) 25%,
+      rgba(0,0,0,.18) 48%,
+      rgba(0,0,0,.58) 72%,
+      rgba(0,0,0,.95) 100%
+    ),
+    url("./imagens/hero-mocambique.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ================= ENQUADRAMENTO PADRÃO DOS PRODUTOS ================= */
+
+.product-card__image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .product-card__image {
+    height: 180px;
+  }
+}
+
+/* WORLD LIBRARY — capas sem fundo branco */
+body[data-category="world-library"] .product-card__image {
+  background: transparent;
+}
+
+body[data-category="world-library"] .product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Texto dos selos dos produtos */
+.product-card__badge {
+  color: #000 !important;
+}
+
+/* =========================================================
+   YU-YU NHONGA — IDENTIDADE PRÓPRIA
+   ========================================================= */
+
+.nhonga-page {
+  background:
+    radial-gradient(circle at 80% 10%, rgba(255,255,255,.10), transparent 28%),
+    radial-gradient(circle at 10% 45%, rgba(255,255,255,.06), transparent 30%),
+    #050505;
+  overflow-x: hidden;
+}
+
+/* HERO */
+
+.nhonga-hero {
+  position: relative;
+  min-height: 620px;
+  padding: 90px 7%;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 50px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  background:
+    radial-gradient(circle at 75% 50%, rgba(255,255,255,.12), transparent 25%),
+    linear-gradient(135deg, #050505 0%, #101010 55%, #050505 100%);
+}
+
+.nhonga-hero::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: -180px;
+  top: -180px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 50%;
+}
+
+.nhonga-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.nhonga-kicker {
+  display: inline-block;
+  margin-bottom: 22px;
+  font-size: 12px;
+  letter-spacing: 5px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.nhonga-hero h1 {
+  margin: 0;
+  font-size: clamp(42px, 6vw, 78px);
+  line-height: .98;
+  letter-spacing: -3px;
+  color: #fff;
+}
+
+.nhonga-hero h1 strong {
+  display: block;
+  color: #fff;
+  font-weight: 900;
+}
+
+.nhonga-hero p {
+  max-width: 570px;
+  margin: 28px 0 0;
+  color: #aaa;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.nhonga-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.nhonga-cta,
+.nhonga-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 25px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.nhonga-cta {
+  color: #000;
+  background: #fff;
+  box-shadow: 0 0 30px rgba(255,255,255,.16);
+}
+
+.nhonga-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px rgba(255,255,255,.28);
+}
+
+.nhonga-secondary {
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.04);
+}
+
+.nhonga-secondary:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,.08);
+}
+
+
+/* ELEMENTO VISUAL */
+
+.nhonga-hero__visual {
+  position: relative;
+  width: min(420px, 80vw);
+  aspect-ratio: 1;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nhonga-core {
+  position: relative;
+  z-index: 5;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.35);
+  background: #050505;
+  box-shadow:
+    0 0 35px rgba(255,255,255,.12),
+    inset 0 0 35px rgba(255,255,255,.05);
+  animation: nhonga-core-pulse 3s ease-in-out infinite;
+}
+
+.nhonga-core span {
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #aaa;
+}
+
+.nhonga-core strong {
+  margin-top: 7px;
+  font-size: 25px;
+  letter-spacing: 3px;
+  color: #fff;
+}
+
+.nhonga-orbit {
+  position: absolute;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 50%;
+}
+
+.orbit-1 {
+  width: 230px;
+  height: 230px;
+  animation: nhonga-spin 12s linear infinite;
+}
+
+.orbit-2 {
+  width: 320px;
+  height: 180px;
+  transform: rotate(55deg);
+  animation: nhonga-spin-reverse 16s linear infinite;
+}
+
+.orbit-3 {
+  width: 390px;
+  height: 250px;
+  transform: rotate(-35deg);
+  animation: nhonga-spin 20s linear infinite;
+}
+
+@keyframes nhonga-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes nhonga-spin-reverse {
+  from { transform: rotate(55deg); }
+  to { transform: rotate(415deg); }
+}
+
+@keyframes nhonga-core-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 35px rgba(255,255,255,.12),
+      inset 0 0 35px rgba(255,255,255,.05);
+  }
+
+  50% {
+    transform: scale(1.04);
+    box-shadow:
+      0 0 55px rgba(255,255,255,.22),
+      inset 0 0 45px rgba(255,255,255,.08);
+  }
+}
+
+
+/* SEÇÕES */
+
+.nhonga-benefits,
+.nhonga-how,
+.nhonga-options,
+.nhonga-activity,
+.nhonga-final {
+  padding: 90px 0;
+}
+
+.nhonga-section-title {
+  max-width: 700px;
+  margin-bottom: 45px;
+}
+
+.nhonga-section-title > span,
+.nhonga-final > .container > span,
+.nhonga-activity-box > span {
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 800;
+  color: #888;
+}
+
+.nhonga-section-title h2 {
+  margin: 12px 0;
+  color: #fff;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.05;
+}
+
+.nhonga-section-title p {
+  color: #999;
+  line-height: 1.7;
+}
+
+
+/* BENEFÍCIOS */
+
+.nhonga-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.nhonga-benefit {
+  padding: 30px;
+  min-height: 220px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 20px;
+  background: rgba(255,255,255,.025);
+  transition: transform .25s ease, border-color .25s ease;
+}
+
+.nhonga-benefit:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,.25);
+}
+
+.nhonga-number {
+  margin-bottom: 35px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #777;
+}
+
+.nhonga-benefit h3 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.nhonga-benefit p {
+  margin: 0;
+  color: #999;
+  line-height: 1.6;
+}
+
+
+/* PASSOS */
+
+.nhonga-how {
+  background: #080808;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.nhonga-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.nhonga-step {
+  position: relative;
+  padding-left: 65px;
+}
+
+.nhonga-step > span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 800;
+}
+
+.nhonga-step h3 {
+  margin: 0 0 10px;
+  color: #fff;
+}
+
+.nhonga-step p {
+  margin: 0;
+  color: #999;
+  line-height: 1.6;
+}
+
+
+/* OPÇÕES */
+
+.nhonga-option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.nhonga-option {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  min-height: 180px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 18px;
+  background: #0b0b0b;
+}
+
+.nhonga-option img {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  object-fit: cover;
+}
+
+.nhonga-option > div {
+  padding: 25px;
+}
+
+.nhonga-option h3 {
+  margin: 0 0 10px;
+  color: #fff;
+}
+
+.nhonga-option p {
+  margin: 0 0 20px;
+  color: #999;
+  line-height: 1.5;
+}
+
+.nhonga-option a {
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+
+/* ATIVIDADE */
+
+.nhonga-activity {
+  padding-top: 20px;
+}
+
+.nhonga-activity-box {
+  position: relative;
+  padding: 55px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 25px;
+  background:
+    radial-gradient(circle at 90% 50%, rgba(255,255,255,.08), transparent 30%),
+    #0b0b0b;
+}
+
+.nhonga-activity-box h2 {
+  margin: 12px 0;
+  color: #fff;
+  font-size: clamp(28px, 4vw, 44px);
+}
+
+.nhonga-activity-box p {
+  max-width: 650px;
+  color: #999;
+  line-height: 1.7;
+}
+
+
+/* CTA FINAL */
+
+.nhonga-final {
+  text-align: center;
+}
+
+.nhonga-final .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nhonga-final h2 {
+  max-width: 750px;
+  margin: 15px auto;
+  color: #fff;
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 1.05;
+}
+
+.nhonga-final p {
+  margin: 0 0 30px;
+  color: #999;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .nhonga-hero {
+    min-height: auto;
+    padding: 65px 22px;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .nhonga-hero__content {
+    margin: auto;
+  }
+
+  .nhonga-hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nhonga-hero__actions {
+    justify-content: center;
+  }
+
+  .nhonga-hero__visual {
+    width: min(330px, 85vw);
+  }
+
+  .nhonga-core {
+    width: 150px;
+    height: 150px;
+  }
+
+  .nhonga-core strong {
+    font-size: 21px;
+  }
+
+  .orbit-1 {
+    width: 190px;
+    height: 190px;
+  }
+
+  .orbit-2 {
+    width: 260px;
+    height: 150px;
+  }
+
+  .orbit-3 {
+    width: 310px;
+    height: 200px;
+  }
+
+  .nhonga-benefit-grid,
+  .nhonga-steps,
+  .nhonga-option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nhonga-option {
+    grid-template-columns: 120px 1fr;
+  }
+
+  .nhonga-option img {
+    min-height: 160px;
+  }
+
+  .nhonga-activity-box {
+    padding: 35px 25px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .nhonga-hero h1 {
+    font-size: 42px;
+    letter-spacing: -2px;
+  }
+
+  .nhonga-hero__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nhonga-cta,
+  .nhonga-secondary {
+    width: 100%;
+  }
+
+  .nhonga-option {
+    grid-template-columns: 1fr;
+  }
+
+  .nhonga-option img {
+    height: 190px;
+    min-height: 0;
+  }
+
+  .nhonga-option > div {
+    padding: 22px;
+  }
+
+}
+
+
+/* ================= MODAL DE IMAGEM DO PRODUTO ================= */
+
+.product-image-clickable {
+  cursor: zoom-in;
+}
+
+.product-image-clickable:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Ações do cartão */
+.product-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.product-like,
+.product-image-modal__like {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.product-like:hover,
+.product-image-modal__like:hover {
+  transform: scale(1.08);
+  border-color: var(--accent);
+}
+
+.product-like svg,
+.product-image-modal__like svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.product-like.is-liked,
+.product-image-modal__like.is-liked {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+.product-like.is-liked svg,
+.product-image-modal__like.is-liked svg {
+  fill: currentColor;
+}
+
+/* Modal */
+.product-image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-image-modal.is-open {
+  display: flex;
+}
+
+.product-image-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(6px);
+}
+
+.product-image-modal__content {
+  position: relative;
+  z-index: 1;
+  width: min(900px, 100%);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-image-modal__image {
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.product-image-modal__close {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 50%;
+  background: rgba(0,0,0,.75);
+  color: #fff;
+  cursor: pointer;
+}
+
+.product-image-modal__close svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.product-image-modal__info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+  padding: 0 4px;
+}
+
+.product-image-modal__text {
+  min-width: 0;
+  flex: 1;
+}
+
+.product-image-modal__name {
+  margin: 0 0 4px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.product-image-modal__desc {
+  margin: 0;
+  color: rgba(255,255,255,.72);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.product-image-modal__like {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: rgba(0,0,0,.65);
+  border-color: rgba(255,255,255,.4);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Telemóvel */
+@media (max-width: 600px) {
+  .product-image-modal {
+    padding: 12px;
+  }
+
+  .product-image-modal__content {
+    width: 100%;
+  }
+
+  .product-image-modal__image {
+    max-height: 72vh;
+    border-radius: 10px;
+  }
+
+  .product-image-modal__close {
+    top: 8px;
+    right: 8px;
+  }
+
+  .product-image-modal__info {
+    margin-top: 8px;
+  }
+
+  .product-image-modal__name {
+    font-size: 15px;
+  }
+
+  .product-image-modal__desc {
+    font-size: 12px;
+  }
+}
+
+
+/* Coração no topo esquerdo do modal */
+.product-image-modal__like {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 4;
+}
+
+@media (min-width: 601px) {
+  .product-image-modal__like {
+    top: 8px;
+    left: 8px;
+  }
+}
+
+
+/* CORAÇÃO: somente dentro do modal, canto superior esquerdo */
+.product-image-modal__content {
+  position: relative;
+}
+
+.product-image-modal__like {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 10;
+}
+
+
+/* Coração externo sobre a imagem */
+.product-card__image {
+  position: relative;
+}
+
+.product-image-like {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 5;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 50%;
+
+  background: rgba(0,0,0,.65);
+  color: #fff;
+
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+}
+
+.product-image-like svg {
+  width: 20px;
+  height: 20px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.product-image-like.is-liked {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+.product-image-like.is-liked svg {
+  fill: currentColor;
+}
+
+
+/* Selo do produto no canto superior direito */
+.product-card__badge {
+  top: 10px;
+  right: 10px;
+  left: auto;
+  z-index: 20;
+}
+
+/* Não deslocar o selo por causa do coração */
+.product-card:has(.product-image-like) .product-card__badge {
+  top: 10px;
+  right: 10px;
+  left: auto;
+}
+
