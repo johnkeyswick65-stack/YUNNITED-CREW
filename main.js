@@ -1,6 +1,6 @@
 async function carregarProdutosDaAPI() {
   try {
-    const response = await fetch('/api/products');
+    const response = await fetch('https://yunnited-crew-backend.onrender.com/api/products');
 
     if (!response.ok) {
       throw new Error('Erro ao carregar produtos');
@@ -18,7 +18,7 @@ async function carregarProdutosDaAPI() {
       categoria: p.category,
       preco: Number(p.price) || 0,
       desc: p.description || '',
-      imagem: p.image || p.imagem || '',
+      imagem: p.image ? (p.image.startsWith("http") ? p.image : "https://yunnited-crew-backend.onrender.com" + p.image) : (p.imagem || ""), 
       popular: Boolean(p.popular),
       badge: p.badge || '',
       icone: p.icone || '',
