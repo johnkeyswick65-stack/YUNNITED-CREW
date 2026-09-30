@@ -1,12 +1,18 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const session = require('express-session');
 const multer = require('multer');
 
 const app = express();
+
+app.use(cors({
+  origin: ['https://johnkeyswick65-stack.github.io'],
+  credentials: true
+}));
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
