@@ -7,6 +7,7 @@ async function carregarProdutosDaAPI() {
     }
 
     const data = await response.json();
+    console.log('PRODUTOS DO RENDER:', data.products);
 
     if (!data.success || !Array.isArray(data.products)) {
       return;
