@@ -62,7 +62,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Renderizar produtos populares
   const popularGrid = document.getElementById('popularGrid');
   if (popularGrid) {
-    const populares = PRODUTOS.filter(p => p.popular).slice(0, 8);
+    const marcadosPopulares = PRODUTOS.filter(p => p.popular);
+    const populares = (marcadosPopulares.length ? marcadosPopulares : PRODUTOS).slice(0, 8);
     popularGrid.innerHTML = populares.map(p => criarCardProduto(p)).join('');
   }
 
