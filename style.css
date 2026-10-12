@@ -3127,3 +3127,34 @@ body > .container {
   right: 62px !important;
   z-index: 30 !important;
 }
+
+/* ============================================================
+   MODAL: coração + partilha no canto inferior esquerdo
+   ============================================================ */
+.product-image-modal__content .product-image-modal__like  {
+  top: auto !important;
+  bottom: 12px !important;
+  left: 12px !important;
+  right: auto !important;
+}
+.product-image-modal__content .product-image-share--modal {
+  top: auto !important;
+  bottom: 12px !important;
+  left: 62px !important;
+  right: auto !important;
+}
+.product-image-modal__content .product-image-modal__close {
+  top: 12px !important;
+  bottom: auto !important;
+  right: 12px !important;
+  left: auto !important;
+}
+
+/* Menu de partilha abre por cima do botão */
+.product-share-menu--modal {
+  top: auto !important;
+  bottom: 62px !important;
+  left: 62px !important;
+  right: auto !important;
+  z-index: 30 !important;
+}
