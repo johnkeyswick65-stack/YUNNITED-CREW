@@ -122,33 +122,35 @@ function criarCardProduto(p) {
           tabindex="0"
           aria-label="Ampliar imagem de ${p.nome}">
         <img src="${p.imagem}" alt="${p.nome}" loading="lazy">
+        ${badge}
+        ${actionsInner}
       </div>`
     : `<div class="product-card__icon">${p.svg || p.icone}</div>`;
 
-  const actions = p.categoria !== 'nhonga'
-    ? `<div class="product-card__actions">
-        <button class="product-image-like" type="button" aria-label="Curtir ${p.nome}" aria-pressed="false" title="Curtir" onclick="event.stopPropagation()">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.8 8.7c0 5.5-8.8 10.4-8.8 10.4S3.2 14.2 3.2 8.7C3.2 5.8 5.1 4 7.7 4c1.7 0 3.1.9 4.3 2.3C13.2 4.9 14.6 4 16.3 4c2.6 0 4.5 1.8 4.5 4.7Z"/>
-          </svg>
-        </button>
-        <button class="product-image-share" type="button" aria-label="Partilhar ${p.nome}" title="Partilhar" onclick="event.stopPropagation()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="18" cy="5" r="3"/>
-            <circle cx="6" cy="12" r="3"/>
-            <circle cx="18" cy="19" r="3"/>
-            <path d="M8.6 13.5l6.8 3.9M15.4 6.6L8.6 10.5"/>
-          </svg>
-        </button>
-        ${shareMenu}
-      </div>`
+  const actionsInner = p.categoria !== 'nhonga'
+    ? `
+        <div class="product-card__actions">
+          <button class="product-image-like" type="button" aria-label="Curtir ${p.nome}" aria-pressed="false" title="Curtir" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.8 8.7c0 5.5-8.8 10.4-8.8 10.4S3.2 14.2 3.2 8.7C3.2 5.8 5.1 4 7.7 4c1.7 0 3.1.9 4.3 2.3C13.2 4.9 14.6 4 16.3 4c2.6 0 4.5 1.8 4.5 4.7Z"/>
+            </svg>
+          </button>
+          <button class="product-image-share" type="button" aria-label="Partilhar ${p.nome}" title="Partilhar" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <path d="M8.6 13.5l6.8 3.9M15.4 6.6L8.6 10.5"/>
+            </svg>
+          </button>
+          ${shareMenu}
+        </div>
+      `
     : '';
 
   return `
     <article class="product-card">
-      ${badge}
       ${visual}
-      ${actions}
       <h3 class="product-card__name">${p.nome}</h3>
       <p class="product-card__desc">${p.desc}</p>
       <div class="product-card__footer">
