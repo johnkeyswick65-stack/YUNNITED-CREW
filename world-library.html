@@ -126,7 +126,6 @@
         <div class="search wl-search">
           <input
             type="search"
-            id="bookSearch"
             placeholder="Pesquisar livros, ebooks..."
             aria-label="Pesquisar livros" id="searchInput">
           <button type="button" aria-label="Pesquisar">Pesquisar</button>
@@ -169,116 +168,6 @@
 
   <script src="products.js"></script>
   <script src="main.js"></script>
-
-  <script>
-    const bookSearch = document.getElementById('bookSearch');
-    const categoryGrid = document.getElementById('categoryGrid');
-    const bookStatus = document.getElementById('bookStatus');
-    const genres = document.querySelectorAll('.wl-genre');
-
-    let generoAtual = 'all';
-
-    function normalizar(texto) {
-      return texto
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '');
-    }
-
-    function filtrarLivros() {
-      const termo = normalizar(bookSearch.value.trim());
-      const palavras = termo.split(/\s+/).filter(Boolean);
-
-      const cards = categoryGrid
-        ? categoryGrid.querySelectorAll('.product-card')
-        : [];
-
-      let encontrados = 0;
-
-      cards.forEach(card => {
-        const texto = normalizar(card.textContent);
-
-        let correspondeGenero = true;
-
-        if (generoAtual !== 'all') {
-          const nomesGenero = {
-            ebooks: ['ebook', 'e-book', 'ebooks', 'e-books'],
-            romance: ['romance'],
-            cultura: ['cultura'],
-            desenvolvimento: ['desenvolvimento pessoal'],
-            escolares: ['escolar', 'escolares', 'livro escolar']
-          };
-
-          correspondeGenero = nomesGenero[generoAtual]
-            ? nomesGenero[generoAtual].some(nome =>
-                texto.includes(normalizar(nome))
-              )
-            : false;
-        }
-
-        const correspondePesquisa =
-          !termo ||
-          palavras.every(palavra => texto.includes(palavra));
-
-        const mostrar = correspondeGenero && correspondePesquisa;
-
-        card.style.display = mostrar ? '' : 'none';
-
-        if (mostrar) encontrados++;
-      });
-
-      if (bookStatus) {
-        if (termo && encontrados === 0) {
-          bookStatus.textContent = 'Nenhum livro encontrado.';
-        } else if (termo) {
-          bookStatus.textContent =
-            encontrados + ' livro(s) encontrado(s).';
-        } else {
-          bookStatus.textContent = '';
-        }
-      }
-    }
-
-    genres.forEach(botao => {
-      botao.addEventListener('click', () => {
-        genres.forEach(b => b.classList.remove('active'));
-        botao.classList.add('active');
-
-        generoAtual = botao.dataset.genre;
-
-        filtrarLivros();
-      });
-    });
-
-    bookSearch.addEventListener('input', filtrarLivros);
-
-    const tiposDeLivros = [
-      'Pesquisar livros, ebooks...',
-      'Pesquisar romances...',
-      'Pesquisar livros de psicologia...',
-      'Pesquisar desenvolvimento pessoal...',
-      'Pesquisar livros de cultura...',
-      'Pesquisar livros escolares...'
-    ];
-
-    let tipoAtual = 0;
-
-    setInterval(() => {
-      if (document.activeElement === bookSearch || bookSearch.value.trim()) {
-        return;
-      }
-
-      bookSearch.classList.add('placeholder-changing');
-
-      setTimeout(() => {
-        tipoAtual = (tipoAtual + 1) % tiposDeLivros.length;
-        bookSearch.placeholder = tiposDeLivros[tipoAtual];
-        bookSearch.classList.remove('placeholder-changing');
-      }, 350);
-    }, 2500);
-
-    setTimeout(filtrarLivros, 100);
-  </script>
 
 </body>
 </html>
