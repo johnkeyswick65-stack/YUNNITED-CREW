@@ -2784,3 +2784,21 @@ body.search-open { overflow: hidden; }
 .product-share-menu button:hover { background: rgba(255,255,255,.07); }
 .product-share-menu button.is-done { color: var(--accent, #7c5cff); }
 .product-share-menu button svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ================= PARTILHA NO MODAL ================= */
+.product-image-share--modal {
+  top: 14px;
+  right: 60px;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.product-image-share--modal:hover,
+.product-image-share--modal.is-active {
+  background: rgba(124,92,255,.9);
+  border-color: transparent;
+}
+
+.product-share-menu--modal {
+  top: 60px;
+  right: 60px;
+}
