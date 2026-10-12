@@ -319,11 +319,12 @@ function iniciarSearchOverlay() {
 
   function renderResultados(termo) {
     const t = normalizar(termo).trim();
-    let itens = PRODUTOS;
+    const catPagina = document.body.getAttribute('data-category') || '';
+    let itens = catPagina ? PRODUTOS.filter(p => p.categoria === catPagina) : PRODUTOS;
 
     if (t) {
       const palavras = t.split(/\s+/).filter(Boolean);
-      itens = PRODUTOS.filter(p => {
+      itens = (catPagina ? PRODUTOS.filter(p => p.categoria === catPagina) : PRODUTOS).filter(p => {
         const txt = normalizar(p.nome + ' ' + (p.desc || '') + ' ' + (p.categoria || ''));
         return palavras.every(pal => txt.includes(pal));
       });
