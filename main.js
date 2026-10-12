@@ -85,61 +85,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     categoryGrid.innerHTML = itens.map(p => criarCardProduto(p)).join('');
   }
 
-  // Pesquisa de produtos com várias palavras
-  const searchInput = document.getElementById('searchInput');
-
-  if (searchInput) {
-    const searchRow = searchInput.closest('.search-row') || searchInput.parentElement;
-
-    let searchStatus = document.getElementById('searchStatus');
-
-    if (!searchStatus && searchRow) {
-      searchRow.insertAdjacentHTML(
-        'afterend',
-        '<p id="searchStatus" class="search-status" aria-live="polite"></p>'
-      );
-      searchStatus = document.getElementById('searchStatus');
-    }
-
-    searchInput.addEventListener('input', (e) => {
-      const termo = e.target.value
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .trim();
-
-      const palavras = termo.split(/\s+/).filter(Boolean);
-      const cards = document.querySelectorAll('.product-card');
-
-      let encontrados = 0;
-
-      cards.forEach(card => {
-        const nome = card.querySelector('.product-card__name')?.textContent || '';
-        const desc = card.querySelector('.product-card__desc')?.textContent || '';
-
-        const texto = `${nome} ${desc}`
-          .toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '');
-
-        const corresponde = palavras.every(palavra => texto.includes(palavra));
-
-        card.style.display = corresponde ? '' : 'none';
-
-        if (corresponde) encontrados++;
-      });
-
-      if (searchStatus) {
-        if (!termo) {
-          searchStatus.textContent = '';
-        } else if (encontrados === 0) {
-          searchStatus.textContent = 'Produto não encontrado.';
-        } else {
-          searchStatus.textContent = `${encontrados} produto(s) encontrado(s).`;
-        }
-      }
-    });
-  }
+  
 });
 
 function criarCardProduto(p) {
@@ -323,3 +269,124 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+/* ================= SEARCH OVERLAY ================= */
+function iniciarSearchOverlay() {
+  const searchInput = document.getElementById('searchInput');
+  if (!searchInput || document.getElementById('searchOverlay')) return;
+
+  // Impede o teclado nativo no input do header
+  searchInput.setAttribute('readonly', 'readonly');
+  searchInput.setAttribute('inputmode', 'none');
+
+  document.body.insertAdjacentHTML('beforeend', `
+    <div id="searchOverlay" class="search-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="search-overlay__inner">
+        <div class="search-overlay__head">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="searchOverlayInput" type="search" placeholder="Pesquisar produtos..." aria-label="Pesquisar produtos" autocomplete="off">
+          <button type="button" class="search-overlay__close" aria-label="Fechar">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <div class="search-overlay__body" id="searchOverlayResults"></div>
+      </div>
+    </div>
+  `);
+
+  const overlay = document.getElementById('searchOverlay');
+  const overlayInput = document.getElementById('searchOverlayInput');
+  const resultsBox = document.getElementById('searchOverlayResults');
+
+  function abrir() {
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('search-open');
+    overlayInput.value = '';
+    renderResultados('');
+    setTimeout(() => overlayInput.focus(), 80);
+  }
+
+  function fechar() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('search-open');
+    overlayInput.blur();
+  }
+
+  function normalizar(s) {
+    return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function renderResultados(termo) {
+    const t = normalizar(termo).trim();
+    let itens = PRODUTOS;
+
+    if (t) {
+      const palavras = t.split(/\s+/).filter(Boolean);
+      itens = PRODUTOS.filter(p => {
+        const txt = normalizar(p.nome + ' ' + (p.desc || '') + ' ' + (p.categoria || ''));
+        return palavras.every(pal => txt.includes(pal));
+      });
+    }
+
+    if (!t) {
+      resultsBox.innerHTML = `
+        <p class="search-overlay__hint">Escreve para pesquisar entre ${PRODUTOS.length} produtos.</p>
+        <div class="search-overlay__chips">
+          ${['Livro','Romance','Escolar','iPhone','Samsung','Chapéu','Marketing'].map(c =>
+            '<button type="button" class="search-chip" data-chip="' + c + '">' + c + '</button>'
+          ).join('')}
+        </div>
+      `;
+      resultsBox.querySelectorAll('.search-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          overlayInput.value = chip.dataset.chip;
+          renderResultados(chip.dataset.chip);
+        });
+      });
+      return;
+    }
+
+    if (!itens.length) {
+      resultsBox.innerHTML = '<p class="search-overlay__hint">Nenhum produto encontrado para "' + termo + '".</p>';
+      return;
+    }
+
+    const limitado = itens.slice(0, 30);
+    resultsBox.innerHTML = `
+      <p class="search-overlay__count">${itens.length} resultado(s)</p>
+      <div class="search-results">
+        ${limitado.map(p => {
+          const preco = p.preco === 0 ? 'Grátis' : p.preco.toFixed(2).replace('.', ',') + ' MT';
+          const img = p.imagem
+            ? '<img src="' + p.imagem + '" alt="" loading="lazy">'
+            : '<div class="search-result__icon">' + (p.svg || p.icone || '') + '</div>';
+          return `
+            <a class="search-result" href="${p.categoria}.html">
+              <div class="search-result__media">${img}</div>
+              <div class="search-result__body">
+                <div class="search-result__name">${p.nome}</div>
+                <div class="search-result__desc">${(p.desc || '').slice(0, 70)}</div>
+                <div class="search-result__meta">
+                  <span class="search-result__cat">${p.categoria}</span>
+                  <span class="search-result__price">${preco}</span>
+                </div>
+              </div>
+            </a>
+          `;
+        }).join('')}
+      </div>
+    `;
+  }
+
+  searchInput.addEventListener('click', (e) => { e.preventDefault(); abrir(); });
+  searchInput.addEventListener('focus', (e) => { e.target.blur(); abrir(); });
+
+  overlayInput.addEventListener('input', (e) => renderResultados(e.target.value));
+  overlay.querySelector('.search-overlay__close').addEventListener('click', fechar);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) fechar(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) fechar();
+  });
+}
+document.addEventListener('DOMContentLoaded', iniciarSearchOverlay);
