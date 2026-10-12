@@ -3374,39 +3374,6 @@ body > .container {
   box-shadow: 0 6px 14px -6px rgba(124,92,255,.7);
 }
 
-/* Vista em LISTA — 1 produto por linha */
-body.view-list .grid[data-row],
-body.view-list .cat-grid,
-body.view-list #categoryGrid,
-body.view-list #popularGrid {
-  grid-template-columns: 1fr !important;
-  gap: 10px !important;
-}
-body.view-list .product-card {
-  display: grid !important;
-  grid-template-columns: 110px 1fr !important;
-  align-items: stretch !important;
-  padding: 0 !important;
-  overflow: hidden;
-}
-body.view-list .product-card__image,
-body.view-list .product-card__icon {
-  width: 110px !important;
-  height: 110px !important;
-  aspect-ratio: 1 !important;
-  margin: 0 !important;
-  border-radius: 0 !important;
-  flex-shrink: 0;
-}
-body.view-list .product-card__image img { width: 100%; height: 100%; object-fit: cover; }
-body.view-list .product-card h3 { font-size: 15px !important; margin: 12px 14px 4px !important; }
-body.view-list .product-card__desc { margin: 0 14px 8px !important; font-size: 12.5px !important; }
-body.view-list .product-card__footer {
-  margin: 0 14px 12px !important;
-  padding: 0 !important;
-  display: flex; justify-content: space-between; align-items: center;
-}
-body.view-list .product-card__price { font-size: 16px !important; }
 
 /* Esconder overlay likes quando em lista? Não — mantém-se dentro da imagem */
 
@@ -3418,4 +3385,126 @@ body.view-list .product-card__price { font-size: 16px !important; }
   body.view-list #popularGrid {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* ============================================================
+   VISTA EM LISTA — 1 produto por linha (horizontal)
+   ============================================================ */
+body.view-list .grid[data-row],
+body.view-list .cat-grid,
+body.view-list #categoryGrid,
+body.view-list #popularGrid,
+body.view-list .products-grid {
+  grid-template-columns: 1fr !important;
+  gap: 10px !important;
+}
+
+body.view-list .product-card {
+  display: grid !important;
+  grid-template-columns: 96px 1fr auto !important;
+  grid-template-rows: auto auto !important;
+  grid-template-areas:
+    "media name  action"
+    "media meta  action" !important;
+  align-items: center !important;
+  column-gap: 12px !important;
+  row-gap: 2px !important;
+  padding: 10px !important;
+  border-radius: 14px !important;
+  overflow: hidden;
+  text-align: left !important;
+}
+
+/* Mídia (imagem / ícone) — coluna da esquerda, ocupa 2 linhas */
+body.view-list .product-card__image,
+body.view-list .product-card__icon {
+  grid-area: media !important;
+  width: 96px !important;
+  height: 96px !important;
+  aspect-ratio: 1 !important;
+  border-radius: 10px !important;
+  margin: 0 !important;
+  overflow: hidden;
+  position: relative;
+  align-self: center;
+}
+body.view-list .product-card__image img { width: 100%; height: 100%; object-fit: cover; }
+body.view-list .product-card__icon { display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.04); }
+
+/* Nome — linha 1, coluna 2 */
+body.view-list .product-card__name,
+body.view-list .product-card h3 {
+  grid-area: name !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  line-height: 1.25 !important;
+  align-self: end;
+  /* limita a 1 linha com ellipsis */
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Descrição + preço — linha 2, coluna 2 */
+body.view-list .product-card__desc,
+body.view-list .product-card p {
+  grid-area: meta !important;
+  font-size: 12px !important;
+  color: var(--muted) !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+  align-self: start;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Preço + botão — coluna 3 (à direita) */
+body.view-list .product-card__footer {
+  grid-area: action !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: 0;
+}
+body.view-list .product-card__price {
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  white-space: nowrap;
+}
+body.view-list .product-card__footer .btn,
+body.view-list .product-card__footer a.btn {
+  padding: 7px 12px !important;
+  font-size: 12px !important;
+  white-space: nowrap;
+}
+
+/* Badge (POPULAR / PROMO) fica sobre a imagem */
+body.view-list .product-card__badge {
+  position: absolute !important;
+  top: 6px !important;
+  left: 6px !important;
+  font-size: 9px !important;
+  padding: 2px 6px !important;
+  z-index: 3 !important;
+}
+body.view-list .product-card__image { position: relative; }
+
+/* Botões de like/partilha em lista: menores, dentro da imagem */
+body.view-list .product-image-like,
+body.view-list .product-image-share {
+  width: 26px !important;
+  height: 26px !important;
+}
+body.view-list .product-image-like svg,
+body.view-list .product-image-share svg {
+  width: 13px !important;
+  height: 13px !important;
 }
