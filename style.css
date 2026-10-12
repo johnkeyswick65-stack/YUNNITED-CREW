@@ -3206,3 +3206,101 @@ body > .container {
   right: auto !important;
   z-index: 30 !important;
 }
+
+/* ============================================================
+   MODAL — RESET FINAL (vence todas as regras anteriores)
+   ============================================================ */
+
+/* 1. Botões DENTRO da barra: posição estática, layout vertical */
+.product-image-modal__content .product-image-modal__bar > button.product-image-modal__like,
+.product-image-modal__content .product-image-modal__bar > button.product-image-share--modal {
+  position: static !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 10px 4px !important;
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  color: var(--muted) !important;
+  font-family: inherit !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: .3px !important;
+  cursor: pointer !important;
+  transform: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+.product-image-modal__content .product-image-modal__bar > button.product-image-modal__like:hover,
+.product-image-modal__content .product-image-modal__bar > button.product-image-share--modal:hover {
+  background: rgba(255,255,255,.08) !important;
+  color: #fff !important;
+}
+.product-image-modal__content .product-image-modal__bar > button.product-image-modal__like:active,
+.product-image-modal__content .product-image-modal__bar > button.product-image-share--modal:active {
+  transform: scale(.97) !important;
+}
+.product-image-modal__content .product-image-modal__bar > button.product-image-modal__like.is-liked {
+  background: rgba(255,59,48,.14) !important;
+  border-color: rgba(255,59,48,.35) !important;
+  color: #ff3b30 !important;
+}
+.product-image-modal__content .product-image-modal__bar > button.product-image-modal__like.is-liked svg { fill: #ff3b30 !important; stroke: #ff3b30 !important; }
+
+/* 2. Ícones dentro da barra */
+.product-image-modal__content .product-image-modal__bar > button svg {
+  width: 22px !important;
+  height: 22px !important;
+  stroke-width: 1.9 !important;
+  display: block !important;
+}
+
+/* 3. Rótulos (Gosto / Partilhar) */
+.product-image-modal__content .product-image-modal__bar > button.product-image-modal__like::after { content: 'Gosto'; display: block; }
+.product-image-modal__content .product-image-modal__bar > button.product-image-share--modal::after { content: 'Partilhar'; display: block; }
+
+/* 4. Info empilhada (nome por cima, descrição por baixo) */
+.product-image-modal__content .product-image-modal__info {
+  display: block !important;
+  margin-top: 0 !important;
+  padding: 16px 4px 12px !important;
+  border-bottom: 1px solid rgba(255,255,255,.08) !important;
+}
+.product-image-modal__content .product-image-modal__info .product-image-modal__name {
+  display: block !important;
+  margin: 0 0 4px !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+}
+.product-image-modal__content .product-image-modal__info .product-image-modal__desc {
+  display: block !important;
+  margin: 0 !important;
+  font-size: 13px !important;
+  color: var(--muted) !important;
+  text-align: left !important;
+}
+
+/* 5. Barra de ações — sempre visível */
+.product-image-modal__content .product-image-modal__bar {
+  display: flex !important;
+  gap: 8px !important;
+  padding: 14px 0 4px !important;
+  margin: 0 !important;
+  position: relative !important;
+}
