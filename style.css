@@ -3593,3 +3593,206 @@ body.view-list article.product-card > span.product-card__badge {
 body.view-list .product-card {
   position: relative !important;
 }
+
+/* ============================================================
+   CARTÃO DE PRODUTO — estrutura nova com barra de ações
+   ============================================================ */
+
+/* Contentor de ações: por defeito (vista colunas) fica SOBRE a imagem */
+.product-card__actions {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+  z-index: 5;
+}
+.product-card__actions > button,
+.product-card__actions > .product-share-menu {
+  pointer-events: auto;
+}
+.product-card__actions .product-image-like,
+.product-card__actions .product-image-share {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(10,10,15,.72);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: background .15s, transform .1s;
+}
+.product-card__actions .product-image-like:hover,
+.product-card__actions .product-image-share:hover { background: rgba(124,92,255,.9); }
+.product-card__actions .product-image-like:active,
+.product-card__actions .product-image-share:active { transform: scale(.94); }
+.product-card__actions .product-image-like svg,
+.product-card__actions .product-image-share svg { width: 16px; height: 16px; }
+.product-card__actions .product-image-like.is-liked svg { fill: #ff3b30; stroke: #ff3b30; }
+.product-card__actions .product-share-menu { position: absolute; top: 40px; right: 0; }
+
+/* Garantir que o card é contexto de posicionamento */
+.product-card { position: relative; }
+.product-card__image { position: relative; overflow: hidden; }
+
+/* ============================================================
+   VISTA EM LISTA — cartão vertical estilo post
+   ============================================================ */
+body.view-list .grid[data-row],
+body.view-list .cat-grid,
+body.view-list #categoryGrid,
+body.view-list #popularGrid,
+body.view-list .products-grid {
+  grid-template-columns: 1fr !important;
+  gap: 14px !important;
+}
+
+body.view-list .product-card {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-template-areas:
+    "name"
+    "desc"
+    "media"
+    "footer"
+    "actions" !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
+
+/* 1. Nome */
+body.view-list .product-card__name,
+body.view-list .product-card h3 {
+  grid-area: name !important;
+  margin: 16px 16px 4px !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+/* 2. Descrição */
+body.view-list .product-card__desc,
+body.view-list .product-card p {
+  grid-area: desc !important;
+  margin: 0 16px 14px !important;
+  font-size: 13px !important;
+  color: var(--muted) !important;
+  line-height: 1.4 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+}
+
+/* 3. Imagem — full width */
+body.view-list .product-card__image,
+body.view-list .product-card__icon {
+  grid-area: media !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 10 !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  align-self: stretch !important;
+}
+body.view-list .product-card__image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block;
+}
+
+/* 4. Preço + botão Comprar */
+body.view-list .product-card__footer {
+  grid-area: footer !important;
+  margin: 0 !important;
+  padding: 14px 16px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+body.view-list .product-card__price {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+}
+body.view-list .product-card__footer .btn {
+  padding: 10px 18px !important;
+  font-size: 13px !important;
+}
+
+/* 5. Barra de ações em baixo */
+body.view-list .product-card__actions {
+  grid-area: actions !important;
+  position: static !important;
+  padding: 10px 12px !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
+  border-top: 0 !important;
+  background: rgba(255,255,255,.02);
+  pointer-events: auto !important;
+}
+body.view-list .product-card__actions .product-image-like,
+body.view-list .product-card__actions .product-image-share {
+  width: auto !important;
+  height: auto !important;
+  padding: 8px 14px !important;
+  border-radius: 10px !important;
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  color: var(--text) !important;
+  backdrop-filter: none !important;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+body.view-list .product-card__actions .product-image-like::after { content: 'Gosto'; }
+body.view-list .product-card__actions .product-image-share::after { content: 'Partilhar'; }
+body.view-list .product-card__actions .product-image-like:hover,
+body.view-list .product-card__actions .product-image-share:hover {
+  background: rgba(124,92,255,.15) !important;
+  border-color: rgba(124,92,255,.35) !important;
+}
+body.view-list .product-card__actions .product-share-menu {
+  position: absolute;
+  bottom: 60px;
+  left: 12px;
+  right: auto;
+  top: auto;
+}
+
+/* 6. Badge — canto da imagem */
+body.view-list .product-card__badge {
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  width: auto !important;
+  max-width: 90px !important;
+  padding: 3px 8px !important;
+  font-size: 9.5px !important;
+  z-index: 6 !important;
+}
+
+/* Em lista, a imagem é o 3º item, mas o badge precisa de contexto relativo ao card */
+body.view-list .product-card { position: relative !important; }
