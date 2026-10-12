@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YU-YU Nhonga | YUNNITED CREW</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    window.refreshIcons = function () { if (window.lucide) lucide.createIcons(); };
+    document.addEventListener('DOMContentLoaded', window.refreshIcons);
+  </script>
 </head>
 
 <body class="nhonga-page">
@@ -50,18 +55,23 @@
     <nav class="catnav">
       <div class="container catnav__inner">
         <a href="index.html">
+          <i data-lucide="home"></i>
           Início
         </a>
         <a href="world-library.html">
+          <i data-lucide="book-open"></i>
           World Library
         </a>
         <a href="acessorios.html">
+          <i data-lucide="headphones"></i>
           Acessórios
         </a>
         <a href="moda.html">
+          <i data-lucide="shirt"></i>
           Moda
         </a>
         <a href="nhonga.html" class="active">
+          <i data-lucide="store"></i>
           Nhonga
         </a>
       </div>
