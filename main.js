@@ -118,7 +118,7 @@ function criarCardProduto(p) {
             <path d="M20.8 8.7c0 5.5-8.8 10.4-8.8 10.4S3.2 14.2 3.2 8.7C3.2 5.8 5.1 4 7.7 4c1.7 0 3.1.9 4.3 2.3C13.2 4.9 14.6 4 16.3 4c2.6 0 4.5 1.8 4.5 4.7Z"/>
           </svg>
         </button>
-        <button class="product-image-share" type="button" aria-label="Partilhar ${p.nome}" title="Partilhar" onclick="event.stopPropagation()">
+        <button class="product-image-share" type="button" aria-label="Partilhar ${p.nome}" title="Partilhar">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="18" cy="5" r="3"/>
             <circle cx="6" cy="12" r="3"/>
@@ -477,7 +477,7 @@ document.addEventListener('click', (e) => {
     document.querySelectorAll('.product-share-menu').forEach(m => m.hidden = true);
     document.querySelectorAll('.product-image-share.is-active').forEach(b => b.classList.remove('is-active'));
   }
-});
+}, true);
 
 
 /* ================= PARTILHA ================= */
