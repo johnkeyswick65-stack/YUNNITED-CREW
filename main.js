@@ -484,7 +484,7 @@ document.addEventListener('click', (e) => {
         setTimeout(() => { action.innerHTML = original; action.classList.remove('is-done'); }, 1600);
       };
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(url + '\n\n' + nome).then(done).catch(() => {
+        navigator.clipboard.writeText(url).then(done).catch(() => {
           window.prompt('Copia o link:', url);
         });
       } else {
@@ -551,7 +551,7 @@ document.addEventListener('click', (e) => {
         setTimeout(() => { action.innerHTML = original; action.classList.remove('is-done'); }, 1600);
       };
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(url + '\n\n' + nome).then(done).catch(() => {
+        navigator.clipboard.writeText(url).then(done).catch(() => {
           window.prompt('Copia o link:', url);
         });
       } else {
