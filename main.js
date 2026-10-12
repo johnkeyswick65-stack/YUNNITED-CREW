@@ -176,49 +176,39 @@ function iniciarModalProdutos() {
 
       <div class="product-image-modal__content" role="dialog" aria-modal="true">
         <div class="product-image-modal__media">
-        <button class="product-image-modal__close" type="button" aria-label="Fechar">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M6 6l12 12M18 6L6 18"/>
-          </svg>
-        </button>
+          <img class="product-image-modal__image" src="" alt="">
 
-        <img class="product-image-modal__image" src="" alt="">
-
+          <button class="product-image-modal__close" type="button" aria-label="Fechar">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
         </div>
 
         <div class="product-image-modal__info">
-          <div class="product-image-modal__text">
-            <h3 class="product-image-modal__name"></h3>
-            <p class="product-image-modal__desc"></p>
-          </div>
-
-          <button class="product-image-modal__like" type="button" aria-label="Curtir produto" aria-pressed="false">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M20.8 8.7c0 5.5-8.8 10.4-8.8 10.4S3.2 14.2 3.2 8.7C3.2 5.8 5.1 4 7.7 4c1.7 0 3.1.9 4.3 2.3C13.2 4.9 14.6 4 16.3 4c2.6 0 4.5 1.8 4.5 4.7Z"/>
-            </svg>
-          </button>
-        <button class="product-image-share product-image-share--modal" type="button" aria-label="Partilhar produto" title="Partilhar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="18" cy="5" r="3"/>
-            <circle cx="6" cy="12" r="3"/>
-            <circle cx="18" cy="19" r="3"/>
-            <path d="M8.6 13.5l6.8 3.9M15.4 6.6L8.6 10.5"/>
-          </svg>
-        </button>
-        <div class="product-share-menu product-share-menu--modal" hidden>
-          <button type="button" data-share="copy">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            Copiar link
-          </button>
-          <button type="button" data-share="whatsapp">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m-3.6 4.2c.17 0 .34.01.48.01.16.01.36-.05.56.43.22.5.71 1.74.77 1.86.06.13.11.27.02.44-.08.16-.12.27-.25.41-.12.15-.26.33-.37.44-.12.12-.25.26-.11.51.15.25.65 1.07 1.4 1.73.96.86 1.77 1.12 2.02 1.25.25.12.39.1.54-.06.15-.17.63-.75.8-1 .17-.25.34-.21.57-.12.23.08 1.48.69 1.73.82.25.12.42.18.48.29.06.1.06.61-.15 1.21-.22.6-1.25 1.17-1.72 1.21-.47.05-.91.22-3.06-.63-2.59-1.01-4.22-3.64-4.35-3.8-.13-.17-1.03-1.36-1.03-2.6s.65-1.85.88-2.1c.23-.25.5-.31.67-.31"/></svg>
-            WhatsApp
-          </button>
-          <button type="button" data-share="facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12"/></svg>
-            Facebook
-          </button>
+          <h3 class="product-image-modal__name"></h3>
+          <p class="product-image-modal__desc"></p>
         </div>
+
+        <div class="product-image-modal__bar">
+          <button class="product-image-modal__like" type="button" aria-label="Curtir produto" aria-pressed="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 8.7c0 5.5-8.8 10.4-8.8 10.4S3.2 14.2 3.2 8.7C3.2 5.8 5.1 4 7.7 4c1.7 0 3.1.9 4.3 2.3C13.2 4.9 14.6 4 16.3 4c2.6 0 4.5 1.8 4.5 4.7Z"/></svg>
+          </button>
+          <button class="product-image-share product-image-share--modal" type="button" aria-label="Partilhar produto">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 3.9M15.4 6.6L8.6 10.5"/></svg>
+          </button>
+          <div class="product-share-menu product-share-menu--modal" hidden>
+            <button type="button" data-share="copy">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copiar link
+            </button>
+            <button type="button" data-share="whatsapp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m-3.6 4.2c.17 0 .34.01.48.01.16.01.36-.05.56.43.22.5.71 1.74.77 1.86.06.13.11.27.02.44-.08.16-.12.27-.25.41-.12.15-.26.33-.37.44-.12.12-.25.26-.11.51.15.25.65 1.07 1.4 1.73.96.86 1.77 1.12 2.02 1.25.25.12.39.1.54-.06.15-.17.63-.75.8-1 .17-.25.34-.21.57-.12.23.08 1.48.69 1.73.82.25.12.42.18.48.29.06.1.06.61-.15 1.21-.22.6-1.25 1.17-1.72 1.21-.47.05-.91.22-3.06-.63-2.59-1.01-4.22-3.64-4.35-3.8-.13-.17-1.03-1.36-1.03-2.6s.65-1.85.88-2.1c.23-.25.5-.31.67-.31"/></svg>
+              WhatsApp
+            </button>
+            <button type="button" data-share="facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12"/></svg>
+              Facebook
+            </button>
+          </div>
         </div>
       </div>
     </div>
