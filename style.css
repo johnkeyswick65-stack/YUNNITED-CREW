@@ -2862,3 +2862,94 @@ body.search-open { overflow: hidden; }
   align-items: center;
   gap: 6px;
 }
+
+/* ================= MOBILE MENU v2 ================= */
+@media (max-width: 700px) {
+  .mobile-menu {
+    width: 78vw;
+    max-width: 340px;
+    min-width: 240px;
+    border-radius: 0 0 0 20px;
+    background: linear-gradient(160deg, var(--bg-2), var(--bg-1, #0a0a0f));
+    box-shadow: -20px 30px 60px -20px rgba(0,0,0,.8);
+  }
+  .mobile-menu__inner {
+    padding: 68px 14px 18px;
+    gap: 6px;
+  }
+  .mobile-menu__section {
+    display: flex; flex-direction: column; gap: 2px;
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .mobile-menu__section:last-of-type { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+
+  .mobile-menu__label {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--muted);
+    padding: 8px 10px 6px;
+  }
+
+  .mobile-menu__inner a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 12px;
+    border-radius: 10px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: background .15s, transform .1s;
+  }
+  .mobile-menu__inner a i[data-lucide],
+  .mobile-menu__inner a svg {
+    width: 18px; height: 18px;
+    stroke-width: 1.9;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: color .15s;
+  }
+  .mobile-menu__inner a:hover {
+    background: rgba(255,255,255,.05);
+  }
+  .mobile-menu__inner a:hover i[data-lucide] { color: var(--text); }
+  .mobile-menu__inner a:active { transform: scale(.985); }
+
+  /* Estado ativo */
+  .mobile-menu__inner a.is-active,
+  .mobile-menu__inner a.active {
+    background: rgba(124,92,255,.14);
+    color: #fff;
+  }
+  .mobile-menu__inner a.is-active i[data-lucide],
+  .mobile-menu__inner a.active i[data-lucide] {
+    color: #7c5cff;
+  }
+
+  /* WhatsApp no fim */
+  .mobile-menu__wa {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    margin-top: 14px;
+    padding: 13px 16px !important;
+    background: #25d366 !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    border-radius: 12px !important;
+    font-size: 14.5px;
+  }
+  .mobile-menu__wa i[data-lucide] { color: #fff !important; width: 18px; height: 18px; }
+  .mobile-menu__wa:hover { background: #1eb955 !important; }
+
+  /* Remover o estilo antigo do último filho */
+  .mobile-menu__inner > a:last-child {
+    margin-top: 0;
+    border-top: 0;
+    border-radius: 12px;
+    padding-top: 13px;
+  }
+}
