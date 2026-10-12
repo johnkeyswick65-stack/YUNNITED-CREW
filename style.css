@@ -2804,3 +2804,47 @@ body.search-open { overflow: hidden; }
   top: 60px;
   right: 60px;
 }
+
+/* ================= PRODUTO COMPARTILHADO ================= */
+.shared-product { position: fixed; inset: 0; z-index: 3000; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.shared-product__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.shared-product__card { position: relative; background: var(--bg-2, #16121f); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; max-width: 420px; width: 100%; max-height: 92vh; overflow-y: auto; box-shadow: 0 40px 90px -30px rgba(0,0,0,.9); animation: sharedPop .22s ease-out; }
+@keyframes sharedPop { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.shared-product__close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(0,0,0,.55); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; backdrop-filter: blur(6px); }
+.shared-product__close:hover { background: rgba(255,255,255,.15); }
+.shared-product__media { width: 100%; aspect-ratio: 1; overflow: hidden; background: #0a0a0f; display: flex; align-items: center; justify-content: center; }
+.shared-product__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shared-product__icon { color: var(--muted); }
+.shared-product__icon svg { width: 80px; height: 80px; }
+.shared-product__body { padding: 22px; }
+.shared-product__cat { display: inline-block; font-size: 10.5px; letter-spacing: .8px; text-transform: uppercase; font-weight: 700; color: var(--muted); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); padding: 3px 9px; border-radius: 999px; margin-bottom: 12px; }
+.shared-product__name { font-size: 22px; font-weight: 800; margin: 0 0 8px; line-height: 1.2; }
+.shared-product__desc { font-size: 14px; color: var(--muted); margin: 0 0 18px; line-height: 1.5; }
+.shared-product__price { font-size: 26px; font-weight: 800; letter-spacing: -.4px; margin-bottom: 18px; }
+.shared-product__actions { display: flex; flex-direction: column; gap: 8px; }
+.shared-product__buy { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; background: #25d366; color: #fff; font-weight: 700; font-size: 15px; border-radius: 12px; text-decoration: none; transition: opacity .15s; }
+.shared-product__buy:hover { opacity: .9; }
+.shared-product__share { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; background: transparent; border: 1px solid rgba(255,255,255,.15); color: var(--text, #f5f5f7); font-family: inherit; font-size: 14px; font-weight: 600; border-radius: 12px; cursor: pointer; }
+.shared-product__share:hover { background: rgba(255,255,255,.06); }
+
+/* ================= PRODUTO COMPARTILHADO ================= */
+.shared-product { position: fixed; inset: 0; z-index: 3000; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.shared-product__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.shared-product__card { position: relative; background: var(--bg-2, #16121f); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; max-width: 420px; width: 100%; max-height: 92vh; overflow-y: auto; box-shadow: 0 40px 90px -30px rgba(0,0,0,.9); animation: sharedPop .22s ease-out; }
+@keyframes sharedPop { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.shared-product__close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(0,0,0,.55); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; backdrop-filter: blur(6px); }
+.shared-product__close:hover { background: rgba(255,255,255,.15); }
+.shared-product__media { width: 100%; aspect-ratio: 1; overflow: hidden; background: #0a0a0f; display: flex; align-items: center; justify-content: center; }
+.shared-product__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shared-product__icon { color: var(--muted); }
+.shared-product__icon svg { width: 80px; height: 80px; }
+.shared-product__body { padding: 22px; }
+.shared-product__cat { display: inline-block; font-size: 10.5px; letter-spacing: .8px; text-transform: uppercase; font-weight: 700; color: var(--muted); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); padding: 3px 9px; border-radius: 999px; margin-bottom: 12px; }
+.shared-product__name { font-size: 22px; font-weight: 800; margin: 0 0 8px; line-height: 1.2; }
+.shared-product__desc { font-size: 14px; color: var(--muted); margin: 0 0 18px; line-height: 1.5; }
+.shared-product__price { font-size: 26px; font-weight: 800; letter-spacing: -.4px; margin-bottom: 18px; }
+.shared-product__actions { display: flex; flex-direction: column; gap: 8px; }
+.shared-product__buy { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; background: #25d366; color: #fff; font-weight: 700; font-size: 15px; border-radius: 12px; text-decoration: none; transition: opacity .15s; }
+.shared-product__buy:hover { opacity: .9; }
+.shared-product__share { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; background: transparent; border: 1px solid rgba(255,255,255,.15); color: var(--text, #f5f5f7); font-family: inherit; font-size: 14px; font-weight: 600; border-radius: 12px; cursor: pointer; }
+.shared-product__share:hover { background: rgba(255,255,255,.06); }
