@@ -733,33 +733,64 @@ const spinStyle = document.createElement('style');
 spinStyle.textContent = '@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }';
 document.head.appendChild(spinStyle);
 
-/* ================= PLACEHOLDER ANIMADO ================= */
+/* ================= PLACEHOLDER ANIMADO (por categoria) ================= */
 document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('searchInput');
   if (!input) return;
 
-  const frases = [
-    'Pesquisar livros, acessórios, moda...',
-    'Pesquisar livros digitais...',
-    'Pesquisar romances...',
-    'Pesquisar iPhone, Samsung...',
-    'Pesquisar chapéus, bonés...',
-    'Pesquisar e-books escolares...',
-    'Pesquisar desenvolvimento pessoal...',
-  ];
+  const FRASES = {
+    'world-library': [
+      'Pesquisar livros digitais...',
+      'Pesquisar romances...',
+      'Pesquisar e-books escolares...',
+      'Pesquisar desenvolvimento pessoal...',
+      'Pesquisar livros de cultura...',
+      'Pesquisar psicologia...',
+    ],
+    'acessorios': [
+      'Pesquisar iPhone...',
+      'Pesquisar Samsung...',
+      'Pesquisar cabos USB...',
+      'Pesquisar fones bluetooth...',
+      'Pesquisar carregadores...',
+      'Pesquisar power banks...',
+    ],
+    'moda': [
+      'Pesquisar camisetas...',
+      'Pesquisar calças...',
+      'Pesquisar chapéus...',
+      'Pesquisar bonés...',
+      'Pesquisar vestidos...',
+      'Pesquisar peças de moda...',
+    ],
+    'nhonga': [
+      'Pesquisar vendedores...',
+      'Pesquisar negócios locais...',
+      'Como divulgar o meu negócio?',
+      'Como cadastrar produtos?',
+    ],
+    '_default': [
+      'Pesquisar livros, acessórios, moda...',
+      'Pesquisar livros digitais...',
+      'Pesquisar romances...',
+      'Pesquisar iPhone, Samsung...',
+      'Pesquisar chapéus, bonés...',
+      'Pesquisar e-books escolares...',
+      'Pesquisar desenvolvimento pessoal...',
+    ],
+  };
 
-  let idx = 0;
-  let char = 0;
-  let apagando = false;
+  const cat = document.body.getAttribute('data-category') || '_default';
+  const frases = FRASES[cat] || FRASES._default;
 
-  const VELOCIDADE_ESCRITA = 60;   // ms por letra ao escrever
-  const VELOCIDADE_APAGAR  = 25;   // ms por letra ao apagar
-  const PAUSA_FIM          = 1800; // pausa depois de escrever a frase completa
-  const PAUSA_ENTRE        = 300;  // pausa entre apagar e próxima frase
+  let idx = 0, char = 0, apagando = false;
+  const VELOCIDADE_ESCRITA = 60;
+  const VELOCIDADE_APAGAR  = 25;
+  const PAUSA_FIM          = 1800;
+  const PAUSA_ENTRE        = 300;
 
   function tick() {
     const frase = frases[idx];
-
     if (!apagando) {
       char++;
       input.setAttribute('placeholder', frase.slice(0, char));
@@ -780,6 +811,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Pausa inicial para o utilizador ver a primeira frase
   setTimeout(tick, 900);
 });
