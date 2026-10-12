@@ -718,7 +718,7 @@ document.addEventListener('input', (e) => {
   const val = Number(e.target.value) / 100;
   // Aplicar filtro de brilho ao conteúdo (fora do menu, para o próprio menu não ficar afetado)
   document.documentElement.style.setProperty('--site-brightness', val);
-  document.body.style.filter = 'brightness(' + val + ')';
+  document.documentElement.style.setProperty('--site-brightness', val);
   try { localStorage.setItem('yc_brightness', String(val)); } catch {}
 });
 
@@ -728,7 +728,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const saved = localStorage.getItem('yc_brightness');
     if (saved) {
       const val = Number(saved);
-      document.body.style.filter = 'brightness(' + val + ')';
+      document.documentElement.style.setProperty('--site-brightness', val);
       const r = document.getElementById('brightnessRange');
       if (r) r.value = String(Math.round(val * 100));
     }

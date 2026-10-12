@@ -3038,3 +3038,23 @@ body.search-open { overflow: hidden; }
   background: linear-gradient(135deg, #7c5cff, #b44cff);
   cursor: pointer;
 }
+
+/* ================= BRILHO DO SITE ================= */
+body > header,
+body > main,
+body > section,
+body > article,
+body > footer,
+body > .container {
+  filter: brightness(var(--site-brightness, 1));
+  transition: filter .18s ease;
+}
+
+/* Modais e menus ficam fora do filtro */
+.shared-product,
+.search-overlay,
+.product-image-modal,
+.mobile-menu,
+.toast {
+  filter: none !important;
+}
