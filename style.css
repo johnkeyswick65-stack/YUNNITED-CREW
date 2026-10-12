@@ -162,12 +162,13 @@ img {
 
 /* ================= HERO ================= */
 .hero {
+  /* altura reduzida */
   background-image: url("imagens/fundo.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-bottom: 1px solid var(--border);
-  padding: 50px 0;
+  padding: 24px 0;
 }
 .hero__inner {
   display: flex;
@@ -1570,6 +1571,7 @@ body[data-category="world-library"] .product-card {
 /* ================= HERO — FUNDO DE MOÇAMBIQUE ================= */
 
 .hero {
+  /* altura reduzida */
   background-image:
     radial-gradient(
       ellipse at center,
