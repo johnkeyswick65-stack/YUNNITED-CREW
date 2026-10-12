@@ -6,3 +6,4 @@ cookies.txt
 *.bak
 backend/**/*backup*
 *.bak-*
+*.broken-*
