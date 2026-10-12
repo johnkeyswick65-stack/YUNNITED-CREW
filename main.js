@@ -732,3 +732,54 @@ document.addEventListener('DOMContentLoaded', () => {
 const spinStyle = document.createElement('style');
 spinStyle.textContent = '@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }';
 document.head.appendChild(spinStyle);
+
+/* ================= PLACEHOLDER ANIMADO ================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('searchInput');
+  if (!input) return;
+
+  const frases = [
+    'Pesquisar livros, acessórios, moda...',
+    'Pesquisar livros digitais...',
+    'Pesquisar romances...',
+    'Pesquisar iPhone, Samsung...',
+    'Pesquisar chapéus, bonés...',
+    'Pesquisar e-books escolares...',
+    'Pesquisar desenvolvimento pessoal...',
+  ];
+
+  let idx = 0;
+  let char = 0;
+  let apagando = false;
+
+  const VELOCIDADE_ESCRITA = 60;   // ms por letra ao escrever
+  const VELOCIDADE_APAGAR  = 25;   // ms por letra ao apagar
+  const PAUSA_FIM          = 1800; // pausa depois de escrever a frase completa
+  const PAUSA_ENTRE        = 300;  // pausa entre apagar e próxima frase
+
+  function tick() {
+    const frase = frases[idx];
+
+    if (!apagando) {
+      char++;
+      input.setAttribute('placeholder', frase.slice(0, char));
+      if (char === frase.length) {
+        apagando = true;
+        return setTimeout(tick, PAUSA_FIM);
+      }
+      return setTimeout(tick, VELOCIDADE_ESCRITA);
+    } else {
+      char--;
+      input.setAttribute('placeholder', frase.slice(0, char));
+      if (char === 0) {
+        apagando = false;
+        idx = (idx + 1) % frases.length;
+        return setTimeout(tick, PAUSA_ENTRE);
+      }
+      return setTimeout(tick, VELOCIDADE_APAGAR);
+    }
+  }
+
+  // Pausa inicial para o utilizador ver a primeira frase
+  setTimeout(tick, 900);
+});
