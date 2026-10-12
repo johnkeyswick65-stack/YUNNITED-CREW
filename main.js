@@ -1,22 +1,38 @@
+
+const CATEGORIA_SLUG = {
+  'World Library': 'world-library',
+  'Acessórios': 'acessorios',
+  'Moda': 'moda',
+  'Nhonga': 'nhonga',
+};
+function paraSlug(nome) {
+  if (!nome) return '';
+  return CATEGORIA_SLUG[nome] || nome
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
 async function carregarProdutosDaAPI() {
   try {
-    const response = await fetch('https://yunnited-crew-backend.onrender.com/api/products');
+    const response = await fetch('https://yunnited-crew-backend.pages.dev/api/products');
 
     if (!response.ok) {
       throw new Error('Erro ao carregar produtos');
     }
 
     const data = await response.json();
-    console.log('PRODUTOS DO RENDER:', data.products);
+    console.log('PRODUTOS DO RENDER:', data.items);
 
-    if (!data.success || !Array.isArray(data.products)) {
+    if (!data.success || !Array.isArray(data.items)) {
       return;
     }
 
-    const produtosAPI = data.products.map(p => ({
-      id: p.id,
+    const produtosAPI = data.items.map(p => ({
+      id: p._id || p.id,
       nome: p.name,
-      categoria: p.category,
+      categoria: paraSlug(p.category),
       preco: Number(p.price) || 0,
       desc: p.description || '',
       imagem: p.image ? (p.image.startsWith("http") ? p.image : "https://yunnited-crew-backend.onrender.com" + p.image) : (p.imagem || ""), 
