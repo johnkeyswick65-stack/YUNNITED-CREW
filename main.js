@@ -315,6 +315,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ================= SEARCH OVERLAY ================= */
+
+function chipsDaCategoria(cat) {
+  const mapa = {
+    'world-library': ['Livro', 'Romance', 'Escolar', 'Marketing', 'Cultura', 'Psicologia'],
+    'acessorios': ['iPhone', 'Samsung', 'USB', 'Fones', 'Carregador', 'Power Bank'],
+    'moda': ['Chapéu', 'Camiseta', 'Calça', 'Vestido', 'Boné'],
+    'nhonga': ['Vender', 'Divulgar', 'Suporte', 'Cadastro'],
+  };
+  return mapa[cat] || ['Livro', 'iPhone', 'Chapéu', 'Samsung', 'Marketing'];
+}
+
 function iniciarSearchOverlay() {
   const searchInput = document.getElementById('searchInput');
   if (!searchInput || document.getElementById('searchOverlay')) return;
@@ -377,9 +388,9 @@ function iniciarSearchOverlay() {
 
     if (!t) {
       resultsBox.innerHTML = `
-        <p class="search-overlay__hint">Escreve para pesquisar entre ${PRODUTOS.length} produtos.</p>
+        <p class="search-overlay__hint">Escreve para pesquisar entre ${itens.length} produtos.</p>
         <div class="search-overlay__chips">
-          ${['Livro','Romance','Escolar','iPhone','Samsung','Chapéu','Marketing'].map(c =>
+          ${chipsDaCategoria(catPagina).map(c =>
             '<button type="button" class="search-chip" data-chip="' + c + '">' + c + '</button>'
           ).join('')}
         </div>
