@@ -3508,3 +3508,13 @@ body.view-list .product-image-share svg {
   width: 13px !important;
   height: 13px !important;
 }
+
+/* ================= MENU: espaço do X ================= */
+@media (max-width: 700px) {
+  .mobile-menu__inner {
+    padding-top: 100px !important;
+  }
+  .mobile-menu__quick {
+    margin-top: 4px;
+  }
+}
