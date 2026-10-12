@@ -971,12 +971,6 @@ img {
     display: inline-flex;
   }
 
-  /* Esconde apenas a barra de categorias no celular.
-     Ela continua existindo no HTML e no desktop. */
-  .site-header > .catnav {
-    display: none;
-  }
-
   /* Menu flutuante: não ocupa espaço no layout */
   .mobile-menu {
     display: block;
@@ -2482,3 +2476,42 @@ body.modal-open {
   left: auto;
 }
 
+
+
+/* ================= CATNAV MOBILE ================= */
+@media (max-width: 768px) {
+  .site-header > .catnav {
+    display: block;
+    background: var(--bg-3);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .catnav__inner {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    padding: 4px 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .catnav__inner::-webkit-scrollbar { display: none; }
+  .catnav__inner a {
+    padding: 10px 12px;
+    font-size: 13px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 2px solid transparent;
+    border-radius: 8px 8px 0 0;
+  }
+  .catnav__inner a svg {
+    width: 15px;
+    height: 15px;
+  }
+  .catnav__inner a.is-active {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+  }
+}
