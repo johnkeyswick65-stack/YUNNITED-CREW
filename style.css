@@ -3304,3 +3304,29 @@ body > .container {
   margin: 0 !important;
   position: relative !important;
 }
+
+/* ============================================================
+   MODAL — forçar a barra a caber dentro do content
+   ============================================================ */
+.product-image-modal__content {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+.product-image-modal__content .product-image-modal__bar {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  display: flex !important;
+  gap: 8px !important;
+  padding: 14px 0 4px !important;
+  margin: 0 !important;
+}
+.product-image-modal__content .product-image-modal__bar > button {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  max-width: 50% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
