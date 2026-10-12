@@ -3518,3 +3518,39 @@ body.view-list .product-image-share svg {
     margin-top: 4px;
   }
 }
+
+/* ================= LISTA: badge confinada à imagem ================= */
+body.view-list .product-card {
+  position: relative !important;
+}
+body.view-list .product-card__badge {
+  position: absolute !important;
+  top: 8px !important;
+  left: 8px !important;
+  width: auto !important;
+  max-width: 84px !important;
+  padding: 2px 7px !important;
+  font-size: 9px !important;
+  line-height: 1.3 !important;
+  border-radius: 6px !important;
+  background: #fff !important;
+  color: #000 !important;
+  z-index: 5 !important;
+  display: inline-block !important;
+  text-align: center;
+}
+
+/* Garantir que a imagem fica quadrada e não estica */
+body.view-list .product-card__image,
+body.view-list .product-card__icon {
+  width: 96px !important;
+  height: 96px !important;
+  max-width: 96px !important;
+  max-height: 96px !important;
+  flex: 0 0 96px !important;
+}
+body.view-list .product-card__image img {
+  width: 96px !important;
+  height: 96px !important;
+  object-fit: cover !important;
+}
