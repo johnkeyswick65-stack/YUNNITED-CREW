@@ -3330,3 +3330,92 @@ body > .container {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
 }
+
+/* ================= VIEW TOGGLE (colunas / lista) ================= */
+.mobile-menu__view {
+  padding: 10px 10px 14px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.mobile-menu__view .mobile-menu__label {
+  display: block;
+  margin-bottom: 8px;
+}
+.view-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 12px;
+  padding: 4px;
+}
+.view-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.view-btn i[data-lucide] { width: 15px; height: 15px; }
+.view-btn:hover { color: var(--text); }
+.view-btn.is-active {
+  background: linear-gradient(135deg, #7c5cff, #b44cff);
+  color: #fff;
+  box-shadow: 0 6px 14px -6px rgba(124,92,255,.7);
+}
+
+/* Vista em LISTA — 1 produto por linha */
+body.view-list .grid[data-row],
+body.view-list .cat-grid,
+body.view-list #categoryGrid,
+body.view-list #popularGrid {
+  grid-template-columns: 1fr !important;
+  gap: 10px !important;
+}
+body.view-list .product-card {
+  display: grid !important;
+  grid-template-columns: 110px 1fr !important;
+  align-items: stretch !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+body.view-list .product-card__image,
+body.view-list .product-card__icon {
+  width: 110px !important;
+  height: 110px !important;
+  aspect-ratio: 1 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  flex-shrink: 0;
+}
+body.view-list .product-card__image img { width: 100%; height: 100%; object-fit: cover; }
+body.view-list .product-card h3 { font-size: 15px !important; margin: 12px 14px 4px !important; }
+body.view-list .product-card__desc { margin: 0 14px 8px !important; font-size: 12.5px !important; }
+body.view-list .product-card__footer {
+  margin: 0 14px 12px !important;
+  padding: 0 !important;
+  display: flex; justify-content: space-between; align-items: center;
+}
+body.view-list .product-card__price { font-size: 16px !important; }
+
+/* Esconder overlay likes quando em lista? Não — mantém-se dentro da imagem */
+
+/* Botão de refresh/menu móvel não deve afetar: garantir prioridade */
+@media (min-width: 701px) {
+  body.view-list .grid[data-row],
+  body.view-list .cat-grid,
+  body.view-list #categoryGrid,
+  body.view-list #popularGrid {
+    grid-template-columns: 1fr !important;
+  }
+}

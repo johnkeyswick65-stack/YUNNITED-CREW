@@ -813,3 +813,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setTimeout(tick, 900);
 });
+
+/* ================= VIEW TOGGLE ================= */
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.view-btn');
+  if (!btn) return;
+  const modo = btn.dataset.view;
+  document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('is-active', b === btn));
+
+  if (modo === 'list') document.body.classList.add('view-list');
+  else document.body.classList.remove('view-list');
+
+  try { localStorage.setItem('yc_view', modo); } catch {}
+});
+
+// Restaurar preferência
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const saved = localStorage.getItem('yc_view') || 'grid';
+    if (saved === 'list') {
+      document.body.classList.add('view-list');
+      document.querySelectorAll('.view-btn').forEach(b => {
+        b.classList.toggle('is-active', b.dataset.view === 'list');
+      });
+    }
+  } catch {}
+  if (window.refreshIcons) window.refreshIcons();
+});
