@@ -654,3 +654,77 @@ function iniciarProdutoCompartilhado() {
   tentar();
 }
 document.addEventListener('DOMContentLoaded', iniciarProdutoCompartilhado);
+
+/* ================= QUICK ACTIONS ================= */
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.quick-btn');
+  if (!btn) return;
+  const tipo = btn.dataset.quick;
+
+  if (tipo === 'share') {
+    const data = {
+      title: 'YUNNITED CREW',
+      text: 'YUNNITED CREW — O maior mercado Branco de Moçambique',
+      url: location.origin,
+    };
+    if (navigator.share) {
+      navigator.share(data).catch(() => {});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(location.origin).then(() => {
+        btn.classList.add('is-done');
+        const span = btn.querySelector('span');
+        const orig = span.textContent;
+        span.textContent = 'Copiado';
+        setTimeout(() => { span.textContent = orig; btn.classList.remove('is-done'); }, 1500);
+      });
+    }
+    return;
+  }
+
+  if (tipo === 'feedback') {
+    const msg = encodeURIComponent('Olá YUNNITED CREW! Tenho um feedback sobre o site: ');
+    window.open('https://wa.me/258856178099?text=' + msg, '_blank');
+    return;
+  }
+
+  if (tipo === 'refresh') {
+    btn.classList.add('is-done');
+    const icon = btn.querySelector('i');
+    if (icon) icon.style.animation = 'spin 0.6s linear infinite';
+    setTimeout(() => location.reload(), 300);
+    return;
+  }
+
+  if (tipo === 'brightness') {
+    const box = document.querySelector('.mobile-menu__brightness');
+    if (box) box.hidden = !box.hidden;
+  }
+});
+
+// Slider de brilho
+document.addEventListener('input', (e) => {
+  if (e.target.id !== 'brightnessRange') return;
+  const val = Number(e.target.value) / 100;
+  // Aplicar filtro de brilho ao conteúdo (fora do menu, para o próprio menu não ficar afetado)
+  document.documentElement.style.setProperty('--site-brightness', val);
+  document.body.style.filter = 'brightness(' + val + ')';
+  try { localStorage.setItem('yc_brightness', String(val)); } catch {}
+});
+
+// Restaurar brilho guardado
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const saved = localStorage.getItem('yc_brightness');
+    if (saved) {
+      const val = Number(saved);
+      document.body.style.filter = 'brightness(' + val + ')';
+      const r = document.getElementById('brightnessRange');
+      if (r) r.value = String(Math.round(val * 100));
+    }
+  } catch {}
+});
+
+// Animação de spin para o refresh
+const spinStyle = document.createElement('style');
+spinStyle.textContent = '@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }';
+document.head.appendChild(spinStyle);

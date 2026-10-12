@@ -54,6 +54,33 @@
     </div>
     <div class="mobile-menu" id="siteMenu" aria-hidden="true">
       <nav class="mobile-menu__inner">
+        <div class="mobile-menu__quick">
+          <button type="button" class="quick-btn" data-quick="share" aria-label="Partilhar site">
+            <i data-lucide="share-2"></i>
+            <span>Partilhar</span>
+          </button>
+          <button type="button" class="quick-btn" data-quick="feedback" aria-label="Enviar feedback">
+            <i data-lucide="message-square"></i>
+            <span>Feedback</span>
+          </button>
+          <button type="button" class="quick-btn" data-quick="refresh" aria-label="Atualizar página">
+            <i data-lucide="refresh-cw"></i>
+            <span>Atualizar</span>
+          </button>
+          <button type="button" class="quick-btn" data-quick="brightness" aria-label="Brilho do site">
+            <i data-lucide="sun"></i>
+            <span>Brilho</span>
+          </button>
+        </div>
+
+        <div class="mobile-menu__brightness" hidden>
+          <div class="brightness__head">
+            <i data-lucide="sun-dim"></i>
+            <input type="range" id="brightnessRange" min="50" max="120" value="100" step="5" aria-label="Brilho">
+            <i data-lucide="sun"></i>
+          </div>
+        </div>
+
         <div class="mobile-menu__section">
           <span class="mobile-menu__label">Navegar</span>
           <a href="index.html"><i data-lucide="home"></i><span>Início</span></a>
