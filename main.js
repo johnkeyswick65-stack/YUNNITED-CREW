@@ -62,19 +62,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Renderizar categorias na página inicial
-  const categoriesGrid = document.getElementById('categoriesGrid');
-  if (categoriesGrid) {
-    categoriesGrid.innerHTML = CATEGORIAS.map(cat => `
-      <a class="cat-card" href="${cat.link}">
-        <span class="cat-card__icon">${cat.svg}</span>
-        <h3>${cat.nome}</h3>
-        <p>${cat.desc}</p>
-        <span class="cat-card__link">Explorar →</span>
-      </a>
-    `).join('');
-  }
-
   // Renderizar produtos populares
   const popularGrid = document.getElementById('popularGrid');
   if (popularGrid) {
