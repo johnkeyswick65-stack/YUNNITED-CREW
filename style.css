@@ -3554,3 +3554,42 @@ body.view-list .product-card__image img {
   height: 96px !important;
   object-fit: cover !important;
 }
+
+/* ================= LISTA: badge SEMPRE pequeno no canto da imagem ================= */
+body.view-list article.product-card > span.product-card__badge {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 78px !important;
+  height: auto !important;
+  padding: 3px 7px !important;
+  margin: 0 !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  letter-spacing: .5px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  color: #000 !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  z-index: 10 !important;
+  display: inline-block !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+  grid-area: auto !important;
+  transform: none !important;
+  box-sizing: border-box !important;
+}
+
+/* O cartão em lista tem de ser positioning context */
+body.view-list .product-card {
+  position: relative !important;
+}
