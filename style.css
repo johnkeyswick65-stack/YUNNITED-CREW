@@ -3058,3 +3058,72 @@ body > .container {
 .toast {
   filter: none !important;
 }
+
+/* ============================================================
+   MODAL DE IMAGEM — layout final dos botões (vence tudo)
+   ============================================================ */
+.product-image-modal__content .product-image-modal__like,
+.product-image-modal__content .product-image-modal__close,
+.product-image-modal__content .product-image-share--modal {
+  position: absolute !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(0,0,0,.55) !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  color: #fff !important;
+  z-index: 20 !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box !important;
+  transform: none !important;
+  transition: background .15s, transform .1s;
+}
+
+.product-image-modal__content .product-image-modal__like  { top: 12px !important; left: 12px !important;  right: auto !important; }
+.product-image-modal__content .product-image-share--modal { top: 12px !important; right: 62px !important; left: auto !important; }
+.product-image-modal__content .product-image-modal__close { top: 12px !important; right: 12px !important; left: auto !important; }
+
+.product-image-modal__content .product-image-modal__like:hover,
+.product-image-modal__content .product-image-modal__close:hover,
+.product-image-modal__content .product-image-share--modal:hover {
+  background: rgba(255,255,255,.2) !important;
+}
+.product-image-modal__content .product-image-modal__like:active,
+.product-image-modal__content .product-image-modal__close:active,
+.product-image-modal__content .product-image-share--modal:active {
+  transform: scale(.92) !important;
+}
+
+.product-image-modal__content .product-image-modal__like svg,
+.product-image-modal__content .product-image-modal__close svg,
+.product-image-modal__content .product-image-share--modal svg {
+  width: 20px !important;
+  height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  stroke-width: 2 !important;
+  display: block !important;
+}
+
+.product-image-modal__content .product-image-modal__like.is-liked {
+  background: rgba(255,59,48,.95) !important;
+  border-color: transparent !important;
+}
+.product-image-modal__content .product-image-modal__like.is-liked svg { fill: #fff !important; }
+
+/* Menu de partilha dentro do modal */
+.product-share-menu--modal {
+  top: 62px !important;
+  right: 62px !important;
+  z-index: 30 !important;
+}
