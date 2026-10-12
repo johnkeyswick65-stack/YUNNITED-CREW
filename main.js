@@ -175,6 +175,7 @@ function iniciarModalProdutos() {
       <div class="product-image-modal__backdrop"></div>
 
       <div class="product-image-modal__content" role="dialog" aria-modal="true">
+        <div class="product-image-modal__media">
         <button class="product-image-modal__close" type="button" aria-label="Fechar">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 6l12 12M18 6L6 18"/>
@@ -182,6 +183,8 @@ function iniciarModalProdutos() {
         </button>
 
         <img class="product-image-modal__image" src="" alt="">
+
+        </div>
 
         <div class="product-image-modal__info">
           <div class="product-image-modal__text">

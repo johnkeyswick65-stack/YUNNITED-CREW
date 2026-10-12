@@ -3158,3 +3158,51 @@ body > .container {
   right: auto !important;
   z-index: 30 !important;
 }
+
+/* ============================================================
+   MODAL: wrapper da imagem (ancora correta dos botões)
+   ============================================================ */
+.product-image-modal__media {
+  position: relative !important;
+  display: block !important;
+  line-height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.product-image-modal__media .product-image-modal__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.product-image-modal__media .product-image-modal__like  {
+  position: absolute !important;
+  top: auto !important;
+  bottom: 12px !important;
+  left: 12px !important;
+  right: auto !important;
+}
+.product-image-modal__media .product-image-share--modal {
+  position: absolute !important;
+  top: auto !important;
+  bottom: 12px !important;
+  left: 62px !important;
+  right: auto !important;
+}
+.product-image-modal__media .product-image-modal__close {
+  position: absolute !important;
+  top: 12px !important;
+  bottom: auto !important;
+  right: 12px !important;
+  left: auto !important;
+}
+
+.product-image-modal__content .product-share-menu--modal {
+  top: auto !important;
+  bottom: 62px !important;
+  left: 62px !important;
+  right: auto !important;
+  z-index: 30 !important;
+}
