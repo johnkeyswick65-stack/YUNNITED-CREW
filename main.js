@@ -113,20 +113,6 @@ function criarCardProduto(p) {
     </div>
   `;
 
-  const visual = p.imagem
-    ? `<div class="product-card__image product-image-clickable"
-          data-image="${p.imagem}"
-          data-name="${nomeCurto.replace(/"/g, '&quot;')}"
-          data-desc="${descCurta.replace(/"/g, '&quot;')}"
-          role="button"
-          tabindex="0"
-          aria-label="Ampliar imagem de ${p.nome}">
-        <img src="${p.imagem}" alt="${p.nome}" loading="lazy">
-        ${badge}
-        ${actionsInner}
-      </div>`
-    : `<div class="product-card__icon">${p.svg || p.icone}</div>`;
-
   const actionsInner = p.categoria !== 'nhonga'
     ? `
         <div class="product-card__actions">
@@ -147,6 +133,22 @@ function criarCardProduto(p) {
         </div>
       `
     : '';
+
+  const visual = p.imagem
+    ? `<div class="product-card__image product-image-clickable"
+          data-image="${p.imagem}"
+          data-name="${nomeCurto.replace(/"/g, '&quot;')}"
+          data-desc="${descCurta.replace(/"/g, '&quot;')}"
+          role="button"
+          tabindex="0"
+          aria-label="Ampliar imagem de ${p.nome}">
+        <img src="${p.imagem}" alt="${p.nome}" loading="lazy">
+        ${badge}
+        ${actionsInner}
+      </div>`
+    : `<div class="product-card__icon">${p.svg || p.icone}</div>`;
+
+  
 
   return `
     <article class="product-card">
