@@ -16,7 +16,7 @@ function paraSlug(nome) {
 
 function gerarSkeletonHTML(quantidade) {
   const n = quantidade || 4;
-  const cards = Array.from({ length: n }, () => `
+  return Array.from({ length: n }, () => `
     <div class="skeleton-card">
       <div class="skeleton-card__media"></div>
       <div class="skeleton-card__body">
@@ -29,12 +29,12 @@ function gerarSkeletonHTML(quantidade) {
       </div>
     </div>
   `).join('');
-  return `<div class="skeleton-grid">${cards}</div>`;
 }
+
 
 function mostrarSkeletons() {
   document.querySelectorAll('[data-row], #categoryGrid, #popularGrid, .cat-grid').forEach((grid) => {
-    if (grid.querySelector('.skeleton-grid')) return;
+    if (grid.querySelector('.skeleton-card')) return;
     if (grid.children.length > 0) return; // já tem conteúdo
     grid.innerHTML = gerarSkeletonHTML(4);
   });
@@ -85,7 +85,7 @@ async function carregarProdutosDaAPI() {
 document.addEventListener('DOMContentLoaded', async () => {
   mostrarSkeletons();
   await carregarProdutosDaAPI();
-  document.querySelectorAll('.skeleton-grid').forEach((el) => el.remove());
+  document.querySelectorAll('.skeleton-card').forEach((el) => el.remove());
   // Ano no rodapé
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -788,4 +788,86 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   } catch {}
+});
+
+/* ================= PLACEHOLDER ANIMADO (por categoria) ================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('searchInput');
+  if (!input) return;
+
+  const FRASES = {
+    'world-library': [
+      'Pesquisar livros digitais...',
+      'Pesquisar romances...',
+      'Pesquisar e-books escolares...',
+      'Pesquisar desenvolvimento pessoal...',
+      'Pesquisar livros de cultura...',
+      'Pesquisar psicologia...',
+    ],
+    'acessorios': [
+      'Pesquisar iPhone...',
+      'Pesquisar Samsung...',
+      'Pesquisar cabos USB...',
+      'Pesquisar fones bluetooth...',
+      'Pesquisar carregadores...',
+      'Pesquisar power banks...',
+    ],
+    'moda': [
+      'Pesquisar camisetas...',
+      'Pesquisar calças...',
+      'Pesquisar chapéus...',
+      'Pesquisar bonés...',
+      'Pesquisar vestidos...',
+      'Pesquisar peças de moda...',
+    ],
+    'nhonga': [
+      'Pesquisar vendedores...',
+      'Pesquisar negócios locais...',
+      'Como divulgar o meu negócio?',
+      'Como cadastrar produtos?',
+    ],
+    '_default': [
+      'Pesquisar livros, acessórios, moda...',
+      'Pesquisar livros digitais...',
+      'Pesquisar romances...',
+      'Pesquisar iPhone, Samsung...',
+      'Pesquisar chapéus, bonés...',
+      'Pesquisar e-books escolares...',
+      'Pesquisar desenvolvimento pessoal...',
+    ],
+  };
+
+  const cat = document.body.getAttribute('data-category') || '_default';
+  const frases = FRASES[cat] || FRASES._default;
+
+  let idx = 0, char = 0, apagando = false;
+  const VELOCIDADE_ESCRITA = 60;
+  const VELOCIDADE_APAGAR  = 25;
+  const PAUSA_FIM          = 1800;
+  const PAUSA_ENTRE        = 300;
+
+  function tick() {
+    const frase = frases[idx];
+    if (!apagando) {
+      char++;
+      input.setAttribute('placeholder', frase.slice(0, char));
+      if (char === frase.length) {
+        apagando = true;
+        return setTimeout(tick, PAUSA_FIM);
+      }
+      return setTimeout(tick, VELOCIDADE_ESCRITA);
+    } else {
+      char--;
+      input.setAttribute('placeholder', frase.slice(0, char));
+      if (char === 0) {
+        apagando = false;
+        idx = (idx + 1) % frases.length;
+        return setTimeout(tick, PAUSA_ENTRE);
+      }
+      return setTimeout(tick, VELOCIDADE_APAGAR);
+    }
+  }
+
+  // Pausa inicial
+  setTimeout(tick, 900);
 });
