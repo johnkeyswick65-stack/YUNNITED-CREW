@@ -3034,7 +3034,6 @@ body.view-list .skeleton-card__body { flex: 1; }
 
 /* Grelha do skeleton = grelha real */
 @media (max-width: 480px) {
-  .skeleton-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
 /* Vista em lista */
@@ -3256,9 +3255,6 @@ body.view-list .skeleton-grid {
 /* Colunas */
 
 @media (max-width: 480px) {
-  .skeleton-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
-  .skeleton-card { padding: 14px !important; }
-  .skeleton-btn { width: 78px !important; height: 32px !important; }
 }
 
 /* Lista */
@@ -3267,73 +3263,9 @@ body.view-list .skeleton-card { flex-direction: row !important; align-items: cen
 body.view-list .skeleton-card__media { width: 96px !important; height: 96px !important; aspect-ratio: 1 !important; border-radius: 12px !important; flex-shrink: 0 !important; }
 body.view-list .skeleton-card__body { flex: 1 !important; min-width: 0 !important; }
 
-
 /* ============================================================
    SKELETON — bloco único (medidas do card real)
    ============================================================ */
-.skeleton-card {
-  background: var(--bg-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-sizing: border-box;
-  width: 100%;
-  min-width: 0;
-}
-
-.skeleton-card__media {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: var(--radius);
-  margin: 0;
-  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%);
-  background-size: 200% 100%;
-  animation: skeleton-shimmer 1.4s infinite;
-}
-
-.skeleton-card__body {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.skeleton-line {
-  height: 12px;
-  border-radius: 5px;
-  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%);
-  background-size: 200% 100%;
-  animation: skeleton-shimmer 1.4s infinite;
-}
-.skeleton-line--title { width: 80%; height: 14px; }
-.skeleton-line--desc  { width: 95%; }
-.skeleton-line--price { width: 50%; height: 16px; margin: 0; }
-
-.skeleton-card__footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  margin-top: 4px;
-}
-
-.skeleton-btn {
-  width: 90px;
-  height: 36px;
-  border-radius: 999px;
-  flex-shrink: 0;
-  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%);
-  background-size: 200% 100%;
-  animation: skeleton-shimmer 1.4s infinite;
-}
-
-@keyframes skeleton-shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
 
 /* Vista em lista */
 body.view-list .skeleton-card {
@@ -3525,17 +3457,115 @@ body > .container {
 body { filter: none !important; }
 
 /* Skeleton = filho da grid, deve respeitar as colunas */
-.skeleton-card {
-  display: flex !important;
-  flex-direction: column !important;
-  grid-column: auto !important;
-  grid-row: auto !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: none !important;
-  box-sizing: border-box !important;
-}
 
 body.view-list .skeleton-card {
   grid-column: auto !important;
+}
+
+/* ============================================================
+   SKELETON — regra única e definitiva
+   ============================================================ */
+
+/* Grid pai com skeletons: 2 colunas por defeito */
+[data-row]:has(> .skeleton-card),
+#categoryGrid:has(> .skeleton-card),
+#popularGrid:has(> .skeleton-card),
+.cat-grid:has(> .skeleton-card) {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+/* Vista em lista: 1 por linha */
+body.view-list [data-row]:has(> .skeleton-card),
+body.view-list #categoryGrid:has(> .skeleton-card),
+body.view-list #popularGrid:has(> .skeleton-card),
+body.view-list .cat-grid:has(> .skeleton-card) {
+  grid-template-columns: 1fr !important;
+}
+
+/* Cartão skeleton — coluna (colunas) */
+.skeleton-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: var(--bg-2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  padding: 18px !important;
+  gap: 10px !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+
+/* Vista em lista: cartão horizontal */
+body.view-list .skeleton-card {
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 14px !important;
+}
+
+.skeleton-card__media {
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: var(--radius) !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%) !important;
+  background-size: 200% 100% !important;
+  animation: skeleton-shimmer 1.4s infinite !important;
+}
+
+body.view-list .skeleton-card__media {
+  width: 96px !important;
+  height: 96px !important;
+  aspect-ratio: 1 !important;
+  border-radius: 12px !important;
+}
+
+.skeleton-card__body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding: 0 !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.skeleton-line {
+  height: 12px !important;
+  border-radius: 5px !important;
+  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%) !important;
+  background-size: 200% 100% !important;
+  animation: skeleton-shimmer 1.4s infinite !important;
+}
+.skeleton-line--title { width: 80% !important; height: 14px !important; }
+.skeleton-line--desc  { width: 95% !important; }
+.skeleton-line--price { width: 50% !important; height: 16px !important; margin: 0 !important; }
+
+.skeleton-card__footer {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-top: 4px !important;
+}
+
+.skeleton-btn {
+  width: 90px !important;
+  height: 36px !important;
+  border-radius: 999px !important;
+  flex-shrink: 0 !important;
+  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%) !important;
+  background-size: 200% 100% !important;
+  animation: skeleton-shimmer 1.4s infinite !important;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
