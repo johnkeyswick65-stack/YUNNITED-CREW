@@ -3493,3 +3493,4 @@ body.view-list .skeleton-card__body {
   top: auto !important;
   z-index: 30 !important;
 }
+.product-image-modal__content { background: red !important; min-height: 300px !important; }
