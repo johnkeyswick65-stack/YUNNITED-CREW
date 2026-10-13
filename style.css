@@ -3038,3 +3038,88 @@ body.search-open { overflow: hidden; }
   background: linear-gradient(135deg, #7c5cff, #b44cff);
   cursor: pointer;
 }
+
+/* ================= SKELETON LOADING ================= */
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 8px 0;
+}
+.skeleton-card {
+  background: linear-gradient(160deg, #16161c 0%, #101015 100%);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.skeleton-card__media {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s infinite;
+}
+.skeleton-card__body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.skeleton-line {
+  height: 11px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s infinite;
+}
+.skeleton-line--title { width: 78%; height: 14px; }
+.skeleton-line--desc { width: 92%; }
+.skeleton-line--price { width: 42%; height: 16px; margin-top: 4px; }
+.skeleton-btn {
+  width: 86px;
+  height: 34px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s infinite;
+}
+.skeleton-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Vista em lista */
+body.view-list .skeleton-grid { grid-template-columns: 1fr; }
+body.view-list .skeleton-card { flex-direction: row; align-items: center; padding: 12px; }
+body.view-list .skeleton-card__media { width: 96px; height: 96px; aspect-ratio: 1; border-radius: 12px; flex-shrink: 0; }
+body.view-list .skeleton-card__body { flex: 1; }
+
+/* Spinner para outras secções */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 40px 20px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.loading-state__spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid rgba(124,92,255,.2);
+  border-top-color: #7c5cff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

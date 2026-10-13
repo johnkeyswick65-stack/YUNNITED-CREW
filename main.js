@@ -14,6 +14,32 @@ function paraSlug(nome) {
     .replace(/^-+|-+$/g, '');
 }
 
+function gerarSkeletonHTML(quantidade) {
+  const n = quantidade || 4;
+  const cards = Array.from({ length: n }, () => `
+    <div class="skeleton-card">
+      <div class="skeleton-card__media"></div>
+      <div class="skeleton-card__body">
+        <div class="skeleton-line skeleton-line--title"></div>
+        <div class="skeleton-line skeleton-line--desc"></div>
+        <div class="skeleton-card__footer">
+          <div class="skeleton-line skeleton-line--price"></div>
+          <div class="skeleton-btn"></div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  return `<div class="skeleton-grid">${cards}</div>`;
+}
+
+function mostrarSkeletons() {
+  document.querySelectorAll('[data-row], #categoryGrid, #popularGrid, .cat-grid').forEach((grid) => {
+    if (grid.querySelector('.skeleton-grid')) return;
+    if (grid.children.length > 0) return; // já tem conteúdo
+    grid.innerHTML = gerarSkeletonHTML(4);
+  });
+}
+
 async function carregarProdutosDaAPI() {
   try {
     const response = await fetch('https://yunnited-crew-backend.pages.dev/api/products');
@@ -57,7 +83,9 @@ async function carregarProdutosDaAPI() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  mostrarSkeletons();
   await carregarProdutosDaAPI();
+  document.querySelectorAll('.skeleton-grid').forEach((el) => el.remove());
   // Ano no rodapé
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
