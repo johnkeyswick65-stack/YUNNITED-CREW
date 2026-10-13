@@ -3493,4 +3493,33 @@ body.view-list .skeleton-card__body {
   top: auto !important;
   z-index: 30 !important;
 }
-.product-image-modal__content { background: red !important; min-height: 300px !important; }
+
+/* ============================================================
+   BRILHO — NÃO aplicar aos modais (senão ficam invisíveis)
+   ============================================================ */
+body > header,
+body > main,
+body > section,
+body > article,
+body > footer,
+body > .container {
+  filter: brightness(var(--site-brightness, 1));
+  transition: filter .18s ease;
+}
+
+/* Forçar TODOS os overlays/modais SEM filtro */
+.product-image-modal,
+.product-image-modal *,
+.shared-product,
+.shared-product *,
+.search-overlay,
+.search-overlay *,
+.mobile-menu,
+.mobile-menu *,
+.product-share-menu,
+.product-share-menu * {
+  filter: none !important;
+}
+
+/* E remover o filtro antigo que apanhava o body todo */
+body { filter: none !important; }
