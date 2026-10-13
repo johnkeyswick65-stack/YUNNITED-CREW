@@ -3235,3 +3235,221 @@ body.view-list .products-grid,
 body.view-list .skeleton-grid {
   grid-template-columns: 1fr !important;
 }
+
+/* ============================================================
+   MODAL — RESET TOTAL (vence todas as regras anteriores)
+   ============================================================ */
+#productImageModal .product-image-modal__content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  max-width: 480px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  border-radius: 18px !important;
+  background: #101015 !important;
+}
+
+/* Mídia (imagem + botão fechar) */
+#productImageModal .product-image-modal__media {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  border-radius: 18px 18px 0 0 !important;
+  overflow: hidden !important;
+  line-height: 0 !important;
+  background: #0a0a0f;
+}
+#productImageModal .product-image-modal__media .product-image-modal__image {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 60vh !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+#productImageModal .product-image-modal__media .product-image-modal__close {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  background: rgba(0,0,0,.55) !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 5 !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+#productImageModal .product-image-modal__media .product-image-modal__close svg {
+  width: 18px !important; height: 18px !important;
+}
+
+/* Info (nome + descrição) */
+#productImageModal .product-image-modal__info {
+  display: block !important;
+  padding: 18px 20px 14px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  gap: 0 !important;
+}
+#productImageModal .product-image-modal__info .product-image-modal__name {
+  display: block !important;
+  font-size: 19px !important;
+  font-weight: 800 !important;
+  margin: 0 0 6px !important;
+  line-height: 1.25 !important;
+  color: var(--text) !important;
+}
+#productImageModal .product-image-modal__info .product-image-modal__desc {
+  display: block !important;
+  font-size: 13.5px !important;
+  color: var(--muted) !important;
+  margin: 0 !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+}
+
+/* Barra de ações */
+#productImageModal .product-image-modal__bar {
+  display: flex !important;
+  gap: 8px !important;
+  padding: 0 20px 18px !important;
+  margin: 0 !important;
+  position: relative !important;
+  border-top: 1px solid rgba(255,255,255,.05) !important;
+  padding-top: 14px !important;
+}
+#productImageModal .product-image-modal__bar > button {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 11px 6px !important;
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 12px !important;
+  color: var(--muted) !important;
+  font-family: inherit !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: .3px !important;
+  cursor: pointer !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  inset: auto !important;
+  top: auto !important; bottom: auto !important; left: auto !important; right: auto !important;
+  transform: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  transition: background .15s, color .15s, border-color .15s;
+}
+#productImageModal .product-image-modal__bar > button:hover {
+  background: rgba(255,255,255,.08) !important;
+  color: #fff !important;
+}
+#productImageModal .product-image-modal__bar > button svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke-width: 1.9 !important;
+  display: block;
+}
+#productImageModal .product-image-modal__bar > button.product-image-modal__like::after { content: 'Gosto'; }
+#productImageModal .product-image-modal__bar > button.product-image-share--modal::after { content: 'Partilhar'; }
+#productImageModal .product-image-modal__bar > button.product-image-modal__like.is-liked {
+  background: rgba(255,59,48,.14) !important;
+  border-color: rgba(255,59,48,.4) !important;
+  color: #ff3b30 !important;
+}
+#productImageModal .product-image-modal__bar > button.product-image-modal__like.is-liked svg {
+  fill: #ff3b30 !important; stroke: #ff3b30 !important;
+}
+
+/* Menu de partilha do modal */
+#productImageModal .product-share-menu--modal {
+  position: absolute !important;
+  bottom: 70px !important;
+  left: 20px !important;
+  right: auto !important;
+  top: auto !important;
+  z-index: 30 !important;
+}
+
+/* ============================================================
+   SKELETON — igual ao cartão real (colunas e lista)
+   ============================================================ */
+/* Colunas */
+.skeleton-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 14px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.skeleton-card {
+  background: linear-gradient(160deg, #16161c 0%, #101015 100%) !important;
+  border: 1px solid rgba(255,255,255,.06) !important;
+  border-radius: 14px !important;
+  padding: 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  box-sizing: border-box !important;
+}
+.skeleton-card__media {
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 14px !important;
+  margin: 0 !important;
+  flex-shrink: 0;
+}
+.skeleton-card__body {
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+.skeleton-line--title { height: 14px !important; width: 78% !important; }
+.skeleton-line--desc  { height: 11px !important; width: 92% !important; }
+.skeleton-line--price { height: 16px !important; width: 45% !important; margin: 2px 0 0 !important; }
+.skeleton-card__footer {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-top: 4px !important;
+}
+.skeleton-btn {
+  width: 94px !important;
+  height: 36px !important;
+  border-radius: 999px !important;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .skeleton-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .skeleton-card { padding: 14px !important; }
+  .skeleton-btn { width: 78px !important; height: 32px !important; }
+}
+
+/* Lista */
+body.view-list .skeleton-grid { grid-template-columns: 1fr !important; }
+body.view-list .skeleton-card { flex-direction: row !important; align-items: center !important; gap: 12px !important; }
+body.view-list .skeleton-card__media { width: 96px !important; height: 96px !important; aspect-ratio: 1 !important; border-radius: 12px !important; flex-shrink: 0 !important; }
+body.view-list .skeleton-card__body { flex: 1 !important; min-width: 0 !important; }
