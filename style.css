@@ -3123,3 +3123,62 @@ body.view-list .skeleton-card__body { flex: 1; }
   animation: spin 0.8s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* ============================================================
+   SKELETON — alinhar tamanho com o cartão real
+   ============================================================ */
+.skeleton-card {
+  padding: 18px !important;
+  gap: 10px !important;
+  border-radius: var(--radius) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.skeleton-card__media {
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: var(--radius) !important;
+  margin: 0 !important;
+}
+
+.skeleton-card__body {
+  padding: 0 !important;
+  gap: 10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Linhas com alturas exatas do texto real */
+.skeleton-line--title { height: 15px !important; width: 80% !important; }
+.skeleton-line--desc  { height: 12px !important; width: 95% !important; }
+.skeleton-line--price { height: 18px !important; width: 45% !important; margin-top: 0 !important; }
+
+.skeleton-card__footer {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-top: 2px !important;
+}
+
+.skeleton-btn {
+  width: 96px !important;
+  height: 38px !important;
+  border-radius: 999px !important;
+}
+
+/* Grelha do skeleton = grelha real */
+.skeleton-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 14px !important;
+}
+@media (max-width: 480px) {
+  .skeleton-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* Vista em lista */
+body.view-list .skeleton-grid { grid-template-columns: 1fr !important; }
+body.view-list .skeleton-card { flex-direction: row !important; align-items: center !important; }
+body.view-list .skeleton-card__media { width: 96px !important; height: 96px !important; aspect-ratio: 1 !important; border-radius: 12px !important; flex-shrink: 0 !important; }
+body.view-list .skeleton-card__body { flex: 1 !important; }
