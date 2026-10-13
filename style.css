@@ -3523,3 +3523,19 @@ body > .container {
 
 /* E remover o filtro antigo que apanhava o body todo */
 body { filter: none !important; }
+
+/* Skeleton = filho da grid, deve respeitar as colunas */
+.skeleton-card {
+  display: flex !important;
+  flex-direction: column !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+
+body.view-list .skeleton-card {
+  grid-column: auto !important;
+}
