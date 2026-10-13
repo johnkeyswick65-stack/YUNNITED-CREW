@@ -3350,3 +3350,14 @@ body.view-list .skeleton-card__body {
   flex: 1;
   min-width: 0;
 }
+
+/* ================= MENU: espaço extra para o X ================= */
+@media (max-width: 700px) {
+  .mobile-menu__inner {
+    padding-top: 96px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    padding-bottom: 20px !important;
+    gap: 6px !important;
+  }
+}
