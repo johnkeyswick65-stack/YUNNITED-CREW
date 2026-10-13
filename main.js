@@ -767,3 +767,26 @@ document.addEventListener('DOMContentLoaded', () => {
 const spinStyle = document.createElement('style');
 spinStyle.textContent = '@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }';
 document.head.appendChild(spinStyle);
+
+/* ================= VIEW TOGGLE (colunas / lista) ================= */
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.view-btn');
+  if (!btn) return;
+  const modo = btn.dataset.view;
+  document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('is-active', b === btn));
+  if (modo === 'list') document.body.classList.add('view-list');
+  else document.body.classList.remove('view-list');
+  try { localStorage.setItem('yc_view', modo); } catch {}
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const saved = localStorage.getItem('yc_view') || 'grid';
+    if (saved === 'list') {
+      document.body.classList.add('view-list');
+      document.querySelectorAll('.view-btn').forEach(b => {
+        b.classList.toggle('is-active', b.dataset.view === 'list');
+      });
+    }
+  } catch {}
+});

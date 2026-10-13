@@ -3182,3 +3182,56 @@ body.view-list .skeleton-grid { grid-template-columns: 1fr !important; }
 body.view-list .skeleton-card { flex-direction: row !important; align-items: center !important; }
 body.view-list .skeleton-card__media { width: 96px !important; height: 96px !important; aspect-ratio: 1 !important; border-radius: 12px !important; flex-shrink: 0 !important; }
 body.view-list .skeleton-card__body { flex: 1 !important; }
+
+/* ================= VIEW TOGGLE (colunas / lista) ================= */
+.mobile-menu__view {
+  padding: 10px 10px 14px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.mobile-menu__view .mobile-menu__label {
+  display: block;
+  margin-bottom: 8px;
+}
+.view-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 12px;
+  padding: 4px;
+}
+.view-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.view-btn i[data-lucide] { width: 15px; height: 15px; }
+.view-btn:hover { color: var(--text); }
+.view-btn.is-active {
+  background: linear-gradient(135deg, #7c5cff, #b44cff);
+  color: #fff;
+  box-shadow: 0 6px 14px -6px rgba(124,92,255,.7);
+}
+
+/* Vista em LISTA — 1 coluna */
+body.view-list .grid[data-row],
+body.view-list .cat-grid,
+body.view-list #categoryGrid,
+body.view-list #popularGrid,
+body.view-list .products-grid,
+body.view-list .skeleton-grid {
+  grid-template-columns: 1fr !important;
+}
