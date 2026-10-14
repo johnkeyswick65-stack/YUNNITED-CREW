@@ -1037,12 +1037,6 @@ img {
     min-width: 0;
   }
 
-  .search-row .search {
-    width: 100%;
-    max-width: none;
-    min-width: 0;
-  }
-
   .btn--header {
     position: relative;
     right: auto;
@@ -1073,10 +1067,6 @@ img {
 }
 
 @media (max-width: 700px) {
-  .search-row .search {
-    width: 85%;
-    max-width: 85%;
-  }
 }
 
 @media (max-width: 700px) {
@@ -1109,12 +1099,6 @@ img {
     width: 100%;
     min-width: 0;
     display: flex;
-  }
-
-  .search-row .search {
-    width: 100%;
-    max-width: none;
-    min-width: 0;
   }
 
   .search-row .search input {
