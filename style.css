@@ -275,26 +275,6 @@ img {
   border-bottom: 1px solid var(--border);
   padding: 14px 0;
 }
-.ads__inner {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  overflow-x: auto;
-}
-.ads__label {
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--accent);
-  letter-spacing: 1px;
-  flex-shrink: 0;
-}
-.ads__item {
-  font-size: 13px;
-  color: var(--muted);
-  white-space: nowrap;
-  padding: 6px 0;
-}
-.ads__item:hover { color: var(--text); }
 
 /* ================= PRODUTOS ================= */
 .grid {
@@ -505,13 +485,6 @@ img {
   border-radius: var(--radius);
 }
 
-.search-status {
-  margin: 12px 0;
-  font-size: 14px;
-  color: #aaa;
-  text-align: center;
-}
-
 /* ================= WORLD LIBRARY ================= */
 
 .wl-category-head {
@@ -560,10 +533,6 @@ img {
   background: var(--accent);
   color: #000;
   border-color: var(--accent);
-}
-
-.book-card {
-  min-height: 190px;
 }
 
 .book-card .product-card__icon {
@@ -759,10 +728,6 @@ img {
 .fashion-page {
   background:
     radial-gradient(circle at top right, #211b24 0%, #050505 45%);
-}
-
-.fashion-main {
-  padding-top: 40px;
 }
 
 .fashion-hero {
@@ -2208,11 +2173,6 @@ body[data-category="world-library"] .product-card__image img {
   padding: 0 4px;
 }
 
-.product-image-modal__text {
-  min-width: 0;
-  flex: 1;
-}
-
 .product-image-modal__name {
   margin: 0 0 4px;
   color: #fff;
@@ -2941,14 +2901,7 @@ body.view-list .skeleton-card__body { flex: 1; }
   color: var(--muted);
   font-size: 13px;
 }
-.loading-state__spinner {
-  width: 34px;
-  height: 34px;
-  border: 3px solid rgba(124,92,255,.2);
-  border-top-color: #7c5cff;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
+
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ============================================================
