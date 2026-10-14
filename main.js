@@ -918,3 +918,96 @@ document.addEventListener('DOMContentLoaded', () => {
 
   iniciar();
 });
+
+/* ================= HERO STORIES ================= */
+function iniciarHeroStories() {
+  const rail = document.getElementById('heroStoryRail');
+  const stage = document.getElementById('heroStoryStage');
+  if (!rail || !stage) return;
+
+  const cats = [
+    { slug: 'world-library', label: 'World Library', icon: 'menu_book' },
+    { slug: 'acessorios',    label: 'Acessórios',    icon: 'headphones' },
+    { slug: 'moda',          label: 'Moda',          icon: 'checkroom' },
+    { slug: 'nhonga',        label: 'Nhonga',        icon: 'storefront' },
+  ];
+
+  // Último produto por categoria (o mais recente adicionado)
+  const stories = [];
+  cats.forEach((c) => {
+    const doCat = PRODUTOS.filter((p) => p.categoria === c.slug);
+    if (!doCat.length) return;
+    const ultimo = doCat[doCat.length - 1];
+    stories.push({ ...c, produto: ultimo });
+  });
+
+  if (!stories.length) { document.getElementById('heroStories')?.remove(); return; }
+
+  rail.innerHTML = stories.map((s, i) => `
+    <button type="button" class="hero-story-dot ${i === 0 ? 'is-active' : ''}" data-i="${i}">
+      <span class="hero-story-dot__ring">
+        <span class="material-symbols-outlined">${s.icon}</span>
+      </span>
+      <span class="hero-story-dot__label">${s.label}</span>
+    </button>
+  `).join('');
+
+  stage.innerHTML = stories.map((s, i) => {
+    const p = s.produto;
+    const preco = p.preco === 0 ? 'Grátis' : `${p.preco.toFixed(2).replace('.', ',')} MT`;
+    const media = p.imagem
+      ? `<img src="${p.imagem}" alt="${p.nome}" loading="lazy">`
+      : `<span class="material-symbols-outlined">${s.icon}</span>`;
+    return `
+      <article class="hero-story ${i === 0 ? 'is-active' : ''}" data-i="${i}">
+        <div class="hero-story__media">${media}</div>
+        <div class="hero-story__info">
+          <span class="hero-story__tag">${s.label}</span>
+          <h3>${p.nome}</h3>
+          <p>${p.desc || ''}</p>
+        </div>
+        <div class="hero-story__footer">
+          <span class="hero-story__price">${preco}</span>
+          <a class="hero-story__cta" href="${p.categoria}.html">
+            Ver <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  const dots = rail.querySelectorAll('.hero-story-dot');
+  const slides = stage.querySelectorAll('.hero-story');
+  let atual = 0, timer = null;
+  const DURACAO = 5000;
+
+  function mostrar(i) {
+    atual = i;
+    dots.forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+    slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i));
+    if (window.refreshIcons) window.refreshIcons();
+  }
+  function proximo() { mostrar((atual + 1) % stories.length); }
+  function parar() { if (timer) clearInterval(timer); timer = null; }
+  function iniciar() { parar(); timer = setInterval(proximo, DURACAO); }
+
+  dots.forEach((d, idx) => {
+    d.addEventListener('click', () => { mostrar(idx); iniciar(); });
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) parar(); else iniciar();
+  });
+
+  iniciar();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Esperar PRODUTOS (podem vir da API) — até 4s
+  let tentativas = 25;
+  const tentar = () => {
+    if (typeof PRODUTOS !== 'undefined' && PRODUTOS.length > 0) return iniciarHeroStories();
+    if (tentativas-- > 0) return setTimeout(tentar, 160);
+  };
+  tentar();
+});
