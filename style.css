@@ -52,7 +52,6 @@ img {
   padding: 8px 16px;
   gap: 12px;
 }
-.topbar__contact { color: #ffffff; font-weight: 600; }
 
 /* ================= CABEÇALHO ================= */
 .site-header {
@@ -265,28 +264,9 @@ img {
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
-.cat-card {
-  background: var(--bg-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 14px;
-  transition: .2s;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.cat-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
-}
-.cat-card__icon { font-size: 28px; }
+
 .cat-card h3 { font-size: 17px; }
 .cat-card p { font-size: 13px; color: var(--muted); flex: 1; }
-.cat-card__link {
-  font-size: 13px;
-  color: var(--accent);
-  font-weight: 700;
-}
 
 /* ================= ANÚNCIOS ================= */
 .ads {
@@ -1046,13 +1026,6 @@ img {
 
 @media (max-width: 700px) {
 
-  .header-main {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 44px;
-    align-items: center;
-    gap: 10px;
-  }
-
   .brand {
     grid-column: 1 / -1;
     grid-row: 1;
@@ -1129,16 +1102,6 @@ img {
 
 @media (max-width: 700px) {
 
-  .header-main {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-rows: auto auto;
-    column-gap: 12px;
-    row-gap: 10px;
-    align-items: center;
-    padding: 12px 16px;
-  }
-
   /* Logo */
   .brand {
     grid-column: 1 / -1;
@@ -1212,9 +1175,6 @@ img {
 
 /* Em telas muito pequenas, reduzir um pouco o espaço */
 @media (max-width: 380px) {
-  .header-main {
-    column-gap: 8px;
-  }
 
   .btn--header {
     min-width: 76px;
