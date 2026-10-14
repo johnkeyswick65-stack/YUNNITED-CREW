@@ -3596,3 +3596,36 @@ body.view-list .skeleton-card__media {
 .quick-btn .material-symbols-outlined { font-size: 20px; }
 .product-card__actions .material-symbols-outlined { font-size: 18px; }
 #productImageModal .material-symbols-outlined { font-size: 20px; }
+
+/* ================= MATERIAL ICONS: remover caixa indesejada ================= */
+.material-symbols-outlined {
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  text-decoration: none !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+}
+
+/* Especificamente dentro de links do menu */
+.mobile-menu__inner a > .material-symbols-outlined,
+.catnav__inner a > .material-symbols-outlined,
+.quick-btn > .material-symbols-outlined {
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Botões do menu rápido: manter o fundo SÓ no botão, não no ícone */
+.quick-btn {
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.06) !important;
+}
