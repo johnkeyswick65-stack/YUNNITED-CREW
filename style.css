@@ -4141,3 +4141,22 @@ section.hero + section.hero-stories-wrap { margin-top: 0 !important; }
   vertical-align: -3px;
   margin-right: 4px;
 }
+
+/* ================= ÍCONE CARRINHO — tamanho e alinhamento ================= */
+.btn--wa.btn--sm .material-symbols-outlined,
+.btn--wa .material-symbols-outlined {
+  font-size: 15px !important;
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20 !important;
+  vertical-align: -2px !important;
+  margin-right: 5px !important;
+  display: inline-block !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 500px) {
+  .btn--wa .material-symbols-outlined {
+    font-size: 14px !important;
+    margin-right: 4px !important;
+    vertical-align: -2px !important;
+  }
+}
