@@ -871,3 +871,50 @@ document.addEventListener('DOMContentLoaded', () => {
   // Pausa inicial
   setTimeout(tick, 900);
 });
+
+/* ================= CARROSSEL DE ANÚNCIOS ================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const stage = document.getElementById('adsStage');
+  if (!stage) return;
+  const slides = stage.querySelectorAll('.ads-slide');
+  const dots = document.querySelectorAll('.ads-dot');
+  if (slides.length < 2) return;
+
+  let atual = 0;
+  let timer = null;
+  const INTERVALO = 5000;
+
+  function mostrar(i) {
+    slides.forEach((el, idx) => el.classList.toggle('is-active', idx === i));
+    dots.forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+    atual = i;
+  }
+
+  function proximo() {
+    mostrar((atual + 1) % slides.length);
+  }
+
+  function iniciar() {
+    parar();
+    timer = setInterval(proximo, INTERVALO);
+  }
+
+  function parar() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  dots.forEach((d) => {
+    d.addEventListener('click', () => {
+      mostrar(Number(d.dataset.target));
+      iniciar(); // reinicia contagem após interação
+    });
+  });
+
+  // Pausar quando o separador perde foco
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) parar();
+    else iniciar();
+  });
+
+  iniciar();
+});

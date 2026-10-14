@@ -3658,3 +3658,154 @@ body.view-list .skeleton-card__media {
   width: auto !important;
   height: auto !important;
 }
+
+/* ============================================================
+   ANÚNCIOS — carrossel com rotação automática
+   ============================================================ */
+.ads-carousel {
+  padding: 20px 0 8px;
+}
+.ads-carousel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.ads-carousel__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.ads-carousel__label .material-symbols-outlined {
+  font-size: 16px;
+  color: #7c5cff;
+}
+
+/* Stage — pílula compacta */
+.ads-carousel__stage {
+  position: relative;
+  min-height: 92px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(124,92,255,.14), rgba(180,76,255,.06) 60%, transparent);
+  border: 1px solid rgba(124,92,255,.25);
+}
+
+/* Slide — 3 em camadas, só o is-active aparece */
+.ads-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .4s ease, transform .4s ease;
+  pointer-events: none;
+}
+.ads-slide.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  position: relative;
+}
+
+.ads-slide__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c5cff, #b44cff);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 22px -8px rgba(124,92,255,.7);
+}
+.ads-slide__icon .material-symbols-outlined {
+  font-size: 22px;
+}
+
+.ads-slide__content {
+  flex: 1;
+  min-width: 0;
+}
+.ads-slide__content h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  margin: 0 0 3px;
+  color: var(--text);
+  line-height: 1.25;
+}
+.ads-slide__content p {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ads-slide__content p strong { color: var(--text); font-weight: 700; }
+
+.ads-slide__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 9px 14px;
+  background: #fff;
+  color: #000;
+  font-size: 12.5px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: transform .1s, background .15s;
+}
+.ads-slide__cta:hover { background: #f0f0f5; }
+.ads-slide__cta:active { transform: scale(.96); }
+.ads-slide__cta .material-symbols-outlined {
+  font-size: 15px;
+}
+
+/* Dots */
+.ads-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+.ads-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255,255,255,.15);
+  cursor: pointer;
+  padding: 0;
+  transition: width .25s, background .25s;
+}
+.ads-dot.is-active {
+  width: 22px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c5cff, #b44cff);
+}
+
+/* Mobile: reduzir */
+@media (max-width: 500px) {
+  .ads-slide { padding: 12px 14px; gap: 10px; }
+  .ads-slide__icon { width: 40px; height: 40px; }
+  .ads-slide__icon .material-symbols-outlined { font-size: 20px; }
+  .ads-slide__content h3 { font-size: 13.5px; }
+  .ads-slide__content p { font-size: 12px; }
+  .ads-slide__cta { padding: 8px 12px; font-size: 12px; }
+  .ads-slide__cta span:not(.material-symbols-outlined) { display: none; }
+}

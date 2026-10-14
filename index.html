@@ -183,41 +183,65 @@
     </div>
   </section>
 
-  <!-- ================= ANÚNCIOS ================= -->
+  <!-- ================= ANÚNCIOS (carrossel) ================= -->
+  <section class="ads-carousel" aria-label="Anúncios">
+    <div class="container">
+      <div class="ads-carousel__head">
+        <span class="ads-carousel__label">
+          <span class="material-symbols-outlined">campaign</span>
+          ANÚNCIOS
+        </span>
+      </div>
 
-  <section class="ads">
-    <div class="container ads__inner">
+      <div class="ads-carousel__stage" id="adsStage">
+        <article class="ads-slide is-active" data-slide="0">
+          <span class="ads-slide__icon">
+            <span class="material-symbols-outlined">storefront</span>
+          </span>
+          <div class="ads-slide__content">
+            <h3>Divulgue o seu negócio aqui</h3>
+            <p>Alcance milhares de clientes em Moçambique. Anuncie na YUNNITED CREW.</p>
+          </div>
+          <a class="ads-slide__cta" href="https://wa.me/258856178099?text=Ol%C3%A1!%20Quero%20anunciar%20na%20YUNNITED%20CREW." target="_blank" rel="noopener">
+            Falar connosco
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </article>
 
-      <span class="ads__label">ANÚNCIOS</span>
+        <article class="ads-slide" data-slide="1">
+          <span class="ads-slide__icon">
+            <span class="material-symbols-outlined">menu_book</span>
+          </span>
+          <div class="ads-slide__content">
+            <h3>Pack de 3 livros digitais</h3>
+            <p>Escolha 3 títulos da World Library e pague apenas <strong>199,9 MT</strong>.</p>
+          </div>
+          <a class="ads-slide__cta" href="world-library.html">
+            Ver promoção
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </article>
 
-      <a
-        class="ads__item"
-        href="https://wa.me/258856178099?text=Ol%C3%A1!%20Quero%20anunciar%20na%20YUNNITED%20CREW."
-        target="_blank"
-        rel="noopener"
-      >
-        <svg class="nhonga-inline-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M3 11v2"/>
-      <path d="M6 9v6"/>
-      <path d="M6 9l12-4v14L6 15z"/>
-      <path d="M18 9a4 4 0 0 1 0 6"/>
-    </svg>
-    Divulgue o seu negócio aqui — fale connosco
-      </a>
+        <article class="ads-slide" data-slide="2">
+          <span class="ads-slide__icon">
+            <span class="material-symbols-outlined">add_business</span>
+          </span>
+          <div class="ads-slide__content">
+            <h3>Venda na Nhonga, é grátis</h3>
+            <p>Cadastre os seus produtos e chegue a mais clientes sem taxas de adesão.</p>
+          </div>
+          <a class="ads-slide__cta" href="nhonga.html">
+            Quero aderir
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </article>
+      </div>
 
-      <a class="ads__item" href="world-library.html">
-        📚 Promoção: Pack de 3 livros digitais por 199,9 MT
-      </a>
-
-      <a class="ads__item" href="nhonga.html">
-        <svg class="nhonga-inline-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M7 12l3 3 7-7"/>
-          <path d="M3 12l4-4 4 4"/>
-          <path d="M21 12l-4-4-4 4"/>
-        </svg>
-        Nhonga: cadastre os seus produtos grátis
-      </a>
-
+      <div class="ads-carousel__dots" id="adsDots" role="tablist" aria-label="Navegar anúncios">
+        <button type="button" class="ads-dot is-active" data-target="0" aria-label="Anúncio 1"></button>
+        <button type="button" class="ads-dot" data-target="1" aria-label="Anúncio 2"></button>
+        <button type="button" class="ads-dot" data-target="2" aria-label="Anúncio 3"></button>
+      </div>
     </div>
   </section>
 
