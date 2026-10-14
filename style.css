@@ -4134,3 +4134,10 @@ section.hero + section.hero-stories-wrap { margin-top: 0 !important; }
   .section__head h2 .dot { height: 19px !important; width: 3px !important; }
   .section__head h2 svg { width: 19px !important; height: 19px !important; }
 }
+
+/* ================= ÍCONE NO BOTÃO COMPRAR ================= */
+.btn--wa .material-symbols-outlined {
+  font-size: 17px;
+  vertical-align: -3px;
+  margin-right: 4px;
+}

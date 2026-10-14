@@ -188,7 +188,7 @@ function criarCardProduto(p) {
            href="https://wa.me/258856178099?text=${msg}"
            target="_blank"
            rel="noopener">
-          Comprar
+          <span class="material-symbols-outlined">shopping_cart</span>Comprar
         </a>
       </div>
     </article>
