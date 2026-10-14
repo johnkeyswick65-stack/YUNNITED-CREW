@@ -4065,3 +4065,72 @@ body .hero-stories {
 /* Espaçamento entre hero e faixa */
 section.hero { margin-bottom: 0 !important; }
 section.hero + section.hero-stories-wrap { margin-top: 0 !important; }
+
+/* ============================================================
+   SECTION HEAD — limpo: título em cima, hint por baixo
+   ============================================================ */
+.section__head {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  margin-bottom: 18px !important;
+  padding-bottom: 14px !important;
+  border-bottom: 1px solid rgba(255,255,255,.06) !important;
+}
+
+.section__head h2 {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.4px !important;
+  line-height: 1.15 !important;
+  margin: 0 !important;
+  color: var(--text) !important;
+  white-space: nowrap !important;
+}
+
+/* Bolinha substituída por traço violeta */
+.section__head h2 .dot {
+  display: inline-block !important;
+  width: 4px !important;
+  height: 22px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(180deg, #7c5cff, #b44cff) !important;
+  box-shadow: 0 0 12px rgba(124,92,255,.6) !important;
+  flex-shrink: 0 !important;
+}
+
+.section__head h2 svg {
+  width: 22px !important;
+  height: 22px !important;
+  stroke: #7c5cff !important;
+  flex-shrink: 0 !important;
+}
+
+.section__head .section__hint {
+  font-size: 12.5px !important;
+  color: var(--muted) !important;
+  margin: 0 !important;
+  padding-left: 14px !important;
+  letter-spacing: .2px !important;
+  line-height: 1.4 !important;
+}
+
+/* Link "Ver mais" fica ao lado do hint, mesma linha */
+.section__head .link-more {
+  margin-top: 2px !important;
+  font-size: 12.5px !important;
+  color: #b44cff !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+/* Mobile: reduzir */
+@media (max-width: 500px) {
+  .section__head h2 { font-size: 19px !important; }
+  .section__head h2 .dot { height: 19px !important; width: 3px !important; }
+  .section__head h2 svg { width: 19px !important; height: 19px !important; }
+}
