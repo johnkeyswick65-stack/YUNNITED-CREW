@@ -1412,6 +1412,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cultura: ['cultura'],
         desenvolvimento: ['desenvolvimento pessoal'],
         escolares: ['escolar', 'escolares', 'livro escolar'],
+        programacao: ['programação', 'css', 'html', 'javascript', 'código', 'web', 'frontend', 'backend', 'dev'],
         
         // Acessórios
         celulares: ['celular', 'iphone', 'samsung', 'smartphone', 'telemóvel'],
