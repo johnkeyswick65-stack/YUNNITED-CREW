@@ -129,6 +129,8 @@ function criarCardProduto(p) {
           data-image="${p.imagem}"
           data-name="${nomeCurto.replace(/"/g, '&quot;')}"
           data-desc="${descCurta.replace(/"/g, '&quot;')}"
+          data-categoria="${p.categoria || ''}"
+          data-slug="${paraSlug(p.nome)}"
           role="button"
           tabindex="0"
           aria-label="Ampliar imagem de ${p.nome}">
@@ -510,7 +512,8 @@ document.addEventListener('click', (e) => {
     const img = card?.querySelector('.product-image-clickable');
     const nome = img?.dataset.name || card?.querySelector('.product-card__name')?.textContent || 'produto';
     const priceEl = card?.querySelector('.product-card__price')?.textContent || '';
-    const url = 'https://yunnited-crew.pages.dev/?p=' + paraSlug(nome);
+    const catProduto = img?.dataset.categoria || document.body.getAttribute('data-category') || '';
+    const url = 'https://yunnited-crew.pages.dev/' + (catProduto ? catProduto + '.html' : '') + '?p=' + paraSlug(nome);
     const texto = `YUNNITED CREW — ${nome} (${priceEl}) \n${url}`;
 
     const tipo = action.dataset.share;
@@ -577,7 +580,8 @@ document.addEventListener('click', (e) => {
     const img = card?.querySelector('.product-image-clickable');
     const nome = img?.dataset.name || card?.querySelector('.product-card__name')?.textContent || 'produto';
     const priceEl = card?.querySelector('.product-card__price')?.textContent || '';
-    const url = 'https://yunnited-crew.pages.dev/?p=' + paraSlug(nome);
+    const catProduto = img?.dataset.categoria || document.body.getAttribute('data-category') || '';
+    const url = 'https://yunnited-crew.pages.dev/' + (catProduto ? catProduto + '.html' : '') + '?p=' + paraSlug(nome);
     const texto = `YUNNITED CREW — ${nome} (${priceEl}) \n${url}`;
 
     const tipo = action.dataset.share;
@@ -685,7 +689,15 @@ function iniciarProdutoCompartilhado() {
   let tentativas = 20;
   const tentar = () => {
     const produto = PRODUTOS.find(x => paraSlug(x.nome) === slug);
-    if (produto) return abrirModalProdutoCompartilhado(produto);
+    if (produto) {
+      const catAtual = document.body.getAttribute('data-category') || '';
+      if (produto.categoria && catAtual !== produto.categoria) {
+        // Estou na janela errada — redirecionar para a categoria certa
+        location.replace('/' + produto.categoria + '.html?p=' + slug);
+        return;
+      }
+      return abrirModalProdutoCompartilhado(produto);
+    }
     if (tentativas-- > 0) return setTimeout(tentar, 150);
     console.warn('Produto não encontrado:', slug);
   };
