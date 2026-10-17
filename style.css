@@ -4210,3 +4210,71 @@ section.hero + section.hero-stories-wrap { margin-top: 0 !important; }
 }
 .shared-product__more-cat:hover { background: rgba(124,92,255,.2); }
 .shared-product__more-cat .material-symbols-outlined { font-size: 18px; }
+
+/* ============================================================
+   PRODUTOS POPULARES — CARROSSEL HORIZONTAL
+   ============================================================ */
+#popularGrid {
+  display: flex !important;
+  flex-direction: row !important;
+  grid-template-columns: none !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory !important;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: 12px !important;
+  padding: 6px 16px 16px !important;
+  margin: 0 -16px !important;
+}
+#popularGrid::-webkit-scrollbar { display: none; }
+
+#popularGrid > .product-card {
+  flex: 0 0 auto !important;
+  width: 68% !important;
+  max-width: 280px !important;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Skeleton também vira carrossel */
+#popularGrid:has(> .skeleton-card) {
+  display: flex !important;
+  flex-direction: row !important;
+  grid-template-columns: none !important;
+}
+#popularGrid > .skeleton-card {
+  flex: 0 0 auto !important;
+  width: 68% !important;
+  max-width: 280px !important;
+  grid-column: auto !important;
+}
+
+@media (min-width: 600px) {
+  #popularGrid > .product-card,
+  #popularGrid > .skeleton-card {
+    width: 240px !important;
+  }
+}
+
+/* Vista em Lista: vertical em vez de carrossel */
+body.view-list #popularGrid {
+  flex-direction: column !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body.view-list #popularGrid > .product-card,
+body.view-list #popularGrid > .skeleton-card {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Indicador de scroll opcional: sombra subtil no canto direito */
+#popularGrid::after {
+  content: '';
+  flex: 0 0 8px;
+}
