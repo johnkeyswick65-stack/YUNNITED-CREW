@@ -4507,3 +4507,62 @@ body.view-list #categoryGrid + .popular-dots {
   color: #fff !important;
   box-shadow: 0 4px 15px rgba(124,92,255,0.5) !important;
 }
+
+/* ============================================================
+   TEMA GLOBAL: GLASSMORPHISM (VIDRO FOSCO)
+   ============================================================ */
+
+/* 1. Fundo do site (needed para o vidro ter algo para desfocar) */
+body {
+  background-color: #07070a !important;
+  background-image: 
+    radial-gradient(circle at 15% 40%, rgba(124, 92, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(180, 76, 255, 0.1), transparent 40%) !important;
+  background-attachment: fixed !important;
+}
+
+/* 2. Cabeçalho e Menus */
+.site-header,
+.mobile-menu,
+.mobile-menu__quick,
+.search-overlay__inner {
+  background: rgba(15, 15, 20, 0.65) !important;
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 3. Cartões de Produto e Secções */
+.product-card,
+.ads-carousel__stage,
+.shared-product__card,
+.section {
+  background: rgba(20, 20, 28, 0.55) !important;
+  backdrop-filter: blur(16px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 4. Detalhes do cartão (skeleton também para não destoar) */
+.skeleton-card {
+  background: rgba(20, 20, 28, 0.55) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+/* 5. Botões e Inputs que precisam de um fundo mais sólido para leitura */
+.search input,
+.wl-genre,
+.mobile-menu__inner a,
+.quick-btn {
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* 6. Carrinho (carrossel e imagens) */
+#popularGrid > .product-card,
+#categoryGrid > .product-card {
+  background: rgba(20, 20, 28, 0.55) !important;
+}
