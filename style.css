@@ -4775,3 +4775,66 @@ body[data-category="acessorios"] .scroll-arrows,
 body[data-category="moda"] .scroll-arrows {
   display: none !important;
 }
+
+/* ============================================================
+   CORREÇÃO DEFINITIVA: HEADER MOBILE E CARROSSEL
+   ============================================================ */
+
+/* 1. Header Mobile: Arrumar o WhatsApp, a busca e o menu na mesma linha */
+@media (max-width: 480px) {
+  .header-main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    padding: 12px 16px !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  .brand {
+    flex: 1 1 50% !important;
+    min-width: 0 !important;
+  }
+  .btn--header {
+    display: inline-flex !important; /* Trazer o botão de volta */
+    order: 2 !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    flex-shrink: 0 !important;
+  }
+  .menu-toggle {
+    order: 3 !important;
+    margin-left: 4px !important;
+    flex-shrink: 0 !important;
+  }
+  .search-row {
+    width: 100% !important;
+    order: 4 !important;
+    margin-top: 6px !important;
+    display: flex !important;
+  }
+  .search {
+    flex: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* 2. Corrigir o carrossel (Acessórios, Moda) sem quebrar o layout */
+body[data-category="acessorios"] #categoryGrid,
+body[data-category="moda"] #categoryGrid,
+#categoryGrid {
+  width: calc(100% + 32px) !important; /* Compensa o padding do container */
+  max-width: none !important;
+  margin-left: -16px !important;
+  margin-right: -16px !important;
+  left: auto !important;
+  right: auto !important;
+  position: relative !important;
+  padding-left: calc(50vw - 110px) !important;
+  padding-right: calc(50vw - 110px) !important;
+}
+
+/* 3. Garantir que o placeholder da pesquisa é visível */
+.search input::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+  opacity: 1 !important;
+}
