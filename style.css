@@ -4594,3 +4594,28 @@ body {
 body {
   background-color: #050508 !important;
 }
+
+/* ============================================================
+   CABEÇALHO E NAVEGAÇÃO: PRETO PROFUNDO COM VIDRO
+   ============================================================ */
+.site-header {
+  background: linear-gradient(180deg, rgba(18, 18, 24, 0.95) 0%, rgba(10, 10, 14, 0.98) 100%) !important;
+  backdrop-filter: blur(20px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(130%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* A barra de categorias logo abaixo do header */
+.catnav {
+  background: rgba(10, 10, 14, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* A barra de pesquisa para não ficar transparente demais */
+.search {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
