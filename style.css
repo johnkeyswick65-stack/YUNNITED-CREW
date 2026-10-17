@@ -4716,3 +4716,62 @@ img, video {
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
 }
+
+/* ============================================================
+   FIX DEFINITIVO: ACESSÓRIOS, MODA E NHONGA
+   ============================================================ */
+
+/* 1. O contentor principal não deve ter margens esquisitas à esquerda */
+body[data-category="acessorios"] .container,
+body[data-category="moda"] .container,
+body[data-category="nhonga"] .container {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  margin: 0 auto !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Unificar o título antigo (section-title) com o novo moderno */
+body[data-category="acessorios"] .section-title,
+body[data-category="moda"] .section-title {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.4px !important;
+  margin: 0 !important;
+  padding-bottom: 14px !important;
+  border-bottom: 1px solid rgba(255,255,255,.06) !important;
+  color: var(--text) !important;
+}
+
+/* 3. O carrossel (#categoryGrid) deve ocupar o ecrã inteiro sem apertar à esquerda */
+body[data-category="acessorios"] #categoryGrid,
+body[data-category="moda"] #categoryGrid {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  
+  /* Centralizar o primeiro e último item */
+  padding-left: calc(50vw - 110px) !important; 
+  padding-right: calc(50vw - 110px) !important;
+}
+
+/* 4. Nhonga: garantir que os blocos de texto não encostam à borda */
+body[data-category="nhonga"] .nhonga-section-title,
+body[data-category="nhonga"] .nhonga-hero {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* 5. Esconder as setas / scroll antigo se existirem nessas páginas */
+body[data-category="acessorios"] .scroll-arrows,
+body[data-category="moda"] .scroll-arrows {
+  display: none !important;
+}
