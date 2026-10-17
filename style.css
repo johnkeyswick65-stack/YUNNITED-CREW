@@ -4566,3 +4566,31 @@ body {
 #categoryGrid > .product-card {
   background: rgba(20, 20, 28, 0.55) !important;
 }
+
+/* ============================================================
+   CARTÕES DE PRODUTO: PRETO PROFUNDO (GLASS PREMIUM)
+   ============================================================ */
+.product-card,
+#popularGrid > .product-card,
+#categoryGrid > .product-card,
+.skeleton-card {
+  /* Gradiente escuro de cima para baixo (simula vidro fumado) */
+  background: linear-gradient(160deg, rgba(26, 26, 34, 0.85) 0%, rgba(12, 12, 16, 0.95) 100%) !important;
+  backdrop-filter: blur(20px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(120%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  /* Sombra para dar profundidade e destacar do fundo */
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito ao passar o rato (ou segurar no telemóvel) */
+.product-card:hover {
+  border-color: rgba(124, 92, 255, 0.4) !important;
+  box-shadow: 0 15px 35px -10px rgba(124, 92, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Deixar o fundo da página um pouco mais escuro para o cartão saltar à vista */
+body {
+  background-color: #050508 !important;
+}
