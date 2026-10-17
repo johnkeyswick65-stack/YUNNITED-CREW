@@ -109,8 +109,34 @@ document.addEventListener('DOMContentLoaded', async () => {
   const categoryGrid = document.getElementById('categoryGrid');
   if (categoryGrid) {
     const cat = document.body.getAttribute('data-category');
-    const itens = PRODUTOS.filter(p => p.categoria === cat).slice(0, 4);
-    categoryGrid.innerHTML = itens.map(p => criarCardProduto(p)).join('');
+    const todos = PRODUTOS.filter(p => p.categoria === cat);
+    const top4 = todos.slice(0, 4);
+    const restantes = todos.slice(4);
+
+    // 1. Preenche o carrossel com os 4 primeiros
+    categoryGrid.innerHTML = top4.map(p => criarCardProduto(p)).join('');
+
+    // 2. Cria a secção dos restantes (se houver)
+    if (restantes.length > 0) {
+      let restGrid = document.getElementById('categoryRest');
+      if (!restGrid) {
+        const secao = document.createElement('section');
+        secao.className = 'section';
+        secao.innerHTML = `
+          <div class="container">
+            <div class="section__head" style="margin-top: 24px;">
+              <h2><span class="dot"></span> Mais produtos</h2>
+            </div>
+            <div class="grid grid--4" id="categoryRest"></div>
+          </div>
+        `;
+        // Insere a nova secção logo após a secção do carrossel
+        const secaoAtual = categoryGrid.closest('.section') || categoryGrid.parentNode;
+        secaoAtual.parentNode.insertBefore(secao, secaoAtual.nextSibling);
+        restGrid = document.getElementById('categoryRest');
+      }
+      restGrid.innerHTML = restantes.map(p => criarCardProduto(p)).join('');
+    }
   }
 
   
