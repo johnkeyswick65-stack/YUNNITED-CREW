@@ -6127,3 +6127,646 @@ html, body {
 @media (min-width: 900px) {
   #categoryRest { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
 }
+
+/* ============================================================
+   BRANDING YU-YU NAS CATEGORIAS
+   ============================================================ */
+.yu-red {
+  color: #ff3b30 !important; /* Vermelho vibrante */
+  font-weight: 900 !important;
+  letter-spacing: 0.5px;
+}
+
+/* Garantir que o texto das categorias não fica todo em maiúsculas (se estiver) */
+.catnav__inner a, 
+.mobile-menu__inner a {
+  text-transform: none !important;
+}
+
+/* ============================================================
+   CORREÇÃO DEFINITIVA DO YU-YU NA BARRA DE CATEGORIAS
+   ============================================================ */
+.catnav__inner a .nav-text,
+.mobile-menu__inner a .nav-text {
+  display: inline-block !important; /* Junta o texto todo */
+  white-space: nowrap !important;
+}
+
+.yu-red {
+  color: #ff3b30 !important; /* Vermelho */
+  font-weight: 900 !important;
+}
+
+/* Melhorar o scroll da barra para não cortar a última categoria */
+.catnav__inner {
+  padding-right: 20px !important; /* Dá um respiro no fim */
+}
+
+/* ============================================================
+   CONSERTAR O FUNDO DO CARTÃO DE CATEGORIA
+   ============================================================ */
+.accessories-hero,
+.fashion-hero,
+.wl-hero {
+  background: linear-gradient(135deg, rgba(26, 26, 34, 0.85), rgba(12, 12, 16, 0.95)) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: var(--radius) !important;
+  padding: 35px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Limpar o texto que ficou solto na barra de categorias */
+.catnav__inner a {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* ============================================================
+   NOVO TÍTULO DA CATEGORIA (ABAIXO DA PESQUISA)
+   ============================================================ */
+.page-brand-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  margin: 10px 0 20px 0;
+  padding-left: 4px;
+  letter-spacing: -0.5px;
+  text-transform: none !important;
+}
+
+.yu-red {
+  color: #ff3b30 !important;
+  font-weight: 900 !important;
+}
+
+/* ============================================================
+   DESTAQUE DO CABEÇALHO DA CATEGORIA (YU-YU)
+   ============================================================ */
+.page-brand-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important; /* Espaço entre o traço e o texto */
+  font-size: 32px !important; /* Aumenta o tamanho da letra */
+  font-weight: 800 !important;
+  color: #fff !important;
+  margin: 20px 0 24px 0 !important;
+  padding: 0 !important;
+  letter-spacing: -0.5px !important;
+}
+
+/* O traço vertical vermelho ao lado do texto */
+.page-brand-title::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 32px; /* Altura acompanha o tamanho da letra */
+  background: #ff3b30; /* Vermelho vivo */
+  border-radius: 999px;
+  box-shadow: 0 0 10px rgba(255, 59, 48, 0.4); /* Ligeiro brilho */
+}
+
+/* ============================================================
+   A ESTRUTURA CORRETA DO CABEÇALHO E BANNER
+   ============================================================ */
+
+/* 1. Título da categoria no cabeçalho (por baixo da pesquisa) */
+.category-brand-header {
+  padding: 16px 20px 8px 20px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+  background: transparent;
+}
+
+.category-brand-header .yu-red {
+  color: #ff3b30 !important;
+  font-weight: 900 !important;
+}
+
+/* 2. A barra de categorias fica logo por baixo deste título */
+.catnav {
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 3. Limpar a barra de categorias (remover o YU-YU de lá) */
+.catnav__inner a {
+  font-size: 13.5px !important;
+  padding: 12px 16px !important;
+}
+
+/* 4. Corrigir o Banner Collection (Yunnited Collection e Acessórios empilhados) */
+.accessories-hero,
+.fashion-hero,
+.wl-hero {
+  display: flex !important;
+  flex-direction: column !important; /* Obriga a ficar em linhas separadas */
+  align-items: flex-start !important;
+  padding: 28px !important;
+  background: linear-gradient(135deg, rgba(26, 26, 34, 0.85), rgba(12, 12, 16, 0.95)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: var(--radius) !important;
+  margin-bottom: 30px !important;
+}
+
+.accessories-label {
+  font-size: 11px !important;
+  letter-spacing: 2px !important;
+  color: var(--muted) !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+}
+
+.accessories-hero .section-title {
+  font-size: 32px !important;
+  margin: 0 0 8px 0 !important;
+  line-height: 1.1 !important;
+}
+
+.accessories-hero p {
+  margin: 0 !important;
+  font-size: 14px !important;
+}
+
+/* ============================================================
+   MODAL DE FILTROS (QUADRO ESPECIAL)
+   ============================================================ */
+.filter-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: flex-end; /* Abre a partir do fundo */
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.filter-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.filter-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.filter-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: 85vh;
+  background: #101015;
+  border-radius: 24px 24px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.filter-modal.is-open .filter-modal__content {
+  transform: translateY(0);
+}
+
+.filter-modal__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.filter-modal__title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.filter-modal__close {
+  background: rgba(255, 255, 255, 0.05);
+  border: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.filter-modal__body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Grelha de produtos dentro do modal */
+.filter-modal__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.filter-modal__empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 40px 0;
+  font-size: 14px;
+}
+
+@media (min-width: 600px) {
+  .filter-modal {
+    align-items: center; /* No PC abre no meio */
+  }
+  .filter-modal__content {
+    border-radius: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    max-height: 80vh;
+  }
+}
+
+/* ============================================================
+   NHONGA — REDESIGN PREMIUM (GLASSMORPHISM E ACENTOS ROXOS)
+   ============================================================ */
+
+/* 1. HERO SECTION */
+.nhonga-hero {
+  background: linear-gradient(135deg, rgba(26, 26, 34, 0.85), rgba(12, 12, 16, 0.95)) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 24px !important;
+  padding: 60px 40px !important;
+  margin-top: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 40px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+  overflow: hidden;
+  position: relative;
+}
+
+.nhonga-kicker {
+  color: #b44cff !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+  display: block !important;
+}
+
+.nhonga-hero h1 {
+  font-size: 48px !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  margin-bottom: 20px !important;
+  color: #fff !important;
+}
+
+.nhonga-hero h1 strong {
+  color: #7c5cff !important;
+}
+
+.nhonga-hero p {
+  font-size: 16px !important;
+  color: #a5a5ad !important;
+  line-height: 1.6 !important;
+  margin-bottom: 30px !important;
+  max-width: 500px !important;
+}
+
+/* Botões do Hero */
+.nhonga-hero__actions {
+  display: flex !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}
+
+.nhonga-cta {
+  background: linear-gradient(135deg, #7c5cff, #b44cff) !important;
+  color: #fff !important;
+  padding: 14px 28px !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  box-shadow: 0 10px 25px -10px rgba(124, 92, 255, 0.6) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.nhonga-cta:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 15px 30px -10px rgba(124, 92, 255, 0.8) !important;
+}
+
+.nhonga-secondary {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #fff !important;
+  padding: 14px 28px !important;
+  border-radius: 999px !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  transition: background 0.2s ease !important;
+}
+
+.nhonga-secondary:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Visual do Hero (Círculos) */
+.nhonga-hero__visual {
+  position: relative !important;
+  width: 300px !important;
+  height: 300px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.nhonga-orbit {
+  position: absolute !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(124, 92, 255, 0.2) !important;
+}
+
+.orbit-1 { inset: 0; animation: spin 20s linear infinite; }
+.orbit-2 { inset: 30px; border-style: dashed; animation: spin 15s linear infinite reverse; }
+.orbit-3 { inset: 60px; border-color: rgba(180, 76, 255, 0.3); animation: spin 10s linear infinite; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.nhonga-core {
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #1c1c24, #101015) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 0 40px rgba(124, 92, 255, 0.3) !important;
+  z-index: 2 !important;
+}
+
+.nhonga-core span {
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  color: #ff3b30 !important;
+}
+
+.nhonga-core strong {
+  font-size: 14px !important;
+  color: #fff !important;
+  letter-spacing: 1px !important;
+}
+
+/* 2. CABEÇALHOS DAS SECÇÕES */
+.nhonga-section-title {
+  text-align: center !important;
+  margin-bottom: 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.nhonga-section-title span {
+  color: #b44cff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 10px !important;
+}
+
+.nhonga-section-title h2 {
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  margin: 0 0 12px 0 !important;
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* A barra roxa ao lado dos títulos */
+.nhonga-section-title h2::before {
+  content: '' !important;
+  display: inline-block !important;
+  width: 5px !important;
+  height: 30px !important;
+  background: linear-gradient(180deg, #7c5cff, #b44cff) !important;
+  border-radius: 999px !important;
+}
+
+.nhonga-section-title p {
+  color: #a5a5ad !important;
+  font-size: 15px !important;
+  max-width: 500px !important;
+  margin: 0 auto !important;
+}
+
+/* 3. BENEFÍCIOS E PASSOS */
+.nhonga-benefit-grid,
+.nhonga-steps {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+.nhonga-benefit,
+.nhonga-step {
+  background: rgba(26, 26, 34, 0.6) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 20px !important;
+  padding: 30px !important;
+  transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+
+.nhonga-benefit:hover,
+.nhonga-step:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(124, 92, 255, 0.4) !important;
+}
+
+.nhonga-number,
+.nhonga-step span {
+  font-size: 32px !important;
+  font-weight: 900 !important;
+  color: rgba(124, 92, 255, 0.3) !important;
+  margin-bottom: 16px !important;
+  display: block !important;
+}
+
+.nhonga-benefit h3,
+.nhonga-step h3 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-bottom: 8px !important;
+}
+
+.nhonga-benefit p,
+.nhonga-step p {
+  font-size: 14px !important;
+  color: #a5a5ad !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+/* 4. OPÇÕES (CARTÕES COM IMAGEM) */
+.nhonga-option-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+}
+
+.nhonga-option {
+  background: rgba(26, 26, 34, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: transform 0.2s ease !important;
+}
+
+.nhonga-option:hover {
+  transform: translateY(-4px) !important;
+}
+
+.nhonga-option img {
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: cover !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.nhonga-option > div {
+  padding: 24px !important;
+}
+
+.nhonga-option h3 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-bottom: 8px !important;
+}
+
+.nhonga-option p {
+  font-size: 14px !important;
+  color: #a5a5ad !important;
+  margin-bottom: 16px !important;
+}
+
+.nhonga-option a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #fff !important;
+  padding: 10px 16px !important;
+  border-radius: 999px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: background 0.2s ease !important;
+}
+
+.nhonga-option a:hover {
+  background: rgba(124, 92, 255, 0.2) !important;
+  border-color: #7c5cff !important;
+}
+
+/* 5. CAIXA DE ATIVIDADE E CTA FINAL */
+.nhonga-activity-box {
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.15), rgba(180, 76, 255, 0.05)) !important;
+  border: 1px solid rgba(124, 92, 255, 0.3) !important;
+  border-radius: 24px !important;
+  padding: 40px !important;
+  text-align: center !important;
+}
+
+.nhonga-activity-box span {
+  color: #b44cff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px !important;
+}
+
+.nhonga-activity-box h2 {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  margin: 12px 0 !important;
+}
+
+.nhonga-activity-box p {
+  color: #a5a5ad !important;
+  font-size: 15px !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+}
+
+.nhonga-final {
+  padding: 80px 20px !important;
+  text-align: center !important;
+  background: radial-gradient(circle at 50% 100%, rgba(124, 92, 255, 0.15) 0%, transparent 70%) !important;
+}
+
+.nhonga-final span {
+  color: #b44cff !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px !important;
+}
+
+.nhonga-final h2 {
+  font-size: 36px !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  margin: 16px auto 24px !important;
+  max-width: 600px !important;
+}
+
+.nhonga-final p {
+  color: #a5a5ad !important;
+  font-size: 16px !important;
+  margin-bottom: 32px !important;
+}
+
+/* Responsividade (Telemóvel) */
+@media (max-width: 800px) {
+  .nhonga-hero { flex-direction: column !important; padding: 40px 20px !important; text-align: center !important; }
+  .nhonga-hero h1 { font-size: 32px !important; }
+  .nhonga-hero p { margin: 0 auto 24px !important; }
+  .nhonga-hero__actions { justify-content: center !important; }
+  .nhonga-hero__visual { display: none !important; } /* Esconde os círculos no telemóvel para poupar espaço */
+  
+  .nhonga-section-title h2 { font-size: 24px !important; flex-direction: column !important; gap: 8px !important; }
+  .nhonga-section-title h2::before { display: none !important; } /* Esconde a barra em ecrãs pequenos */
+  
+  .nhonga-option-grid { grid-template-columns: 1fr !important; }
+  .nhonga-final h2 { font-size: 28px !important; }
+}

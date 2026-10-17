@@ -43,17 +43,9 @@ function mostrarSkeletons() {
 async function carregarProdutosDaAPI() {
   try {
     const response = await fetch('https://yunnited-crew-backend.pages.dev/api/products');
-
-    if (!response.ok) {
-      throw new Error('Erro ao carregar produtos');
-    }
-
+    if (!response.ok) throw new Error('Erro na API');
     const data = await response.json();
-    console.log('PRODUTOS DO RENDER:', data.items);
-
-    if (!data.success || !Array.isArray(data.items)) {
-      return;
-    }
+    if (!data.success || !Array.isArray(data.items)) return;
 
     const produtosAPI = data.items.map(p => ({
       id: p._id || p.id,
@@ -61,26 +53,23 @@ async function carregarProdutosDaAPI() {
       categoria: paraSlug(p.category),
       preco: Number(p.price) || 0,
       desc: p.description || '',
-      imagem: p.image ? (p.image.startsWith("http") ? p.image : "https://yunnited-crew-backend.onrender.com" + p.image) : (p.imagem || ""), 
+      imagem: p.image ? (p.image.startsWith("http") ? p.image : "https://yunnited-crew-backend.onrender.com" + p.image) : "",
       popular: Boolean(p.popular),
-      badge: p.badge || '',
-      icone: p.icone || '',
-      svg: p.svg || ''
+      badge: p.badge || '', icone: p.icone || '', svg: p.svg || ''
     }));
 
     const idsAPI = new Set(produtosAPI.map(p => String(p.id)));
-
-    const produtosLocais = PRODUTOS.filter(
-      p => !idsAPI.has(String(p.id))
-    );
+    const produtosLocais = PRODUTOS.filter(p => !idsAPI.has(String(p.id)));
 
     PRODUTOS.length = 0;
     PRODUTOS.push(...produtosLocais, ...produtosAPI);
-    renderizarCategoria();
-    
 
+    // Renderiza a categoria depois de os produtos estarem prontos
+    if (typeof renderizarCategoria === 'function') {
+      renderizarCategoria();
+    }
   } catch (error) {
-    console.error('Erro ao carregar produtos da API:', error);
+    console.error('Erro ao carregar API:', error);
   }
 }
 
@@ -121,19 +110,19 @@ function renderizarCategoria() {
 
   const cat = document.body.getAttribute('data-category');
   const todos = PRODUTOS.filter(p => p.categoria === cat);
-  
-  // Se não houver produtos, não faz nada
+
+  // Atualizar o contador no HTML
+  const hint = document.querySelector('.section__head .section__hint');
+  if (hint) hint.textContent = todos.length + ' livro(s) disponíveis';
+
   if (todos.length === 0) return;
 
   const top4 = todos.slice(0, 4);
   const restantes = todos.slice(4);
 
-  // 1. Renderiza o Carrossel
   categoryGrid.innerHTML = top4.map(p => criarCardProduto(p)).join('');
 
-  // 2. Renderiza os "Mais produtos"
   let restGrid = document.getElementById('categoryRest');
-  
   if (restantes.length > 0) {
     if (!restGrid) {
       const secao = document.createElement('section');
@@ -152,7 +141,6 @@ function renderizarCategoria() {
     }
     restGrid.innerHTML = restantes.map(p => criarCardProduto(p)).join('');
   } else if (restGrid) {
-    // Se não houver restantes (ex: ao filtrar), esconde a secção
     restGrid.parentElement.parentElement.style.display = 'none';
   }
 }
@@ -1356,4 +1344,107 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 /* ================= RENDERIZAR MAIS PRODUTOS (APÓS API) ================= */
+
+/* ================= FILTRO MODAL (QUADRO ESPECIAL) ================= */
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Criar o HTML do modal dinamicamente se não existir
+  if (!document.getElementById('filterModal')) {
+    const modalHTML = `
+      <div id="filterModal" class="filter-modal">
+        <div class="filter-modal__backdrop" id="filterModalClose"></div>
+        <div class="filter-modal__content">
+          <div class="filter-modal__head">
+            <h3 class="filter-modal__title" id="filterModalTitle">Filtro</h3>
+            <button class="filter-modal__close" id="filterModalBtnClose">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+          <div class="filter-modal__body">
+            <div class="filter-modal__grid" id="filterModalGrid"></div>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+  }
+
+  const modal = document.getElementById('filterModal');
+  const grid = document.getElementById('filterModalGrid');
+  const title = document.getElementById('filterModalTitle');
+  const btnClose = document.getElementById('filterModalBtnClose');
+  const backdrop = document.getElementById('filterModalClose');
+
+  function fecharModal() {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = ''; // Devolve o scroll à página
+  }
+
+  btnClose.addEventListener('click', fecharModal);
+  backdrop.addEventListener('click', fecharModal);
+
+  // 2. Intercetar o clique nos filtros (.wl-genre)
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.wl-genre');
+    if (!btn) return;
+
+    // Prevenir o comportamento antigo (se existir)
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Atualizar o botão ativo
+    document.querySelectorAll('.wl-genre').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Descobrir qual o filtro selecionado
+    const genero = btn.dataset.genre;
+    const nomeGenero = btn.textContent.trim();
+    title.textContent = nomeGenero;
+
+    // Filtrar os produtos
+    const cat = document.body.getAttribute('data-category') || '';
+    let produtosFiltrados = (typeof PRODUTOS !== 'undefined') ? PRODUTOS.filter(p => p.categoria === cat) : [];
+
+    if (genero !== 'all') {
+      const nomesGenero = {
+        // World Library
+        ebooks: ['ebook', 'e-book', 'ebooks', 'e-books'],
+        romance: ['romance'],
+        cultura: ['cultura'],
+        desenvolvimento: ['desenvolvimento pessoal'],
+        escolares: ['escolar', 'escolares', 'livro escolar'],
+        
+        // Acessórios
+        celulares: ['celular', 'iphone', 'samsung', 'smartphone', 'telemóvel'],
+        pecas: ['peça', 'peças', 'ecrã', 'bateria', 'tampa', 'reparação'],
+        carregadores: ['carregador', 'power bank', 'carregamento'],
+        cabos: ['cabo', 'usb', 'usb-c', 'lightning'],
+        fones: ['fone', 'fones', 'headphone', 'airpods', 'bluetooth'],
+        
+        // Moda
+        chapeus: ['chapéu', 'boné', 'snapback', 'bucket hat'],
+        vestidos: ['vestido', 'saia'],
+        calcas: ['calça', 'calças', 'jeans', 'calca'],
+        camisas: ['camisa', 'camiseta', 'blusa', 't-shirt', 'oversize']
+      };
+      
+      const palavrasChave = nomesGenero[genero] || [];
+      
+      produtosFiltrados = produtosFiltrados.filter(p => {
+        const texto = (p.nome + ' ' + (p.desc || '')).toLowerCase();
+        return palavrasChave.some(palavra => texto.includes(palavra));
+      });
+    }
+
+    // Renderizar no modal
+    if (produtosFiltrados.length === 0) {
+      grid.innerHTML = '<p class="filter-modal__empty">Nenhum produto encontrado neste filtro.</p>';
+    } else {
+      grid.innerHTML = produtosFiltrados.map(p => criarCardProduto(p)).join('');
+    }
+
+    // Abrir o modal
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; // Bloquear o scroll de fundo
+  });
+});
 
