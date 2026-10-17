@@ -4619,3 +4619,100 @@ body {
   background: rgba(0, 0, 0, 0.4) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
+
+/* ============================================================
+   SISTEMA DE LAYOUT RESPONSIVO (MOBILE SAFETY NET)
+   ============================================================ */
+
+/* 1. Trava a tela para não ter scroll horizontal (deformação) */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  position: relative;
+}
+
+/* 2. Garante que todos os elementos respeitam a largura da tela */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* 3. Container principal seguro */
+.container {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 4. Correção do Cabeçalho em ecrãs pequenos (até 450px) */
+@media (max-width: 450px) {
+  .header-main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    padding: 10px 12px !important;
+  }
+  .brand {
+    width: auto !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+  .search-row {
+    width: 100% !important;
+    order: 3 !important;
+    margin-top: 10px !important;
+  }
+  .search {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .btn--header {
+    display: none !important; /* Em ecrãs muito pequenos, esconde o botão WhatsApp do topo (já está no menu) */
+  }
+  .menu-toggle {
+    margin-left: auto !important;
+  }
+}
+
+/* 5. Correção das margens dos Carrosséis (Populares e Categorias) */
+#popularGrid,
+#categoryGrid {
+  /* Removemos a margem negativa que causava estouro da tela */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  /* Adicionamos padding dinâmico para o primeiro/último cartão ficarem no centro */
+  padding-left: calc(50% - 120px) !important;
+  padding-right: calc(50% - 120px) !important;
+}
+
+@media (max-width: 500px) {
+  #popularGrid,
+  #categoryGrid {
+    /* Em telemóveis, ajusta o centro do carrossel para o tamanho dos cartões */
+    padding-left: calc(50% - 110px) !important;
+    padding-right: calc(50% - 110px) !important;
+  }
+  
+  /* Ajusta o tamanho dos cartões no carrossel para caberem bonitos em mobile */
+  #popularGrid > .product-card,
+  #categoryGrid > .product-card {
+    width: 220px !important;
+    min-width: 220px !important;
+  }
+}
+
+/* 6. Prevenir que textos longos (como o nome do produto) estourem a caixa */
+.product-card__name,
+.product-card__desc,
+.shared-product__name {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
