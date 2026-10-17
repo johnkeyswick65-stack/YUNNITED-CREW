@@ -1112,7 +1112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let pauseUntil = 0;
   let dotsEl = null;
   let dotsCache = [];
-  const INTERVALO = 4000;
+  const INTERVALO = 2000;
   const PAUSA_MANUAL = 9000;
 
   function atualizarFoco() {
