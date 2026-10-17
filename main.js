@@ -76,6 +76,8 @@ async function carregarProdutosDaAPI() {
 
     PRODUTOS.length = 0;
     PRODUTOS.push(...produtosLocais, ...produtosAPI);
+    renderizarCategoria();
+    
 
   } catch (error) {
     console.error('Erro ao carregar produtos da API:', error);
@@ -83,6 +85,7 @@ async function carregarProdutosDaAPI() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  renderizarCategoria();
   mostrarSkeletons();
   await carregarProdutosDaAPI();
   document.querySelectorAll('.skeleton-card').forEach((el) => el.remove());
@@ -105,42 +108,54 @@ document.addEventListener('DOMContentLoaded', async () => {
     grid.innerHTML = itens.map(p => criarCardProduto(p)).join('');
   });
 
-  // Página de categoria individual
-  const categoryGrid = document.getElementById('categoryGrid');
-  if (categoryGrid) {
-    const cat = document.body.getAttribute('data-category');
-    const todos = PRODUTOS.filter(p => p.categoria === cat);
-    const top4 = todos.slice(0, 4);
-    const restantes = todos.slice(4);
-
-    // 1. Preenche o carrossel com os 4 primeiros
-    categoryGrid.innerHTML = top4.map(p => criarCardProduto(p)).join('');
-
-    // 2. Cria a secção dos restantes (se houver)
-    if (restantes.length > 0) {
-      let restGrid = document.getElementById('categoryRest');
-      if (!restGrid) {
-        const secao = document.createElement('section');
-        secao.className = 'section';
-        secao.innerHTML = `
-          <div class="container">
-            <div class="section__head" style="margin-top: 24px;">
-              <h2><span class="dot"></span> Mais produtos</h2>
-            </div>
-            <div class="grid grid--4" id="categoryRest"></div>
-          </div>
-        `;
-        // Insere a nova secção logo após a secção do carrossel
-        const secaoAtual = categoryGrid.closest('.section') || categoryGrid.parentNode;
-        secaoAtual.parentNode.insertBefore(secao, secaoAtual.nextSibling);
-        restGrid = document.getElementById('categoryRest');
-      }
-      restGrid.innerHTML = restantes.map(p => criarCardProduto(p)).join('');
-    }
-  }
+  
 
   
 });
+
+
+/* ================= RENDERIZAR PRODUTOS (CARROSSEL + RESTANTES) ================= */
+function renderizarCategoria() {
+  const categoryGrid = document.getElementById('categoryGrid');
+  if (!categoryGrid) return;
+
+  const cat = document.body.getAttribute('data-category');
+  const todos = PRODUTOS.filter(p => p.categoria === cat);
+  
+  // Se não houver produtos, não faz nada
+  if (todos.length === 0) return;
+
+  const top4 = todos.slice(0, 4);
+  const restantes = todos.slice(4);
+
+  // 1. Renderiza o Carrossel
+  categoryGrid.innerHTML = top4.map(p => criarCardProduto(p)).join('');
+
+  // 2. Renderiza os "Mais produtos"
+  let restGrid = document.getElementById('categoryRest');
+  
+  if (restantes.length > 0) {
+    if (!restGrid) {
+      const secao = document.createElement('section');
+      secao.className = 'section';
+      secao.innerHTML = `
+        <div class="container">
+          <div class="section__head" style="margin-top: 24px;">
+            <h2><span class="dot"></span> Mais produtos</h2>
+          </div>
+          <div class="grid grid--4" id="categoryRest"></div>
+        </div>
+      `;
+      const secaoAtual = categoryGrid.closest('.section') || categoryGrid.parentNode;
+      secaoAtual.parentNode.insertBefore(secao, secaoAtual.nextSibling);
+      restGrid = document.getElementById('categoryRest');
+    }
+    restGrid.innerHTML = restantes.map(p => criarCardProduto(p)).join('');
+  } else if (restGrid) {
+    // Se não houver restantes (ex: ao filtrar), esconde a secção
+    restGrid.parentElement.parentElement.style.display = 'none';
+  }
+}
 
 function criarCardProduto(p) {
   const preco = p.preco === 0 ? 'Grátis' : `${p.preco.toFixed(2).replace('.', ',')} MT`;
@@ -1279,3 +1294,66 @@ document.addEventListener('DOMContentLoaded', () => {
     atualizar();
   }
 });
+
+/* ================= SISTEMA DE FEEDBACK E PROTEÇÕES ================= */
+(function() {
+  if (!document.querySelector('.toast-container')) {
+    const container = document.createElement('div');
+    container.className = 'toast-container';
+    document.body.appendChild(container);
+  }
+
+  window.showToast = function(msg, type = 'info') {
+    const container = document.querySelector('.toast-container');
+    if (!container) return;
+    
+    // Se estiver offline, não tenta carregar o ícone para não mostrar a palavra feia
+    const isOffline = !navigator.onLine;
+    let iconHTML = '';
+    
+    if (!isOffline) {
+      let icon = 'info';
+      if (type === 'success') icon = 'check_circle';
+      if (type === 'error') icon = 'error';
+      iconHTML = `<span class="material-symbols-outlined">${icon}</span>`;
+    }
+
+    const toast = document.createElement('div');
+    toast.className = `toast is-${type}`;
+    toast.innerHTML = `${iconHTML} <span>${msg}</span>`;
+    
+    container.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(10px)';
+      setTimeout(() => toast.remove(), 300);
+    }, 4000);
+  };
+
+  // Intercetar links vazios
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (link) {
+      const href = link.getAttribute('href');
+      if (!href || href === '#' || href.trim() === '') {
+        e.preventDefault();
+        window.showToast('Esta página ainda está a ser construída.', 'info');
+      }
+    }
+  });
+
+  // Fallback de imagens
+  document.addEventListener('error', (e) => {
+    if (e.target.tagName === 'IMG') {
+      e.target.src = 'https://via.placeholder.com/300x300/1a1a22/7c5cff?text=Imagem+Indispon%C3%ADvel';
+      e.target.style.objectFit = 'cover';
+    }
+  }, true);
+
+  window.addEventListener('offline', () => {
+    window.showToast('Sem ligação à internet.', 'error');
+  });
+})();
+
+/* ================= RENDERIZAR MAIS PRODUTOS (APÓS API) ================= */
+
