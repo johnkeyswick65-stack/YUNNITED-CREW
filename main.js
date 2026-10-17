@@ -999,16 +999,8 @@ function iniciarHeroStories() {
   cats.forEach((c) => {
     const doCat = PRODUTOS.filter((p) => p.categoria === c.slug);
     if (!doCat.length) return;
-
-    // Ordenar do mais recente para o mais antigo
-    // Se tiver _id do Mongo (24 caracteres), extrai o timestamp do início do id
-    // Caso contrário, assume 0 (produtos hardcoded ficam no fim)
-    doCat.sort((a, b) => {
-      const getData = (p) => (p.id && String(p.id).length === 24) ? parseInt(String(p.id).substring(0, 8), 16) : 0;
-      return getData(b) - getData(a);
-    });
-
-    const maisRecente = doCat[0];
+    const apiProducts = doCat.filter(p => String(p.id).length === 24);
+    const maisRecente = apiProducts.length ? apiProducts[0] : doCat[doCat.length - 1];
     stories.push({ ...c, produto: maisRecente });
   });
 
@@ -1077,8 +1069,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Esperar PRODUTOS (podem vir da API) — até 4s
   let tentativas = 25;
   const tentar = () => {
-    if (typeof PRODUTOS !== 'undefined' && PRODUTOS.length > 0) return iniciarHeroStories();
-    if (tentativas-- > 0) return setTimeout(tentar, 160);
+    const temAPI = typeof PRODUTOS !== 'undefined' && PRODUTOS.some(p => String(p.id).length === 24);
+    if (temAPI || tentativas-- <= 0) return iniciarHeroStories();
+    setTimeout(tentar, 160);
   };
   tentar();
 });
