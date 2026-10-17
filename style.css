@@ -4278,3 +4278,39 @@ body.view-list #popularGrid > .skeleton-card {
   content: '';
   flex: 0 0 8px;
 }
+
+/* ============================================================
+   POPULARES — Carrossel Centralizado com Foco (Blur nos outros)
+   ============================================================ */
+#popularGrid {
+  /* Padding dinâmico para que o primeiro e último produto possam chegar ao centro */
+  padding-left: calc(50vw - 34vw) !important;
+  padding-right: calc(50vw - 34vw) !important;
+  scroll-padding: 0 calc(50vw - 34vw) !important;
+  margin: 0 !important;
+}
+
+/* Produto normal (fora do centro) */
+#popularGrid > .product-card {
+  scroll-snap-align: center !important;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease, filter 0.4s ease;
+  transform: scale(0.88);
+  opacity: 0.5;
+  filter: blur(2px) grayscale(30%);
+}
+
+/* Produto em foco (centro) */
+#popularGrid > .product-card.is-active {
+  transform: scale(1);
+  opacity: 1;
+  filter: none;
+}
+
+/* Ajuste para ecrãs maiores */
+@media (min-width: 600px) {
+  #popularGrid {
+    padding-left: calc(50vw - 120px) !important;
+    padding-right: calc(50vw - 120px) !important;
+    scroll-padding: 0 calc(50vw - 120px) !important;
+  }
+}

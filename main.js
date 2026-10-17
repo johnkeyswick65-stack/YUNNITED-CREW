@@ -1103,77 +1103,86 @@ document.addEventListener('click', (e) => {
   }
 });
 
-/* ================= CARROSSEL POPULARES AUTO ================= */
+/* ================= CARROSSEL POPULARES — FOCO E AUTO ================= */
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('popularGrid');
   if (!grid) return;
 
   let timer = null;
-  let pausado = false;
   let pauseUntil = 0;
-  const INTERVALO = 3800;      // 3.8s entre slides
-  const PAUSA_MANUAL = 9000;   // 9s de pausa após interação
+  const INTERVALO = 4000;
+  const PAUSA_MANUAL = 9000;
+
+  function atualizarFoco() {
+    const cards = grid.querySelectorAll('.product-card');
+    if (!cards.length) return;
+    const gridRect = grid.getBoundingClientRect();
+    const centroGrid = gridRect.left + gridRect.width / 2;
+    let cardAtivo = null;
+    let menorDistancia = Infinity;
+
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const centroCard = rect.left + rect.width / 2;
+      const distancia = Math.abs(centroGrid - centroCard);
+      if (distancia < menorDistancia) {
+        menorDistancia = distancia;
+        cardAtivo = card;
+      }
+      card.classList.remove('is-active');
+    });
+
+    if (cardAtivo) cardAtivo.classList.add('is-active');
+  }
+
+  grid.addEventListener('scroll', () => {
+    pauseUntil = Date.now() + PAUSA_MANUAL;
+    if (window._rafFoco) cancelAnimationFrame(window._rafFoco);
+    window._rafFoco = requestAnimationFrame(atualizarFoco);
+  }, { passive: true });
+
+  grid.addEventListener('touchstart', () => { pauseUntil = Date.now() + PAUSA_MANUAL; }, { passive: true });
+  grid.addEventListener('mousedown', () => { pauseUntil = Date.now() + PAUSA_MANUAL; });
 
   function proximoSlide() {
-    if (pausado) return;
-    if (Date.now() < pauseUntil) return;
-    if (document.hidden) return;
+    if (Date.now() < pauseUntil || document.hidden) return;
     if (document.querySelector('.shared-product[aria-hidden="false"]')) return;
     if (document.querySelector('.product-image-modal.is-open')) return;
 
-    const cards = grid.querySelectorAll('.product-card, .skeleton-card');
-    if (cards.length < 2) return;
+    const ativo = grid.querySelector('.product-card.is-active');
+    if (!ativo) return;
 
-    const cardW = cards[0].getBoundingClientRect().width;
-    const gap = parseFloat(getComputedStyle(grid).gap) || 12;
-    const passo = cardW + gap;
+    let proximo = ativo.nextElementSibling;
+    if (!proximo || !proximo.classList.contains('product-card')) {
+      proximo = grid.querySelector('.product-card');
+    }
 
-    const maxScroll = grid.scrollWidth - grid.clientWidth;
-    const proximo = grid.scrollLeft + passo;
-
-    if (proximo > maxScroll + 4) {
-      // Chegou ao fim — voltar ao início
-      grid.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-      grid.scrollTo({ left: proximo, behavior: 'smooth' });
+    if (proximo) {
+      const gridRect = grid.getBoundingClientRect();
+      const proxRect = proximo.getBoundingClientRect();
+      const targetScroll = grid.scrollLeft + (proxRect.left - gridRect.left) - (gridRect.width / 2) + (proxRect.width / 2);
+      grid.scrollTo({ left: targetScroll, behavior: 'smooth' });
     }
   }
 
   function iniciar() {
-    parar();
+    if (timer) clearInterval(timer);
     timer = setInterval(proximoSlide, INTERVALO);
+    atualizarFoco();
   }
 
-  function parar() {
-    if (timer) { clearInterval(timer); timer = null; }
-  }
-
-  // Pausar quando o utilizador interage
-  function pausarTemporario() {
-    pauseUntil = Date.now() + PAUSA_MANUAL;
-  }
-
-  grid.addEventListener('scroll', () => {
-    // Ignorar scroll que o próprio script provoca
-    pausarTemporario();
-  }, { passive: true });
-
-  grid.addEventListener('touchstart', pausarTemporario, { passive: true });
-  grid.addEventListener('mousedown', pausarTemporario);
-  grid.addEventListener('pointerdown', pausarTemporario, { passive: true });
-
-  // Pausar quando o separador está escondido
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) parar(); else iniciar();
+    if (document.hidden) {
+      if (timer) clearInterval(timer);
+    } else {
+      iniciar();
+    }
   });
 
-  // Esperar os produtos chegarem
   let tentativas = 25;
   const aguardar = () => {
-    const cards = grid.querySelectorAll('.product-card, .skeleton-card');
-    if (cards.length >= 2) return iniciar();
+    if (grid.querySelectorAll('.product-card').length > 0) return iniciar();
     if (tentativas-- > 0) return setTimeout(aguardar, 200);
   };
   aguardar();
 });
-
