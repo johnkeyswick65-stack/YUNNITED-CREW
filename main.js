@@ -1105,17 +1105,24 @@ document.addEventListener('click', (e) => {
   }
 });
 
-/* ================= CARROSSEL POPULARES — FOCO E AUTO ================= */
-document.addEventListener('DOMContentLoaded', () => {
-  const grid = document.getElementById('popularGrid');
+/* ================= CARROSSEL HORIZONTAL (POPULARES E CATEGORIAS) ================= */
+function inicializarCarrossel(idGrid) {
+  const grid = document.getElementById(idGrid);
   if (!grid) return;
 
   let timer = null;
   let pauseUntil = 0;
-  let dotsEl = null;
-  let dotsCache = [];
   const INTERVALO = 2000;
   const PAUSA_MANUAL = 9000;
+  let dotsCache = [];
+
+  // Criar container de dots dinamicamente se não existir
+  let dotsEl = grid.nextElementSibling;
+  if (!dotsEl || !dotsEl.classList.contains('popular-dots')) {
+    dotsEl = document.createElement('div');
+    dotsEl.className = 'popular-dots';
+    grid.parentNode.insertBefore(dotsEl, grid.nextSibling);
+  }
 
   function atualizarFoco() {
     const cards = grid.querySelectorAll('.product-card');
@@ -1136,24 +1143,22 @@ document.addEventListener('DOMContentLoaded', () => {
       card.classList.remove('is-active');
     });
 
-    if (cardAtivo) cardAtivo.classList.add('is-active');
-
-    // Sincronizar dots com o card ativo
-    if (cardAtivo && dotsCache.length) {
-      const idx = Array.from(cards).indexOf(cardAtivo);
-      dotsCache.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+    if (cardAtivo) {
+      cardAtivo.classList.add('is-active');
+      if (dotsCache.length) {
+        const idx = Array.from(cards).indexOf(cardAtivo);
+        dotsCache.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+      }
     }
   }
 
   function gerarDots() {
     const cards = grid.querySelectorAll('.product-card');
-    const container = document.getElementById('popularDots');
-    if (!container || !cards.length) return;
-    dotsEl = container;
-    container.innerHTML = Array.from(cards).map((_, i) =>
+    if (!cards.length) return;
+    dotsEl.innerHTML = Array.from(cards).map((_, i) =>
       `<button type="button" class="popular-dot ${i === 0 ? 'is-active' : ''}" data-idx="${i}" aria-label="Produto ${i + 1}"></button>`
     ).join('');
-    dotsCache = Array.from(container.querySelectorAll('.popular-dot'));
+    dotsCache = Array.from(dotsEl.querySelectorAll('.popular-dot'));
     dotsCache.forEach(dot => {
       dot.addEventListener('click', () => {
         const idx = Number(dot.dataset.idx);
@@ -1172,8 +1177,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   grid.addEventListener('scroll', () => {
     pauseUntil = Date.now() + PAUSA_MANUAL;
-    if (window._rafFoco) cancelAnimationFrame(window._rafFoco);
-    window._rafFoco = requestAnimationFrame(atualizarFoco);
+    if (window['_rafFoco_' + idGrid]) cancelAnimationFrame(window['_rafFoco_' + idGrid]);
+    window['_rafFoco_' + idGrid] = requestAnimationFrame(atualizarFoco);
   }, { passive: true });
 
   grid.addEventListener('touchstart', () => { pauseUntil = Date.now() + PAUSA_MANUAL; }, { passive: true });
@@ -1224,4 +1229,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tentativas-- > 0) return setTimeout(aguardar, 200);
   };
   aguardar();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  inicializarCarrossel('popularGrid');
+  inicializarCarrossel('categoryGrid');
 });
