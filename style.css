@@ -4848,3 +4848,47 @@ body[data-category="moda"] .scroll-arrows {
   color: rgba(255, 255, 255, 0.4) !important;
   opacity: 1 !important;
 }
+
+/* ============================================================
+   REDUZIR ALTURA DA BARRA DE CATEGORIAS (CATNAV)
+   ============================================================ */
+.catnav {
+  background: rgba(10, 10, 14, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  min-height: 0 !important;
+}
+
+.catnav__inner {
+  padding: 0 12px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.catnav__inner a {
+  padding: 10px 12px !important; /* Antes estava muito alto */
+  font-size: 13px !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.catnav__inner a .material-symbols-outlined {
+  font-size: 18px !important; /* Ícone ligeiramente mais pequeno */
+}
+
+/* Se o utilizador usar a vista de lista, o espaço extra desaparece */
+@media (max-width: 700px) {
+  .catnav__inner {
+    gap: 4px !important;
+  }
+  .catnav__inner a {
+    padding: 8px 10px !important;
+    font-size: 12.5px !important;
+  }
+  .catnav__inner a .material-symbols-outlined {
+    font-size: 16px !important;
+  }
+}
