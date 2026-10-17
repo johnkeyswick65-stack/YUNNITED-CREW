@@ -4892,3 +4892,979 @@ body[data-category="moda"] .scroll-arrows {
     font-size: 16px !important;
   }
 }
+
+/* ============================================================
+   HEADER E BARRA DE PESQUISA (VERSÃO FINAL)
+   ============================================================ */
+
+/* 1. O Header no telemóvel (Pesquisa + WhatsApp na mesma linha) */
+@media (max-width: 700px) {
+  .header-main {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important; /* Coluna 1: pesquisa, Coluna 2: WhatsApp */
+    grid-template-rows: auto auto !important;
+    gap: 12px 10px !important;
+    padding: 14px 16px !important;
+    align-items: center !important;
+  }
+
+  .brand { grid-column: 1 !important; grid-row: 1 !important; }
+  .menu-toggle { grid-column: 2 !important; grid-row: 1 !important; position: static !important; justify-self: end !important; }
+  
+  .search-row { 
+    grid-column: 1 !important; 
+    grid-row: 2 !important; 
+    width: 100% !important; 
+    margin: 0 !important; 
+    display: block !important; /* Para o search ocupar 100% */
+  }
+
+  .btn--header { 
+    grid-column: 2 !important; 
+    grid-row: 2 !important; 
+    display: inline-flex !important; 
+    margin: 0 !important; 
+    padding: 8px 12px !important; 
+    font-size: 12px !important; 
+    white-space: nowrap !important; 
+    justify-self: end !important; 
+  }
+}
+
+/* 2. A Barra de Pesquisa (Pílula) */
+.search {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 42px !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+/* 3. A Lupa */
+.search-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8a8a94 !important;
+  font-size: 20px !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+/* 4. O Input (Texto) */
+.search input {
+  flex: 1 !important;
+  height: 100% !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 16px 0 44px !important; /* 44px à esquerda para a lupa */
+  color: #fff !important;
+  font-size: 13px !important;
+  font-family: inherit !important;
+  outline: none !important;
+}
+
+.search input::placeholder {
+  color: #8a8a94 !important;
+  opacity: 1 !important;
+}
+
+/* 5. O Botão "Pesquisar" (colado à direita) */
+.search button {
+  position: absolute !important;
+  right: 4px !important;
+  top: 4px !important;
+  bottom: 4px !important;
+  height: calc(100% - 8px) !important;
+  background: #fff !important;
+  color: #000 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  padding: 0 16px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  z-index: 5 !important;
+}
+
+/* ============================================================
+   BARRA DE PESQUISA PERFEITA (LUPA À ESQUERDA, BOTÃO REDONDO À DIREITA)
+   ============================================================ */
+.search {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 44px !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+}
+
+/* A Lupa (Dentro da barra, lado esquerdo) */
+.search-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8a8a94 !important;
+  font-size: 20px !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+/* O Campo de Texto */
+.search input {
+  flex: 1 !important;
+  height: 100% !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 50px 0 44px !important; /* Espaço para a lupa à esquerda e botão à direita */
+  color: #fff !important;
+  font-size: 13.5px !important;
+  font-family: inherit !important;
+  outline: none !important;
+}
+
+.search input::placeholder {
+  color: #8a8a94 !important;
+  opacity: 1 !important;
+}
+
+/* O Botão Redondo com Lupa (Substituiu o botão "Pesquisar") */
+.search-submit {
+  position: absolute !important;
+  right: 4px !important;
+  top: 4px !important;
+  bottom: 4px !important;
+  width: 36px !important;
+  height: 36px !important;
+  background: #fff !important;
+  color: #000 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 5 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: transform 0.1s !important;
+}
+
+.search-submit:active {
+  transform: scale(0.92) !important;
+}
+
+.search-submit .material-symbols-outlined {
+  font-size: 20px !important;
+  font-weight: 800 !important; /* Deixa a lupa mais grossa e visível */
+}
+
+/* ============================================================
+   BARRA DE PESQUISA PERFEITA (LUPA À ESQUERDA, BOTÃO REDONDO À DIREITA)
+   ============================================================ */
+.search {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 44px !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+}
+
+/* A Lupa (Dentro da barra, lado esquerdo) */
+.search-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8a8a94 !important;
+  font-size: 20px !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+/* O Campo de Texto */
+.search input {
+  flex: 1 !important;
+  height: 100% !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 50px 0 44px !important; /* Espaço para a lupa à esquerda e botão à direita */
+  color: #fff !important;
+  font-size: 13.5px !important;
+  font-family: inherit !important;
+  outline: none !important;
+}
+
+.search input::placeholder {
+  color: #8a8a94 !important;
+  opacity: 1 !important;
+}
+
+/* O Botão Redondo com Lupa (Substituiu o botão "Pesquisar") */
+.search-submit {
+  position: absolute !important;
+  right: 4px !important;
+  top: 4px !important;
+  bottom: 4px !important;
+  width: 36px !important;
+  height: 36px !important;
+  background: #fff !important;
+  color: #000 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 5 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: transform 0.1s !important;
+}
+
+.search-submit:active {
+  transform: scale(0.92) !important;
+}
+
+.search-submit .material-symbols-outlined {
+  font-size: 20px !important;
+  font-weight: 800 !important; /* Deixa a lupa mais grossa e visível */
+}
+
+/* ============================================================
+   HEADER MOBILE DEFINITIVO (GRID E LUPA)
+   ============================================================ */
+@media (max-width: 700px) {
+  .header-main {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    grid-template-areas:
+      "brand menu"
+      "search whatsapp" !important;
+    gap: 12px 10px !important;
+    align-items: center !important;
+    padding: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .brand { grid-area: brand !important; min-width: 0 !important; margin: 0 !important; }
+  
+  .menu-toggle { 
+    grid-area: menu !important; 
+    position: static !important; 
+    display: flex !important; 
+    justify-self: end !important; 
+    margin: 0 !important; 
+  }
+
+  .search-row { 
+    grid-area: search !important; 
+    width: 100% !important; 
+    display: flex !important; 
+    margin: 0 !important; 
+    padding: 0 !important;
+  }
+
+  .btn--header { 
+    grid-area: whatsapp !important; 
+    display: inline-flex !important; 
+    justify-self: end !important; 
+    margin: 0 !important; 
+    padding: 8px 12px !important;
+    height: 44px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* A Barra de Pesquisa */
+.search {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 44px !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+}
+
+.search-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8a8a94 !important;
+  font-size: 20px !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+.search input {
+  flex: 1 !important;
+  height: 100% !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 50px 0 44px !important;
+  color: #fff !important;
+  font-size: 13.5px !important;
+  outline: none !important;
+}
+
+.search-submit {
+  position: absolute !important;
+  right: 4px !important;
+  top: 4px !important;
+  bottom: 4px !important;
+  width: 36px !important;
+  height: 36px !important;
+  background: #fff !important;
+  color: #000 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 5 !important;
+  padding: 0 !important;
+}
+.search-submit .material-symbols-outlined { font-size: 20px !important; font-weight: 800 !important; }
+
+/* ============================================================
+   CORREÇÃO FINAL: PESQUISA + WHATSAPP NA MESMA LINHA
+   ============================================================ */
+@media (max-width: 700px) {
+  /* 1. Desfazer o grid que estava a baralhar a ordem */
+  .header-main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 12px 16px !important;
+    gap: 12px 8px !important;
+  }
+
+  /* 2. Logo e Menu na primeira linha */
+  .brand {
+    flex: 1 1 70% !important;
+    min-width: 0 !important;
+  }
+  .menu-toggle {
+    flex: 0 0 auto !important;
+    position: static !important;
+    display: flex !important;
+  }
+
+  /* 3. Barra de pesquisa + WhatsApp na segunda linha */
+  .search-row {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    order: 10 !important; /* Força para baixo */
+    margin: 0 !important;
+  }
+
+  /* 4. Pesquisa ocupa o espaço restante */
+  .search {
+    flex: 1 !important;
+    width: auto !important;
+    max-width: none !important;
+    height: 44px !important;
+    margin: 0 !important;
+  }
+
+  /* 5. WhatsApp fica à direita com o tamanho certo */
+  .btn--header {
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 14px !important;
+    height: 44px !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    border-radius: 999px !important;
+  }
+}
+
+/* 6. Forçar o texto a afastar-se da lupa da esquerda */
+.search input {
+  padding: 0 50px 0 46px !important; /* 46px à esquerda para a lupa */
+  font-size: 13px !important;
+}
+
+.search-icon {
+  left: 16px !important; /* Lupa encostada à esquerda */
+}
+
+/* ============================================================
+   CORREÇÃO DEFINITIVA: CABEÇALHO MOBILE E LUPA
+   ============================================================ */
+@media (max-width: 700px) {
+  /* Header: Logo em cima, Pesquisa e WA em baixo */
+  .header-main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
+    gap: 12px 10px !important;
+  }
+
+  .brand {
+    flex: 1 1 auto !important;
+    order: 1 !important;
+    margin: 0 !important;
+  }
+
+  .menu-toggle {
+    flex: 0 0 auto !important;
+    order: 2 !important;
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  /* Linha de baixo: Pesquisa e WhatsApp */
+  .search-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    order: 3 !important;
+    margin-top: 8px !important;
+    gap: 8px !important;
+  }
+
+  /* A caixa de pesquisa (ocupa o espaço da esquerda) */
+  .search {
+    position: relative !important; /* TRUQUE PARA A LUPA NÃO FUGIR */
+    flex: 1 1 auto !important;
+    order: 1 !important;
+    margin: 0 !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 999px !important;
+    overflow: hidden !important;
+  }
+
+  /* O botão do WhatsApp (colado à direita) */
+  .btn--header {
+    flex: 0 0 auto !important;
+    order: 2 !important;
+    margin: 0 !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 14px !important;
+    border-radius: 999px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* A LUPA (Trancada à esquerda) */
+.search-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8a8a94 !important;
+  font-size: 20px !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+/* O TEXTO (Espaçado para não ficar por baixo da lupa nem do botão) */
+.search input {
+  flex: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 45px 0 44px !important; /* 44px à esquerda, 45px à direita */
+  background: transparent !important;
+  border: 0 !important;
+  color: #fff !important;
+  font-size: 13.5px !important;
+  outline: none !important;
+}
+
+/* O BOTÃO REDONDO BRANCO (Colado à direita da barra) */
+.search-submit {
+  position: absolute !important;
+  right: 4px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #fff !important;
+  color: #000 !important;
+  border-radius: 50% !important;
+  border: 0 !important;
+  padding: 0 !important;
+  z-index: 10 !important;
+}
+
+.search-submit .material-symbols-outlined {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+}
+
+/* ============================================================
+   CORREÇÃO DEFINITIVA: CABEÇALHO MOBILE E LUPA
+   ============================================================ */
+@media (max-width: 700px) {
+  /* Header: Logo em cima, Pesquisa e WA em baixo */
+  .header-main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
+    gap: 12px 10px !important;
+  }
+
+  .brand {
+    flex: 1 1 auto !important;
+    order: 1 !important;
+    margin: 0 !important;
+  }
+
+  .menu-toggle {
+    flex: 0 0 auto !important;
+    order: 2 !important;
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  /* Linha de baixo: Pesquisa e WhatsApp */
+  .search-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    order: 3 !important;
+    margin-top: 8px !important;
+    gap: 8px !important;
+  }
+
+  /* A caixa de pesquisa (ocupa o espaço da esquerda) */
+  .search {
+    position: relative !important; /* TRUQUE PARA A LUPA NÃO FUGIR */
+    flex: 1 1 auto !important;
+    order: 1 !important;
+    margin: 0 !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 999px !important;
+    overflow: hidden !important;
+  }
+
+  /* O botão do WhatsApp (colado à direita) */
+  .btn--header {
+    flex: 0 0 auto !important;
+    order: 2 !important;
+    margin: 0 !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 14px !important;
+    border-radius: 999px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* A LUPA (Trancada à esquerda) */
+.search-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8a8a94 !important;
+  font-size: 20px !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+/* O TEXTO (Espaçado para não ficar por baixo da lupa nem do botão) */
+.search input {
+  flex: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 45px 0 44px !important; /* 44px à esquerda, 45px à direita */
+  background: transparent !important;
+  border: 0 !important;
+  color: #fff !important;
+  font-size: 13.5px !important;
+  outline: none !important;
+}
+
+/* O BOTÃO REDONDO BRANCO (Colado à direita da barra) */
+.search-submit {
+  position: absolute !important;
+  right: 4px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #fff !important;
+  color: #000 !important;
+  border-radius: 50% !important;
+  border: 0 !important;
+  padding: 0 !important;
+  z-index: 10 !important;
+}
+
+.search-submit .material-symbols-outlined {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+}
+
+/* ============================================================
+   O VERDADEIRO FIX DO HEADER (SEM CONFLITOS)
+   ============================================================ */
+@media (max-width: 700px) {
+  .header-main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    padding: 12px 16px !important;
+    gap: 12px !important;
+    align-items: center !important;
+  }
+
+  .brand { flex: 1 1 auto !important; margin: 0 !important; }
+  
+  .menu-toggle { 
+    flex: 0 0 auto !important; 
+    margin-left: auto !important; 
+    position: static !important; 
+  }
+
+  /* A linha de baixo inteira */
+  .header-main .search-row {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* A caixa de pesquisa */
+  .header-main .search-row .search {
+    position: relative !important;
+    flex: 1 1 auto !important;
+    height: 44px !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 999px !important;
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* A Lupa da esquerda */
+  .header-main .search-row .search .search-icon {
+    position: absolute !important;
+    left: 14px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    color: #8a8a94 !important;
+    font-size: 20px !important;
+    pointer-events: none !important;
+    z-index: 10 !important;
+  }
+
+  /* O Texto (Input) */
+  .header-main .search-row .search input {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 48px 0 44px !important; /* 48px à direita para o botão, 44px à esquerda para a lupa */
+    background: transparent !important;
+    border: 0 !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    outline: none !important;
+  }
+
+  /* O Botão Redondo (Lupa da direita) */
+  .header-main .search-row .search .search-submit {
+    position: absolute !important;
+    right: 4px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: #fff !important;
+    color: #000 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    border: 0 !important;
+    z-index: 10 !important;
+  }
+
+  /* O botão do WhatsApp */
+  .header-main .search-row .btn--header {
+    flex: 0 0 auto !important;
+    height: 44px !important;
+    padding: 0 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 999px !important;
+    font-size: 13px !important;
+    margin: 0 !important;
+  }
+}
+
+/* ============================================================
+   REMOVER BOTÃO BRANCO E AJUSTAR TEXTO
+   ============================================================ */
+.search-submit {
+  display: none !important;
+}
+
+/* Como o botão da direita desapareceu, o texto pode ir até ao fim */
+.header-main .search-row .search input {
+  padding: 0 16px 0 44px !important; 
+}
+
+/* ============================================================
+   MENU LATERAL: EFEITO DE VIDRO FOSCO (TRANSPARENTE)
+   ============================================================ */
+.mobile-menu {
+  /* Fundo semi-transparente em vez de preto sólido */
+  background: rgba(18, 18, 24, 0.75) !important; 
+  /* Desfoque do que está atrás do menu */
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Garantir que o fundo interior não volta a pintar de preto */
+.mobile-menu__inner {
+  background: transparent !important;
+}
+
+/* Os botões de navegação também podem ficar ligeiramente transparentes */
+.mobile-menu__section {
+  background: transparent !important;
+}
+
+/* ============================================================
+   CORREÇÃO DO FUNDO GLOBAL (REMOVER PRETO INTENSO)
+   ============================================================ */
+body {
+  /* Em vez de preto puro, usamos um cinza-escuro rico */
+  background-color: #101015 !important; 
+  
+  /* Adicionamos reflexos subtis de luz para o site não parecer "morto" */
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(124, 92, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(34, 211, 238, 0.04) 0%, transparent 50%) !important;
+  background-attachment: fixed !important;
+}
+
+/* Garantir que os contentores não estão a forçar o preto novamente */
+main, .site-wrapper, #app {
+  background: transparent !important;
+}
+
+/* ============================================================
+   INSPEÇÃO FINAL: MENU LATERAL E FUNDO DO SITE (ADEUS PRETO MORTO)
+   ============================================================ */
+
+/* 1. Fundo do site ligeiramente mais claro e com profundidade */
+body {
+  background-color: #121217 !important; /* Um cinza-escuro azulado em vez de breu */
+  background-image: 
+    radial-gradient(circle at 50% -20%, rgba(124, 92, 255, 0.15) 0%, transparent 60%) !important;
+}
+
+/* 2. O Menu Lateral (Fundo premium, sem ser preto puro) */
+.mobile-menu {
+  background: linear-gradient(180deg, #1c1c24 0%, #121217 100%) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: none !important; /* Tira o blur que estava a deixar tudo preto */
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 3. As Secções do Menu (Para separar visualmente as áreas) */
+.mobile-menu__section {
+  background: rgba(255, 255, 255, 0.02) !important; /* Um leve toque de luz */
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 12px !important;
+  border-bottom: 0 !important;
+}
+
+/* 4. Os Botões de Ação Rápida (Partilhar, Feedback, etc.) */
+.quick-btn {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+}
+.quick-btn:hover {
+  background: rgba(124, 92, 255, 0.2) !important;
+  border-color: #7c5cff !important;
+}
+
+/* 5. Os Links do Menu */
+.mobile-menu__inner a {
+  color: #e0e0e5 !important;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.mobile-menu__inner a:hover,
+.mobile-menu__inner a.is-active {
+  background: rgba(124, 92, 255, 0.15) !important;
+  color: #fff !important;
+}
+
+/* ============================================================
+   REESCREVER AÇÕES RÁPIDAS (PARTILHAR, FEEDBACK, ETC.)
+   ============================================================ */
+
+/* 1. Contentor: Forçar 4 colunas exatas e iguais */
+.mobile-menu__quick {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 8px !important;
+  padding: 4px 0 16px 0 !important;
+  margin-bottom: 16px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* 2. O Botão (Estilo Cartão) */
+.quick-btn {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 12px 2px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  width: 100% !important;
+}
+
+/* 3. Efeito ao tocar/hover */
+.quick-btn:hover, 
+.quick-btn:active {
+  background: rgba(124, 92, 255, 0.12) !important;
+  border-color: rgba(124, 92, 255, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 4. O Ícone (Material) */
+.quick-btn .material-symbols-outlined {
+  font-size: 22px !important;
+  color: #fff !important;
+  margin: 0 !important;
+}
+
+/* 5. O Texto */
+.quick-btn span:not(.material-symbols-outlined) {
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  color: #a5a5ad !important;
+  letter-spacing: 0.2px !important;
+  white-space: nowrap !important; /* Impede que o texto quebre para 2 linhas */
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+.quick-btn:hover span:not(.material-symbols-outlined) {
+  color: #fff !important;
+}
+
+/* ============================================================
+   CORREÇÃO: BOTÕES LIMPOS E MENU DE VIDRO
+   ============================================================ */
+
+/* 1. Devolver o vidro fosco ao menu (sem ser preto sólido) */
+.mobile-menu {
+  background: rgba(16, 16, 24, 0.75) !important; /* Transparente */
+  backdrop-filter: blur(24px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 2. Remover os retângulos de fundo dos botões */
+.quick-btn {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 8px 0 !important;
+  box-shadow: none !important;
+}
+
+/* Efeito ao tocar: apenas o ícone brilha, sem caixas */
+.quick-btn:hover, 
+.quick-btn:active {
+  background: transparent !important;
+  transform: translateY(-2px) !important;
+}
+
+.quick-btn:hover .material-symbols-outlined,
+.quick-btn:active .material-symbols-outlined {
+  color: #7c5cff !important;
+}
+
+.quick-btn:hover span:not(.material-symbols-outlined),
+.quick-btn:active span:not(.material-symbols-outlined) {
+  color: #fff !important;
+}
+
+/* 3. Garantir que o ícone do feedback e os outros têm o mesmo tamanho */
+.quick-btn .material-symbols-outlined {
+  font-size: 24px !important;
+  color: #a5a5ad !important;
+  transition: color 0.2s;
+}
