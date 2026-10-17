@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const categoryGrid = document.getElementById('categoryGrid');
   if (categoryGrid) {
     const cat = document.body.getAttribute('data-category');
-    const itens = PRODUTOS.filter(p => p.categoria === cat);
+    const itens = PRODUTOS.filter(p => p.categoria === cat).slice(0, 4);
     categoryGrid.innerHTML = itens.map(p => criarCardProduto(p)).join('');
   }
 
