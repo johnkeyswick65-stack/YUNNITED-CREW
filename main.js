@@ -176,7 +176,7 @@ function criarCardProduto(p) {
     : `<div class="product-card__icon">${p.svg || p.icone}</div>`;
 
   return `
-    <article class="product-card">
+    <article class="product-card" data-slug="${paraSlug(p.nome)}">
       ${badge}
       ${visual}
 
@@ -1073,3 +1073,33 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   tentar();
 });
+
+/* ================= CLIQUE NA CAIXA DO PRODUTO ================= */
+document.addEventListener('click', (e) => {
+  // Encontra a caixa do produto
+  const card = e.target.closest('.product-card');
+  if (!card) return;
+
+  // Se clicou na imagem, no like, no share, no botão comprar ou dentro do menu de partilha,
+  // ignora, porque esses já têm a sua própria função.
+  if (
+    e.target.closest('.product-image-clickable') ||
+    e.target.closest('.product-image-like') ||
+    e.target.closest('.product-image-share') ||
+    e.target.closest('.product-share-menu') ||
+    e.target.closest('.btn--wa') ||
+    e.target.closest('.product-image-modal')
+  ) {
+    return;
+  }
+
+  // Se for um clique válido na caixa, abre a janela detalhada
+  const slug = card.dataset.slug;
+  if (slug && typeof PRODUTOS !== 'undefined') {
+    const produto = PRODUTOS.find(x => paraSlug(x.nome) === slug);
+    if (produto && typeof abrirModalProdutoCompartilhado === 'function') {
+      abrirModalProdutoCompartilhado(produto);
+    }
+  }
+});
+
