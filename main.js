@@ -1261,3 +1261,21 @@ document.addEventListener('DOMContentLoaded', () => {
   inicializarCarrossel('popularGrid');
   inicializarCarrossel('categoryGrid');
 });
+
+/* Atualiza o contador no subtítulo "Todos os livros" */
+document.addEventListener('DOMContentLoaded', () => {
+  const hint = document.querySelector('.section__head .section__hint');
+  if (hint && hint.textContent.trim() === 'Coleção disponível') {
+    let tentativas = 20;
+    const atualizar = () => {
+      if (typeof PRODUTOS !== 'undefined' && PRODUTOS.length > 0) {
+        const cat = document.body.getAttribute('data-category') || 'all';
+        const total = cat === 'all' ? PRODUTOS.length : PRODUTOS.filter(p => p.categoria === cat).length;
+        hint.textContent = `${total} livro(s) disponíveis`;
+        return;
+      }
+      if (tentativas-- > 0) setTimeout(atualizar, 200);
+    };
+    atualizar();
+  }
+});
