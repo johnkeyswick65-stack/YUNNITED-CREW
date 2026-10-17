@@ -1157,7 +1157,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const idx = Number(dot.dataset.idx);
         const cards = grid.querySelectorAll('.product-card');
         if (cards[idx]) {
-          cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          const gridRect = grid.getBoundingClientRect();
+          const cRect = cards[idx].getBoundingClientRect();
+          const offsetC = cRect.left - gridRect.left;
+          const targetC = grid.scrollLeft + offsetC - (gridRect.width / 2) + (cRect.width / 2);
+          grid.scrollTo({ left: targetC, behavior: 'smooth' });
           pauseUntil = Date.now() + PAUSA_MANUAL;
         }
       });
@@ -1187,7 +1191,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (proximo) {
-      proximo.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      const gridRect = grid.getBoundingClientRect();
+      const proxRect = proximo.getBoundingClientRect();
+      const offsetProximo = proxRect.left - gridRect.left;
+      const centroGrid = gridRect.width / 2;
+      const centroProximo = proxRect.width / 2;
+      const targetScroll = grid.scrollLeft + offsetProximo - centroGrid + centroProximo;
+      grid.scrollTo({ left: targetScroll, behavior: 'smooth' });
     }
   }
 
