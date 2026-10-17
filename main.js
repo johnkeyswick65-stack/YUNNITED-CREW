@@ -1103,3 +1103,77 @@ document.addEventListener('click', (e) => {
   }
 });
 
+/* ================= CARROSSEL POPULARES AUTO ================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('popularGrid');
+  if (!grid) return;
+
+  let timer = null;
+  let pausado = false;
+  let pauseUntil = 0;
+  const INTERVALO = 3800;      // 3.8s entre slides
+  const PAUSA_MANUAL = 9000;   // 9s de pausa após interação
+
+  function proximoSlide() {
+    if (pausado) return;
+    if (Date.now() < pauseUntil) return;
+    if (document.hidden) return;
+    if (document.querySelector('.shared-product[aria-hidden="false"]')) return;
+    if (document.querySelector('.product-image-modal.is-open')) return;
+
+    const cards = grid.querySelectorAll('.product-card, .skeleton-card');
+    if (cards.length < 2) return;
+
+    const cardW = cards[0].getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(grid).gap) || 12;
+    const passo = cardW + gap;
+
+    const maxScroll = grid.scrollWidth - grid.clientWidth;
+    const proximo = grid.scrollLeft + passo;
+
+    if (proximo > maxScroll + 4) {
+      // Chegou ao fim — voltar ao início
+      grid.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      grid.scrollTo({ left: proximo, behavior: 'smooth' });
+    }
+  }
+
+  function iniciar() {
+    parar();
+    timer = setInterval(proximoSlide, INTERVALO);
+  }
+
+  function parar() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  // Pausar quando o utilizador interage
+  function pausarTemporario() {
+    pauseUntil = Date.now() + PAUSA_MANUAL;
+  }
+
+  grid.addEventListener('scroll', () => {
+    // Ignorar scroll que o próprio script provoca
+    pausarTemporario();
+  }, { passive: true });
+
+  grid.addEventListener('touchstart', pausarTemporario, { passive: true });
+  grid.addEventListener('mousedown', pausarTemporario);
+  grid.addEventListener('pointerdown', pausarTemporario, { passive: true });
+
+  // Pausar quando o separador está escondido
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) parar(); else iniciar();
+  });
+
+  // Esperar os produtos chegarem
+  let tentativas = 25;
+  const aguardar = () => {
+    const cards = grid.querySelectorAll('.product-card, .skeleton-card');
+    if (cards.length >= 2) return iniciar();
+    if (tentativas-- > 0) return setTimeout(aguardar, 200);
+  };
+  aguardar();
+});
+
