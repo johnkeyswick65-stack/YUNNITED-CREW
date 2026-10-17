@@ -621,6 +621,30 @@ function abrirModalProdutoCompartilhado(p) {
     ? '<img src="' + p.imagem + '" alt="' + p.nome + '" loading="lazy">'
     : '<div class="shared-product__icon">' + (p.svg || p.icone || '') + '</div>';
 
+  const sugeridos = (typeof PRODUTOS !== 'undefined' ? PRODUTOS : [])
+    .filter(x => x.categoria === p.categoria && x.nome !== p.nome)
+    .slice(0, 6);
+
+  const htmlSugeridos = sugeridos.length ? `
+    <div class="shared-product__suggested">
+      <h4 class="shared-product__suggested-title">Produtos sugeridos</h4>
+      <div class="shared-product__suggested-list">
+        ${sugeridos.map(s => {
+          const sPreco = s.preco === 0 ? 'Grátis' : s.preco.toFixed(2).replace('.', ',') + ' MT';
+          return `
+            <div class="suggested-card" data-slug="${paraSlug(s.nome)}" role="button" tabindex="0">
+              <div class="suggested-card__img">
+                ${s.imagem ? `<img src="${s.imagem}" alt="${s.nome}" loading="lazy">` : `<span class="material-symbols-outlined">image</span>`}
+              </div>
+              <span class="suggested-card__name">${s.nome}</span>
+              <strong class="suggested-card__price">${sPreco}</strong>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  ` : '';
+
   document.body.insertAdjacentHTML('beforeend', `
     <div id="sharedProductModal" class="shared-product" aria-hidden="false" role="dialog" aria-modal="true">
       <div class="shared-product__backdrop" data-close></div>
@@ -647,6 +671,7 @@ function abrirModalProdutoCompartilhado(p) {
               Partilhar
             </button>
           </div>
+          ${htmlSugeridos}
         </div>
       </div>
     </div>
@@ -663,6 +688,18 @@ function abrirModalProdutoCompartilhado(p) {
   });
   document.addEventListener('keydown', function onEsc(e) {
     if (e.key === 'Escape') { modal.remove(); document.body.classList.remove('modal-open'); document.removeEventListener('keydown', onEsc); }
+  });
+
+  modal.querySelectorAll('.suggested-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const slug = card.dataset.slug;
+      const novoProduto = PRODUTOS.find(x => paraSlug(x.nome) === slug);
+      if (novoProduto) {
+        modal.remove();
+        document.body.classList.remove('modal-open');
+        abrirModalProdutoCompartilhado(novoProduto);
+      }
+    });
   });
 
   const shareBtn = modal.querySelector('.shared-product__share');
