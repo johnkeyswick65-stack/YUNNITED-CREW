@@ -4777,63 +4777,73 @@ body[data-category="moda"] .scroll-arrows {
 }
 
 /* ============================================================
-   CORREÇÃO DEFINITIVA: HEADER MOBILE E CARROSSEL
+   CORREÇÃO FINAL E DEFINITIVA: CABEÇALHO E CARROSSEL
    ============================================================ */
 
-/* 1. Header Mobile: Arrumar o WhatsApp, a busca e o menu na mesma linha */
-@media (max-width: 480px) {
+/* 1. Ajustar o Cabeçalho no telemóvel (sem sobreposições) */
+@media (max-width: 700px) {
   .header-main {
-    display: flex !important;
-    flex-wrap: wrap !important;
+    display: grid !important;
+    /* 3 colunas: Logo (ocupa o resto), WhatsApp (auto), Menu (auto) */
+    grid-template-columns: minmax(0, 1fr) auto auto !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 10px !important;
+    row-gap: 12px !important;
     padding: 12px 16px !important;
-    align-items: center !important;
-    gap: 8px !important;
   }
-  .brand {
-    flex: 1 1 50% !important;
+
+  /* Logo na linha 1, coluna 1 */
+  .brand { 
+    grid-column: 1 !important; 
+    grid-row: 1 !important; 
     min-width: 0 !important;
   }
-  .btn--header {
-    display: inline-flex !important; /* Trazer o botão de volta */
-    order: 2 !important;
-    padding: 8px 12px !important;
+
+  /* Botão WhatsApp na linha 1, coluna 2 */
+  .btn--header { 
+    grid-column: 2 !important; 
+    grid-row: 1 !important; 
+    margin: 0 !important; 
+    padding: 8px 12px !important; 
     font-size: 12px !important;
-    flex-shrink: 0 !important;
   }
-  .menu-toggle {
-    order: 3 !important;
-    margin-left: 4px !important;
-    flex-shrink: 0 !important;
+
+  /* Menu de 3 barras na linha 1, coluna 3 (sem position absolute) */
+  .menu-toggle { 
+    grid-column: 3 !important; 
+    grid-row: 1 !important; 
+    position: static !important; 
+    margin: 0 !important;
   }
-  .search-row {
-    width: 100% !important;
-    order: 4 !important;
-    margin-top: 6px !important;
-    display: flex !important;
+
+  /* Barra de pesquisa ocupa a linha 2 inteira */
+  .search-row { 
+    grid-column: 1 / -1 !important; 
+    grid-row: 2 !important; 
+    width: 100% !important; 
+    margin-top: 0 !important;
   }
+  
   .search {
-    flex: 1 !important;
     width: 100% !important;
     max-width: 100% !important;
   }
 }
 
-/* 2. Corrigir o carrossel (Acessórios, Moda) sem quebrar o layout */
-body[data-category="acessorios"] #categoryGrid,
-body[data-category="moda"] #categoryGrid,
-#categoryGrid {
-  width: calc(100% + 32px) !important; /* Compensa o padding do container */
-  max-width: none !important;
-  margin-left: -16px !important;
-  margin-right: -16px !important;
+/* 2. Corrigir o carrossel (Acessórios, Moda) sem apertar à esquerda e sem estragar o Header */
+#categoryGrid,
+#popularGrid {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   left: auto !important;
-  right: auto !important;
   position: relative !important;
+  /* Padding calculado para centralizar o 1º e último cartão */
   padding-left: calc(50vw - 110px) !important;
   padding-right: calc(50vw - 110px) !important;
 }
 
-/* 3. Garantir que o placeholder da pesquisa é visível */
+/* 3. Garantir o texto na barra de pesquisa */
 .search input::placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
   opacity: 1 !important;
