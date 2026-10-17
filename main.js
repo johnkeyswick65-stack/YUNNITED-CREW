@@ -1110,6 +1110,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let timer = null;
   let pauseUntil = 0;
+  let dotsEl = null;
+  let dotsCache = [];
   const INTERVALO = 4000;
   const PAUSA_MANUAL = 9000;
 
@@ -1133,6 +1135,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (cardAtivo) cardAtivo.classList.add('is-active');
+
+    // Sincronizar dots com o card ativo
+    if (cardAtivo && dotsCache.length) {
+      const idx = Array.from(cards).indexOf(cardAtivo);
+      dotsCache.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+    }
+  }
+
+  function gerarDots() {
+    const cards = grid.querySelectorAll('.product-card');
+    const container = document.getElementById('popularDots');
+    if (!container || !cards.length) return;
+    dotsEl = container;
+    container.innerHTML = Array.from(cards).map((_, i) =>
+      `<button type="button" class="popular-dot ${i === 0 ? 'is-active' : ''}" data-idx="${i}" aria-label="Produto ${i + 1}"></button>`
+    ).join('');
+    dotsCache = Array.from(container.querySelectorAll('.popular-dot'));
+    dotsCache.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = Number(dot.dataset.idx);
+        const cards = grid.querySelectorAll('.product-card');
+        if (cards[idx]) {
+          cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          pauseUntil = Date.now() + PAUSA_MANUAL;
+        }
+      });
+    });
   }
 
   grid.addEventListener('scroll', () => {
@@ -1158,15 +1187,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (proximo) {
-      const gridRect = grid.getBoundingClientRect();
-      const proxRect = proximo.getBoundingClientRect();
-      const targetScroll = grid.scrollLeft + (proxRect.left - gridRect.left) - (gridRect.width / 2) + (proxRect.width / 2);
-      grid.scrollTo({ left: targetScroll, behavior: 'smooth' });
+      proximo.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     }
   }
 
   function iniciar() {
     if (timer) clearInterval(timer);
+    gerarDots();
     timer = setInterval(proximoSlide, INTERVALO);
     atualizarFoco();
   }

@@ -4314,3 +4314,57 @@ body.view-list #popularGrid > .skeleton-card {
     scroll-padding: 0 calc(50vw - 120px) !important;
   }
 }
+
+/* Ajustes de performance e suavidade no carrossel */
+#popularGrid {
+  scroll-snap-type: x proximity !important; /* proximity é mais suave que mandatory */
+  -webkit-overflow-scrolling: touch !important;
+}
+
+#popularGrid > .product-card {
+  will-change: transform, opacity, filter; /* Avisa o celular para preparar a animação */
+  transform: translateZ(0); /* Força aceleração de hardware */
+}
+
+/* Desfoque mais leve para não travar em celulares mais fracos */
+#popularGrid > .product-card:not(.is-active) {
+  filter: blur(1.5px) grayscale(20%) !important;
+}
+
+/* ================= DOTS DO CARROSSEL POPULARES ================= */
+.popular-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 14px 0 4px;
+  padding: 0 16px;
+}
+
+.popular-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.25s, background 0.25s;
+  flex-shrink: 0;
+}
+
+.popular-dot:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.popular-dot.is-active {
+  width: 22px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c5cff, #b44cff);
+  box-shadow: 0 0 10px rgba(124, 92, 255, 0.5);
+}
+
+/* Esconder dots em vista Lista */
+body.view-list .popular-dots {
+  display: none;
+}
