@@ -6770,3 +6770,26 @@ html, body {
   .nhonga-option-grid { grid-template-columns: 1fr !important; }
   .nhonga-final h2 { font-size: 28px !important; }
 }
+
+/* ============================================================
+   FIX: MODAL DO PRODUTO FICAR ACIMA DO CABEÇALHO
+   ============================================================ */
+
+/* 1. O Modal tem de ter um z-index maior que o cabeçalho (9999) */
+.shared-product,
+.product-image-modal,
+.filter-modal {
+  z-index: 100000 !important;
+}
+
+/* 2. Dar espaço no topo para o cartão não ficar debaixo do cabeçalho */
+.shared-product {
+  padding-top: 80px !important; 
+  padding-bottom: 20px !important;
+  align-items: flex-start !important; /* Alinha o cartão a começar de cima */
+}
+
+/* 3. Garantir que o menu lateral (se estiver aberto) também não tapa o modal */
+.mobile-menu {
+  z-index: 9000 !important;
+}
