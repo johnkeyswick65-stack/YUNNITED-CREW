@@ -619,28 +619,26 @@ function abrirModalProdutoCompartilhado(p) {
   const msg = encodeURIComponent('Olá YUNNITED CREW! Tenho interesse em: ' + p.nome + ' (' + preco + ').');
   const imagem = p.imagem
     ? '<img src="' + p.imagem + '" alt="' + p.nome + '" loading="lazy">'
-    : '<div class="shared-product__icon">' + (p.svg || p.icone || '') + '</div>';
+    : '<div style="display:flex;align-items:center;justify-content:center;height:100%;"><span class="material-symbols-outlined" style="font-size:60px;color:#7c5cff">image</span></div>';
 
-  const sugeridos = (typeof PRODUTOS !== 'undefined' ? PRODUTOS : [])
-    .filter(x => x.categoria === p.categoria && x.nome !== p.nome)
-    .slice(0, 6);
+  // Últimos 5 produtos adicionados (ignorando o atual)
+  const ultimos = (typeof PRODUTOS !== 'undefined' ? PRODUTOS : [])
+    .filter(x => x.nome !== p.nome)
+    .slice(-5)
+    .reverse();
 
-  const htmlSugeridos = sugeridos.length ? `
-    <div class="shared-product__suggested">
-      <h4 class="shared-product__suggested-title">Produtos sugeridos</h4>
-      <div class="shared-product__suggested-list">
-        ${sugeridos.map(s => {
-          const sPreco = s.preco === 0 ? 'Grátis' : s.preco.toFixed(2).replace('.', ',') + ' MT';
-          return `
-            <div class="suggested-card" data-slug="${paraSlug(s.nome)}" role="button" tabindex="0">
-              <div class="suggested-card__img">
-                ${s.imagem ? `<img src="${s.imagem}" alt="${s.nome}" loading="lazy">` : `<span class="material-symbols-outlined">image</span>`}
-              </div>
-              <span class="suggested-card__name">${s.nome}</span>
-              <strong class="suggested-card__price">${sPreco}</strong>
+  const htmlUltimos = ultimos.length ? `
+    <div class="shared-product__recent">
+      <h4 class="shared-product__recent-title">Últimos adicionados</h4>
+      <div class="shared-product__recent-list">
+        ${ultimos.map(u => `
+          <div class="recent-card" data-slug="${paraSlug(u.nome)}" role="button" tabindex="0">
+            <div class="recent-card__img">
+              ${u.imagem ? `<img src="${u.imagem}" alt="${u.nome}" loading="lazy">` : `<span class="material-symbols-outlined">image</span>`}
             </div>
-          `;
-        }).join('')}
+            <span class="recent-card__name">${u.nome}</span>
+          </div>
+        `).join('')}
       </div>
     </div>
   ` : '';
@@ -650,7 +648,7 @@ function abrirModalProdutoCompartilhado(p) {
       <div class="shared-product__backdrop" data-close></div>
       <div class="shared-product__card">
         <button class="shared-product__close" type="button" data-close aria-label="Fechar">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          <span class="material-symbols-outlined">close</span>
         </button>
 
         <div class="shared-product__media">${imagem}</div>
@@ -663,34 +661,64 @@ function abrirModalProdutoCompartilhado(p) {
 
           <div class="shared-product__actions">
             <a class="shared-product__buy" href="https://wa.me/258856178099?text=${msg}" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m-3.6 4.2c.17 0 .34.01.48.01.16.01.36-.05.56.43.22.5.71 1.74.77 1.86.06.13.11.27.02.44-.08.16-.12.27-.25.41-.12.15-.26.33-.37.44-.12.12-.25.26-.11.51.15.25.65 1.07 1.4 1.73.96.86 1.77 1.12 2.02 1.25.25.12.39.1.54-.06.15-.17.63-.75.8-1 .17-.25.34-.21.57-.12.23.08 1.48.69 1.73.82.25.12.42.18.48.29.06.1.06.61-.15 1.21-.22.6-1.25 1.17-1.72 1.21-.47.05-.91.22-3.06-.63-2.59-1.01-4.22-3.64-4.35-3.8-.13-.17-1.03-1.36-1.03-2.6s.65-1.85.88-2.1c.23-.25.5-.31.67-.31"/></svg>
-              Comprar no WhatsApp
+              <span class="material-symbols-outlined">shopping_cart</span> Comprar no WhatsApp
             </a>
-            <button type="button" class="shared-product__share" data-share-url="${location.origin + '/?p=' + paraSlug(p.nome)}">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 3.9M15.4 6.6L8.6 10.5"/></svg>
-              Partilhar
-            </button>
+            <div class="shared-product__sub-actions">
+              <button type="button" class="shared-product__like">
+                <span class="material-symbols-outlined">favorite</span> Gosto
+              </button>
+              <button type="button" class="shared-product__share" data-share-url="${location.origin}/${p.categoria}.html?p=${paraSlug(p.nome)}">
+                <span class="material-symbols-outlined">share</span> Partilhar
+              </button>
+            </div>
           </div>
-          ${htmlSugeridos}
+
+          ${htmlUltimos}
+
+          <a href="${p.categoria}.html" class="shared-product__more-cat">
+            Ver mais de ${p.categoria}
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
         </div>
       </div>
     </div>
   `);
 
   document.body.classList.add('modal-open');
-
   const modal = document.getElementById('sharedProductModal');
+
+  // Fechar
   modal.querySelectorAll('[data-close]').forEach(el => {
-    el.addEventListener('click', () => {
-      modal.remove();
-      document.body.classList.remove('modal-open');
-    });
+    el.addEventListener('click', () => { modal.remove(); document.body.classList.remove('modal-open'); });
   });
   document.addEventListener('keydown', function onEsc(e) {
     if (e.key === 'Escape') { modal.remove(); document.body.classList.remove('modal-open'); document.removeEventListener('keydown', onEsc); }
   });
 
-  modal.querySelectorAll('.suggested-card').forEach(card => {
+  // Botão Like
+  const likeBtn = modal.querySelector('.shared-product__like');
+  likeBtn.addEventListener('click', () => {
+    likeBtn.classList.toggle('is-liked');
+    likeBtn.querySelector('.material-symbols-outlined').style.fontVariationSettings = likeBtn.classList.contains('is-liked') ? "'FILL' 1" : "'FILL' 0";
+  });
+
+  // Botão Partilhar
+  const shareBtn = modal.querySelector('.shared-product__share');
+  shareBtn.addEventListener('click', async () => {
+    const url = shareBtn.dataset.shareUrl;
+    if (navigator.share) {
+      try { await navigator.share({ title: p.nome, text: p.nome + ' — ' + preco, url }); return; } catch {}
+    }
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(url);
+      const original = shareBtn.innerHTML;
+      shareBtn.innerHTML = '<span class="material-symbols-outlined">check</span> Copiado';
+      setTimeout(() => shareBtn.innerHTML = original, 1600);
+    }
+  });
+
+  // Sugeridos (últimos 5) - abrir ao clicar
+  modal.querySelectorAll('.recent-card').forEach(card => {
     card.addEventListener('click', () => {
       const slug = card.dataset.slug;
       const novoProduto = PRODUTOS.find(x => paraSlug(x.nome) === slug);
@@ -700,21 +728,6 @@ function abrirModalProdutoCompartilhado(p) {
         abrirModalProdutoCompartilhado(novoProduto);
       }
     });
-  });
-
-  const shareBtn = modal.querySelector('.shared-product__share');
-  shareBtn.addEventListener('click', async () => {
-    const url = shareBtn.dataset.shareUrl;
-    if (navigator.share) {
-      try { await navigator.share({ title: p.nome, text: p.nome + ' — ' + preco, url }); return; } catch {}
-    }
-    if (navigator.clipboard) {
-      await navigator.clipboard.writeText(url);
-      shareBtn.textContent = '✓ Link copiado';
-      setTimeout(() => shareBtn.innerHTML = 'Partilhar', 1600);
-    } else {
-      window.prompt('Copia:', url);
-    }
   });
 }
 
