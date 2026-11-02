@@ -62,9 +62,6 @@ img {
   z-index: 50;
 }
 
-
-
-
 .brand__mark {
   color: #000;
   width: 46px;
@@ -77,10 +74,9 @@ img {
   font-size: 18px;
   color: #000;
 }
-.brand__text { display: flex; flex-direction: column; line-height: 1.1; }
+
 .brand__text strong { font-size: 17px; letter-spacing: .5px; }
 .brand__text small { font-size: 11px; color: var(--muted); }
-
 
 .search input {
   flex: 1;
@@ -117,11 +113,6 @@ img {
 .btn--sm { padding: 8px 14px; font-size: 13px; }
 
 /* ================= NAV CATEGORIAS ================= */
-.catnav {
-  background: var(--bg-3);
-  border-top: 1px solid var(--border);
-}
-
 
 .catnav__inner a:hover,
 .catnav__inner a.is-active {
@@ -617,8 +608,6 @@ img {
 
 /* CORREÇÕES MOBILE - ACESSÓRIOS */
 
-
-
 .catnav__inner::-webkit-scrollbar {
   display: none;
 }
@@ -744,8 +733,6 @@ img {
 /* =========================================================
    MENU HAMBÚRGUER — YUNNITED CREW
    ========================================================= */
-
-
 
 /* Botão */
 
@@ -1032,8 +1019,6 @@ body[data-category="world-library"] .product-card {
 }
 
 /* ================= WHATSAPP — EFEITO WORMHOLE ================= */
-
-
 
 .whatsapp-wormhole {
   position: absolute;
@@ -2010,12 +1995,7 @@ body.modal-open {
 
 /* ================= CATNAV MOBILE ================= */
 @media (max-width: 768px) {
-  .site-header > .catnav {
-    display: block;
-    background: var(--bg-3);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
+  .site-header > 
   
   .catnav__inner::-webkit-scrollbar { display: none; }
   
@@ -2294,7 +2274,6 @@ body.search-open { overflow: hidden; }
   stroke-width: 2;
   flex-shrink: 0;
 }
-
 
 /* ================= MOBILE MENU v2 ================= */
 @media (max-width: 700px) {
@@ -3532,8 +3511,6 @@ section.hero + section.hero-stories-wrap { margin-top: 0 !important; }
   border-bottom: 1px solid rgba(255,255,255,.06) !important;
 }
 
-
-
 /* Bolinha substituída por traço violeta */
 .section__head h2 .dot {
   display: inline-block !important;
@@ -4155,15 +4132,8 @@ body {
 }
 
 /* A barra de categorias logo abaixo do header */
-.catnav {
-  background: rgba(10, 10, 14, 0.85) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-}
 
 /* A barra de pesquisa para não ficar transparente demais */
-
 
 /* ============================================================
    SISTEMA DE LAYOUT RESPONSIVO (MOBILE SAFETY NET)
@@ -4346,17 +4316,6 @@ body[data-category="moda"] .scroll-arrows {
 /* ============================================================
    REDUZIR ALTURA DA BARRA DE CATEGORIAS (CATNAV)
    ============================================================ */
-.catnav {
-  background: rgba(10, 10, 14, 0.85) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-  min-height: 0 !important;
-}
-
-
-
-
 
 .catnav__inner a .material-symbols-outlined {
   font-size: 18px !important; /* Ícone ligeiramente mais pequeno */
@@ -4388,7 +4347,6 @@ body[data-category="moda"] .scroll-arrows {
 }
 
 /* 2. A Barra de Pesquisa (Pílula) */
-
 
 /* 3. A Lupa */
 .search-icon {
@@ -4443,7 +4401,6 @@ body[data-category="moda"] .scroll-arrows {
 /* ============================================================
    BARRA DE PESQUISA PERFEITA (LUPA À ESQUERDA, BOTÃO REDONDO À DIREITA)
    ============================================================ */
-
 
 /* A Lupa (Dentro da barra, lado esquerdo) */
 .search-icon {
@@ -4509,7 +4466,6 @@ body[data-category="moda"] .scroll-arrows {
 /* ============================================================
    BARRA DE PESQUISA PERFEITA (LUPA À ESQUERDA, BOTÃO REDONDO À DIREITA)
    ============================================================ */
-
 
 /* A Lupa (Dentro da barra, lado esquerdo) */
 .search-icon {
@@ -4588,7 +4544,6 @@ body[data-category="moda"] .scroll-arrows {
 }
 
 /* A Barra de Pesquisa */
-
 
 .search-icon {
   position: absolute !important;
@@ -5340,7 +5295,6 @@ html, body {
 
 /* Melhorar o scroll da barra para não cortar a última categoria */
 
-
 /* ============================================================
    CONSERTAR O FUNDO DO CARTÃO DE CATEGORIA
    ============================================================ */
@@ -5357,7 +5311,6 @@ html, body {
 }
 
 /* Limpar o texto que ficou solto na barra de categorias */
-
 
 /* ============================================================
    NOVO TÍTULO DA CATEGORIA (ABAIXO DA PESQUISA)
@@ -5423,13 +5376,8 @@ html, body {
 }
 
 /* 2. A barra de categorias fica logo por baixo deste título */
-.catnav {
-  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-}
 
 /* 3. Limpar a barra de categorias (remover o YU-YU de lá) */
-
 
 /* 4. Corrigir o Banner Collection (Yunnited Collection e Acessórios empilhados) */
 .accessories-hero,
@@ -6547,7 +6495,6 @@ html body #searchOverlay.is-open {
 
 /* A caixa de texto por baixo da imagem */
 
-
 /* ============================================================
    A REGRA DEFINITIVA: 4 COLUNAS NA PESQUISA
    ============================================================ */
@@ -6642,54 +6589,16 @@ html body #searchOverlay.is-open {
 }
 
 /* Yu Cleaner: Regra otimizada */
-.header-main {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    padding: 12px 16px !important;
-    gap: 12px !important;
-    align-items: center !important;
-  }
 
 /* Yu Cleaner: Regra otimizada */
-.brand { flex: 1 1 auto !important; margin: 0 !important; }
 
 /* Yu Cleaner: Regra otimizada */
-.search {
-    position: relative !important;
-    flex: 1 1 auto !important;
-    height: 44px !important;
-    background: rgba(0, 0, 0, 0.4) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 999px !important;
-    display: flex !important;
-    align-items: center !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-  }
 
 /* Yu Cleaner: Regra otimizada */
-.btn--header {
-    flex: 0 0 auto !important;
-    height: 44px !important;
-    padding: 0 14px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border-radius: 999px !important;
-    font-size: 13px !important;
-    margin: 0 !important;
-  }
 
 /* Yu Cleaner: Regra otimizada */
-.catnav__inner {
-  padding-right: 20px !important; /* Dá um respiro no fim */
-}
 
 /* Yu Cleaner: Regra otimizada */
-.catnav__inner a {
-  font-size: 13.5px !important;
-  padding: 12px 16px !important;
-}
 
 /* Yu Cleaner: Regra otimizada */
 .section__head h2 {
@@ -6705,17 +6614,336 @@ html body #searchOverlay.is-open {
 }
 
 /* Yu Cleaner: Regra otimizada */
-.search-row {
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
 
 /* Yu Cleaner: Regra otimizada */
 .search-row .search button {
     padding-left: 7px !important;
     padding-right: 7px !important;
   }
+
+/* ============================================================
+   YU BOT FIX: OVERLAY ESTRUTURADO COM FLEXBOX
+   ============================================================ */
+
+/* 1. O Fundo do Ecrã inteiro */
+html body #searchOverlay.is-open {
+  display: flex !important;
+  flex-direction: column !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  background: #0a0a0f !important;
+  z-index: 999999 !important;
+}
+
+/* 2. O Contentor Principal da Pesquisa */
+html body #searchOverlay .search-overlay__inner {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  width: 100% !important;
+  position: relative !important;
+  top: 0 !important;
+  background: #101015 !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+/* 3. Cabeçalho da Pesquisa (Fica no topo) */
+#searchOverlay .search-overlay__head {
+  flex: 0 0 auto !important;
+  margin: 16px !important;
+}
+
+/* 4. Os Chips de Categoria (Ficam logo abaixo) */
+#searchOverlay .search-overlay__chips {
+  flex: 0 0 auto !important;
+  position: static !important;
+  padding: 0 16px 16px 16px !important;
+}
+
+/* 5. O Corpo dos Resultados (A MÁGICA ACONTECE AQUI) */
+html body #searchOverlay .search-overlay__body {
+  position: static !important; /* Removemos o absolute que estava a esmagar */
+  flex: 1 1 auto !important; /* Ocupa todo o espaço restante */
+  overflow-y: auto !important; /* Permite scroll interno */
+  background: #101015 !important;
+  padding: 16px !important;
+  margin: 0 !important;
+  top: auto !important;
+  bottom: auto !important;
+}
+
+/* ============================================================
+   LEI MARCAL SUPREMA: MATAR O ABSOLUTE E FORÇAR O FLEXBOX
+   ============================================================ */
+
+/* O Overlay tem de ser uma coluna (flex) e ocupar o ecrã todo */
+html body #searchOverlay.is-open {
+  display: flex !important;
+  flex-direction: column !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 100dvh !important;
+  width: 100vw !important;
+  z-index: 9999999 !important;
+}
+
+/* O Inner fica no topo, sem absolute, e cresce o necessário para a barra */
+html body #searchOverlay .search-overlay__inner {
+  position: relative !important; /* Mata o absolute */
+  top: 0 !important;
+  left: 0 !important;
+  height: auto !important;
+  flex: 0 0 auto !important; /* Não estica, fica no topo */
+  background: #101015 !important;
+  padding: 20px 16px !important;
+}
+
+/* O Body (Resultados) ocupa o RESTO do ecrã e tem scroll */
+html body #searchOverlay .search-overlay__body {
+  position: relative !important; /* Mata o absolute */
+  top: 0 !important;
+  left: 0 !important;
+  height: auto !important;
+  flex: 1 1 auto !important; /* Ocupa todo o espaço restante */
+  overflow-y: auto !important;
+  padding: 16px !important;
+  background: #101015 !important;
+}
+
+/* ============================================================
+   A BOMBA ATÓMICA: FORÇAR LAYOUT E MATAR O ABSOLUTE
+   ============================================================ */
+
+/* 1. O FUNDO DA PESQUISA (Tem de ser flex) */
+body > #searchOverlay.is-open {
+  display: flex !important; /* Mata o display: inline block/none */
+  flex-direction: column !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  z-index: 9999999 !important;
+  background: #0a0a0f !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 2. A BARRA E CHIPS (Fica no topo, sem absolute) */
+body > #searchOverlay .search-overlay__inner {
+  position: relative !important; /* Mata o absolute */
+  top: auto !important;
+  left: auto !important;
+  height: auto !important;
+  flex: 0 0 auto !important; /* Não encolhe e não estica */
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 16px !important;
+  background: #101015 !important;
+}
+
+/* 3. O CORPO DOS RESULTADOS (Ocupa o resto do ecrã) */
+body > #searchOverlay .search-overlay__body {
+  position: relative !important; /* Mata o absolute e o top: 139px */
+  top: auto !important;
+  left: auto !important;
+  height: auto !important;
+  flex: 1 1 auto !important; /* A MÁGICA: Ocupa o espaço que sobrar */
+  overflow-y: auto !important; /* Permite scroll */
+  width: 100% !important;
+  padding: 16px !important;
+  margin: 0 !important;
+  background: #101010 !important;
+}
+
+/* 4. O MENU LATERAL (Forçar a abrir) */
+body > #siteMenu.mobile-menu.menu-open {
+  transform: translateX(0) !important; /* Força a entrar no ecrã */
+}
+
+/* 5. O BOTÃO DO MENU (Garantir que fica por cima) */
+#menuToggle {
+  z-index: 1000000 !important;
+}
+
+
+/* ============================================================
+   YU BOT FIX: CABEÇALHO DEFINITIVO E RESPONSIVO
+   ============================================================ */
+header.site-header {
+  background: #101015 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+/* Contentor Principal do Cabeçalho */
+.header-main {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  padding: 12px 16px !important;
+  gap: 12px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* Logotipo */
+.brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+}
+
+.brand__text strong {
+  font-size: 16px !important;
+  white-space: nowrap !important; /* Impede o texto de quebrar */
+  color: #fff !important;
+}
+
+.brand__text small {
+  display: none !important; /* Esconde o subtítulo no telemóvel para poupar espaço */
+}
+@media (min-width: 600px) {
+  .brand__text small { display: block !important; font-size: 11px; color: #888; }
+}
+
+/* Botão do Menu (3 barras) */
+.menu-toggle {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  background: transparent !important;
+  border: 0 !important;
+  cursor: pointer !important;
+  padding: 5px !important;
+}
+.menu-toggle span {
+  width: 24px !important;
+  height: 2px !important;
+  background: #fff !important;
+  transition: 0.3s !important;
+}
+
+/* Barra de Pesquisa + WhatsApp */
+.search-row {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  gap: 10px !important;
+  order: 3 !important; /* Força a descer para a linha de baixo */
+}
+
+/* No PC, a pesquisa volta para a mesma linha */
+@media (min-width: 768px) {
+  .header-main { flex-wrap: nowrap !important; }
+  .search-row { order: 0 !important; width: auto !important; flex: 1 !important; margin: 0 20px !important; }
+}
+
+.search {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  background: #1a1a22 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  padding: 0 16px !important;
+  height: 44px !important;
+}
+
+.search input {
+  flex: 1 !important;
+  background: transparent !important;
+  border: 0 !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  outline: none !important;
+}
+
+.btn--header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #25d366 !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  padding: 0 16px !important;
+  height: 44px !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+}
+
+/* Barra de Categorias (Catnav) */
+.catnav {
+  background: #101015 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.catnav__inner {
+  display: flex !important;
+  flex-wrap: nowrap !important; /* PROÍBE a quebra de linha */
+  overflow-x: auto !important; /* Permite deslizar para o lado */
+  padding: 0 16px !important;
+  gap: 8px !important;
+  scrollbar-width: none !important;
+}
+.catnav__inner::-webkit-scrollbar { display: none; }
+
+.catnav__inner a {
+  display: flex !important;
+  align-items: center !important;
+  padding: 12px 14px !important;
+  font-size: 13.5px !important;
+  color: #a5a5ad !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  border-bottom: 2px solid transparent !important;
+  gap: 6px !important;
+}
+
+.catnav__inner a.is-active,
+.catnav__inner a:hover {
+  color: #fff !important;
+  border-bottom-color: #7c5cff !important;
+}
+
+/* ============================================================
+   YU BOT: AJUSTE FINO DO HERO E DA LUPA
+   ============================================================ */
+
+/* 1. Corrigir a sobreposição do Banner com a barra de categorias */
+.catnav {
+  position: relative !important;
+  z-index: 100 !important;
+  background: #101015 !important; /* Fundo sólido para tapar a bandeira */
+}
+
+/* 2. Corrigir a Lupa da pesquisa (Colocar dentro da caixa) */
+.search {
+  position: relative !important; /* Necessário para prender a lupa */
+}
+
+.search-icon {
+  position: absolute !important;
+  left: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #888 !important;
+  z-index: 10 !important;
+}
+
+/* Dar espaço ao texto para não ficar debaixo da lupa */
+.search input {
+  padding-left: 44px !important; 
+}
