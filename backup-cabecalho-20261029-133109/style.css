@@ -1,0 +1,7031 @@
+:root {
+  --bg: #0b0b0d;
+  --bg-2: #121216;
+  --bg-3: #1a1a20;
+  --border: #26262e;
+  --text: #f2f2f5;
+  --muted: #9a9aa8;
+  --accent: #ffffff;
+  --accent-2: #ffffff;
+  --wa: #25d366;
+  --radius: 14px;
+  --container: 1200px;
+}
+
+* { box-sizing: border-box; 
+   margin: 0;
+   padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a { 
+  color: inherit; 
+  text-decoration: none;
+  }
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ================= TOPBAR ================= */
+.topbar {
+  background: #000;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+.topbar__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 12px;
+}
+
+/* ================= CABEÇALHO ================= */
+.site-header {
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.brand__mark {
+  color: #000;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 18px;
+  color: #000;
+}
+.brand__text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand__text strong { font-size: 17px; letter-spacing: .5px; }
+.brand__text small { font-size: 11px; color: var(--muted); }
+
+.search {
+  flex: 1;
+  display: flex;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  max-width: 560px;
+}
+.search input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  padding: 12px 18px;
+  color: var(--text);
+  outline: none;
+  font-size: 14px;
+}
+.search button {
+  flex-shrink: 0;
+  background: var(--accent);
+  border: 0;
+  padding: 0 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: .2s;
+  white-space: nowrap;
+}
+.btn--wa { background: var(--wa); color: #062b12; }
+.btn--wa:hover { filter: brightness(1.1); }
+.btn--header { flex-shrink: 0; }
+.btn--sm { padding: 8px 14px; font-size: 13px; }
+
+/* ================= NAV CATEGORIAS ================= */
+.catnav {
+  background: var(--bg-3);
+  border-top: 1px solid var(--border);
+}
+.catnav__inner {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 0 16px;
+}
+.catnav__inner a {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+.catnav__inner a:hover,
+.catnav__inner a.is-active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* ================= HERO ================= */
+.hero {
+  /* altura reduzida */
+  background-image: url("imagens/fundo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid var(--border);
+  padding: 24px 0;
+}
+.hero__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.hero__tag {
+  display: inline-block;
+  background: rgba(255,255,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(255,255,255,.4);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.hero h1 { font-size: 38px; line-height: 1.15; margin-bottom: 10px; }
+.hero p { color: var(--muted); max-width: 520px; }
+.hero__stats {
+  display: flex;
+  gap: 30px;
+}
+.hero__stats div { text-align: center; }
+.hero__stats strong {
+  display: block;
+  font-size: 28px;
+  color: var(--accent);
+}
+.hero__stats span { font-size: 12px; color: var(--muted); }
+
+/* ================= SECÇÕES ================= */
+.section { padding: 40px 0; }
+.section__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  gap: 16px;
+}
+.section__head h2 {
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+.section__hint, .link-more {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.link-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 8px 15px;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--accent);
+  font-weight: 800;
+  white-space: nowrap;
+  transition:
+    transform .18s ease,
+    background .18s ease,
+    color .18s ease,
+    box-shadow .18s ease;
+}
+
+.link-more:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.12);
+}
+
+.link-more:active {
+  transform: translateY(0);
+}
+
+/* ================= CATEGORIAS ================= */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.cat-card h3 { font-size: 17px; }
+.cat-card p { font-size: 13px; color: var(--muted); flex: 1; }
+
+/* ================= ANÚNCIOS ================= */
+.ads {
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+}
+
+/* ================= PRODUTOS ================= */
+.grid {
+  display: grid;
+  gap: 16px;
+}
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+.product-card {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  transition: .2s;
+}
+.product-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+.product-card__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+.product-card__icon { font-size: 32px; }
+.product-card__name { font-size: 15px; line-height: 1.3; }
+.product-card__desc {
+  font-size: 12px;
+  color: var(--muted);
+  flex: 1;
+}
+.product-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+.product-card__price {
+  font-weight: 800;
+  color: var(--accent);
+  font-size: 15px;
+}
+
+/* ================= RODAPÉ ================= */
+.site-footer {
+  background: #050506;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  padding: 50px 16px;
+}
+.footer__about {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 14px;
+  max-width: 360px;
+}
+.site-footer h4 {
+  font-size: 14px;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.site-footer ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.site-footer li, .site-footer li a {
+  font-size: 13px;
+  color: var(--muted);
+}
+.site-footer li a:hover { color: var(--accent); }
+.footer__bottom {
+  border-top: 1px solid var(--border);
+  padding: 18px 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.footer__bottom .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ================= FAB ================= */
+.fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--wa);
+  color: #062b12;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  box-shadow: 0 10px 30px rgba(37,211,102,.35);
+  z-index: 100;
+  transition: .2s;
+}
+.fab:hover { transform: scale(1.08); }
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 900px) {
+  .cat-grid, .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: 30px; }
+  .header-main { flex-wrap: wrap; }
+  .search { order: 3; max-width: 100%; width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .cat-grid, .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .footer__grid { grid-template-columns: 1fr; }
+  .hero__stats { width: 100%; justify-content: space-between; }
+  .topbar__inner { flex-direction: column; gap: 4px; text-align: center; }
+  .btn--header { display: none; }
+  }
+
+/* ================= CABEÇALHO MOBILE ================= */
+
+@media (max-width: 700px) {
+
+  .header-main {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .menu-toggle {
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 0;
+    z-index: 1102;
+  }
+
+  .search-row {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .search-row .search {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    max-width: none;
+  }
+
+  .search-row .search input {
+    min-width: 0;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .search-row .search button {
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .btn--header {
+    grid-column: auto;
+    grid-row: 2;
+    display: inline-flex;
+    align-self: stretch;
+    justify-content: center;
+    padding: 10px 9px;
+    font-size: 12px;
+    gap: 4px;
+    min-width: 78px;
+    max-width: 92px;
+  }
+
+  .btn--header svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+}
+
+/* ================= IMAGENS NHONGA ================= */
+.product-card > img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius);
+}
+
+/* ================= WORLD LIBRARY ================= */
+
+.wl-category-head {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 12px;
+}
+
+.wl-category-head h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+}
+
+.wl-search-section {
+  padding-top: 0;
+}
+
+.wl-search {
+  max-width: 100%;
+}
+
+.wl-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.wl-genre {
+  background: var(--bg-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.wl-genre:hover,
+.wl-genre.active {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+.book-card .product-card__icon {
+  font-size: 28px;
+}
+
+@media (max-width: 600px) {
+  .wl-category-head h1 {
+    font-size: 23px;
+  }
+
+  .wl-category-head {
+    padding: 18px;
+  }
+
+  .wl-genres {
+    gap: 8px;
+  }
+
+  .wl-genre {
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+}
+
+/* ================= WORLD LIBRARY - GRID DOS LIVROS ================= */
+
+#popularBooks,
+#categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+#popularBooks .product-card,
+#categoryGrid .product-card {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  #popularBooks,
+  #categoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #popularBooks,
+  #categoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ================= ACESSÓRIOS ================= */
+
+.accessories-page {
+  background:
+    radial-gradient(circle at top right, #202020 0%, #050505 45%);
+}
+
+.accessories-main {
+  padding-top: 40px;
+}
+
+.accessories-hero {
+  padding: 35px;
+  margin-bottom: 35px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #171717, #080808);
+}
+
+.accessories-label {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.accessories-hero .section-title {
+  margin: 12px 0 8px;
+  font-size: 38px;
+}
+
+.accessories-hero p {
+  color: #aaa;
+  margin: 0;
+}
+
+.accessories-products {
+  margin-bottom: 40px;
+}
+
+.accessories-products .section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.accessories-products .section__head h2 {
+  margin: 0;
+}
+
+.accessories-products .section__head span {
+  color: #888;
+  font-size: 13px;
+}
+
+#categoryGrid .product-card__image {
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+#categoryGrid .product-card__image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: transform .3s ease;
+}
+
+#categoryGrid .product-card:hover .product-card__image img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .accessories-hero {
+    padding: 25px 20px;
+  }
+
+  .accessories-hero .section-title {
+    font-size: 30px;
+  }
+
+  .accessories-products .section__head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* CORREÇÃO DO GRID DE ACESSÓRIOS */
+
+@media (min-width: 901px) {
+  #categoryGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  #categoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* CORREÇÕES MOBILE - ACESSÓRIOS */
+
+.catnav__inner {
+  justify-content: flex-start;
+  scrollbar-width: none;
+}
+
+.catnav__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px 16px;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  .footer p {
+    line-height: 1.6;
+  }
+}
+
+/* ================= MODA ================= */
+
+.fashion-page {
+  background:
+    radial-gradient(circle at top right, #211b24 0%, #050505 45%);
+}
+
+.fashion-hero {
+  padding: 35px;
+  margin-bottom: 35px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #211b24, #080808);
+}
+
+.fashion-label {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.fashion-hero .section-title {
+  margin: 12px 0 8px;
+  font-size: 38px;
+}
+
+.fashion-hero p {
+  color: #aaa;
+  margin: 0;
+}
+
+/* BUSCA DA MODA */
+.fashion-search {
+  margin: 0 0 35px;
+}
+
+.fashion-search .search {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.fashion-search .search input {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .fashion-search {
+    margin-bottom: 30px;
+  }
+
+  .fashion-search .search {
+    max-width: 100%;
+  }
+}
+
+.fashion-products {
+  margin-bottom: 40px;
+}
+
+.fashion-products .section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.fashion-products .section__head h2 {
+  margin: 0;
+}
+
+.fashion-products .section__head span {
+  color: #888;
+  font-size: 13px;
+}
+
+#categoryGrid .product-card__image {
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+#categoryGrid .product-card__image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: transform .3s ease;
+}
+
+#categoryGrid .product-card:hover .product-card__image img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .fashion-hero {
+    padding: 25px 20px;
+  }
+
+  .fashion-hero .section-title {
+    font-size: 30px;
+  }
+
+  .fashion-products .section__head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* =========================================================
+   MENU HAMBÚRGUER — YUNNITED CREW
+   ========================================================= */
+
+.header-main {
+  position: relative;
+}
+
+/* Botão */
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin-left: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-2);
+  color: currentColor;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1102;
+  transition: transform .2s ease;
+}
+
+.menu-toggle:active {
+  transform: scale(.90);
+}
+
+.menu-toggle span {
+  width: 21px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform .25s ease, opacity .2s ease;
+}
+
+.menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Menu separado */
+.mobile-menu {
+  display: none;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  /* Menu flutuante: não ocupa espaço no layout */
+  .mobile-menu {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    max-width: 320px;
+    min-width: 190px;
+    z-index: 1100;
+
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-top: 0;
+    border-right: 0;
+    border-radius: 0 0 0 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.18);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition:
+      opacity .22s ease,
+      transform .25s ease,
+      visibility .22s ease;
+  }
+
+  .mobile-menu.menu-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .mobile-menu__inner {
+    display: flex;
+    flex-direction: column;
+    padding: 64px 10px 12px;
+    gap: 4px;
+  }
+
+  .mobile-menu__inner a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 10px;
+    border-radius: 9px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    transition:
+      background .18s ease,
+      transform .18s ease;
+  }
+
+  .mobile-menu__inner a:active {
+    transform: scale(.97);
+  }
+
+  .mobile-menu__inner a:hover {
+    background: var(--bg-3);
+  }
+
+  .mobile-menu__inner a:last-child {
+    margin-top: 6px;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    padding-top: 14px;
+  }
+}
+
+/* Desktop: botão e menu flutuante não aparecem */
+@media (min-width: 701px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* ================= POSIÇÃO DO BOTÃO DO MENU ================= */
+
+@media (max-width: 700px) {
+
+  .menu-toggle {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    margin: 0;
+    width: 44px;
+    height: 44px;
+  }
+
+  .search-row {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .btn--header {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-self: stretch;
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .search {
+    max-width: 100%;
+  }
+
+  .search input {
+    padding-left: 12px;
+    padding-right: 10px;
+    font-size: 13px;
+  }
+
+  .search button {
+    padding: 0 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 700px) {
+}
+
+@media (max-width: 700px) {
+  .btn--header {
+    margin-left: 8px;
+  }
+}
+
+/* ================= CABEÇALHO MOBILE - AJUSTE FINAL ================= */
+
+@media (max-width: 700px) {
+
+  /* Logo */
+
+  /* Menu */
+  .menu-toggle {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    z-index: 1102;
+  }
+
+  /* Pesquisa */
+  .search-row {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+  }
+
+  .search-row .search input {
+    min-width: 0;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .search-row .search button {
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  /* WhatsApp */
+  .btn--header {
+    grid-column: 2;
+    grid-row: 2;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 9px 10px;
+    min-width: 82px;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .btn--header svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+}
+
+/* Em telas muito pequenas, reduzir um pouco o espaço */
+@media (max-width: 380px) {
+
+  .btn--header {
+    min-width: 76px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+/* ================= MOBILE - ESPAÇO ENTRE PESQUISA E WHATSAPP ================= */
+
+@media (max-width: 700px) {
+
+  .header-main {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 92px !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 12px !important;
+    row-gap: 10px !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
+  }
+
+  /* Logo */
+  .brand {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    padding-right: 52px !important;
+  }
+
+  /* Menu */
+  .menu-toggle {
+    position: absolute !important;
+    top: 16px !important;
+    right: 16px !important;
+    width: 44px !important;
+    height: 44px !important;
+    margin: 0 !important;
+    z-index: 1102 !important;
+  }
+
+  /* Barra de pesquisa */
+  .search-row {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+  }
+
+  .search-row .search {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+
+  .search-row .search input {
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 10px 8px !important;
+    font-size: 12px !important;
+  }
+
+  .search-row .search button {
+    flex-shrink: 0 !important;
+    padding: 0 9px !important;
+    font-size: 12px !important;
+  }
+
+  /* WhatsApp */
+  .btn--header {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    position: static !important;
+    width: 92px !important;
+    min-width: 92px !important;
+    max-width: 92px !important;
+    margin: 0 !important;
+    padding: 9px 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    font-size: 11px !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+  }
+
+  .btn--header svg {
+    width: 15px !important;
+    height: 15px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* Telemóveis muito pequenos */
+@media (max-width: 380px) {
+
+  .header-main {
+    grid-template-columns: minmax(0, 1fr) 84px !important;
+    column-gap: 8px !important;
+  }
+
+  .btn--header {
+    width: 84px !important;
+    min-width: 84px !important;
+    max-width: 84px !important;
+  }
+
+  .search-row .search button {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+}
+
+/* ================= ESPAÇO VERTICAL DO CABEÇALHO MOBILE ================= */
+
+@media (max-width: 700px) {
+  .header-main {
+    row-gap: 18px !important;
+    padding-top: 14px !important;
+    padding-bottom: 16px !important;
+  }
+
+  .brand {
+    padding-bottom: 4px !important;
+  }
+
+  .search-row,
+  .btn--header {
+    margin-top: 2px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .header-main {
+    row-gap: 15px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    top: 12px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    top: 8px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    top: 6px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    top: 3px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    top: 0 !important;
+  }
+}
+
+/* ================= ANIMAÇÃO DO PLACEHOLDER - WORLD LIBRARY ================= */
+
+.wl-search input::placeholder {
+  transition: opacity 0.35s ease;
+}
+
+.wl-search input.placeholder-changing::placeholder {
+  opacity: 0;
+}
+
+/* YUNNITED LIBRARY NO CABEÇALHO */
+.wl-header-title {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.wl-header-title strong {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.wl-header-title strong span {
+  color: red;
+}
+
+.wl-header-title small {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.wl-header-title strong {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.wl-header-title strong span {
+  color: red;
+}
+
+.wl-header-title em {
+  color: #fff;
+  font-style: normal;
+}
+
+/* BRILHO DA WORLD LIBRARY */
+body[data-category="world-library"] {
+  background:
+    radial-gradient(circle at top right, #202020 0%, #050505 45%);
+}
+
+/* CAPAS DOS LIVROS - WORLD LIBRARY */
+body[data-category="world-library"] .product-card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+body[data-category="world-library"] .product-card {
+  overflow: hidden;
+}
+
+/* ================= WHATSAPP — EFEITO WORMHOLE ================= */
+
+.btn--header {
+  position: relative;
+  overflow: visible;
+}
+
+.whatsapp-wormhole {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.wormhole-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 70px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,.8);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: wormhole-spin 2.4s linear infinite;
+}
+
+.line-1 { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+.line-2 { transform: translate(-50%, -50%) rotate(36deg) scale(.92); animation-delay: -.35s; }
+.line-3 { transform: translate(-50%, -50%) rotate(72deg) scale(.84); animation-delay: -.7s; }
+.line-4 { transform: translate(-50%, -50%) rotate(108deg) scale(.76); animation-delay: -1.05s; }
+.line-5 { transform: translate(-50%, -50%) rotate(144deg) scale(.68); animation-delay: -1.4s; }
+
+.whatsapp-core {
+  position: relative;
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  box-shadow:
+    0 0 12px rgba(37,211,102,.75),
+    0 0 28px rgba(37,211,102,.35);
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
+
+.whatsapp-logo {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+@keyframes wormhole-spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scaleX(1);
+    opacity: .9;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scaleX(.55);
+    opacity: .45;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scaleX(1);
+    opacity: .9;
+  }
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+/* ================= HERO — FUNDO DE MOÇAMBIQUE ================= */
+
+.hero {
+  /* altura reduzida */
+  background-image:
+    radial-gradient(
+      ellipse at center,
+      rgba(0,0,0,0) 25%,
+      rgba(0,0,0,.18) 48%,
+      rgba(0,0,0,.58) 72%,
+      rgba(0,0,0,.95) 100%
+    ),
+    url("./imagens/hero-mocambique.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ================= ENQUADRAMENTO PADRÃO DOS PRODUTOS ================= */
+
+.product-card__image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .product-card__image {
+    height: 180px;
+  }
+}
+
+/* WORLD LIBRARY — capas sem fundo branco */
+body[data-category="world-library"] .product-card__image {
+  background: transparent;
+}
+
+body[data-category="world-library"] .product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Texto dos selos dos produtos */
+.product-card__badge {
+  color: #000 !important;
+}
+
+/* =========================================================
+   YU-YU NHONGA — IDENTIDADE PRÓPRIA
+   ========================================================= */
+
+.nhonga-page {
+  background:
+    radial-gradient(circle at 80% 10%, rgba(255,255,255,.10), transparent 28%),
+    radial-gradient(circle at 10% 45%, rgba(255,255,255,.06), transparent 30%),
+    #050505;
+  overflow-x: hidden;
+}
+
+/* HERO */
+
+.nhonga-hero {
+  position: relative;
+  min-height: 620px;
+  padding: 90px 7%;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 50px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  background:
+    radial-gradient(circle at 75% 50%, rgba(255,255,255,.12), transparent 25%),
+    linear-gradient(135deg, #050505 0%, #101010 55%, #050505 100%);
+}
+
+.nhonga-hero::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: -180px;
+  top: -180px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 50%;
+}
+
+.nhonga-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.nhonga-kicker {
+  display: inline-block;
+  margin-bottom: 22px;
+  font-size: 12px;
+  letter-spacing: 5px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.nhonga-hero h1 {
+  margin: 0;
+  font-size: clamp(42px, 6vw, 78px);
+  line-height: .98;
+  letter-spacing: -3px;
+  color: #fff;
+}
+
+.nhonga-hero h1 strong {
+  display: block;
+  color: #fff;
+  font-weight: 900;
+}
+
+.nhonga-hero p {
+  max-width: 570px;
+  margin: 28px 0 0;
+  color: #aaa;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.nhonga-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.nhonga-cta,
+.nhonga-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 25px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.nhonga-cta {
+  color: #000;
+  background: #fff;
+  box-shadow: 0 0 30px rgba(255,255,255,.16);
+}
+
+.nhonga-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px rgba(255,255,255,.28);
+}
+
+.nhonga-secondary {
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.04);
+}
+
+.nhonga-secondary:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,.08);
+}
+
+/* ELEMENTO VISUAL */
+
+.nhonga-hero__visual {
+  position: relative;
+  width: min(420px, 80vw);
+  aspect-ratio: 1;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nhonga-core {
+  position: relative;
+  z-index: 5;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.35);
+  background: #050505;
+  box-shadow:
+    0 0 35px rgba(255,255,255,.12),
+    inset 0 0 35px rgba(255,255,255,.05);
+  animation: nhonga-core-pulse 3s ease-in-out infinite;
+}
+
+.nhonga-core span {
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #aaa;
+}
+
+.nhonga-core strong {
+  margin-top: 7px;
+  font-size: 25px;
+  letter-spacing: 3px;
+  color: #fff;
+}
+
+.nhonga-orbit {
+  position: absolute;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 50%;
+}
+
+.orbit-1 {
+  width: 230px;
+  height: 230px;
+  animation: nhonga-spin 12s linear infinite;
+}
+
+.orbit-2 {
+  width: 320px;
+  height: 180px;
+  transform: rotate(55deg);
+  animation: nhonga-spin-reverse 16s linear infinite;
+}
+
+.orbit-3 {
+  width: 390px;
+  height: 250px;
+  transform: rotate(-35deg);
+  animation: nhonga-spin 20s linear infinite;
+}
+
+@keyframes nhonga-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes nhonga-spin-reverse {
+  from { transform: rotate(55deg); }
+  to { transform: rotate(415deg); }
+}
+
+@keyframes nhonga-core-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 35px rgba(255,255,255,.12),
+      inset 0 0 35px rgba(255,255,255,.05);
+  }
+
+  50% {
+    transform: scale(1.04);
+    box-shadow:
+      0 0 55px rgba(255,255,255,.22),
+      inset 0 0 45px rgba(255,255,255,.08);
+  }
+}
+
+/* SEÇÕES */
+
+.nhonga-benefits,
+.nhonga-how,
+.nhonga-options,
+.nhonga-activity,
+.nhonga-final {
+  padding: 90px 0;
+}
+
+.nhonga-section-title {
+  max-width: 700px;
+  margin-bottom: 45px;
+}
+
+.nhonga-section-title > span,
+.nhonga-final > .container > span,
+.nhonga-activity-box > span {
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 800;
+  color: #888;
+}
+
+.nhonga-section-title h2 {
+  margin: 12px 0;
+  color: #fff;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.05;
+}
+
+.nhonga-section-title p {
+  color: #999;
+  line-height: 1.7;
+}
+
+/* BENEFÍCIOS */
+
+.nhonga-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.nhonga-benefit {
+  padding: 30px;
+  min-height: 220px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 20px;
+  background: rgba(255,255,255,.025);
+  transition: transform .25s ease, border-color .25s ease;
+}
+
+.nhonga-benefit:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,.25);
+}
+
+.nhonga-number {
+  margin-bottom: 35px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #777;
+}
+
+.nhonga-benefit h3 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.nhonga-benefit p {
+  margin: 0;
+  color: #999;
+  line-height: 1.6;
+}
+
+/* PASSOS */
+
+.nhonga-how {
+  background: #080808;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.nhonga-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.nhonga-step {
+  position: relative;
+  padding-left: 65px;
+}
+
+.nhonga-step > span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 800;
+}
+
+.nhonga-step h3 {
+  margin: 0 0 10px;
+  color: #fff;
+}
+
+.nhonga-step p {
+  margin: 0;
+  color: #999;
+  line-height: 1.6;
+}
+
+/* OPÇÕES */
+
+.nhonga-option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.nhonga-option {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  min-height: 180px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 18px;
+  background: #0b0b0b;
+}
+
+.nhonga-option img {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  object-fit: cover;
+}
+
+.nhonga-option > div {
+  padding: 25px;
+}
+
+.nhonga-option h3 {
+  margin: 0 0 10px;
+  color: #fff;
+}
+
+.nhonga-option p {
+  margin: 0 0 20px;
+  color: #999;
+  line-height: 1.5;
+}
+
+.nhonga-option a {
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* ATIVIDADE */
+
+.nhonga-activity {
+  padding-top: 20px;
+}
+
+.nhonga-activity-box {
+  position: relative;
+  padding: 55px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 25px;
+  background:
+    radial-gradient(circle at 90% 50%, rgba(255,255,255,.08), transparent 30%),
+    #0b0b0b;
+}
+
+.nhonga-activity-box h2 {
+  margin: 12px 0;
+  color: #fff;
+  font-size: clamp(28px, 4vw, 44px);
+}
+
+.nhonga-activity-box p {
+  max-width: 650px;
+  color: #999;
+  line-height: 1.7;
+}
+
+/* CTA FINAL */
+
+.nhonga-final {
+  text-align: center;
+}
+
+.nhonga-final .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nhonga-final h2 {
+  max-width: 750px;
+  margin: 15px auto;
+  color: #fff;
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 1.05;
+}
+
+.nhonga-final p {
+  margin: 0 0 30px;
+  color: #999;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .nhonga-hero {
+    min-height: auto;
+    padding: 65px 22px;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .nhonga-hero__content {
+    margin: auto;
+  }
+
+  .nhonga-hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nhonga-hero__actions {
+    justify-content: center;
+  }
+
+  .nhonga-hero__visual {
+    width: min(330px, 85vw);
+  }
+
+  .nhonga-core {
+    width: 150px;
+    height: 150px;
+  }
+
+  .nhonga-core strong {
+    font-size: 21px;
+  }
+
+  .orbit-1 {
+    width: 190px;
+    height: 190px;
+  }
+
+  .orbit-2 {
+    width: 260px;
+    height: 150px;
+  }
+
+  .orbit-3 {
+    width: 310px;
+    height: 200px;
+  }
+
+  .nhonga-benefit-grid,
+  .nhonga-steps,
+  .nhonga-option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nhonga-option {
+    grid-template-columns: 120px 1fr;
+  }
+
+  .nhonga-option img {
+    min-height: 160px;
+  }
+
+  .nhonga-activity-box {
+    padding: 35px 25px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .nhonga-hero h1 {
+    font-size: 42px;
+    letter-spacing: -2px;
+  }
+
+  .nhonga-hero__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nhonga-cta,
+  .nhonga-secondary {
+    width: 100%;
+  }
+
+  .nhonga-option {
+    grid-template-columns: 1fr;
+  }
+
+  .nhonga-option img {
+    height: 190px;
+    min-height: 0;
+  }
+
+  .nhonga-option > div {
+    padding: 22px;
+  }
+
+}
+
+/* ================= MODAL DE IMAGEM DO PRODUTO ================= */
+
+.product-image-clickable {
+  cursor: zoom-in;
+}
+
+.product-image-clickable:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Ações do cartão */
+.product-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.product-like,
+.product-image-modal__like {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.product-like:hover,
+.product-image-modal__like:hover {
+  transform: scale(1.08);
+  border-color: var(--accent);
+}
+
+.product-like svg,
+.product-image-modal__like svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.product-like.is-liked,
+.product-image-modal__like.is-liked {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+.product-like.is-liked svg,
+.product-image-modal__like.is-liked svg {
+  fill: currentColor;
+}
+
+/* Modal */
+.product-image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-image-modal.is-open {
+  display: flex;
+}
+
+.product-image-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(6px);
+}
+
+.product-image-modal__content {
+  position: relative;
+  z-index: 1;
+  width: min(900px, 100%);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-image-modal__image {
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.product-image-modal__close {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 50%;
+  background: rgba(0,0,0,.75);
+  color: #fff;
+  cursor: pointer;
+}
+
+.product-image-modal__close svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.product-image-modal__info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+  padding: 0 4px;
+}
+
+.product-image-modal__name {
+  margin: 0 0 4px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.product-image-modal__desc {
+  margin: 0;
+  color: rgba(255,255,255,.72);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.product-image-modal__like {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: rgba(0,0,0,.65);
+  border-color: rgba(255,255,255,.4);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Telemóvel */
+@media (max-width: 600px) {
+  .product-image-modal {
+    padding: 12px;
+  }
+
+  .product-image-modal__content {
+    width: 100%;
+  }
+
+  .product-image-modal__image {
+    max-height: 72vh;
+    border-radius: 10px;
+  }
+
+  .product-image-modal__close {
+    top: 8px;
+    right: 8px;
+  }
+
+  .product-image-modal__info {
+    margin-top: 8px;
+  }
+
+  .product-image-modal__name {
+    font-size: 15px;
+  }
+
+  .product-image-modal__desc {
+    font-size: 12px;
+  }
+}
+
+/* Coração no topo esquerdo do modal */
+.product-image-modal__like {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 4;
+}
+
+@media (min-width: 601px) {
+  .product-image-modal__like {
+    top: 8px;
+    left: 8px;
+  }
+}
+
+/* CORAÇÃO: somente dentro do modal, canto superior esquerdo */
+.product-image-modal__content {
+  position: relative;
+}
+
+.product-image-modal__like {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 10;
+}
+
+/* Coração externo sobre a imagem */
+.product-card__image {
+  position: relative;
+}
+
+.product-image-like {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 5;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 50%;
+
+  background: rgba(0,0,0,.65);
+  color: #fff;
+
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+}
+
+.product-image-like svg {
+  width: 20px;
+  height: 20px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.product-image-like.is-liked {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+.product-image-like.is-liked svg {
+  fill: currentColor;
+}
+
+/* Selo do produto no canto superior direito */
+.product-card__badge {
+  top: 10px;
+  right: 10px;
+  left: auto;
+  z-index: 20;
+}
+
+/* Não deslocar o selo por causa do coração */
+.product-card:has(.product-image-like) .product-card__badge {
+  top: 10px;
+  right: 10px;
+  left: auto;
+}
+
+/* ================= CATNAV MOBILE ================= */
+@media (max-width: 768px) {
+  .site-header > .catnav {
+    display: block;
+    background: var(--bg-3);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .catnav__inner {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    padding: 4px 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .catnav__inner::-webkit-scrollbar { display: none; }
+  .catnav__inner a {
+    padding: 10px 12px;
+    font-size: 13px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 2px solid transparent;
+    border-radius: 8px 8px 0 0;
+  }
+  .catnav__inner a svg {
+    width: 15px;
+    height: 15px;
+  }
+  .catnav__inner a.is-active {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+  }
+}
+
+/* ================= SEARCH OVERLAY ================= */
+body.search-open { overflow: hidden; }
+
+.search-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: none;
+  opacity: 0;
+  transition: opacity .18s ease;
+}
+.search-overlay.is-open { display: block; opacity: 1; }
+
+.search-overlay__inner {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  max-height: 88vh;
+  background: var(--bg-2);
+  border-radius: 0 0 20px 20px;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 30px 70px -20px rgba(0,0,0,.8);
+  display: flex; flex-direction: column;
+  transform: translateY(-12px);
+  transition: transform .22s cubic-bezier(.2,.8,.2,1);
+}
+.search-overlay.is-open .search-overlay__inner { transform: translateY(0); }
+
+.search-overlay__head {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+.search-overlay__head input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: var(--text);
+  font-size: 16px;
+  padding: 6px 0;
+  font-family: inherit;
+}
+.search-overlay__head input::placeholder { color: var(--muted); }
+
+.search-overlay__close {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+  transition: color .15s, background .15s;
+}
+.search-overlay__close:hover { color: var(--text); background: rgba(255,255,255,.06); }
+
+.search-overlay__body {
+  padding: 16px;
+  overflow-y: auto;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+.search-overlay__hint { color: var(--muted); font-size: 14px; margin: 4px 0 14px; }
+.search-overlay__count { color: var(--muted); font-size: 12px; margin: 0 0 12px; letter-spacing: .4px; text-transform: uppercase; font-weight: 600; }
+
+.search-overlay__chips {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 8px;
+}
+.search-chip {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color .15s, background .15s;
+}
+.search-chip:hover { border-color: var(--accent); background: rgba(124,92,255,.08); }
+
+.search-results { display: flex; flex-direction: column; gap: 10px; }
+
+.search-result {
+  display: flex; gap: 12px; align-items: stretch;
+  padding: 10px;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none; color: inherit;
+  transition: border-color .15s, transform .1s;
+}
+.search-result:hover { border-color: var(--accent); }
+.search-result:active { transform: scale(.99); }
+
+.search-result__media {
+  width: 64px; height: 64px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0a0a0f;
+  display: flex; align-items: center; justify-content: center;
+}
+.search-result__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.search-result__icon { color: var(--text); opacity: .5; }
+.search-result__icon svg { width: 28px; height: 28px; }
+
+.search-result__body { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.search-result__name { font-size: 14px; font-weight: 700; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.search-result__desc { font-size: 12px; color: var(--muted); margin-bottom: 6px; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.search-result__meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.search-result__cat {
+  font-size: 10px;
+  color: var(--muted);
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  border-radius: 999px;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.search-result__price { font-weight: 800; font-size: 13.5px; color: var(--text); }
+
+/* ================= PARTILHA ================= */
+.product-image-share {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(10,10,15,.72);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background .15s, transform .1s;
+  z-index: 2;
+}
+.product-image-share:hover,
+.product-image-share.is-active { background: rgba(124,92,255,.9); }
+.product-image-share:active { transform: scale(.94); }
+.product-image-share svg { width: 16px; height: 16px; }
+
+.product-share-menu {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background: var(--bg-2, #16121f);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 160px;
+  box-shadow: 0 15px 40px -12px rgba(0,0,0,.8);
+  z-index: 5;
+  animation: sharePop .15s ease-out;
+}
+.product-share-menu[hidden] { display: none; }
+
+@keyframes sharePop {
+  from { opacity: 0; transform: translateY(-4px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.product-share-menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--text, #f5f5f7);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  text-align: left;
+  transition: background .12s;
+  white-space: nowrap;
+}
+.product-share-menu button:hover { background: rgba(255,255,255,.07); }
+.product-share-menu button.is-done { color: var(--accent, #7c5cff); }
+.product-share-menu button svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ================= PARTILHA ================= */
+.product-image-share {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(10,10,15,.72);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background .15s, transform .1s;
+  z-index: 2;
+}
+.product-image-share:hover,
+.product-image-share.is-active { background: rgba(124,92,255,.9); }
+.product-image-share:active { transform: scale(.94); }
+.product-image-share svg { width: 16px; height: 16px; }
+
+.product-share-menu {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background: var(--bg-2, #16121f);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 160px;
+  box-shadow: 0 15px 40px -12px rgba(0,0,0,.8);
+  z-index: 5;
+  animation: sharePop .15s ease-out;
+}
+.product-share-menu[hidden] { display: none; }
+
+@keyframes sharePop {
+  from { opacity: 0; transform: translateY(-4px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.product-share-menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--text, #f5f5f7);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  text-align: left;
+  transition: background .12s;
+  white-space: nowrap;
+}
+.product-share-menu button:hover { background: rgba(255,255,255,.07); }
+.product-share-menu button.is-done { color: var(--accent, #7c5cff); }
+.product-share-menu button svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ================= PARTILHA NO MODAL ================= */
+.product-image-share--modal {
+  top: 14px;
+  right: 60px;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.product-image-share--modal:hover,
+.product-image-share--modal.is-active {
+  background: rgba(124,92,255,.9);
+  border-color: transparent;
+}
+
+.product-share-menu--modal {
+  top: 60px;
+  right: 60px;
+}
+
+/* ================= PRODUTO COMPARTILHADO ================= */
+.shared-product { position: fixed; inset: 0; z-index: 3000; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.shared-product__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.shared-product__card { position: relative; background: var(--bg-2, #16121f); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; max-width: 420px; width: 100%; max-height: 92vh; overflow-y: auto; box-shadow: 0 40px 90px -30px rgba(0,0,0,.9); animation: sharedPop .22s ease-out; }
+@keyframes sharedPop { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.shared-product__close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(0,0,0,.55); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; backdrop-filter: blur(6px); }
+.shared-product__close:hover { background: rgba(255,255,255,.15); }
+.shared-product__media { width: 100%; aspect-ratio: 1; overflow: hidden; background: #0a0a0f; display: flex; align-items: center; justify-content: center; }
+.shared-product__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shared-product__icon { color: var(--muted); }
+.shared-product__icon svg { width: 80px; height: 80px; }
+.shared-product__body { padding: 22px; }
+.shared-product__cat { display: inline-block; font-size: 10.5px; letter-spacing: .8px; text-transform: uppercase; font-weight: 700; color: var(--muted); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); padding: 3px 9px; border-radius: 999px; margin-bottom: 12px; }
+.shared-product__name { font-size: 22px; font-weight: 800; margin: 0 0 8px; line-height: 1.2; }
+.shared-product__desc { font-size: 14px; color: var(--muted); margin: 0 0 18px; line-height: 1.5; }
+.shared-product__price { font-size: 26px; font-weight: 800; letter-spacing: -.4px; margin-bottom: 18px; }
+.shared-product__actions { display: flex; flex-direction: column; gap: 8px; }
+.shared-product__buy { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; background: #25d366; color: #fff; font-weight: 700; font-size: 15px; border-radius: 12px; text-decoration: none; transition: opacity .15s; }
+.shared-product__buy:hover { opacity: .9; }
+.shared-product__share { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; background: transparent; border: 1px solid rgba(255,255,255,.15); color: var(--text, #f5f5f7); font-family: inherit; font-size: 14px; font-weight: 600; border-radius: 12px; cursor: pointer; }
+.shared-product__share:hover { background: rgba(255,255,255,.06); }
+
+/* ================= PRODUTO COMPARTILHADO ================= */
+.shared-product { position: fixed; inset: 0; z-index: 3000; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.shared-product__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.shared-product__card { position: relative; background: var(--bg-2, #16121f); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; max-width: 420px; width: 100%; max-height: 92vh; overflow-y: auto; box-shadow: 0 40px 90px -30px rgba(0,0,0,.9); animation: sharedPop .22s ease-out; }
+@keyframes sharedPop { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.shared-product__close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(0,0,0,.55); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; backdrop-filter: blur(6px); }
+.shared-product__close:hover { background: rgba(255,255,255,.15); }
+.shared-product__media { width: 100%; aspect-ratio: 1; overflow: hidden; background: #0a0a0f; display: flex; align-items: center; justify-content: center; }
+.shared-product__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shared-product__icon { color: var(--muted); }
+.shared-product__icon svg { width: 80px; height: 80px; }
+.shared-product__body { padding: 22px; }
+.shared-product__cat { display: inline-block; font-size: 10.5px; letter-spacing: .8px; text-transform: uppercase; font-weight: 700; color: var(--muted); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); padding: 3px 9px; border-radius: 999px; margin-bottom: 12px; }
+.shared-product__name { font-size: 22px; font-weight: 800; margin: 0 0 8px; line-height: 1.2; }
+.shared-product__desc { font-size: 14px; color: var(--muted); margin: 0 0 18px; line-height: 1.5; }
+.shared-product__price { font-size: 26px; font-weight: 800; letter-spacing: -.4px; margin-bottom: 18px; }
+.shared-product__actions { display: flex; flex-direction: column; gap: 8px; }
+.shared-product__buy { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; background: #25d366; color: #fff; font-weight: 700; font-size: 15px; border-radius: 12px; text-decoration: none; transition: opacity .15s; }
+.shared-product__buy:hover { opacity: .9; }
+.shared-product__share { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; background: transparent; border: 1px solid rgba(255,255,255,.15); color: var(--text, #f5f5f7); font-family: inherit; font-size: 14px; font-weight: 600; border-radius: 12px; cursor: pointer; }
+.shared-product__share:hover { background: rgba(255,255,255,.06); }
+
+/* ================= LUCIDE ICONS ================= */
+.catnav__inner a i[data-lucide],
+.catnav__inner a svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+.catnav__inner a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ================= MOBILE MENU v2 ================= */
+@media (max-width: 700px) {
+  .mobile-menu {
+    width: 78vw;
+    max-width: 340px;
+    min-width: 240px;
+    border-radius: 0 0 0 20px;
+    background: linear-gradient(160deg, var(--bg-2), var(--bg-1, #0a0a0f));
+    box-shadow: -20px 30px 60px -20px rgba(0,0,0,.8);
+  }
+  .mobile-menu__inner {
+    padding: 68px 14px 18px;
+    gap: 6px;
+  }
+  .mobile-menu__section {
+    display: flex; flex-direction: column; gap: 2px;
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .mobile-menu__section:last-of-type { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+
+  .mobile-menu__label {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--muted);
+    padding: 8px 10px 6px;
+  }
+
+  .mobile-menu__inner a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 12px;
+    border-radius: 10px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: background .15s, transform .1s;
+  }
+  .mobile-menu__inner a i[data-lucide],
+  .mobile-menu__inner a svg {
+    width: 18px; height: 18px;
+    stroke-width: 1.9;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: color .15s;
+  }
+  .mobile-menu__inner a:hover {
+    background: rgba(255,255,255,.05);
+  }
+  .mobile-menu__inner a:hover i[data-lucide] { color: var(--text); }
+  .mobile-menu__inner a:active { transform: scale(.985); }
+
+  /* Estado ativo */
+  .mobile-menu__inner a.is-active,
+  .mobile-menu__inner a.active {
+    background: rgba(124,92,255,.14);
+    color: #fff;
+  }
+  .mobile-menu__inner a.is-active i[data-lucide],
+  .mobile-menu__inner a.active i[data-lucide] {
+    color: #7c5cff;
+  }
+
+  /* WhatsApp no fim */
+  .mobile-menu__wa {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    margin-top: 14px;
+    padding: 13px 16px !important;
+    background: #25d366 !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    border-radius: 12px !important;
+    font-size: 14.5px;
+  }
+  .mobile-menu__wa i[data-lucide] { color: #fff !important; width: 18px; height: 18px; }
+  .mobile-menu__wa:hover { background: #1eb955 !important; }
+
+  /* Remover o estilo antigo do último filho */
+  .mobile-menu__inner > a:last-child {
+    margin-top: 0;
+    border-top: 0;
+    border-radius: 12px;
+    padding-top: 13px;
+  }
+}
+
+/* ================= QUICK ACTIONS NO MENU ================= */
+.mobile-menu__quick {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 0 8px 14px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.quick-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 4px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 12px;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s, transform .1s;
+}
+.quick-btn i[data-lucide],
+.quick-btn svg {
+  width: 18px; height: 18px;
+  stroke-width: 1.9;
+  color: var(--text);
+  transition: color .15s;
+}
+.quick-btn:hover { background: rgba(124,92,255,.1); border-color: rgba(124,92,255,.3); color: #fff; }
+.quick-btn:hover i[data-lucide] { color: #7c5cff; }
+.quick-btn:active { transform: scale(.95); }
+.quick-btn.is-done { background: rgba(34,197,94,.12); border-color: rgba(34,197,94,.35); color: #22c55e; }
+.quick-btn.is-done i[data-lucide] { color: #22c55e; }
+
+/* Slider de brilho */
+.mobile-menu__brightness {
+  padding: 0 12px 12px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  animation: brightnessSlide .2s ease-out;
+}
+.mobile-menu__brightness[hidden] { display: none; }
+
+@keyframes brightnessSlide {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.brightness__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+}
+.brightness__head i[data-lucide] { width: 16px; height: 16px; flex-shrink: 0; }
+.brightness__head input[type=range] {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: rgba(255,255,255,.12);
+  border-radius: 999px;
+  outline: none;
+}
+.brightness__head input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c5cff, #b44cff);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(124,92,255,.6);
+}
+.brightness__head input[type=range]::-moz-range-thumb {
+  width: 18px; height: 18px;
+  border: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c5cff, #b44cff);
+  cursor: pointer;
+}
+
+/* ================= SKELETON LOADING ================= */
+
+/* Vista em lista */
+body.view-list .skeleton-grid { grid-template-columns: 1fr; }
+body.view-list .skeleton-card { flex-direction: row; align-items: center; padding: 12px; }
+body.view-list .skeleton-card__media { width: 96px; height: 96px; aspect-ratio: 1; border-radius: 12px; flex-shrink: 0; }
+body.view-list .skeleton-card__body { flex: 1; }
+
+/* Spinner para outras secções */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 40px 20px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ============================================================
+   SKELETON — alinhar tamanho com o cartão real
+   ============================================================ */
+
+/* Linhas com alturas exatas do texto real */
+
+/* Grelha do skeleton = grelha real */
+@media (max-width: 480px) {
+}
+
+/* Vista em lista */
+body.view-list .skeleton-grid { grid-template-columns: 1fr !important; }
+body.view-list .skeleton-card { flex-direction: row !important; align-items: center !important; }
+body.view-list .skeleton-card__media { width: 96px !important; height: 96px !important; aspect-ratio: 1 !important; border-radius: 12px !important; flex-shrink: 0 !important; }
+body.view-list .skeleton-card__body { flex: 1 !important; }
+
+/* ================= VIEW TOGGLE (colunas / lista) ================= */
+.mobile-menu__view {
+  padding: 10px 10px 14px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.mobile-menu__view .mobile-menu__label {
+  display: block;
+  margin-bottom: 8px;
+}
+.view-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 12px;
+  padding: 4px;
+}
+.view-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.view-btn i[data-lucide] { width: 15px; height: 15px; }
+.view-btn:hover { color: var(--text); }
+.view-btn.is-active {
+  background: linear-gradient(135deg, #7c5cff, #b44cff);
+  color: #fff;
+  box-shadow: 0 6px 14px -6px rgba(124,92,255,.7);
+}
+
+/* Vista em LISTA — 1 coluna */
+body.view-list .grid[data-row],
+body.view-list .cat-grid,
+body.view-list #categoryGrid,
+body.view-list #popularGrid,
+body.view-list .products-grid,
+body.view-list .skeleton-grid {
+  grid-template-columns: 1fr !important;
+}
+
+/* ============================================================
+   MODAL — RESET TOTAL (vence todas as regras anteriores)
+   ============================================================ */
+#productImageModal .product-image-modal__content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  max-width: 480px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  border-radius: 18px !important;
+  background: #101015 !important;
+}
+
+/* Mídia (imagem + botão fechar) */
+#productImageModal .product-image-modal__media {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  border-radius: 18px 18px 0 0 !important;
+  overflow: hidden !important;
+  line-height: 0 !important;
+  background: #0a0a0f;
+}
+#productImageModal .product-image-modal__media .product-image-modal__image {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 60vh !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+#productImageModal .product-image-modal__media .product-image-modal__close {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  background: rgba(0,0,0,.55) !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 5 !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+#productImageModal .product-image-modal__media .product-image-modal__close svg {
+  width: 18px !important; height: 18px !important;
+}
+
+/* Info (nome + descrição) */
+#productImageModal .product-image-modal__info {
+  display: block !important;
+  padding: 18px 20px 14px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  gap: 0 !important;
+}
+#productImageModal .product-image-modal__info .product-image-modal__name {
+  display: block !important;
+  font-size: 19px !important;
+  font-weight: 800 !important;
+  margin: 0 0 6px !important;
+  line-height: 1.25 !important;
+  color: var(--text) !important;
+}
+#productImageModal .product-image-modal__info .product-image-modal__desc {
+  display: block !important;
+  font-size: 13.5px !important;
+  color: var(--muted) !important;
+  margin: 0 !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+}
+
+/* Barra de ações */
+#productImageModal .product-image-modal__bar {
+  display: flex !important;
+  gap: 8px !important;
+  padding: 0 20px 18px !important;
+  margin: 0 !important;
+  position: relative !important;
+  border-top: 1px solid rgba(255,255,255,.05) !important;
+  padding-top: 14px !important;
+}
+#productImageModal .product-image-modal__bar > button {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 11px 6px !important;
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 12px !important;
+  color: var(--muted) !important;
+  font-family: inherit !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: .3px !important;
+  cursor: pointer !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  inset: auto !important;
+  top: auto !important; bottom: auto !important; left: auto !important; right: auto !important;
+  transform: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  transition: background .15s, color .15s, border-color .15s;
+}
+#productImageModal .product-image-modal__bar > button:hover {
+  background: rgba(255,255,255,.08) !important;
+  color: #fff !important;
+}
+#productImageModal .product-image-modal__bar > button svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke-width: 1.9 !important;
+  display: block;
+}
+#productImageModal .product-image-modal__bar > button.product-image-modal__like::after { content: 'Gosto'; }
+#productImageModal .product-image-modal__bar > button.product-image-share--modal::after { content: 'Partilhar'; }
+#productImageModal .product-image-modal__bar > button.product-image-modal__like.is-liked {
+  background: rgba(255,59,48,.14) !important;
+  border-color: rgba(255,59,48,.4) !important;
+  color: #ff3b30 !important;
+}
+#productImageModal .product-image-modal__bar > button.product-image-modal__like.is-liked svg {
+  fill: #ff3b30 !important; stroke: #ff3b30 !important;
+}
+
+/* Menu de partilha do modal */
+#productImageModal .product-share-menu--modal {
+  position: absolute !important;
+  bottom: 70px !important;
+  left: 20px !important;
+  right: auto !important;
+  top: auto !important;
+  z-index: 30 !important;
+}
+
+/* ============================================================
+   SKELETON — igual ao cartão real (colunas e lista)
+   ============================================================ */
+/* Colunas */
+
+@media (max-width: 480px) {
+}
+
+/* Lista */
+body.view-list .skeleton-grid { grid-template-columns: 1fr !important; }
+body.view-list .skeleton-card { flex-direction: row !important; align-items: center !important; gap: 12px !important; }
+body.view-list .skeleton-card__media { width: 96px !important; height: 96px !important; aspect-ratio: 1 !important; border-radius: 12px !important; flex-shrink: 0 !important; }
+body.view-list .skeleton-card__body { flex: 1 !important; min-width: 0 !important; }
+
+/* ============================================================
+   SKELETON — bloco único (medidas do card real)
+   ============================================================ */
+
+/* Vista em lista */
+body.view-list .skeleton-card {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+body.view-list .skeleton-card__media {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+}
+body.view-list .skeleton-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ================= MENU: espaço extra para o X ================= */
+@media (max-width: 700px) {
+  .mobile-menu__inner {
+    padding-top: 96px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    padding-bottom: 20px !important;
+    gap: 6px !important;
+  }
+}
+
+/* ============================================================
+   MODAL — dar VISIBILIDADE ao conteúdo (background + layout)
+   ============================================================ */
+.product-image-modal__content {
+  background: #101015 !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  border-radius: 18px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  box-shadow: 0 30px 80px -30px rgba(0,0,0,.9) !important;
+  justify-content: flex-start !important;
+  width: min(480px, 100%) !important;
+}
+
+.product-image-modal__media {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  line-height: 0 !important;
+  background: #0a0a0f !important;
+  overflow: hidden !important;
+}
+.product-image-modal__media .product-image-modal__image {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 55vh !important;
+  object-fit: cover !important;
+  border-radius: 0 !important;
+  display: block !important;
+}
+
+.product-image-modal__media .product-image-modal__close {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: rgba(0,0,0,.55) !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 5 !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.product-image-modal__media .product-image-modal__close svg { width: 18px !important; height: 18px !important; }
+
+.product-image-modal__info {
+  display: block !important;
+  padding: 18px 20px 14px !important;
+  margin: 0 !important;
+}
+.product-image-modal__info .product-image-modal__name {
+  font-size: 19px !important;
+  font-weight: 800 !important;
+  margin: 0 0 6px !important;
+  color: var(--text) !important;
+  display: block !important;
+}
+.product-image-modal__info .product-image-modal__desc {
+  font-size: 13.5px !important;
+  color: var(--muted) !important;
+  margin: 0 !important;
+  display: block !important;
+  line-height: 1.45 !important;
+}
+
+.product-image-modal__bar {
+  display: flex !important;
+  gap: 8px !important;
+  padding: 0 20px 18px !important;
+  margin: 0 !important;
+  position: relative !important;
+  border-top: 1px solid rgba(255,255,255,.05) !important;
+  padding-top: 14px !important;
+}
+.product-image-modal__bar > button {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 11px 6px !important;
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 12px !important;
+  color: var(--muted) !important;
+  font-family: inherit !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  backdrop-filter: none !important;
+}
+.product-image-modal__bar > button:hover {
+  background: rgba(255,255,255,.08) !important;
+  color: #fff !important;
+}
+.product-image-modal__bar > button svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+.product-image-modal__bar > button.product-image-modal__like::after { content: 'Gosto'; }
+.product-image-modal__bar > button.product-image-share--modal::after { content: 'Partilhar'; }
+.product-image-modal__bar > button.product-image-modal__like.is-liked {
+  background: rgba(255,59,48,.14) !important;
+  border-color: rgba(255,59,48,.4) !important;
+  color: #ff3b30 !important;
+}
+.product-image-modal__bar > button.product-image-modal__like.is-liked svg {
+  fill: #ff3b30 !important; stroke: #ff3b30 !important;
+}
+
+.product-image-modal__content .product-share-menu--modal {
+  position: absolute !important;
+  bottom: 70px !important;
+  left: 20px !important;
+  right: auto !important;
+  top: auto !important;
+  z-index: 30 !important;
+}
+
+/* ============================================================
+   BRILHO — NÃO aplicar aos modais (senão ficam invisíveis)
+   ============================================================ */
+body > header,
+body > main,
+body > section,
+body > article,
+body > footer,
+body > .container {
+  filter: brightness(var(--site-brightness, 1));
+  transition: filter .18s ease;
+}
+
+/* Forçar TODOS os overlays/modais SEM filtro */
+.product-image-modal,
+.product-image-modal *,
+.shared-product,
+.shared-product *,
+.search-overlay,
+.search-overlay *,
+.mobile-menu,
+.mobile-menu *,
+.product-share-menu,
+.product-share-menu * {
+  filter: none !important;
+}
+
+/* E remover o filtro antigo que apanhava o body todo */
+body { filter: none !important; }
+
+/* Skeleton = filho da grid, deve respeitar as colunas */
+
+body.view-list .skeleton-card {
+  grid-column: auto !important;
+}
+
+/* ============================================================
+   SKELETON — regra única e definitiva
+   ============================================================ */
+
+/* Grid pai com skeletons: 2 colunas por defeito */
+[data-row]:has(> .skeleton-card),
+#categoryGrid:has(> .skeleton-card),
+#popularGrid:has(> .skeleton-card),
+.cat-grid:has(> .skeleton-card) {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+/* Vista em lista: 1 por linha */
+body.view-list [data-row]:has(> .skeleton-card),
+body.view-list #categoryGrid:has(> .skeleton-card),
+body.view-list #popularGrid:has(> .skeleton-card),
+body.view-list .cat-grid:has(> .skeleton-card) {
+  grid-template-columns: 1fr !important;
+}
+
+/* Cartão skeleton — coluna (colunas) */
+.skeleton-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: var(--bg-2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  padding: 18px !important;
+  gap: 10px !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+
+/* Vista em lista: cartão horizontal */
+body.view-list .skeleton-card {
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 14px !important;
+}
+
+.skeleton-card__media {
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: var(--radius) !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%) !important;
+  background-size: 200% 100% !important;
+  animation: skeleton-shimmer 1.4s infinite !important;
+}
+
+body.view-list .skeleton-card__media {
+  width: 96px !important;
+  height: 96px !important;
+  aspect-ratio: 1 !important;
+  border-radius: 12px !important;
+}
+
+.skeleton-card__body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding: 0 !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.skeleton-line {
+  height: 12px !important;
+  border-radius: 5px !important;
+  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%) !important;
+  background-size: 200% 100% !important;
+  animation: skeleton-shimmer 1.4s infinite !important;
+}
+.skeleton-line--title { width: 80% !important; height: 14px !important; }
+.skeleton-line--desc  { width: 95% !important; }
+.skeleton-line--price { width: 50% !important; height: 16px !important; margin: 0 !important; }
+
+.skeleton-card__footer {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-top: 4px !important;
+}
+
+.skeleton-btn {
+  width: 90px !important;
+  height: 36px !important;
+  border-radius: 999px !important;
+  flex-shrink: 0 !important;
+  background: linear-gradient(90deg, #1a1a22 25%, #22222c 50%, #1a1a22 75%) !important;
+  background-size: 200% 100% !important;
+  animation: skeleton-shimmer 1.4s infinite !important;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ================= MATERIAL SYMBOLS ================= */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+}
+
+/* Tamanhos contextuais */
+.catnav__inner .material-symbols-outlined { font-size: 18px; }
+.mobile-menu__inner .material-symbols-outlined { font-size: 20px; }
+.quick-btn .material-symbols-outlined { font-size: 20px; }
+.product-card__actions .material-symbols-outlined { font-size: 18px; }
+#productImageModal .material-symbols-outlined { font-size: 20px; }
+
+/* ================= MATERIAL ICONS: remover caixa indesejada ================= */
+.material-symbols-outlined {
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  text-decoration: none !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+}
+
+/* Especificamente dentro de links do menu */
+.mobile-menu__inner a > .material-symbols-outlined,
+.catnav__inner a > .material-symbols-outlined,
+.quick-btn > .material-symbols-outlined {
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Botões do menu rápido: manter o fundo SÓ no botão, não no ícone */
+.quick-btn {
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.06) !important;
+}
+
+/* ================= RESET TOTAL dos ícones Material dentro de links ================= */
+.mobile-menu__inner a .material-symbols-outlined,
+.catnav__inner a .material-symbols-outlined {
+  all: unset !important;
+  font-family: 'Material Symbols Outlined' !important;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24 !important;
+  font-size: 20px !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  line-height: 1 !important;
+  display: inline-block !important;
+  color: inherit !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  direction: ltr !important;
+  -webkit-font-feature-settings: 'liga' !important;
+  -webkit-font-smoothing: antialiased !important;
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* ============================================================
+   ANÚNCIOS — carrossel com rotação automática
+   ============================================================ */
+.ads-carousel {
+  padding: 20px 0 8px;
+}
+.ads-carousel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.ads-carousel__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.ads-carousel__label .material-symbols-outlined {
+  font-size: 16px;
+  color: #7c5cff;
+}
+
+/* Stage — pílula compacta */
+.ads-carousel__stage {
+  position: relative;
+  min-height: 92px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(124,92,255,.14), rgba(180,76,255,.06) 60%, transparent);
+  border: 1px solid rgba(124,92,255,.25);
+}
+
+/* Slide — 3 em camadas, só o is-active aparece */
+.ads-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .4s ease, transform .4s ease;
+  pointer-events: none;
+}
+.ads-slide.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  position: relative;
+}
+
+.ads-slide__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c5cff, #b44cff);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 22px -8px rgba(124,92,255,.7);
+}
+.ads-slide__icon .material-symbols-outlined {
+  font-size: 22px;
+}
+
+.ads-slide__content {
+  flex: 1;
+  min-width: 0;
+}
+.ads-slide__content h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  margin: 0 0 3px;
+  color: var(--text);
+  line-height: 1.25;
+}
+.ads-slide__content p {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ads-slide__content p strong { color: var(--text); font-weight: 700; }
+
+.ads-slide__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 9px 14px;
+  background: #fff;
+  color: #000;
+  font-size: 12.5px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: transform .1s, background .15s;
+}
+.ads-slide__cta:hover { background: #f0f0f5; }
+.ads-slide__cta:active { transform: scale(.96); }
+.ads-slide__cta .material-symbols-outlined {
+  font-size: 15px;
+}
+
+/* Dots */
+.ads-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+.ads-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255,255,255,.15);
+  cursor: pointer;
+  padding: 0;
+  transition: width .25s, background .25s;
+}
+.ads-dot.is-active {
+  width: 22px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c5cff, #b44cff);
+}
+
+/* Mobile: reduzir */
+@media (max-width: 500px) {
+  .ads-slide { padding: 12px 14px; gap: 10px; }
+  .ads-slide__icon { width: 40px; height: 40px; }
+  .ads-slide__icon .material-symbols-outlined { font-size: 20px; }
+  .ads-slide__content h3 { font-size: 13.5px; }
+  .ads-slide__content p { font-size: 12px; }
+  .ads-slide__cta { padding: 8px 12px; font-size: 12px; }
+  .ads-slide__cta span:not(.material-symbols-outlined) { display: none; }
+}
+
+/* ============================================================
+   HERO STORIES — carrossel tipo WhatsApp sobre a bandeira
+   ============================================================ */
+.hero { position: relative; }
+
+.hero-stories {
+  position: absolute;
+  left: 50%;
+  bottom: 92px;
+  transform: translateX(-50%);
+  width: calc(100% - 28px);
+  max-width: 480px;
+  z-index: 6;
+  background: rgba(10, 10, 15, 0.42);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  padding: 10px 10px 8px;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.9);
+  animation: heroStoriesIn .35s ease-out;
+}
+@keyframes heroStoriesIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Rail — círculos das categorias */
+.hero-stories__rail {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  overflow-x: auto;
+  padding: 2px 2px 8px;
+  scrollbar-width: none;
+}
+.hero-stories__rail::-webkit-scrollbar { display: none; }
+
+.hero-story-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: inherit;
+  min-width: 56px;
+}
+.hero-story-dot__ring {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  color: var(--text);
+  transition: transform .15s, border-color .2s, background .2s, box-shadow .2s;
+}
+.hero-story-dot__ring .material-symbols-outlined { font-size: 20px; }
+.hero-story-dot:hover .hero-story-dot__ring { transform: scale(1.05); }
+
+.hero-story-dot.is-active .hero-story-dot__ring {
+  background: linear-gradient(135deg, rgba(124,92,255,.4), rgba(180,76,255,.2));
+  border-color: #7c5cff;
+  box-shadow: 0 0 0 3px rgba(124,92,255,.28);
+}
+.hero-story-dot.is-active .hero-story-dot__ring::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #b44cff;
+  border-right-color: #b44cff;
+  animation: storySpin 1.2s linear infinite;
+  opacity: .9;
+}
+@keyframes storySpin { to { transform: rotate(360deg); } }
+
+.hero-story-dot__label {
+  font-size: 9.5px;
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: .3px;
+  white-space: nowrap;
+  max-width: 64px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hero-story-dot.is-active .hero-story-dot__label { color: var(--text); }
+
+/* Stage — cartão com o produto */
+.hero-stories__stage {
+  position: relative;
+  min-height: 76px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: 8px;
+  margin-top: 2px;
+}
+
+.hero-story {
+  position: absolute;
+  inset: 8px 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .35s ease, transform .35s ease;
+  pointer-events: none;
+}
+.hero-story.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  position: relative;
+}
+
+.hero-story__media {
+  width: 62px;
+  height: 62px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #0a0a0f;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.hero-story__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-story__media .material-symbols-outlined {
+  color: var(--muted);
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.hero-story__info {
+  flex: 1;
+  min-width: 0;
+}
+.hero-story__tag {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .9px;
+  color: #b44cff;
+  font-weight: 800;
+  margin-bottom: 3px;
+}
+.hero-story__info h3 {
+  font-size: 13.5px;
+  font-weight: 700;
+  margin: 0 0 2px;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25;
+}
+.hero-story__info p {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.35;
+}
+
+.hero-story__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.hero-story__price {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text);
+  white-space: nowrap;
+}
+.hero-story__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 7px 12px;
+  background: #fff;
+  color: #000;
+  font-size: 11.5px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .1s, background .15s;
+}
+.hero-story__cta:hover { background: #ececf2; }
+.hero-story__cta:active { transform: scale(.95); }
+.hero-story__cta .material-symbols-outlined { font-size: 13px; }
+
+/* Mobile */
+@media (max-width: 500px) {
+  .hero-stories { bottom: 84px; padding: 8px 8px 6px; border-radius: 16px; }
+  .hero-story-dot__ring { width: 40px; height: 40px; }
+  .hero-story-dot__ring .material-symbols-outlined { font-size: 18px; }
+  .hero-story-dot { min-width: 52px; }
+  .hero-story-dot__label { font-size: 9px; max-width: 58px; }
+  .hero-story__media { width: 54px; height: 54px; }
+  .hero-story__info h3 { font-size: 12.5px; }
+  .hero-story__info p { font-size: 11px; }
+  .hero-story__price { font-size: 12px; }
+  .hero-story__cta { padding: 6px 10px; font-size: 11px; }
+}
+
+/* ============================================================
+   HERO STORIES — OVERRIDE FINAL (mata o position: absolute antigo)
+   ============================================================ */
+.hero-stories-wrap .hero-stories,
+section.hero-stories-wrap > .hero-stories,
+body .hero-stories {
+  position: static !important;
+  top: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  animation: none !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  margin: 0 auto !important;
+  z-index: auto !important;
+}
+
+/* Faixa por baixo do hero */
+.hero-stories-wrap {
+  display: block !important;
+  padding: 14px !important;
+  background: linear-gradient(180deg, #0a0a0f 0%, #07070a 100%) !important;
+}
+
+/* Espaçamento entre hero e faixa */
+section.hero { margin-bottom: 0 !important; }
+section.hero + section.hero-stories-wrap { margin-top: 0 !important; }
+
+/* ============================================================
+   SECTION HEAD — limpo: título em cima, hint por baixo
+   ============================================================ */
+.section__head {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  margin-bottom: 18px !important;
+  padding-bottom: 14px !important;
+  border-bottom: 1px solid rgba(255,255,255,.06) !important;
+}
+
+.section__head h2 {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.4px !important;
+  line-height: 1.15 !important;
+  margin: 0 !important;
+  color: var(--text) !important;
+  white-space: nowrap !important;
+}
+
+/* Bolinha substituída por traço violeta */
+.section__head h2 .dot {
+  display: inline-block !important;
+  width: 4px !important;
+  height: 22px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(180deg, #7c5cff, #b44cff) !important;
+  box-shadow: 0 0 12px rgba(124,92,255,.6) !important;
+  flex-shrink: 0 !important;
+}
+
+.section__head h2 svg {
+  width: 22px !important;
+  height: 22px !important;
+  stroke: #7c5cff !important;
+  flex-shrink: 0 !important;
+}
+
+.section__head .section__hint {
+  font-size: 12.5px !important;
+  color: var(--muted) !important;
+  margin: 0 !important;
+  padding-left: 14px !important;
+  letter-spacing: .2px !important;
+  line-height: 1.4 !important;
+}
+
+/* Link "Ver mais" fica ao lado do hint, mesma linha */
+.section__head .link-more {
+  margin-top: 2px !important;
+  font-size: 12.5px !important;
+  color: #b44cff !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+/* Mobile: reduzir */
+@media (max-width: 500px) {
+  .section__head h2 { font-size: 19px !important; }
+  .section__head h2 .dot { height: 19px !important; width: 3px !important; }
+  .section__head h2 svg { width: 19px !important; height: 19px !important; }
+}
+
+/* ================= ÍCONE NO BOTÃO COMPRAR ================= */
+.btn--wa .material-symbols-outlined {
+  font-size: 17px;
+  vertical-align: -3px;
+  margin-right: 4px;
+}
+
+/* ================= ÍCONE CARRINHO — tamanho e alinhamento ================= */
+.btn--wa.btn--sm .material-symbols-outlined,
+.btn--wa .material-symbols-outlined {
+  font-size: 15px !important;
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20 !important;
+  vertical-align: -2px !important;
+  margin-right: 5px !important;
+  display: inline-block !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 500px) {
+  .btn--wa .material-symbols-outlined {
+    font-size: 14px !important;
+    margin-right: 4px !important;
+    vertical-align: -2px !important;
+  }
+}
+
+/* ================= PRODUTOS SUGERIDOS NO MODAL ================= */
+.shared-product__suggested {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.shared-product__suggested-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.shared-product__suggested-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+}
+.shared-product__suggested-list::-webkit-scrollbar { display: none; }
+
+.suggested-card {
+  display: flex;
+  flex-direction: column;
+  width: 90px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform .15s;
+}
+.suggested-card:active { transform: scale(.96); }
+
+.suggested-card__img {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0a0a0f;
+  border: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+.suggested-card__img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.suggested-card__img .material-symbols-outlined {
+  font-size: 26px; color: #7c5cff;
+}
+
+.suggested-card__name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.suggested-card__price {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* Fix do Header (ficou azul na screenshot) */
+.site-header { background: var(--bg-2) !important; }
+
+/* ================= MODAL COMPARTILHADO ================= */
+.shared-product__card {
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+  scrollbar-width: none !important;
+}
+.shared-product__card::-webkit-scrollbar { display: none; }
+
+/* Ações */
+.shared-product__sub-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.shared-product__sub-actions button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.shared-product__sub-actions button:hover { background: rgba(255,255,255,.08); color: #fff; }
+.shared-product__sub-actions .is-liked { color: #ff3b30 !important; border-color: rgba(255,59,48,.4); }
+.shared-product__sub-actions .material-symbols-outlined { font-size: 18px; }
+
+/* Últimos 5 produtos */
+.shared-product__recent {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.shared-product__recent-title {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  margin: 0 0 12px;
+}
+.shared-product__recent-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+}
+.shared-product__recent-list::-webkit-scrollbar { display: none; }
+
+.recent-card {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.recent-card__img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0a0a0f;
+  border: 1px solid rgba(255,255,255,.08);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 6px;
+}
+.recent-card__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.recent-card__name { font-size: 11px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Botão Ver mais da categoria */
+.shared-product__more-cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 18px;
+  padding: 14px;
+  background: rgba(124,92,255,.1);
+  border: 1px solid rgba(124,92,255,.3);
+  color: #b44cff;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background .15s;
+}
+.shared-product__more-cat:hover { background: rgba(124,92,255,.2); }
+.shared-product__more-cat .material-symbols-outlined { font-size: 18px; }
+
+/* ============================================================
+   PRODUTOS POPULARES — CARROSSEL HORIZONTAL
+   ============================================================ */
+#popularGrid {
+  display: flex !important;
+  flex-direction: row !important;
+  grid-template-columns: none !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory !important;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: 12px !important;
+  padding: 6px 16px 16px !important;
+  margin: 0 -16px !important;
+}
+#popularGrid::-webkit-scrollbar { display: none; }
+
+#popularGrid > .product-card {
+  flex: 0 0 auto !important;
+  width: 68% !important;
+  max-width: 280px !important;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Skeleton também vira carrossel */
+#popularGrid:has(> .skeleton-card) {
+  display: flex !important;
+  flex-direction: row !important;
+  grid-template-columns: none !important;
+}
+#popularGrid > .skeleton-card {
+  flex: 0 0 auto !important;
+  width: 68% !important;
+  max-width: 280px !important;
+  grid-column: auto !important;
+}
+
+@media (min-width: 600px) {
+  #popularGrid > .product-card,
+  #popularGrid > .skeleton-card {
+    width: 240px !important;
+  }
+}
+
+/* Vista em Lista: vertical em vez de carrossel */
+body.view-list #popularGrid {
+  flex-direction: column !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body.view-list #popularGrid > .product-card,
+body.view-list #popularGrid > .skeleton-card {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Indicador de scroll opcional: sombra subtil no canto direito */
+#popularGrid::after {
+  content: '';
+  flex: 0 0 8px;
+}
+
+/* ============================================================
+   POPULARES — Carrossel Centralizado com Foco (Blur nos outros)
+   ============================================================ */
+#popularGrid {
+  /* Padding dinâmico para que o primeiro e último produto possam chegar ao centro */
+  padding-left: calc(50vw - 34vw) !important;
+  padding-right: calc(50vw - 34vw) !important;
+  scroll-padding: 0 calc(50vw - 34vw) !important;
+  margin: 0 !important;
+}
+
+/* Produto normal (fora do centro) */
+#popularGrid > .product-card {
+  scroll-snap-align: center !important;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease, filter 0.4s ease;
+  transform: scale(0.88);
+  opacity: 0.5;
+  filter: blur(2px) grayscale(30%);
+}
+
+/* Produto em foco (centro) */
+#popularGrid > .product-card.is-active {
+  transform: scale(1);
+  opacity: 1;
+  filter: none;
+}
+
+/* Ajuste para ecrãs maiores */
+@media (min-width: 600px) {
+  #popularGrid {
+    padding-left: calc(50vw - 120px) !important;
+    padding-right: calc(50vw - 120px) !important;
+    scroll-padding: 0 calc(50vw - 120px) !important;
+  }
+}
+
+/* Ajustes de performance e suavidade no carrossel */
+#popularGrid {
+  scroll-snap-type: x proximity !important; /* proximity é mais suave que mandatory */
+  -webkit-overflow-scrolling: touch !important;
+}
+
+#popularGrid > .product-card {
+  will-change: transform, opacity, filter; /* Avisa o celular para preparar a animação */
+  transform: translateZ(0); /* Força aceleração de hardware */
+}
+
+/* Desfoque mais leve para não travar em celulares mais fracos */
+#popularGrid > .product-card:not(.is-active) {
+  filter: blur(1.5px) grayscale(20%) !important;
+}
+
+/* ================= DOTS DO CARROSSEL POPULARES ================= */
+.popular-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 14px 0 4px;
+  padding: 0 16px;
+}
+
+.popular-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.25s, background 0.25s;
+  flex-shrink: 0;
+}
+
+.popular-dot:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.popular-dot.is-active {
+  width: 22px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c5cff, #b44cff);
+  box-shadow: 0 0 10px rgba(124, 92, 255, 0.5);
+}
+
+/* Esconder dots em vista Lista */
+body.view-list .popular-dots {
+  display: none;
+}
+
+/* ============================================================
+   CARROSSEL PARA PÁGINAS DE CATEGORIA (#categoryGrid)
+   ============================================================ */
+#categoryGrid {
+  display: flex !important;
+  flex-direction: row !important;
+  grid-template-columns: none !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x proximity !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: 12px !important;
+  padding: 6px 16px 16px !important;
+  margin: 0 -16px !important;
+  /* Centralizar o primeiro e último item */
+  padding-left: calc(50vw - 34vw) !important;
+  padding-right: calc(50vw - 34vw) !important;
+  scroll-padding: 0 calc(50vw - 34vw) !important;
+}
+#categoryGrid::-webkit-scrollbar { display: none; }
+
+#categoryGrid > .product-card {
+  flex: 0 0 auto !important;
+  width: 68% !important;
+  max-width: 280px !important;
+  scroll-snap-align: center !important;
+  scroll-snap-stop: always;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease, filter 0.4s ease;
+  transform: scale(0.88) translateZ(0);
+  opacity: 0.5;
+  filter: blur(1.5px) grayscale(20%) !important;
+  will-change: transform, opacity, filter;
+}
+
+#categoryGrid > .product-card.is-active {
+  transform: scale(1) translateZ(0);
+  opacity: 1;
+  filter: none !important;
+}
+
+@media (min-width: 600px) {
+  #categoryGrid {
+    padding-left: calc(50vw - 120px) !important;
+    padding-right: calc(50vw - 120px) !important;
+    scroll-padding: 0 calc(50vw - 120px) !important;
+  }
+  #categoryGrid > .product-card {
+    width: 240px !important;
+  }
+}
+
+/* Esconder dots em vista Lista */
+body.view-list #categoryGrid + .popular-dots {
+  display: none;
+}
+
+/* ============================================================
+   WORLD LIBRARY — HEADER E FILTROS MODERNOS
+   ============================================================ */
+/* Cabeçalho (igual ao Produtos Populares) */
+.section__head {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 14px !important;
+  border-bottom: 1px solid rgba(255,255,255,.06) !important;
+}
+.section__head h2 {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.4px !important;
+  margin: 0 !important;
+  color: var(--text) !important;
+  white-space: nowrap !important;
+}
+.section__head h2 .dot {
+  display: inline-block !important;
+  width: 4px !important;
+  height: 22px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(180deg, #7c5cff, #b44cff) !important;
+  box-shadow: 0 0 12px rgba(124,92,255,.6) !important;
+}
+.section__head .section__hint {
+  font-size: 13px !important;
+  color: var(--muted) !important;
+  margin: 0 !important;
+  padding-left: 14px !important;
+}
+
+/* Filtros (Chips) modernos */
+.wl-genres {
+  display: flex !important;
+  overflow-x: auto !important;
+  gap: 8px !important;
+  padding: 4px 0 16px !important;
+  scrollbar-width: none !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+.wl-genres::-webkit-scrollbar { display: none !important; }
+
+.wl-genre {
+  padding: 8px 16px !important;
+  background: #151515 !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  border-radius: 999px !important;
+  color: #8a8a94 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  font-family: inherit !important;
+}
+.wl-genre:hover {
+  border-color: #7c5cff !important;
+  color: #fff !important;
+}
+.wl-genre.active {
+  background: #7c5cff !important;
+  border-color: #7c5cff !important;
+  color: #fff !important;
+  box-shadow: 0 4px 15px rgba(124,92,255,0.4) !important;
+}
+/* O botão "Todos" ganha um gradiente próprio */
+.wl-genre[data-genre="all"] {
+  background: linear-gradient(135deg, #7c5cff, #b44cff) !important;
+  border: 0 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 15px rgba(124,92,255,0.5) !important;
+}
+
+/* ============================================================
+   TEMA GLOBAL: GLASSMORPHISM (VIDRO FOSCO)
+   ============================================================ */
+
+/* 1. Fundo do site (needed para o vidro ter algo para desfocar) */
+body {
+  background-color: #07070a !important;
+  background-image: 
+    radial-gradient(circle at 15% 40%, rgba(124, 92, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(180, 76, 255, 0.1), transparent 40%) !important;
+  background-attachment: fixed !important;
+}
+
+/* 2. Cabeçalho e Menus */
+.site-header,
+.mobile-menu,
+.mobile-menu__quick,
+.search-overlay__inner {
+  background: rgba(15, 15, 20, 0.65) !important;
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 3. Cartões de Produto e Secções */
+.product-card,
+.ads-carousel__stage,
+.shared-product__card,
+.section {
+  background: rgba(20, 20, 28, 0.55) !important;
+  backdrop-filter: blur(16px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 4. Detalhes do cartão (skeleton também para não destoar) */
+.skeleton-card {
+  background: rgba(20, 20, 28, 0.55) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+/* 5. Botões e Inputs que precisam de um fundo mais sólido para leitura */
+.search input,
+.wl-genre,
+.mobile-menu__inner a,
+.quick-btn {
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* 6. Carrinho (carrossel e imagens) */
+#popularGrid > .product-card,
+#categoryGrid > .product-card {
+  background: rgba(20, 20, 28, 0.55) !important;
+}
+
+/* ============================================================
+   CARTÕES DE PRODUTO: PRETO PROFUNDO (GLASS PREMIUM)
+   ============================================================ */
+.product-card,
+#popularGrid > .product-card,
+#categoryGrid > .product-card,
+.skeleton-card {
+  /* Gradiente escuro de cima para baixo (simula vidro fumado) */
+  background: linear-gradient(160deg, rgba(26, 26, 34, 0.85) 0%, rgba(12, 12, 16, 0.95) 100%) !important;
+  backdrop-filter: blur(20px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(120%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  /* Sombra para dar profundidade e destacar do fundo */
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito ao passar o rato (ou segurar no telemóvel) */
+.product-card:hover {
+  border-color: rgba(124, 92, 255, 0.4) !important;
+  box-shadow: 0 15px 35px -10px rgba(124, 92, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Deixar o fundo da página um pouco mais escuro para o cartão saltar à vista */
+body {
+  background-color: #050508 !important;
+}
+
+/* ============================================================
+   CABEÇALHO E NAVEGAÇÃO: PRETO PROFUNDO COM VIDRO
+   ============================================================ */
+.site-header {
+  background: linear-gradient(180deg, rgba(18, 18, 24, 0.95) 0%, rgba(10, 10, 14, 0.98) 100%) !important;
+  backdrop-filter: blur(20px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(130%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* A barra de categorias logo abaixo do header */
+.catnav {
+  background: rgba(10, 10, 14, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* A barra de pesquisa para não ficar transparente demais */
+.search {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ============================================================
+   SISTEMA DE LAYOUT RESPONSIVO (MOBILE SAFETY NET)
+   ============================================================ */
+
+/* 1. Trava a tela para não ter scroll horizontal (deformação) */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  position: relative;
+}
+
+/* 2. Garante que todos os elementos respeitam a largura da tela */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* 3. Container principal seguro */
+.container {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 4. Correção do Cabeçalho em ecrãs pequenos (até 450px) */
+@media (max-width: 450px) {
+  .header-main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    padding: 10px 12px !important;
+  }
+  .brand {
+    width: auto !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+  .search-row {
+    width: 100% !important;
+    order: 3 !important;
+    margin-top: 10px !important;
+  }
+  .search {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .btn--header {
+    display: none !important; /* Em ecrãs muito pequenos, esconde o botão WhatsApp do topo (já está no menu) */
+  }
+  .menu-toggle {
+    margin-left: auto !important;
+  }
+}
+
+/* 5. Correção das margens dos Carrosséis (Populares e Categorias) */
+#popularGrid,
+#categoryGrid {
+  /* Removemos a margem negativa que causava estouro da tela */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  /* Adicionamos padding dinâmico para o primeiro/último cartão ficarem no centro */
+  padding-left: calc(50% - 120px) !important;
+  padding-right: calc(50% - 120px) !important;
+}
+
+@media (max-width: 500px) {
+  #popularGrid,
+  #categoryGrid {
+    /* Em telemóveis, ajusta o centro do carrossel para o tamanho dos cartões */
+    padding-left: calc(50% - 110px) !important;
+    padding-right: calc(50% - 110px) !important;
+  }
+  
+  /* Ajusta o tamanho dos cartões no carrossel para caberem bonitos em mobile */
+  #popularGrid > .product-card,
+  #categoryGrid > .product-card {
+    width: 220px !important;
+    min-width: 220px !important;
+  }
+}
+
+/* 6. Prevenir que textos longos (como o nome do produto) estourem a caixa */
+.product-card__name,
+.product-card__desc,
+.shared-product__name {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* ============================================================
+   FIX DEFINITIVO: ACESSÓRIOS, MODA E NHONGA
+   ============================================================ */
+
+/* 1. O contentor principal não deve ter margens esquisitas à esquerda */
+body[data-category="acessorios"] .container,
+body[data-category="moda"] .container,
+body[data-category="nhonga"] .container {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  margin: 0 auto !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Unificar o título antigo (section-title) com o novo moderno */
+body[data-category="acessorios"] .section-title,
+body[data-category="moda"] .section-title {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.4px !important;
+  margin: 0 !important;
+  padding-bottom: 14px !important;
+  border-bottom: 1px solid rgba(255,255,255,.06) !important;
+  color: var(--text) !important;
+}
+
+/* 3. O carrossel (#categoryGrid) deve ocupar o ecrã inteiro sem apertar à esquerda */
+body[data-category="acessorios"] #categoryGrid,
+body[data-category="moda"] #categoryGrid {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  
+  /* Centralizar o primeiro e último item */
+  padding-left: calc(50vw - 110px) !important; 
+  padding-right: calc(50vw - 110px) !important;
+}
+
+/* 4. Nhonga: garantir que os blocos de texto não encostam à borda */
+body[data-category="nhonga"] .nhonga-section-title,
+body[data-category="nhonga"] .nhonga-hero {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* 5. Esconder as setas / scroll antigo se existirem nessas páginas */
+body[data-category="acessorios"] .scroll-arrows,
+body[data-category="moda"] .scroll-arrows {
+  display: none !important;
+}
+
+/* ============================================================
+   CORREÇÃO FINAL E DEFINITIVA: CABEÇALHO E CARROSSEL
+   ============================================================ */
+
+/* 1. Ajustar o Cabeçalho no telemóvel (sem sobreposições) */
+@media (max-width: 700px) {
+  .header-main {
+    display: grid !important;
+    /* 3 colunas: Logo (ocupa o resto), WhatsApp (auto), Menu (auto) */
+    grid-template-columns: minmax(0, 1fr) auto auto !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 10px !important;
+    row-gap: 12px !important;
+    padding: 12px 16px !important;
+  }
+
+  /* Logo na linha 1, coluna 1 */
+  .brand { 
+    grid-column: 1 !important; 
+    grid-row: 1 !important; 
+    min-width: 0 !important;
+  }
+
+  /* Botão WhatsApp na linha 1, coluna 2 */
+  .btn--header { 
+    grid-column: 2 !important; 
+    grid-row: 1 !important; 
+    margin: 0 !important; 
+    padding: 8px 12px !important; 
+    font-size: 12px !important;
+  }
+
+  /* Menu de 3 barras na linha 1, coluna 3 (sem position absolute) */
+  .menu-toggle { 
+    grid-column: 3 !important; 
+    grid-row: 1 !important; 
+    position: static !important; 
+    margin: 0 !important;
+  }
+
+  /* Barra de pesquisa ocupa a linha 2 inteira */
+  .search-row { 
+    grid-column: 1 / -1 !important; 
+    grid-row: 2 !important; 
+    width: 100% !important; 
+    margin-top: 0 !important;
+  }
+  
+  .search {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* 2. Corrigir o carrossel (Acessórios, Moda) sem apertar à esquerda e sem estragar o Header */
+#categoryGrid,
+#popularGrid {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  left: auto !important;
+  position: relative !important;
+  /* Padding calculado para centralizar o 1º e último cartão */
+  padding-left: calc(50vw - 110px) !important;
+  padding-right: calc(50vw - 110px) !important;
+}
+
+/* 3. Garantir o texto na barra de pesquisa */
+.search input::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+  opacity: 1 !important;
+}
+
+/* ============================================================
+   REDUZIR ALTURA DA BARRA DE CATEGORIAS (CATNAV)
+   ============================================================ */
+.catnav {
+  background: rgba(10, 10, 14, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  min-height: 0 !important;
+}
+
+.catnav__inner {
+  padding: 0 12px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.catnav__inner a {
+  padding: 10px 12px !important; /* Antes estava muito alto */
+  font-size: 13px !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.catnav__inner a .material-symbols-outlined {
+  font-size: 18px !important; /* Ícone ligeiramente mais pequeno */
+}
+
+/* Se o utilizador usar a vista de lista, o espaço extra desaparece */
+@media (max-width: 700px) {
+  .catnav__inner {
+    gap: 4px !important;
+  }
+  .catnav__inner a {
+    padding: 8px 10px !important;
+    font-size: 12.5px !important;
+  }
+  .catnav__inner a .material-symbols-outlined {
+    font-size: 16px !important;
+  }
+}
+
+/* ============================================================
+   HEADER E BARRA DE PESQUISA (VERSÃO FINAL)
+   ============================================================ */
+
+/* 1. O Header no telemóvel (Pesquisa + WhatsApp na mesma linha) */
+@media (max-width: 700px) {
+  .header-main {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important; /* Coluna 1: pesquisa, Coluna 2: WhatsApp */
+    grid-template-rows: auto auto !important;
+    gap: 12px 10px !important;
+    padding: 14px 16px !important;
+    align-items: center !important;
+  }
+
+  .brand { grid-column: 1 !important; grid-row: 1 !important; }
+  .menu-toggle { grid-column: 2 !important; grid-row: 1 !important; position: static !important; justify-self: end !important; }
+  
+  .search-row { 
+    grid-column: 1 !important; 
+    grid-row: 2 !important; 
+    width: 100% !important; 
+    margin: 0 !important; 
+    display: block !important; /* Para o search ocupar 100% */
+  }
+
+  .btn--header { 
+    grid-column: 2 !important; 
+    grid-row: 2 !important; 
+    display: inline-flex !important; 
+    margin: 0 !important; 
+    padding: 8px 12px !important; 
+    font-size: 12px !important; 
+    white-space: nowrap !important; 
+    justify-self: end !important; 
+  }
+}
+
+/* 2. A Barra de Pesquisa (Pílula) */
+.search {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 42px !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+/* 3. A Lupa */
+.search-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8a8a94 !important;
+  font-size: 20px !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+/* 4. O Input (Texto) */
+.search input {
+  flex: 1 !important;
+  height: 100% !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 16px 0 44px !important; /* 44px à esquerda para a lupa */
+  color: #fff !important;
+  font-size: 13px !important;
+  font-family: inherit !important;
+  outline: none !important;
+}
+
+.search input::placeholder {
+  color: #8a8a94 !important;
+  opacity: 1 !important;
+}
+
+/* 5. O Botão "Pesquisar" (colado à direita) */
+.search button {
+  position: absolute !important;
+  right: 4px !important;
+  top: 4px !important;
+  bottom: 4px !important;
+  height: calc(100% - 8px) !important;
+  background: #fff !important;
+  color: #000 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  padding: 0 16px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  z-index: 5 !important;
+}
+
+/* ============================================================
+   BARRA DE PESQUISA PERFEITA (LUPA À ESQUERDA, BOTÃO REDONDO À DIREITA)
+   ============================================================ */
+.search {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 44px !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+}
+
+/* A Lupa (Dentro da barra, lado esquerdo) */
+.search-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8a8a94 !important;
+  font-size: 20px !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+/* O Campo de Texto */
+.search input {
+  flex: 1 !important;
+  height: 100% !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 50px 0 44px !important; /* Espaço para a lupa à esquerda e botão à direita */
+  color: #fff !important;
+  font-size: 13.5px !important;
+  font-family: inherit !important;
+  outline: none !important;
+}
+
+.search input::placeholder {
+  color: #8a8a94 !important;
+  opacity: 1 !important;
+}
+
+/* O Botão Redondo com Lupa (Substituiu o botão "Pesquisar") */
+.search-submit {
+  position: absolute !important;
+  right: 4px !important;
+  top: 4px !important;
+  bottom: 4px !important;
+  width: 36px !important;
+  height: 36px !important;
+  background: #fff !important;
+  color: #000 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 5 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: transform 0.1s !important;
+}
+
+.search-submit:active {
+  transform: scale(0.92) !important;
+}
+
+.search-submit .material-symbols-outlined {
+  font-size: 20px !important;
+  font-weight: 800 !important; /* Deixa a lupa mais grossa e visível */
+}
+
+/* ============================================================
+   BARRA DE PESQUISA PERFEITA (LUPA À ESQUERDA, BOTÃO REDONDO À DIREITA)
+   ============================================================ */
+.search {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 44px !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+}
+
+/* A Lupa (Dentro da barra, lado esquerdo) */
+.search-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8a8a94 !important;
+  font-size: 20px !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+/* O Campo de Texto */
+.search input {
+  flex: 1 !important;
+  height: 100% !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 50px 0 44px !important; /* Espaço para a lupa à esquerda e botão à direita */
+  color: #fff !important;
+  font-size: 13.5px !important;
+  font-family: inherit !important;
+  outline: none !important;
+}
+
+.search input::placeholder {
+  color: #8a8a94 !important;
+  opacity: 1 !important;
+}
+
+/* O Botão Redondo com Lupa (Substituiu o botão "Pesquisar") */
+.search-submit {
+  position: absolute !important;
+  right: 4px !important;
+  top: 4px !important;
+  bottom: 4px !important;
+  width: 36px !important;
+  height: 36px !important;
+  background: #fff !important;
+  color: #000 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 5 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: transform 0.1s !important;
+}
+
+.search-submit:active {
+  transform: scale(0.92) !important;
+}
+
+.search-submit .material-symbols-outlined {
+  font-size: 20px !important;
+  font-weight: 800 !important; /* Deixa a lupa mais grossa e visível */
+}
+
+/* ============================================================
+   HEADER MOBILE DEFINITIVO (GRID E LUPA)
+   ============================================================ */
+@media (max-width: 700px) {
+  .header-main {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    grid-template-areas:
+      "brand menu"
+      "search whatsapp" !important;
+    gap: 12px 10px !important;
+    align-items: center !important;
+    padding: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .brand { grid-area: brand !important; min-width: 0 !important; margin: 0 !important; }
+  
+  .menu-toggle { 
+    grid-area: menu !important; 
+    position: static !important; 
+    display: flex !important; 
+    justify-self: end !important; 
+    margin: 0 !important; 
+  }
+
+  .search-row { 
+    grid-area: search !important; 
+    width: 100% !important; 
+    display: flex !important; 
+    margin: 0 !important; 
+    padding: 0 !important;
+  }
+
+  .btn--header { 
+    grid-area: whatsapp !important; 
+    display: inline-flex !important; 
+    justify-self: end !important; 
+    margin: 0 !important; 
+    padding: 8px 12px !important;
+    height: 44px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* A Barra de Pesquisa */
+.search {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 44px !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+}
+
+.search-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8a8a94 !important;
+  font-size: 20px !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+.search input {
+  flex: 1 !important;
+  height: 100% !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 50px 0 44px !important;
+  color: #fff !important;
+  font-size: 13.5px !important;
+  outline: none !important;
+}
+
+.search-submit {
+  position: absolute !important;
+  right: 4px !important;
+  top: 4px !important;
+  bottom: 4px !important;
+  width: 36px !important;
+  height: 36px !important;
+  background: #fff !important;
+  color: #000 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 5 !important;
+  padding: 0 !important;
+}
+.search-submit .material-symbols-outlined { font-size: 20px !important; font-weight: 800 !important; }
+
+/* ============================================================
+   CORREÇÃO FINAL: PESQUISA + WHATSAPP NA MESMA LINHA
+   ============================================================ */
+@media (max-width: 700px) {
+  /* 1. Desfazer o grid que estava a baralhar a ordem */
+  .header-main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 12px 16px !important;
+    gap: 12px 8px !important;
+  }
+
+  /* 2. Logo e Menu na primeira linha */
+  .brand {
+    flex: 1 1 70% !important;
+    min-width: 0 !important;
+  }
+  .menu-toggle {
+    flex: 0 0 auto !important;
+    position: static !important;
+    display: flex !important;
+  }
+
+  /* 3. Barra de pesquisa + WhatsApp na segunda linha */
+  .search-row {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    order: 10 !important; /* Força para baixo */
+    margin: 0 !important;
+  }
+
+  /* 4. Pesquisa ocupa o espaço restante */
+  .search {
+    flex: 1 !important;
+    width: auto !important;
+    max-width: none !important;
+    height: 44px !important;
+    margin: 0 !important;
+  }
+
+  /* 5. WhatsApp fica à direita com o tamanho certo */
+  .btn--header {
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 14px !important;
+    height: 44px !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    border-radius: 999px !important;
+  }
+}
+
+/* 6. Forçar o texto a afastar-se da lupa da esquerda */
+.search input {
+  padding: 0 50px 0 46px !important; /* 46px à esquerda para a lupa */
+  font-size: 13px !important;
+}
+
+.search-icon {
+  left: 16px !important; /* Lupa encostada à esquerda */
+}
+
+/* ============================================================
+   CORREÇÃO DEFINITIVA: CABEÇALHO MOBILE E LUPA
+   ============================================================ */
+@media (max-width: 700px) {
+  /* Header: Logo em cima, Pesquisa e WA em baixo */
+  .header-main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
+    gap: 12px 10px !important;
+  }
+
+  .brand {
+    flex: 1 1 auto !important;
+    order: 1 !important;
+    margin: 0 !important;
+  }
+
+  .menu-toggle {
+    flex: 0 0 auto !important;
+    order: 2 !important;
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  /* Linha de baixo: Pesquisa e WhatsApp */
+  .search-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    order: 3 !important;
+    margin-top: 8px !important;
+    gap: 8px !important;
+  }
+
+  /* A caixa de pesquisa (ocupa o espaço da esquerda) */
+  .search {
+    position: relative !important; /* TRUQUE PARA A LUPA NÃO FUGIR */
+    flex: 1 1 auto !important;
+    order: 1 !important;
+    margin: 0 !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 999px !important;
+    overflow: hidden !important;
+  }
+
+  /* O botão do WhatsApp (colado à direita) */
+  .btn--header {
+    flex: 0 0 auto !important;
+    order: 2 !important;
+    margin: 0 !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 14px !important;
+    border-radius: 999px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* A LUPA (Trancada à esquerda) */
+.search-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8a8a94 !important;
+  font-size: 20px !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+/* O TEXTO (Espaçado para não ficar por baixo da lupa nem do botão) */
+.search input {
+  flex: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 45px 0 44px !important; /* 44px à esquerda, 45px à direita */
+  background: transparent !important;
+  border: 0 !important;
+  color: #fff !important;
+  font-size: 13.5px !important;
+  outline: none !important;
+}
+
+/* O BOTÃO REDONDO BRANCO (Colado à direita da barra) */
+.search-submit {
+  position: absolute !important;
+  right: 4px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #fff !important;
+  color: #000 !important;
+  border-radius: 50% !important;
+  border: 0 !important;
+  padding: 0 !important;
+  z-index: 10 !important;
+}
+
+.search-submit .material-symbols-outlined {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+}
+
+/* ============================================================
+   CORREÇÃO DEFINITIVA: CABEÇALHO MOBILE E LUPA
+   ============================================================ */
+@media (max-width: 700px) {
+  /* Header: Logo em cima, Pesquisa e WA em baixo */
+  .header-main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
+    gap: 12px 10px !important;
+  }
+
+  .brand {
+    flex: 1 1 auto !important;
+    order: 1 !important;
+    margin: 0 !important;
+  }
+
+  .menu-toggle {
+    flex: 0 0 auto !important;
+    order: 2 !important;
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  /* Linha de baixo: Pesquisa e WhatsApp */
+  .search-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    order: 3 !important;
+    margin-top: 8px !important;
+    gap: 8px !important;
+  }
+
+  /* A caixa de pesquisa (ocupa o espaço da esquerda) */
+  .search {
+    position: relative !important; /* TRUQUE PARA A LUPA NÃO FUGIR */
+    flex: 1 1 auto !important;
+    order: 1 !important;
+    margin: 0 !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 999px !important;
+    overflow: hidden !important;
+  }
+
+  /* O botão do WhatsApp (colado à direita) */
+  .btn--header {
+    flex: 0 0 auto !important;
+    order: 2 !important;
+    margin: 0 !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 14px !important;
+    border-radius: 999px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* A LUPA (Trancada à esquerda) */
+.search-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #8a8a94 !important;
+  font-size: 20px !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+/* O TEXTO (Espaçado para não ficar por baixo da lupa nem do botão) */
+.search input {
+  flex: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 45px 0 44px !important; /* 44px à esquerda, 45px à direita */
+  background: transparent !important;
+  border: 0 !important;
+  color: #fff !important;
+  font-size: 13.5px !important;
+  outline: none !important;
+}
+
+/* O BOTÃO REDONDO BRANCO (Colado à direita da barra) */
+.search-submit {
+  position: absolute !important;
+  right: 4px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #fff !important;
+  color: #000 !important;
+  border-radius: 50% !important;
+  border: 0 !important;
+  padding: 0 !important;
+  z-index: 10 !important;
+}
+
+.search-submit .material-symbols-outlined {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+}
+
+/* ============================================================
+   O VERDADEIRO FIX DO HEADER (SEM CONFLITOS)
+   ============================================================ */
+@media (max-width: 700px) {
+  .header-main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    padding: 12px 16px !important;
+    gap: 12px !important;
+    align-items: center !important;
+  }
+
+  .brand { flex: 1 1 auto !important; margin: 0 !important; }
+  
+  .menu-toggle { 
+    flex: 0 0 auto !important; 
+    margin-left: auto !important; 
+    position: static !important; 
+  }
+
+  /* A linha de baixo inteira */
+  .header-main .search-row {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* A caixa de pesquisa */
+  .header-main .search-row .search {
+    position: relative !important;
+    flex: 1 1 auto !important;
+    height: 44px !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 999px !important;
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* A Lupa da esquerda */
+  .header-main .search-row .search .search-icon {
+    position: absolute !important;
+    left: 14px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    color: #8a8a94 !important;
+    font-size: 20px !important;
+    pointer-events: none !important;
+    z-index: 10 !important;
+  }
+
+  /* O Texto (Input) */
+  .header-main .search-row .search input {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 48px 0 44px !important; /* 48px à direita para o botão, 44px à esquerda para a lupa */
+    background: transparent !important;
+    border: 0 !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    outline: none !important;
+  }
+
+  /* O Botão Redondo (Lupa da direita) */
+  .header-main .search-row .search .search-submit {
+    position: absolute !important;
+    right: 4px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: #fff !important;
+    color: #000 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    border: 0 !important;
+    z-index: 10 !important;
+  }
+
+  /* O botão do WhatsApp */
+  .header-main .search-row .btn--header {
+    flex: 0 0 auto !important;
+    height: 44px !important;
+    padding: 0 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 999px !important;
+    font-size: 13px !important;
+    margin: 0 !important;
+  }
+}
+
+/* ============================================================
+   REMOVER BOTÃO BRANCO E AJUSTAR TEXTO
+   ============================================================ */
+.search-submit {
+  display: none !important;
+}
+
+/* Como o botão da direita desapareceu, o texto pode ir até ao fim */
+.header-main .search-row .search input {
+  padding: 0 16px 0 44px !important; 
+}
+
+/* ============================================================
+   MENU LATERAL: EFEITO DE VIDRO FOSCO (TRANSPARENTE)
+   ============================================================ */
+.mobile-menu {
+  /* Fundo semi-transparente em vez de preto sólido */
+  background: rgba(18, 18, 24, 0.75) !important; 
+  /* Desfoque do que está atrás do menu */
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Garantir que o fundo interior não volta a pintar de preto */
+.mobile-menu__inner {
+  background: transparent !important;
+}
+
+/* Os botões de navegação também podem ficar ligeiramente transparentes */
+.mobile-menu__section {
+  background: transparent !important;
+}
+
+/* ============================================================
+   CORREÇÃO DO FUNDO GLOBAL (REMOVER PRETO INTENSO)
+   ============================================================ */
+body {
+  /* Em vez de preto puro, usamos um cinza-escuro rico */
+  background-color: #101015 !important; 
+  
+  /* Adicionamos reflexos subtis de luz para o site não parecer "morto" */
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(124, 92, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(34, 211, 238, 0.04) 0%, transparent 50%) !important;
+  background-attachment: fixed !important;
+}
+
+/* Garantir que os contentores não estão a forçar o preto novamente */
+main, .site-wrapper, #app {
+  background: transparent !important;
+}
+
+/* ============================================================
+   INSPEÇÃO FINAL: MENU LATERAL E FUNDO DO SITE (ADEUS PRETO MORTO)
+   ============================================================ */
+
+/* 1. Fundo do site ligeiramente mais claro e com profundidade */
+body {
+  background-color: #121217 !important; /* Um cinza-escuro azulado em vez de breu */
+  background-image: 
+    radial-gradient(circle at 50% -20%, rgba(124, 92, 255, 0.15) 0%, transparent 60%) !important;
+}
+
+/* 2. O Menu Lateral (Fundo premium, sem ser preto puro) */
+.mobile-menu {
+  background: linear-gradient(180deg, #1c1c24 0%, #121217 100%) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: none !important; /* Tira o blur que estava a deixar tudo preto */
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 3. As Secções do Menu (Para separar visualmente as áreas) */
+.mobile-menu__section {
+  background: rgba(255, 255, 255, 0.02) !important; /* Um leve toque de luz */
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 12px !important;
+  border-bottom: 0 !important;
+}
+
+/* 4. Os Botões de Ação Rápida (Partilhar, Feedback, etc.) */
+.quick-btn {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+}
+.quick-btn:hover {
+  background: rgba(124, 92, 255, 0.2) !important;
+  border-color: #7c5cff !important;
+}
+
+/* 5. Os Links do Menu */
+.mobile-menu__inner a {
+  color: #e0e0e5 !important;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.mobile-menu__inner a:hover,
+.mobile-menu__inner a.is-active {
+  background: rgba(124, 92, 255, 0.15) !important;
+  color: #fff !important;
+}
+
+/* ============================================================
+   REESCREVER AÇÕES RÁPIDAS (PARTILHAR, FEEDBACK, ETC.)
+   ============================================================ */
+
+/* 1. Contentor: Forçar 4 colunas exatas e iguais */
+.mobile-menu__quick {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 8px !important;
+  padding: 4px 0 16px 0 !important;
+  margin-bottom: 16px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* 2. O Botão (Estilo Cartão) */
+.quick-btn {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 12px 2px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  width: 100% !important;
+}
+
+/* 3. Efeito ao tocar/hover */
+.quick-btn:hover, 
+.quick-btn:active {
+  background: rgba(124, 92, 255, 0.12) !important;
+  border-color: rgba(124, 92, 255, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 4. O Ícone (Material) */
+.quick-btn .material-symbols-outlined {
+  font-size: 22px !important;
+  color: #fff !important;
+  margin: 0 !important;
+}
+
+/* 5. O Texto */
+.quick-btn span:not(.material-symbols-outlined) {
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  color: #a5a5ad !important;
+  letter-spacing: 0.2px !important;
+  white-space: nowrap !important; /* Impede que o texto quebre para 2 linhas */
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+.quick-btn:hover span:not(.material-symbols-outlined) {
+  color: #fff !important;
+}
+
+/* ============================================================
+   CORREÇÃO: BOTÕES LIMPOS E MENU DE VIDRO
+   ============================================================ */
+
+/* 1. Devolver o vidro fosco ao menu (sem ser preto sólido) */
+.mobile-menu {
+  background: rgba(16, 16, 24, 0.75) !important; /* Transparente */
+  backdrop-filter: blur(24px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 2. Remover os retângulos de fundo dos botões */
+.quick-btn {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 8px 0 !important;
+  box-shadow: none !important;
+}
+
+/* Efeito ao tocar: apenas o ícone brilha, sem caixas */
+.quick-btn:hover, 
+.quick-btn:active {
+  background: transparent !important;
+  transform: translateY(-2px) !important;
+}
+
+.quick-btn:hover .material-symbols-outlined,
+.quick-btn:active .material-symbols-outlined {
+  color: #7c5cff !important;
+}
+
+.quick-btn:hover span:not(.material-symbols-outlined),
+.quick-btn:active span:not(.material-symbols-outlined) {
+  color: #fff !important;
+}
+
+/* 3. Garantir que o ícone do feedback e os outros têm o mesmo tamanho */
+.quick-btn .material-symbols-outlined {
+  font-size: 24px !important;
+  color: #a5a5ad !important;
+  transition: color 0.2s;
+}
+
+/* ============================================================
+   SISTEMA DE NOTIFICAÇÕES (TOASTS) E PROTEÇÕES
+   ============================================================ */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+.toast {
+  background: rgba(30, 30, 40, 0.95);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: toastIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: auto;
+}
+.toast.is-error { border-color: rgba(255, 59, 48, 0.3); color: #ff8a80; }
+.toast.is-success { border-color: rgba(34, 197, 94, 0.3); color: #86efac; }
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Loading global (impede cliques duplos) */
+body.is-loading { cursor: wait; pointer-events: none; }
+body.is-loading::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 9998;
+  pointer-events: none;
+}
+
+/* ============================================================
+   TOASTS PREMIUM (SUBSTITUIR O DESIGN FEIO ANTERIOR)
+   ============================================================ */
+.toast-container {
+  position: fixed;
+  bottom: 90px; /* Subiu para não bater no botão do WhatsApp */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+  width: 90%;
+  max-width: 400px;
+}
+
+.toast {
+  background: rgba(20, 20, 28, 0.85) !important; /* Vidro escuro */
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  color: #fff !important;
+  padding: 12px 20px !important;
+  border-radius: 999px !important; /* Formato pílula */
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  animation: toastIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  pointer-events: auto;
+  text-align: center;
+}
+
+/* Cores específicas para erro e sucesso */
+.toast.is-error { border-color: rgba(255, 59, 48, 0.4) !important; }
+.toast.is-error .material-symbols-outlined { color: #ff3b30 !important; }
+.toast.is-success { border-color: rgba(34, 197, 94, 0.4) !important; }
+.toast.is-success .material-symbols-outlined { color: #22c55e !important; }
+.toast .material-symbols-outlined { font-size: 18px !important; }
+
+/* ============================================================
+   FIX DEFINITIVO: CABEÇALHO FIXO (STICKY)
+   ============================================================ */
+
+/* 1. A raiz do problema: 'hidden' quebra o sticky, 'clip' não */
+html, body {
+  overflow-x: clip !important; 
+}
+
+/* 2. Forçar o cabeçalho a ficar colado no topo ao rolar */
+.site-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  /* Garante que o vidro fosco continua a funcionar */
+  backdrop-filter: blur(20px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(130%) !important;
+}
+
+/* 3. (Opcional) Se o menu de três barras for um elemento separado, ele também precisa de ficar preso */
+.mobile-menu {
+  position: fixed !important;
+  top: 0 !important;
+  height: 100vh !important; /* Ocupa o ecrã todo em altura */
+}
+
+/* ============================================================
+   PÁGINA DE POLÍTICAS E PRIVACIDADE
+   ============================================================ */
+.legal-page {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.legal-card {
+  background: linear-gradient(160deg, rgba(26, 26, 34, 0.85) 0%, rgba(12, 12, 16, 0.95) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.legal-card h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.legal-date {
+  font-size: 13px;
+  color: #7c5cff;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.legal-card h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 8px;
+}
+
+.legal-card p {
+  font-size: 14.5px;
+  color: #a5a5ad;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.legal-card strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.legal-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.legal-card ul li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14.5px;
+  color: #a5a5ad;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.legal-card ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #7c5cff;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.legal-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 13px;
+  color: #a5a5ad;
+  line-height: 1.6;
+}
+
+.legal-footer strong {
+  color: #fff;
+  font-size: 15px;
+}
+
+.legal-footer em {
+  color: #7c5cff;
+}
+
+/* Ajuste no Telemóvel */
+@media (max-width: 600px) {
+  .legal-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+  .legal-card h1 { font-size: 24px; }
+  .legal-card h2 { font-size: 16px; }
+  .legal-card p, .legal-card ul li { font-size: 14px; }
+}
+
+/* ============================================================
+   CORREÇÃO DO ENQUADRAMENTO DAS IMAGENS NA CATEGORIA
+   ============================================================ */
+#categoryGrid .product-card__image {
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important; /* Força o formato quadrado */
+  overflow: hidden !important;
+  border-radius: var(--radius) !important;
+}
+
+#categoryGrid .product-card__image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* A imagem preenche o quadrado sem esticar */
+  display: block !important;
+}
+
+/* Garantir que a grelha "Mais produtos" aparece corretamente */
+#categoryRest {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  margin-top: 16px !important;
+}
+@media (min-width: 900px) {
+  #categoryRest { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+}
+
+/* ============================================================
+   BRANDING YU-YU NAS CATEGORIAS
+   ============================================================ */
+.yu-red {
+  color: #ff3b30 !important; /* Vermelho vibrante */
+  font-weight: 900 !important;
+  letter-spacing: 0.5px;
+}
+
+/* Garantir que o texto das categorias não fica todo em maiúsculas (se estiver) */
+.catnav__inner a, 
+.mobile-menu__inner a {
+  text-transform: none !important;
+}
+
+/* ============================================================
+   CORREÇÃO DEFINITIVA DO YU-YU NA BARRA DE CATEGORIAS
+   ============================================================ */
+.catnav__inner a .nav-text,
+.mobile-menu__inner a .nav-text {
+  display: inline-block !important; /* Junta o texto todo */
+  white-space: nowrap !important;
+}
+
+.yu-red {
+  color: #ff3b30 !important; /* Vermelho */
+  font-weight: 900 !important;
+}
+
+/* Melhorar o scroll da barra para não cortar a última categoria */
+.catnav__inner {
+  padding-right: 20px !important; /* Dá um respiro no fim */
+}
+
+/* ============================================================
+   CONSERTAR O FUNDO DO CARTÃO DE CATEGORIA
+   ============================================================ */
+.accessories-hero,
+.fashion-hero,
+.wl-hero {
+  background: linear-gradient(135deg, rgba(26, 26, 34, 0.85), rgba(12, 12, 16, 0.95)) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: var(--radius) !important;
+  padding: 35px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Limpar o texto que ficou solto na barra de categorias */
+.catnav__inner a {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* ============================================================
+   NOVO TÍTULO DA CATEGORIA (ABAIXO DA PESQUISA)
+   ============================================================ */
+.page-brand-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  margin: 10px 0 20px 0;
+  padding-left: 4px;
+  letter-spacing: -0.5px;
+  text-transform: none !important;
+}
+
+.yu-red {
+  color: #ff3b30 !important;
+  font-weight: 900 !important;
+}
+
+/* ============================================================
+   DESTAQUE DO CABEÇALHO DA CATEGORIA (YU-YU)
+   ============================================================ */
+.page-brand-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important; /* Espaço entre o traço e o texto */
+  font-size: 32px !important; /* Aumenta o tamanho da letra */
+  font-weight: 800 !important;
+  color: #fff !important;
+  margin: 20px 0 24px 0 !important;
+  padding: 0 !important;
+  letter-spacing: -0.5px !important;
+}
+
+/* O traço vertical vermelho ao lado do texto */
+.page-brand-title::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 32px; /* Altura acompanha o tamanho da letra */
+  background: #ff3b30; /* Vermelho vivo */
+  border-radius: 999px;
+  box-shadow: 0 0 10px rgba(255, 59, 48, 0.4); /* Ligeiro brilho */
+}
+
+/* ============================================================
+   A ESTRUTURA CORRETA DO CABEÇALHO E BANNER
+   ============================================================ */
+
+/* 1. Título da categoria no cabeçalho (por baixo da pesquisa) */
+.category-brand-header {
+  padding: 16px 20px 8px 20px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+  background: transparent;
+}
+
+.category-brand-header .yu-red {
+  color: #ff3b30 !important;
+  font-weight: 900 !important;
+}
+
+/* 2. A barra de categorias fica logo por baixo deste título */
+.catnav {
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 3. Limpar a barra de categorias (remover o YU-YU de lá) */
+.catnav__inner a {
+  font-size: 13.5px !important;
+  padding: 12px 16px !important;
+}
+
+/* 4. Corrigir o Banner Collection (Yunnited Collection e Acessórios empilhados) */
+.accessories-hero,
+.fashion-hero,
+.wl-hero {
+  display: flex !important;
+  flex-direction: column !important; /* Obriga a ficar em linhas separadas */
+  align-items: flex-start !important;
+  padding: 28px !important;
+  background: linear-gradient(135deg, rgba(26, 26, 34, 0.85), rgba(12, 12, 16, 0.95)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: var(--radius) !important;
+  margin-bottom: 30px !important;
+}
+
+.accessories-label {
+  font-size: 11px !important;
+  letter-spacing: 2px !important;
+  color: var(--muted) !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+}
+
+.accessories-hero .section-title {
+  font-size: 32px !important;
+  margin: 0 0 8px 0 !important;
+  line-height: 1.1 !important;
+}
+
+.accessories-hero p {
+  margin: 0 !important;
+  font-size: 14px !important;
+}
+
+/* ============================================================
+   MODAL DE FILTROS (QUADRO ESPECIAL)
+   ============================================================ */
+.filter-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: flex-end; /* Abre a partir do fundo */
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.filter-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.filter-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.filter-modal__content {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: 85vh;
+  background: #101015;
+  border-radius: 24px 24px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.filter-modal.is-open .filter-modal__content {
+  transform: translateY(0);
+}
+
+.filter-modal__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.filter-modal__title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.filter-modal__close {
+  background: rgba(255, 255, 255, 0.05);
+  border: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.filter-modal__body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Grelha de produtos dentro do modal */
+.filter-modal__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.filter-modal__empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 40px 0;
+  font-size: 14px;
+}
+
+@media (min-width: 600px) {
+  .filter-modal {
+    align-items: center; /* No PC abre no meio */
+  }
+  .filter-modal__content {
+    border-radius: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    max-height: 80vh;
+  }
+}
+
+/* ============================================================
+   NHONGA — REDESIGN PREMIUM (GLASSMORPHISM E ACENTOS ROXOS)
+   ============================================================ */
+
+/* 1. HERO SECTION */
+.nhonga-hero {
+  background: linear-gradient(135deg, rgba(26, 26, 34, 0.85), rgba(12, 12, 16, 0.95)) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 24px !important;
+  padding: 60px 40px !important;
+  margin-top: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 40px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+  overflow: hidden;
+  position: relative;
+}
+
+.nhonga-kicker {
+  color: #b44cff !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+  display: block !important;
+}
+
+.nhonga-hero h1 {
+  font-size: 48px !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  margin-bottom: 20px !important;
+  color: #fff !important;
+}
+
+.nhonga-hero h1 strong {
+  color: #7c5cff !important;
+}
+
+.nhonga-hero p {
+  font-size: 16px !important;
+  color: #a5a5ad !important;
+  line-height: 1.6 !important;
+  margin-bottom: 30px !important;
+  max-width: 500px !important;
+}
+
+/* Botões do Hero */
+.nhonga-hero__actions {
+  display: flex !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}
+
+.nhonga-cta {
+  background: linear-gradient(135deg, #7c5cff, #b44cff) !important;
+  color: #fff !important;
+  padding: 14px 28px !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  box-shadow: 0 10px 25px -10px rgba(124, 92, 255, 0.6) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.nhonga-cta:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 15px 30px -10px rgba(124, 92, 255, 0.8) !important;
+}
+
+.nhonga-secondary {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #fff !important;
+  padding: 14px 28px !important;
+  border-radius: 999px !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  transition: background 0.2s ease !important;
+}
+
+.nhonga-secondary:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Visual do Hero (Círculos) */
+.nhonga-hero__visual {
+  position: relative !important;
+  width: 300px !important;
+  height: 300px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.nhonga-orbit {
+  position: absolute !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(124, 92, 255, 0.2) !important;
+}
+
+.orbit-1 { inset: 0; animation: spin 20s linear infinite; }
+.orbit-2 { inset: 30px; border-style: dashed; animation: spin 15s linear infinite reverse; }
+.orbit-3 { inset: 60px; border-color: rgba(180, 76, 255, 0.3); animation: spin 10s linear infinite; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.nhonga-core {
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #1c1c24, #101015) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 0 40px rgba(124, 92, 255, 0.3) !important;
+  z-index: 2 !important;
+}
+
+.nhonga-core span {
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  color: #ff3b30 !important;
+}
+
+.nhonga-core strong {
+  font-size: 14px !important;
+  color: #fff !important;
+  letter-spacing: 1px !important;
+}
+
+/* 2. CABEÇALHOS DAS SECÇÕES */
+.nhonga-section-title {
+  text-align: center !important;
+  margin-bottom: 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.nhonga-section-title span {
+  color: #b44cff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 10px !important;
+}
+
+.nhonga-section-title h2 {
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  margin: 0 0 12px 0 !important;
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* A barra roxa ao lado dos títulos */
+.nhonga-section-title h2::before {
+  content: '' !important;
+  display: inline-block !important;
+  width: 5px !important;
+  height: 30px !important;
+  background: linear-gradient(180deg, #7c5cff, #b44cff) !important;
+  border-radius: 999px !important;
+}
+
+.nhonga-section-title p {
+  color: #a5a5ad !important;
+  font-size: 15px !important;
+  max-width: 500px !important;
+  margin: 0 auto !important;
+}
+
+/* 3. BENEFÍCIOS E PASSOS */
+.nhonga-benefit-grid,
+.nhonga-steps {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+.nhonga-benefit,
+.nhonga-step {
+  background: rgba(26, 26, 34, 0.6) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 20px !important;
+  padding: 30px !important;
+  transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+
+.nhonga-benefit:hover,
+.nhonga-step:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(124, 92, 255, 0.4) !important;
+}
+
+.nhonga-number,
+.nhonga-step span {
+  font-size: 32px !important;
+  font-weight: 900 !important;
+  color: rgba(124, 92, 255, 0.3) !important;
+  margin-bottom: 16px !important;
+  display: block !important;
+}
+
+.nhonga-benefit h3,
+.nhonga-step h3 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-bottom: 8px !important;
+}
+
+.nhonga-benefit p,
+.nhonga-step p {
+  font-size: 14px !important;
+  color: #a5a5ad !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+/* 4. OPÇÕES (CARTÕES COM IMAGEM) */
+.nhonga-option-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+}
+
+.nhonga-option {
+  background: rgba(26, 26, 34, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: transform 0.2s ease !important;
+}
+
+.nhonga-option:hover {
+  transform: translateY(-4px) !important;
+}
+
+.nhonga-option img {
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: cover !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.nhonga-option > div {
+  padding: 24px !important;
+}
+
+.nhonga-option h3 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-bottom: 8px !important;
+}
+
+.nhonga-option p {
+  font-size: 14px !important;
+  color: #a5a5ad !important;
+  margin-bottom: 16px !important;
+}
+
+.nhonga-option a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #fff !important;
+  padding: 10px 16px !important;
+  border-radius: 999px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: background 0.2s ease !important;
+}
+
+.nhonga-option a:hover {
+  background: rgba(124, 92, 255, 0.2) !important;
+  border-color: #7c5cff !important;
+}
+
+/* 5. CAIXA DE ATIVIDADE E CTA FINAL */
+.nhonga-activity-box {
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.15), rgba(180, 76, 255, 0.05)) !important;
+  border: 1px solid rgba(124, 92, 255, 0.3) !important;
+  border-radius: 24px !important;
+  padding: 40px !important;
+  text-align: center !important;
+}
+
+.nhonga-activity-box span {
+  color: #b44cff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px !important;
+}
+
+.nhonga-activity-box h2 {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  margin: 12px 0 !important;
+}
+
+.nhonga-activity-box p {
+  color: #a5a5ad !important;
+  font-size: 15px !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+}
+
+.nhonga-final {
+  padding: 80px 20px !important;
+  text-align: center !important;
+  background: radial-gradient(circle at 50% 100%, rgba(124, 92, 255, 0.15) 0%, transparent 70%) !important;
+}
+
+.nhonga-final span {
+  color: #b44cff !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px !important;
+}
+
+.nhonga-final h2 {
+  font-size: 36px !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  margin: 16px auto 24px !important;
+  max-width: 600px !important;
+}
+
+.nhonga-final p {
+  color: #a5a5ad !important;
+  font-size: 16px !important;
+  margin-bottom: 32px !important;
+}
+
+/* Responsividade (Telemóvel) */
+@media (max-width: 800px) {
+  .nhonga-hero { flex-direction: column !important; padding: 40px 20px !important; text-align: center !important; }
+  .nhonga-hero h1 { font-size: 32px !important; }
+  .nhonga-hero p { margin: 0 auto 24px !important; }
+  .nhonga-hero__actions { justify-content: center !important; }
+  .nhonga-hero__visual { display: none !important; } /* Esconde os círculos no telemóvel para poupar espaço */
+  
+  .nhonga-section-title h2 { font-size: 24px !important; flex-direction: column !important; gap: 8px !important; }
+  .nhonga-section-title h2::before { display: none !important; } /* Esconde a barra em ecrãs pequenos */
+  
+  .nhonga-option-grid { grid-template-columns: 1fr !important; }
+  .nhonga-final h2 { font-size: 28px !important; }
+}
+
+/* ============================================================
+   FIX: MODAL DO PRODUTO FICAR ACIMA DO CABEÇALHO
+   ============================================================ */
+
+/* 1. O Modal tem de ter um z-index maior que o cabeçalho (9999) */
+.shared-product,
+.product-image-modal,
+.filter-modal {
+  z-index: 100000 !important;
+}
+
+/* 2. Dar espaço no topo para o cartão não ficar debaixo do cabeçalho */
+.shared-product {
+  padding-top: 80px !important; 
+  padding-bottom: 20px !important;
+  align-items: flex-start !important; /* Alinha o cartão a começar de cima */
+}
+
+/* 3. Garantir que o menu lateral (se estiver aberto) também não tapa o modal */
+.mobile-menu {
+  z-index: 9000 !important;
+}
+
+/* ============================================================
+   GARANTIR QUE A JANELA DE PESQUISA FUNCIONA
+   ============================================================ */
+#searchOverlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 999999 !important;
+  background: rgba(0, 0, 0, 0.9) !important;
+  backdrop-filter: blur(8px) !important;
+  display: none !important;
+}
+
+#searchOverlay.is-open {
+  display: block !important;
+}
+
+/* ============================================================
+   FIX ABSOLUTO: JANELA DE PESQUISA POR CIMA DO CABEÇALHO
+   ============================================================ */
+
+/* Força o cabeçalho a ficar numa camada inferior */
+header.site-header, .site-header {
+  z-index: 100 !important;
+}
+
+/* Força a janela de pesquisa a ficar na camada superior (Acima do header, menu, etc) */
+#searchOverlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 2147483647 !important; /* O valor máximo que um browser aceita */
+  background: rgba(10, 10, 15, 0.95) !important; /* Fundo quase sólido para não haver confusão */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  display: none !important;
+  flex-direction: column !important;
+}
+
+#searchOverlay.is-open {
+  display: flex !important;
+}
+
+/* O contentor da barra de pesquisa dentro da subjanela */
+#searchOverlay .search-overlay__inner {
+  background: #101015 !important;
+  width: 100% !important;
+  padding: 20px 16px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0 0 20px 20px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* ============================================================
+   CSS INQUEBRÁVEL PARA A JANELA DE PESQUISA
+   ============================================================ */
+#searchOverlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483647 !important; /* Acima de absolutamente tudo */
+  background: rgba(10, 10, 15, 0.95) !important;
+  display: none !important;
+}
+
+#searchOverlay.is-open {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#searchOverlay .search-overlay__inner {
+  background: #101015 !important;
+  padding: 20px 16px !important;
+  width: 100% !important;
+}
+
+/* ============================================================
+   CORREÇÃO DAS CAMADAS (Z-INDEX) E POSIÇÕES
+   ============================================================ */
+
+/* 1. Cabeçalho normal */
+header.site-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+}
+
+/* 2. O Menu Lateral (Gaveta) */
+#siteMenu.mobile-menu {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  height: 100vh !important;
+  width: 80vw !important;
+  max-width: 320px !important;
+  background: #101015 !important;
+  z-index: 2000 !important;
+  transform: translateX(100%) !important;
+  transition: transform 0.3s ease !important;
+  display: block !important;
+}
+
+#siteMenu.mobile-menu.menu-open {
+  transform: translateX(0) !important;
+}
+
+/* 3. O Botão do Menu (3 barras / X) - FICA ACIMA DO MENU E DO HEADER */
+#menuToggle {
+  position: fixed !important;
+  top: 20px !important;
+  right: 16px !important;
+  z-index: 3000 !important; /* Acima do menu */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(30, 30, 40, 0.8) !important; /* Fundo para não se perder no vidro */
+  border-radius: 10px !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+/* 4. A Janela de Pesquisa (Overlay) */
+#searchOverlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 4000 !important; /* Acima de tudo */
+  background: rgba(10, 10, 15, 0.95) !important;
+  display: none !important;
+}
+
+#searchOverlay.is-open {
+  display: block !important;
+}
+
+/* 5. O fundo da pesquisa e o botão de fechar */
+#searchOverlay .search-overlay__inner {
+  position: relative !important;
+  z-index: 4100 !important;
+  background: #101015 !important;
+  padding: 20px 16px !important;
+  border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+/* ============================================================
+   ESTILO DO BOTÃO FECHAR (X) DO MENU
+   ============================================================ */
+.mobile-menu__close {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  z-index: 99999 !important;
+}
+
+.mobile-menu__close .material-symbols-outlined {
+  font-size: 22px !important;
+}
+
+/* ============================================================
+   CIRURGIA CSS: SOBREPOSIÇÃO E BOTÃO X DO MENU
+   ============================================================ */
+
+/* 1. Forçar o overlay da pesquisa a ficar acima de TUDO */
+#searchOverlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999999 !important;
+  background: rgba(10, 10, 15, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  display: none !important;
+  flex-direction: column !important;
+}
+
+#searchOverlay.is-open {
+  display: flex !important;
+}
+
+/* Estilo da barra dentro do overlay */
+#searchOverlay .search-overlay__inner {
+  background: #101015 !important;
+  padding: 20px 16px !important;
+  border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+  width: 100% !important;
+}
+
+#searchOverlay .search-overlay__head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  background: #1a1a22 !important;
+  padding: 10px 16px !important;
+  border-radius: 999px !important;
+}
+
+#searchOverlay input {
+  flex: 1 !important;
+  background: transparent !important;
+  border: 0 !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  outline: none !important;
+}
+
+/* 2. O Botão X do Menu (Injetado dentro do painel) */
+.mobile-menu__close {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  z-index: 99999 !important;
+}
+
+.mobile-menu__close .material-symbols-outlined {
+  font-size: 22px !important;
+}

@@ -8,3 +8,8 @@ backend/**/*backup*
 *.bak-*
 *.broken-*
 *.bak*
+yubot*.js
+yu_*.js
+diagnostico*.js
+forcar_grade.js
+teste*.js

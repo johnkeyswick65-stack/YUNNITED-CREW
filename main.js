@@ -1,4 +1,15 @@
 
+/* ================= VACINA XSS ================= */
+function escapeHtml(texto) {
+  if (texto === null || texto === undefined) return '';
+  return String(texto)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 const CATEGORIA_SLUG = {
   'World Library': 'world-library',
   'Acessórios': 'acessorios',
@@ -147,29 +158,29 @@ function renderizarCategoria() {
 
 function criarCardProduto(p) {
   const preco = p.preco === 0 ? 'Grátis' : `${p.preco.toFixed(2).replace('.', ',')} MT`;
-  const badge = p.badge ? `<span class="product-card__badge">${p.badge}</span>` : '';
-  const msg = encodeURIComponent(`Olá YUNNITED CREW! Tenho interesse em: ${p.nome} (${preco}).`);
+  const badge = p.badge ? `<span class="product-card__badge">${escapeHtml(p.badge)}</span>` : '';
+  const msg = encodeURIComponent(`Olá YUNNITED CREW! Tenho interesse em: ${escapeHtml(p.nome)} (${escapeHtml(preco)}).`);
 
   const nomeCurto = String(p.nome || '').slice(0, 35);
   const descCurta = String(p.desc || '').slice(0, 90);
 
   const visual = p.imagem
     ? `<div class="product-card__image product-image-clickable"
-          data-image="${p.imagem}"
+          data-image="${escapeHtml(p.imagem)}"
           data-name="${nomeCurto.replace(/"/g, '&quot;')}"
           data-desc="${descCurta.replace(/"/g, '&quot;')}"
           data-categoria="${p.categoria || ''}"
-          data-slug="${paraSlug(p.nome)}"
+          data-slug="${escapeHtml(paraSlug(p.nome))}"
           role="button"
           tabindex="0"
-          aria-label="Ampliar imagem de ${p.nome}">
-        <img src="${p.imagem}" alt="${p.nome}" loading="lazy">
+          aria-label="Ampliar imagem de ${escapeHtml(p.nome)}">
+        <img src="${escapeHtml(p.imagem)}" alt="${escapeHtml(p.nome)}" loading="lazy">
 
         ${p.categoria !== 'nhonga' ? `
         <button
           class="product-image-like"
           type="button"
-          aria-label="Curtir ${p.nome}"
+          aria-label="Curtir ${escapeHtml(p.nome)}"
           aria-pressed="false"
           title="Curtir"
           onclick="e.stopPropagation()">
@@ -177,7 +188,7 @@ function criarCardProduto(p) {
             <path d="M20.8 8.7c0 5.5-8.8 10.4-8.8 10.4S3.2 14.2 3.2 8.7C3.2 5.8 5.1 4 7.7 4c1.7 0 3.1.9 4.3 2.3C13.2 4.9 14.6 4 16.3 4c2.6 0 4.5 1.8 4.5 4.7Z"/>
           </svg>
         </button>
-        <button class="product-image-share" type="button" aria-label="Partilhar ${p.nome}" title="Partilhar">
+        <button class="product-image-share" type="button" aria-label="Partilhar ${escapeHtml(p.nome)}" title="Partilhar">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="18" cy="5" r="3"/>
             <circle cx="6" cy="12" r="3"/>
@@ -205,18 +216,18 @@ function criarCardProduto(p) {
     : `<div class="product-card__icon">${p.svg || p.icone}</div>`;
 
   return `
-    <article class="product-card" data-slug="${paraSlug(p.nome)}">
+    <article class="product-card" data-slug="${escapeHtml(paraSlug(p.nome))}">
       ${badge}
       ${visual}
 
-      <h3 class="product-card__name">${p.nome}</h3>
-      <p class="product-card__desc">${p.desc}</p>
+      <h3 class="product-card__name">${escapeHtml(p.nome)}</h3>
+      <p class="product-card__desc">${escapeHtml(p.desc)}</p>
 
       <div class="product-card__footer">
-        <span class="product-card__price">${preco}</span>
+        <span class="product-card__price">${escapeHtml(preco)}</span>
 
         <a class="btn btn--wa btn--sm"
-           href="https://wa.me/258856178099?text=${msg}"
+           href="https://wa.me/258856178099?text=${escapeHtml(msg)}"
            target="_blank"
            rel="noopener">
           <span class="material-symbols-outlined">shopping_cart</span>Comprar
@@ -384,126 +395,8 @@ function chipsDaCategoria(cat) {
   return mapa[cat] || ['Livro', 'iPhone', 'Chapéu', 'Samsung', 'Marketing'];
 }
 
-function iniciarSearchOverlay() {
-  const searchInput = document.getElementById('searchInput');
-  if (!searchInput || document.getElementById('searchOverlay')) return;
 
-  // Impede o teclado nativo no input do header
-  searchInput.setAttribute('readonly', 'readonly');
-  searchInput.setAttribute('inputmode', 'none');
 
-  document.body.insertAdjacentHTML('beforeend', `
-    <div id="searchOverlay" class="search-overlay" aria-hidden="true" role="dialog" aria-modal="true">
-      <div class="search-overlay__inner">
-        <div class="search-overlay__head">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-          <input id="searchOverlayInput" type="search" placeholder="Pesquisar produtos..." aria-label="Pesquisar produtos" autocomplete="off">
-          <button type="button" class="search-overlay__close" aria-label="Fechar">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-          </button>
-        </div>
-        <div class="search-overlay__body" id="searchOverlayResults"></div>
-      </div>
-    </div>
-  `);
-
-  const overlay = document.getElementById('searchOverlay');
-  const overlayInput = document.getElementById('searchOverlayInput');
-  const resultsBox = document.getElementById('searchOverlayResults');
-
-  function abrir() {
-    overlay.classList.add('is-open');
-    overlay.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('search-open');
-    overlayInput.value = '';
-    renderResultados('');
-    setTimeout(() => overlayInput.focus(), 80);
-  }
-
-  function fechar() {
-    overlay.classList.remove('is-open');
-    overlay.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('search-open');
-    overlayInput.blur();
-  }
-
-  function normalizar(s) {
-    return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  }
-
-  function renderResultados(termo) {
-    const t = normalizar(termo).trim();
-    const catPagina = document.body.getAttribute('data-category') || '';
-    let itens = catPagina ? PRODUTOS.filter(p => p.categoria === catPagina) : PRODUTOS;
-
-    if (t) {
-      const palavras = t.split(/\s+/).filter(Boolean);
-      itens = (catPagina ? PRODUTOS.filter(p => p.categoria === catPagina) : PRODUTOS).filter(p => {
-        const txt = normalizar(p.nome + ' ' + (p.desc || '') + ' ' + (p.categoria || ''));
-        return palavras.every(pal => txt.includes(pal));
-      });
-    }
-
-    if (!t) {
-      resultsBox.innerHTML = `
-        <p class="search-overlay__hint">Escreve para pesquisar entre ${itens.length} produtos.</p>
-        <div class="search-overlay__chips">
-          ${chipsDaCategoria(catPagina).map(c =>
-            '<button type="button" class="search-chip" data-chip="' + c + '">' + c + '</button>'
-          ).join('')}
-        </div>
-      `;
-      resultsBox.querySelectorAll('.search-chip').forEach(chip => {
-        chip.addEventListener('click', () => {
-          overlayInput.value = chip.dataset.chip;
-          renderResultados(chip.dataset.chip);
-        });
-      });
-      return;
-    }
-
-    if (!itens.length) {
-      resultsBox.innerHTML = '<p class="search-overlay__hint">Nenhum produto encontrado para "' + termo + '".</p>';
-      return;
-    }
-
-    const limitado = itens.slice(0, 30);
-    resultsBox.innerHTML = `
-      <p class="search-overlay__count">${itens.length} resultado(s)</p>
-      <div class="search-results">
-        ${limitado.map(p => {
-          const preco = p.preco === 0 ? 'Grátis' : p.preco.toFixed(2).replace('.', ',') + ' MT';
-          const img = p.imagem
-            ? '<img src="' + p.imagem + '" alt="" loading="lazy">'
-            : '<div class="search-result__icon">' + (p.svg || p.icone || '') + '</div>';
-          return `
-            <a class="search-result" href="${p.categoria}.html">
-              <div class="search-result__media">${img}</div>
-              <div class="search-result__body">
-                <div class="search-result__name">${p.nome}</div>
-                <div class="search-result__desc">${(p.desc || '').slice(0, 70)}</div>
-                <div class="search-result__meta">
-                  <span class="search-result__cat">${p.categoria}</span>
-                  <span class="search-result__price">${preco}</span>
-                </div>
-              </div>
-            </a>
-          `;
-        }).join('')}
-      </div>
-    `;
-  }
-
-  searchInput.addEventListener('click', (e) => { e.preventDefault(); abrir(); });
-  searchInput.addEventListener('focus', (e) => { e.target.blur(); abrir(); });
-
-  overlayInput.addEventListener('input', (e) => renderResultados(e.target.value));
-  overlay.querySelector('.search-overlay__close').addEventListener('click', fechar);
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) fechar(); });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('is-open')) fechar();
-  });
-}
 document.addEventListener('DOMContentLoaded', iniciarSearchOverlay);
 
 
@@ -683,20 +576,20 @@ function abrirModalProdutoCompartilhado(p) {
         <div class="shared-product__media">${imagem}</div>
 
         <div class="shared-product__body">
-          <span class="shared-product__cat">${p.categoria}</span>
-          <h2 class="shared-product__name">${p.nome}</h2>
+          <span class="shared-product__cat">${escapeHtml(p.categoria)}</span>
+          <h2 class="shared-product__name">${escapeHtml(p.nome)}</h2>
           <p class="shared-product__desc">${p.desc || ''}</p>
-          <div class="shared-product__price">${preco}</div>
+          <div class="shared-product__price">${escapeHtml(preco)}</div>
 
           <div class="shared-product__actions">
-            <a class="shared-product__buy" href="https://wa.me/258856178099?text=${msg}" target="_blank" rel="noopener">
+            <a class="shared-product__buy" href="https://wa.me/258856178099?text=${escapeHtml(msg)}" target="_blank" rel="noopener">
               <span class="material-symbols-outlined">shopping_cart</span> Comprar no WhatsApp
             </a>
             <div class="shared-product__sub-actions">
               <button type="button" class="shared-product__like">
                 <span class="material-symbols-outlined">favorite</span> Gosto
               </button>
-              <button type="button" class="shared-product__share" data-share-url="${location.origin}/${p.categoria}.html?p=${paraSlug(p.nome)}">
+              <button type="button" class="shared-product__share" data-share-url="${location.origin}/${escapeHtml(p.categoria)}.html?p=${escapeHtml(paraSlug(p.nome))}">
                 <span class="material-symbols-outlined">share</span> Partilhar
               </button>
             </div>
@@ -704,8 +597,8 @@ function abrirModalProdutoCompartilhado(p) {
 
           ${htmlUltimos}
 
-          <a href="${p.categoria}.html" class="shared-product__more-cat">
-            Ver mais de ${p.categoria}
+          <a href="${escapeHtml(p.categoria)}.html" class="shared-product__more-cat">
+            Ver mais de ${escapeHtml(p.categoria)}
             <span class="material-symbols-outlined">arrow_forward</span>
           </a>
         </div>
@@ -1038,9 +931,9 @@ function iniciarHeroStories() {
   rail.innerHTML = stories.map((s, i) => `
     <button type="button" class="hero-story-dot ${i === 0 ? 'is-active' : ''}" data-i="${i}">
       <span class="hero-story-dot__ring">
-        <span class="material-symbols-outlined">${s.icon}</span>
+        <span class="material-symbols-outlined">${escapeHtml(s.icon)}</span>
       </span>
-      <span class="hero-story-dot__label">${s.label}</span>
+      <span class="hero-story-dot__label">${escapeHtml(s.label)}</span>
     </button>
   `).join('');
 
@@ -1048,19 +941,19 @@ function iniciarHeroStories() {
     const p = s.produto;
     const preco = p.preco === 0 ? 'Grátis' : `${p.preco.toFixed(2).replace('.', ',')} MT`;
     const media = p.imagem
-      ? `<img src="${p.imagem}" alt="${p.nome}" loading="lazy">`
-      : `<span class="material-symbols-outlined">${s.icon}</span>`;
+      ? `<img src="${escapeHtml(p.imagem)}" alt="${escapeHtml(p.nome)}" loading="lazy">`
+      : `<span class="material-symbols-outlined">${escapeHtml(s.icon)}</span>`;
     return `
       <article class="hero-story ${i === 0 ? 'is-active' : ''}" data-i="${i}">
         <div class="hero-story__media">${media}</div>
         <div class="hero-story__info">
-          <span class="hero-story__tag">${s.label}</span>
-          <h3>${p.nome}</h3>
+          <span class="hero-story__tag">${escapeHtml(s.label)}</span>
+          <h3>${escapeHtml(p.nome)}</h3>
           <p>${p.desc || ''}</p>
         </div>
         <div class="hero-story__footer">
-          <span class="hero-story__price">${preco}</span>
-          <a class="hero-story__cta" href="${p.categoria}.html">
+          <span class="hero-story__price">${escapeHtml(preco)}</span>
+          <a class="hero-story__cta" href="${escapeHtml(p.categoria)}.html">
             Ver <span class="material-symbols-outlined">arrow_forward</span>
           </a>
         </div>
@@ -1308,7 +1201,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const toast = document.createElement('div');
     toast.className = `toast is-${type}`;
-    toast.innerHTML = `${iconHTML} <span>${msg}</span>`;
+    toast.innerHTML = `${iconHTML} <span>${escapeHtml(msg)}</span>`;
     
     container.appendChild(toast);
     setTimeout(() => {
@@ -1449,3 +1342,193 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+/* ================= FECHAR MENU PELO BOTÃO X ================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const closeMenuBtn = document.getElementById('closeMenuBtn');
+  const siteMenu = document.getElementById('siteMenu');
+  const menuToggle = document.getElementById('menuToggle');
+
+  if (closeMenuBtn && siteMenu) {
+    closeMenuBtn.addEventListener('click', () => {
+      siteMenu.classList.remove('menu-open');
+      if (menuToggle) {
+        menuToggle.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+      siteMenu.setAttribute('aria-hidden', 'true');
+    });
+  }
+});
+
+
+
+/* ================= LIMPEZA DO OVERLAY AO CARREGAR ================= */
+window.addEventListener('load', () => {
+  const overlay = document.getElementById('searchOverlay');
+  if (overlay) {
+    overlay.classList.remove('is-open');
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+});
+
+function iniciarSearchOverlay() {
+  const searchInput = document.getElementById('searchInput');
+  if (!searchInput) return;
+
+  const old = document.getElementById('searchOverlay');
+  if (old) old.remove();
+
+  document.body.insertAdjacentHTML('beforeend', `
+    <div id="searchOverlay" class="search-overlay">
+      <div class="search-overlay__inner">
+      <div class="search-drag-handle" id="searchDragHandle"></div>
+        <div class="search-overlay__head">
+          <span class="material-symbols-outlined" style="color:#888;">search</span>
+          <input id="searchOverlayInput" type="text" placeholder="Pesquisar produtos..." autocomplete="off">
+          <button type="button" class="search-overlay__close" id="closeSearchBtn">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="search-overlay__chips" id="searchChips"></div>
+        <div class="search-overlay__body" id="searchOverlayResults"></div>
+      </div>
+    </div>
+  `);
+
+  const overlay = document.getElementById('searchOverlay');
+  const overlayInput = document.getElementById('searchOverlayInput');
+  const resultsBox = document.getElementById('searchOverlayResults');
+  const chipsBox = document.getElementById('searchChips');
+  const closeBtn = document.getElementById('closeSearchBtn');
+
+  // Verifica se estamos numa página de categoria específica
+  const catPagina = document.body.getAttribute('data-category');
+  
+  let categoriaAtiva = catPagina || 'all';
+
+  // Se estivermos numa categoria, esconde os botões (chips)
+  if (catPagina) {
+    chipsBox.style.display = 'none';
+  } else {
+    chipsBox.style.display = 'flex';
+    const categorias = [
+      { id: 'all', nome: 'Tudo' },
+      { id: 'world-library', nome: 'World Library' },
+      { id: 'acessorios', nome: 'Acessórios' },
+      { id: 'moda', nome: 'Moda' },
+      { id: 'nhonga', nome: 'Nhonga' }
+    ];
+    
+    chipsBox.innerHTML = categorias.map(c => `
+      <button class="search-chip ${c.id === categoriaAtiva ? 'is-active' : ''}" data-cat="${c.id}">
+        ${c.nome}
+      </button>
+    `).join('');
+
+    chipsBox.querySelectorAll('.search-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoriaAtiva = btn.dataset.cat;
+        chipsBox.querySelectorAll('.search-chip').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        renderResultados(overlayInput.value);
+      });
+    });
+  }
+
+  function renderResultados(termo) {
+    const t = (termo || '').toLowerCase().trim();
+    let itens = (typeof PRODUTOS !== 'undefined') ? PRODUTOS : [];
+
+    if (categoriaAtiva !== 'all') {
+      itens = itens.filter(p => p.categoria === categoriaAtiva);
+    }
+
+    if (t) {
+      itens = itens.filter(p =>
+        p.nome.toLowerCase().includes(t) ||
+        (p.desc && p.desc.toLowerCase().includes(t))
+      );
+    }
+
+    if (itens.length === 0) {
+      resultsBox.innerHTML = '<p style="text-align:center; color:#888; margin-top:20px;">Nenhum produto encontrado.</p>';
+      return;
+    }
+
+    resultsBox.innerHTML = `
+      <div class="search-results-grid">
+        ${itens.map(p => `
+          <a href="${escapeHtml(p.categoria)}.html?p=${escapeHtml(paraSlug(p.nome))}" class="search-result-card">
+            <div class="search-result-img">
+              <img src="${p.imagem || ''}" alt="${escapeHtml(p.nome)}">
+            </div>
+            <div class="search-result-info">
+              <h4>${escapeHtml(p.nome)}</h4>
+              <span>${p.preco === 0 ? 'Grátis' : p.preco.toFixed(2).replace('.', ',') + ' MT'}</span>
+            </div>
+          </a>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  searchInput.addEventListener('click', (e) => {
+    e.preventDefault();
+    searchInput.blur();
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    renderResultados('');
+    setTimeout(() => overlayInput.focus(), 50);
+  });
+
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    overlayInput.value = '';
+  });
+
+  overlayInput.addEventListener('input', (e) => renderResultados(e.target.value));
+
+  // Lógica de Arrastar para Fechar
+  const dragHandle = document.getElementById('searchDragHandle');
+  const inner = document.querySelector('.search-overlay__inner');
+  let startY = 0;
+  let currentY = 0;
+
+  if (dragHandle && inner) {
+    dragHandle.addEventListener('touchstart', (e) => {
+      startY = e.touches[0].clientY;
+      inner.classList.add('is-dragging');
+    }, { passive: true });
+
+    dragHandle.addEventListener('touchmove', (e) => {
+      currentY = e.touches[0].clientY;
+      const diff = currentY - startY;
+      if (diff > 0) { // Só permite arrastar para baixo
+        inner.style.transform = `translateY(${diff}px)`;
+      }
+    }, { passive: true });
+
+    dragHandle.addEventListener('touchend', (e) => {
+      inner.classList.remove('is-dragging');
+      const diff = currentY - startY;
+      
+      if (diff > 80) { // Se arrastar mais de 80px, fecha
+        inner.style.transform = 'translateY(100%)';
+        setTimeout(() => {
+          overlay.classList.remove('is-open');
+          document.body.style.overflow = '';
+          inner.style.transform = 'translateY(0)'; // Reseta para a próxima vez
+        }, 250);
+      } else {
+        // Se arrastar pouco, volta ao lugar
+        inner.style.transform = 'translateY(0)';
+      }
+      startY = 0;
+      currentY = 0;
+    });
+  }
+
+}

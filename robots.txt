@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yunnited-crew.pages.dev/sitemap.xml

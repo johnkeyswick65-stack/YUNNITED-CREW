@@ -62,19 +62,9 @@ img {
   z-index: 50;
 }
 
-.header-main {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 16px;
-}
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
+
+
 .brand__mark {
   color: #000;
   width: 46px;
@@ -91,15 +81,7 @@ img {
 .brand__text strong { font-size: 17px; letter-spacing: .5px; }
 .brand__text small { font-size: 11px; color: var(--muted); }
 
-.search {
-  flex: 1;
-  display: flex;
-  background: var(--bg-3);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  overflow: hidden;
-  max-width: 560px;
-}
+
 .search input {
   flex: 1;
   background: transparent;
@@ -131,7 +113,7 @@ img {
 }
 .btn--wa { background: var(--wa); color: #062b12; }
 .btn--wa:hover { filter: brightness(1.1); }
-.btn--header { flex-shrink: 0; }
+
 .btn--sm { padding: 8px 14px; font-size: 13px; }
 
 /* ================= NAV CATEGORIAS ================= */
@@ -139,19 +121,8 @@ img {
   background: var(--bg-3);
   border-top: 1px solid var(--border);
 }
-.catnav__inner {
-  display: flex;
-  gap: 6px;
-  overflow-x: auto;
-  padding: 0 16px;
-}
-.catnav__inner a {
-  padding: 14px 16px;
-  font-size: 14px;
-  color: var(--muted);
-  white-space: nowrap;
-  border-bottom: 2px solid transparent;
-}
+
+
 .catnav__inner a:hover,
 .catnav__inner a.is-active {
   color: var(--text);
@@ -209,12 +180,7 @@ img {
   margin-bottom: 22px;
   gap: 16px;
 }
-.section__head h2 {
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+
 .dot {
   width: 8px;
   height: 8px;
@@ -396,8 +362,8 @@ img {
   .cat-grid, .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .hero h1 { font-size: 30px; }
-  .header-main { flex-wrap: wrap; }
-  .search { order: 3; max-width: 100%; width: 100%; }
+  
+  
 }
 
 @media (max-width: 600px) {
@@ -405,45 +371,20 @@ img {
   .footer__grid { grid-template-columns: 1fr; }
   .hero__stats { width: 100%; justify-content: space-between; }
   .topbar__inner { flex-direction: column; gap: 4px; text-align: center; }
-  .btn--header { display: none; }
+  
   }
 
 /* ================= CABEÇALHO MOBILE ================= */
 
 @media (max-width: 700px) {
 
-  .header-main {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 10px;
-    padding: 12px 16px;
-  }
+  
 
-  .menu-toggle {
-    grid-column: 2;
-    grid-row: 1;
-    position: relative;
-    top: auto;
-    right: auto;
-    margin: 0;
-    z-index: 1102;
-  }
+  
 
-  .search-row {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    display: flex;
-    width: 100%;
-    min-width: 0;
-    gap: 8px;
-  }
+  
 
-  .search-row .search {
-    flex: 1;
-    min-width: 0;
-    width: auto;
-    max-width: none;
-  }
+  .search-row 
 
   .search-row .search input {
     min-width: 0;
@@ -451,23 +392,9 @@ img {
     font-size: 13px;
   }
 
-  .search-row .search button {
-    padding: 0 12px;
-    font-size: 13px;
-  }
+  
 
-  .btn--header {
-    grid-column: auto;
-    grid-row: 2;
-    display: inline-flex;
-    align-self: stretch;
-    justify-content: center;
-    padding: 10px 9px;
-    font-size: 12px;
-    gap: 4px;
-    min-width: 78px;
-    max-width: 92px;
-  }
+  
 
   .btn--header svg {
     width: 15px;
@@ -506,9 +433,7 @@ img {
   padding-top: 0;
 }
 
-.wl-search {
-  max-width: 100%;
-}
+.wl
 
 .wl-genres {
   display: flex;
@@ -637,9 +562,7 @@ img {
   margin-bottom: 20px;
 }
 
-.accessories-products .section__head h2 {
-  margin: 0;
-}
+.accessories-products 
 
 .accessories-products .section__head span {
   color: #888;
@@ -694,10 +617,7 @@ img {
 
 /* CORREÇÕES MOBILE - ACESSÓRIOS */
 
-.catnav__inner {
-  justify-content: flex-start;
-  scrollbar-width: none;
-}
+
 
 .catnav__inner::-webkit-scrollbar {
   display: none;
@@ -756,28 +676,18 @@ img {
 }
 
 /* BUSCA DA MODA */
-.fashion-search {
-  margin: 0 0 35px;
-}
+.fashion
 
-.fashion-search .search {
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-}
+.fashion-search 
 
 .fashion-search .search input {
   width: 100%;
 }
 
 @media (max-width: 600px) {
-  .fashion-search {
-    margin-bottom: 30px;
-  }
+  .fashion
 
-  .fashion-search .search {
-    max-width: 100%;
-  }
+  .fashion-search 
 }
 
 .fashion-products {
@@ -792,9 +702,7 @@ img {
   margin-bottom: 20px;
 }
 
-.fashion-products .section__head h2 {
-  margin: 0;
-}
+.fashion-products 
 
 .fashion-products .section__head span {
   color: #888;
@@ -837,61 +745,11 @@ img {
    MENU HAMBÚRGUER — YUNNITED CREW
    ========================================================= */
 
-.header-main {
-  position: relative;
-}
+
 
 /* Botão */
-.menu-toggle {
-  display: none;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  margin-left: auto;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--bg-2);
-  color: currentColor;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1102;
-  transition: transform .2s ease;
-}
-
-.menu-toggle:active {
-  transform: scale(.90);
-}
-
-.menu-toggle span {
-  width: 21px;
-  height: 2px;
-  border-radius: 2px;
-  background: currentColor;
-  transition: transform .25s ease, opacity .2s ease;
-}
-
-.menu-toggle.is-open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.menu-toggle.is-open span:nth-child(2) {
-  opacity: 0;
-  transform: scale(0);
-}
-
-.menu-toggle.is-open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
 
 /* Menu separado */
-.mobile-menu {
-  display: none;
-}
 
 /* =========================================================
    MOBILE
@@ -899,36 +757,10 @@ img {
 
 @media (max-width: 700px) {
 
-  .menu-toggle {
-    display: inline-flex;
-  }
+  
 
   /* Menu flutuante: não ocupa espaço no layout */
-  .mobile-menu {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50vw;
-    max-width: 320px;
-    min-width: 190px;
-    z-index: 1100;
-
-    background: var(--bg-2);
-    border: 1px solid var(--border);
-    border-top: 0;
-    border-right: 0;
-    border-radius: 0 0 0 16px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.18);
-
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-12px);
-    transition:
-      opacity .22s ease,
-      transform .25s ease,
-      visibility .22s ease;
-  }
+  
 
   .mobile-menu.menu-open {
     opacity: 1;
@@ -976,48 +808,22 @@ img {
 
 /* Desktop: botão e menu flutuante não aparecem */
 @media (min-width: 701px) {
-  .mobile-menu {
-    display: none !important;
-  }
+  
 }
 
 /* ================= POSIÇÃO DO BOTÃO DO MENU ================= */
 
 @media (max-width: 700px) {
 
-  .menu-toggle {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    margin: 0;
-    width: 44px;
-    height: 44px;
-  }
+  
 
-  .search-row {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    display: flex;
-    width: 100%;
-    min-width: 0;
-  }
+  
 
-  .btn--header {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    display: inline-flex;
-    flex-shrink: 0;
-    align-self: stretch;
-    padding: 9px 10px;
-    font-size: 12px;
-  }
+  
 }
 
 @media (max-width: 600px) {
-  .search {
-    max-width: 100%;
-  }
+  
 
   .search input {
     padding-left: 12px;
@@ -1035,9 +841,7 @@ img {
 }
 
 @media (max-width: 700px) {
-  .btn--header {
-    margin-left: 8px;
-  }
+  
 }
 
 /* ================= CABEÇALHO MOBILE - AJUSTE FINAL ================= */
@@ -1047,24 +851,10 @@ img {
   /* Logo */
 
   /* Menu */
-  .menu-toggle {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 44px;
-    height: 44px;
-    margin: 0;
-    z-index: 1102;
-  }
+  
 
   /* Pesquisa */
-  .search-row {
-    grid-column: 1;
-    grid-row: 2;
-    width: 100%;
-    min-width: 0;
-    display: flex;
-  }
+  
 
   .search-row .search input {
     min-width: 0;
@@ -1072,29 +862,10 @@ img {
     font-size: 13px;
   }
 
-  .search-row .search button {
-    padding: 0 12px;
-    font-size: 13px;
-  }
+  
 
   /* WhatsApp */
-  .btn--header {
-    grid-column: 2;
-    grid-row: 2;
-    position: relative;
-    right: auto;
-    bottom: auto;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    align-self: stretch;
-    flex-shrink: 0;
-    margin: 0;
-    padding: 9px 10px;
-    min-width: 82px;
-    font-size: 12px;
-    gap: 4px;
-  }
+  
 
   .btn--header svg {
     width: 15px;
@@ -1106,61 +877,25 @@ img {
 /* Em telas muito pequenas, reduzir um pouco o espaço */
 @media (max-width: 380px) {
 
-  .btn--header {
-    min-width: 76px;
-    padding-left: 8px;
-    padding-right: 8px;
-  }
+  
 }
 
 /* ================= MOBILE - ESPAÇO ENTRE PESQUISA E WHATSAPP ================= */
 
 @media (max-width: 700px) {
 
-  .header-main {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) 92px !important;
-    grid-template-rows: auto auto !important;
-    column-gap: 12px !important;
-    row-gap: 10px !important;
-    align-items: center !important;
-    padding: 12px 16px !important;
-  }
+  
 
   /* Logo */
-  .brand {
-    grid-column: 1 / -1 !important;
-    grid-row: 1 !important;
-    min-width: 0 !important;
-    padding-right: 52px !important;
-  }
+  
 
   /* Menu */
-  .menu-toggle {
-    position: absolute !important;
-    top: 16px !important;
-    right: 16px !important;
-    width: 44px !important;
-    height: 44px !important;
-    margin: 0 !important;
-    z-index: 1102 !important;
-  }
+  
 
   /* Barra de pesquisa */
-  .search-row {
-    grid-column: 1 !important;
-    grid-row: 2 !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    display: flex !important;
-  }
+  
 
-  .search-row .search {
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-  }
+  .search-row 
 
   .search-row .search input {
     min-width: 0 !important;
@@ -1169,30 +904,10 @@ img {
     font-size: 12px !important;
   }
 
-  .search-row .search button {
-    flex-shrink: 0 !important;
-    padding: 0 9px !important;
-    font-size: 12px !important;
-  }
+  
 
   /* WhatsApp */
-  .btn--header {
-    grid-column: 2 !important;
-    grid-row: 2 !important;
-    position: static !important;
-    width: 92px !important;
-    min-width: 92px !important;
-    max-width: 92px !important;
-    margin: 0 !important;
-    padding: 9px 6px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 4px !important;
-    font-size: 11px !important;
-    box-sizing: border-box !important;
-    white-space: nowrap !important;
-  }
+  
 
   .btn--header svg {
     width: 15px !important;
@@ -1204,76 +919,46 @@ img {
 /* Telemóveis muito pequenos */
 @media (max-width: 380px) {
 
-  .header-main {
-    grid-template-columns: minmax(0, 1fr) 84px !important;
-    column-gap: 8px !important;
-  }
+  
 
-  .btn--header {
-    width: 84px !important;
-    min-width: 84px !important;
-    max-width: 84px !important;
-  }
+  
 
-  .search-row .search button {
-    padding-left: 7px !important;
-    padding-right: 7px !important;
-  }
+  
 }
 
 /* ================= ESPAÇO VERTICAL DO CABEÇALHO MOBILE ================= */
 
 @media (max-width: 700px) {
-  .header-main {
-    row-gap: 18px !important;
-    padding-top: 14px !important;
-    padding-bottom: 16px !important;
-  }
+  
 
-  .brand {
-    padding-bottom: 4px !important;
-  }
+  
 
   .search-row,
-  .btn--header {
-    margin-top: 2px !important;
-  }
+  
 }
 
 @media (max-width: 380px) {
-  .header-main {
-    row-gap: 15px !important;
-  }
+  
 }
 
 @media (max-width: 700px) {
-  .menu-toggle {
-    top: 12px !important;
-  }
+  
 }
 
 @media (max-width: 700px) {
-  .menu-toggle {
-    top: 8px !important;
-  }
+  
 }
 
 @media (max-width: 700px) {
-  .menu-toggle {
-    top: 6px !important;
-  }
+  
 }
 
 @media (max-width: 700px) {
-  .menu-toggle {
-    top: 3px !important;
-  }
+  
 }
 
 @media (max-width: 700px) {
-  .menu-toggle {
-    top: 0 !important;
-  }
+  
 }
 
 /* ================= ANIMAÇÃO DO PLACEHOLDER - WORLD LIBRARY ================= */
@@ -1348,10 +1033,7 @@ body[data-category="world-library"] .product-card {
 
 /* ================= WHATSAPP — EFEITO WORMHOLE ================= */
 
-.btn--header {
-  position: relative;
-  overflow: visible;
-}
+
 
 .whatsapp-wormhole {
   position: absolute;
@@ -2334,26 +2016,9 @@ body.modal-open {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
-  .catnav__inner {
-    display: flex;
-    gap: 4px;
-    overflow-x: auto;
-    padding: 4px 12px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
+  
   .catnav__inner::-webkit-scrollbar { display: none; }
-  .catnav__inner a {
-    padding: 10px 12px;
-    font-size: 13px;
-    flex-shrink: 0;
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    border-bottom: 2px solid transparent;
-    border-radius: 8px 8px 0 0;
-  }
+  
   .catnav__inner a svg {
     width: 15px;
     height: 15px;
@@ -2367,77 +2032,6 @@ body.modal-open {
 /* ================= SEARCH OVERLAY ================= */
 body.search-open { overflow: hidden; }
 
-.search-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,.6);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  z-index: 2000;
-  display: none;
-  opacity: 0;
-  transition: opacity .18s ease;
-}
-.search-overlay.is-open { display: block; opacity: 1; }
-
-.search-overlay__inner {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  max-height: 88vh;
-  background: var(--bg-2);
-  border-radius: 0 0 20px 20px;
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 30px 70px -20px rgba(0,0,0,.8);
-  display: flex; flex-direction: column;
-  transform: translateY(-12px);
-  transition: transform .22s cubic-bezier(.2,.8,.2,1);
-}
-.search-overlay.is-open .search-overlay__inner { transform: translateY(0); }
-
-.search-overlay__head {
-  display: flex; align-items: center; gap: 12px;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--border);
-  color: var(--muted);
-}
-.search-overlay__head input {
-  flex: 1;
-  background: transparent;
-  border: 0;
-  outline: none;
-  color: var(--text);
-  font-size: 16px;
-  padding: 6px 0;
-  font-family: inherit;
-}
-.search-overlay__head input::placeholder { color: var(--muted); }
-
-.search-overlay__close {
-  background: transparent;
-  border: 0;
-  color: var(--muted);
-  cursor: pointer;
-  width: 38px; height: 38px;
-  display: flex; align-items: center; justify-content: center;
-  border-radius: 10px;
-  flex-shrink: 0;
-  transition: color .15s, background .15s;
-}
-.search-overlay__close:hover { color: var(--text); background: rgba(255,255,255,.06); }
-
-.search-overlay__body {
-  padding: 16px;
-  overflow-y: auto;
-  flex: 1;
-  -webkit-overflow-scrolling: touch;
-}
-
-.search-overlay__hint { color: var(--muted); font-size: 14px; margin: 4px 0 14px; }
-.search-overlay__count { color: var(--muted); font-size: 12px; margin: 0 0 12px; letter-spacing: .4px; text-transform: uppercase; font-weight: 600; }
-
-.search-overlay__chips {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  margin-top: 8px;
-}
 .search-chip {
   background: var(--bg-3);
   border: 1px solid var(--border);
@@ -2700,22 +2294,11 @@ body.search-open { overflow: hidden; }
   stroke-width: 2;
   flex-shrink: 0;
 }
-.catnav__inner a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
+
 
 /* ================= MOBILE MENU v2 ================= */
 @media (max-width: 700px) {
-  .mobile-menu {
-    width: 78vw;
-    max-width: 340px;
-    min-width: 240px;
-    border-radius: 0 0 0 20px;
-    background: linear-gradient(160deg, var(--bg-2), var(--bg-1, #0a0a0f));
-    box-shadow: -20px 30px 60px -20px rgba(0,0,0,.8);
-  }
+  
   .mobile-menu__inner {
     padding: 68px 14px 18px;
     gap: 6px;
@@ -3322,14 +2905,6 @@ body > .container {
 .product-image-modal *,
 .shared-product,
 .shared-product *,
-.search-overlay,
-.search-overlay *,
-.mobile-menu,
-.mobile-menu *,
-.product-share-menu,
-.product-share-menu * {
-  filter: none !important;
-}
 
 /* E remover o filtro antigo que apanhava o body todo */
 body { filter: none !important; }
@@ -3957,18 +3532,7 @@ section.hero + section.hero-stories-wrap { margin-top: 0 !important; }
   border-bottom: 1px solid rgba(255,255,255,.06) !important;
 }
 
-.section__head h2 {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  font-size: 22px !important;
-  font-weight: 800 !important;
-  letter-spacing: -.4px !important;
-  line-height: 1.15 !important;
-  margin: 0 !important;
-  color: var(--text) !important;
-  white-space: nowrap !important;
-}
+
 
 /* Bolinha substituída por traço violeta */
 .section__head h2 .dot {
@@ -4008,7 +3572,7 @@ section.hero + section.hero-stories-wrap { margin-top: 0 !important; }
 
 /* Mobile: reduzir */
 @media (max-width: 500px) {
-  .section__head h2 { font-size: 19px !important; }
+  
   .section__head h2 .dot { height: 19px !important; width: 3px !important; }
   .section__head h2 svg { width: 19px !important; height: 19px !important; }
 }
@@ -4440,17 +4004,7 @@ body.view-list #categoryGrid + .popular-dots {
   padding-bottom: 14px !important;
   border-bottom: 1px solid rgba(255,255,255,.06) !important;
 }
-.section__head h2 {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  font-size: 22px !important;
-  font-weight: 800 !important;
-  letter-spacing: -.4px !important;
-  margin: 0 !important;
-  color: var(--text) !important;
-  white-space: nowrap !important;
-}
+
 .section__head h2 .dot {
   display: inline-block !important;
   width: 4px !important;
@@ -4525,12 +4079,6 @@ body {
 .site-header,
 .mobile-menu,
 .mobile-menu__quick,
-.search-overlay__inner {
-  background: rgba(15, 15, 20, 0.65) !important;
-  backdrop-filter: blur(20px) saturate(150%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
 
 /* 3. Cartões de Produto e Secções */
 .product-card,
@@ -4615,10 +4163,7 @@ body {
 }
 
 /* A barra de pesquisa para não ficar transparente demais */
-.search {
-  background: rgba(0, 0, 0, 0.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
+
 
 /* ============================================================
    SISTEMA DE LAYOUT RESPONSIVO (MOBILE SAFETY NET)
@@ -4654,32 +4199,12 @@ img, video {
 
 /* 4. Correção do Cabeçalho em ecrãs pequenos (até 450px) */
 @media (max-width: 450px) {
-  .header-main {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: space-between !important;
-    padding: 10px 12px !important;
-  }
-  .brand {
-    width: auto !important;
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-  }
-  .search-row {
-    width: 100% !important;
-    order: 3 !important;
-    margin-top: 10px !important;
-  }
-  .search {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  .btn--header {
-    display: none !important; /* Em ecrãs muito pequenos, esconde o botão WhatsApp do topo (já está no menu) */
-  }
-  .menu-toggle {
-    margin-left: auto !important;
-  }
+  
+  
+  
+  
+  
+  
 }
 
 /* 5. Correção das margens dos Carrosséis (Populares e Categorias) */
@@ -4782,52 +4307,21 @@ body[data-category="moda"] .scroll-arrows {
 
 /* 1. Ajustar o Cabeçalho no telemóvel (sem sobreposições) */
 @media (max-width: 700px) {
-  .header-main {
-    display: grid !important;
-    /* 3 colunas: Logo (ocupa o resto), WhatsApp (auto), Menu (auto) */
-    grid-template-columns: minmax(0, 1fr) auto auto !important;
-    grid-template-rows: auto auto !important;
-    column-gap: 10px !important;
-    row-gap: 12px !important;
-    padding: 12px 16px !important;
-  }
+  
 
   /* Logo na linha 1, coluna 1 */
-  .brand { 
-    grid-column: 1 !important; 
-    grid-row: 1 !important; 
-    min-width: 0 !important;
-  }
+  
 
   /* Botão WhatsApp na linha 1, coluna 2 */
-  .btn--header { 
-    grid-column: 2 !important; 
-    grid-row: 1 !important; 
-    margin: 0 !important; 
-    padding: 8px 12px !important; 
-    font-size: 12px !important;
-  }
+  
 
   /* Menu de 3 barras na linha 1, coluna 3 (sem position absolute) */
-  .menu-toggle { 
-    grid-column: 3 !important; 
-    grid-row: 1 !important; 
-    position: static !important; 
-    margin: 0 !important;
-  }
+  
 
   /* Barra de pesquisa ocupa a linha 2 inteira */
-  .search-row { 
-    grid-column: 1 / -1 !important; 
-    grid-row: 2 !important; 
-    width: 100% !important; 
-    margin-top: 0 !important;
-  }
   
-  .search {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
+  
+  
 }
 
 /* 2. Corrigir o carrossel (Acessórios, Moda) sem apertar à esquerda e sem estragar o Header */
@@ -4860,20 +4354,9 @@ body[data-category="moda"] .scroll-arrows {
   min-height: 0 !important;
 }
 
-.catnav__inner {
-  padding: 0 12px !important;
-  display: flex !important;
-  align-items: center !important;
-}
 
-.catnav__inner a {
-  padding: 10px 12px !important; /* Antes estava muito alto */
-  font-size: 13px !important;
-  gap: 6px !important;
-  white-space: nowrap !important;
-  display: inline-flex !important;
-  align-items: center !important;
-}
+
+
 
 .catnav__inner a .material-symbols-outlined {
   font-size: 18px !important; /* Ícone ligeiramente mais pequeno */
@@ -4881,13 +4364,8 @@ body[data-category="moda"] .scroll-arrows {
 
 /* Se o utilizador usar a vista de lista, o espaço extra desaparece */
 @media (max-width: 700px) {
-  .catnav__inner {
-    gap: 4px !important;
-  }
-  .catnav__inner a {
-    padding: 8px 10px !important;
-    font-size: 12.5px !important;
-  }
+  
+  
   .catnav__inner a .material-symbols-outlined {
     font-size: 16px !important;
   }
@@ -4899,51 +4377,18 @@ body[data-category="moda"] .scroll-arrows {
 
 /* 1. O Header no telemóvel (Pesquisa + WhatsApp na mesma linha) */
 @media (max-width: 700px) {
-  .header-main {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) auto !important; /* Coluna 1: pesquisa, Coluna 2: WhatsApp */
-    grid-template-rows: auto auto !important;
-    gap: 12px 10px !important;
-    padding: 14px 16px !important;
-    align-items: center !important;
-  }
-
-  .brand { grid-column: 1 !important; grid-row: 1 !important; }
-  .menu-toggle { grid-column: 2 !important; grid-row: 1 !important; position: static !important; justify-self: end !important; }
   
-  .search-row { 
-    grid-column: 1 !important; 
-    grid-row: 2 !important; 
-    width: 100% !important; 
-    margin: 0 !important; 
-    display: block !important; /* Para o search ocupar 100% */
-  }
 
-  .btn--header { 
-    grid-column: 2 !important; 
-    grid-row: 2 !important; 
-    display: inline-flex !important; 
-    margin: 0 !important; 
-    padding: 8px 12px !important; 
-    font-size: 12px !important; 
-    white-space: nowrap !important; 
-    justify-self: end !important; 
-  }
+  
+  
+  
+  
+
+  
 }
 
 /* 2. A Barra de Pesquisa (Pílula) */
-.search {
-  position: relative !important;
-  display: flex !important;
-  align-items: center !important;
-  width: 100% !important;
-  height: 42px !important;
-  background: rgba(0, 0, 0, 0.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 999px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-}
+
 
 /* 3. A Lupa */
 .search-icon {
@@ -4998,18 +4443,7 @@ body[data-category="moda"] .scroll-arrows {
 /* ============================================================
    BARRA DE PESQUISA PERFEITA (LUPA À ESQUERDA, BOTÃO REDONDO À DIREITA)
    ============================================================ */
-.search {
-  position: relative !important;
-  display: flex !important;
-  align-items: center !important;
-  width: 100% !important;
-  height: 44px !important;
-  background: rgba(0, 0, 0, 0.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 999px !important;
-  overflow: hidden !important;
-  margin: 0 !important;
-}
+
 
 /* A Lupa (Dentro da barra, lado esquerdo) */
 .search-icon {
@@ -5075,18 +4509,7 @@ body[data-category="moda"] .scroll-arrows {
 /* ============================================================
    BARRA DE PESQUISA PERFEITA (LUPA À ESQUERDA, BOTÃO REDONDO À DIREITA)
    ============================================================ */
-.search {
-  position: relative !important;
-  display: flex !important;
-  align-items: center !important;
-  width: 100% !important;
-  height: 44px !important;
-  background: rgba(0, 0, 0, 0.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 999px !important;
-  overflow: hidden !important;
-  margin: 0 !important;
-}
+
 
 /* A Lupa (Dentro da barra, lado esquerdo) */
 .search-icon {
@@ -5153,61 +4576,19 @@ body[data-category="moda"] .scroll-arrows {
    HEADER MOBILE DEFINITIVO (GRID E LUPA)
    ============================================================ */
 @media (max-width: 700px) {
-  .header-main {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) auto !important;
-    grid-template-areas:
-      "brand menu"
-      "search whatsapp" !important;
-    gap: 12px 10px !important;
-    align-items: center !important;
-    padding: 16px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  .brand { grid-area: brand !important; min-width: 0 !important; margin: 0 !important; }
   
-  .menu-toggle { 
-    grid-area: menu !important; 
-    position: static !important; 
-    display: flex !important; 
-    justify-self: end !important; 
-    margin: 0 !important; 
-  }
 
-  .search-row { 
-    grid-area: search !important; 
-    width: 100% !important; 
-    display: flex !important; 
-    margin: 0 !important; 
-    padding: 0 !important;
-  }
+  
+  
+  
 
-  .btn--header { 
-    grid-area: whatsapp !important; 
-    display: inline-flex !important; 
-    justify-self: end !important; 
-    margin: 0 !important; 
-    padding: 8px 12px !important;
-    height: 44px !important;
-    box-sizing: border-box !important;
-  }
+  
+
+  
 }
 
 /* A Barra de Pesquisa */
-.search {
-  position: relative !important;
-  display: flex !important;
-  align-items: center !important;
-  width: 100% !important;
-  height: 44px !important;
-  background: rgba(0, 0, 0, 0.4) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 999px !important;
-  overflow: hidden !important;
-  margin: 0 !important;
-}
+
 
 .search-icon {
   position: absolute !important;
@@ -5256,57 +4637,20 @@ body[data-category="moda"] .scroll-arrows {
    ============================================================ */
 @media (max-width: 700px) {
   /* 1. Desfazer o grid que estava a baralhar a ordem */
-  .header-main {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    padding: 12px 16px !important;
-    gap: 12px 8px !important;
-  }
+  
 
   /* 2. Logo e Menu na primeira linha */
-  .brand {
-    flex: 1 1 70% !important;
-    min-width: 0 !important;
-  }
-  .menu-toggle {
-    flex: 0 0 auto !important;
-    position: static !important;
-    display: flex !important;
-  }
+  
+  
 
   /* 3. Barra de pesquisa + WhatsApp na segunda linha */
-  .search-row {
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    order: 10 !important; /* Força para baixo */
-    margin: 0 !important;
-  }
+  
 
   /* 4. Pesquisa ocupa o espaço restante */
-  .search {
-    flex: 1 !important;
-    width: auto !important;
-    max-width: none !important;
-    height: 44px !important;
-    margin: 0 !important;
-  }
+  
 
   /* 5. WhatsApp fica à direita com o tamanho certo */
-  .btn--header {
-    flex: 0 0 auto !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 14px !important;
-    height: 44px !important;
-    margin: 0 !important;
-    font-size: 13px !important;
-    border-radius: 999px !important;
-  }
+  
 }
 
 /* 6. Forçar o texto a afastar-se da lupa da esquerda */
@@ -5324,69 +4668,20 @@ body[data-category="moda"] .scroll-arrows {
    ============================================================ */
 @media (max-width: 700px) {
   /* Header: Logo em cima, Pesquisa e WA em baixo */
-  .header-main {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    padding: 12px 16px !important;
-    gap: 12px 10px !important;
-  }
+  
 
-  .brand {
-    flex: 1 1 auto !important;
-    order: 1 !important;
-    margin: 0 !important;
-  }
+  
 
-  .menu-toggle {
-    flex: 0 0 auto !important;
-    order: 2 !important;
-    position: static !important;
-    margin: 0 !important;
-  }
+  
 
   /* Linha de baixo: Pesquisa e WhatsApp */
-  .search-row {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-    order: 3 !important;
-    margin-top: 8px !important;
-    gap: 8px !important;
-  }
+  
 
   /* A caixa de pesquisa (ocupa o espaço da esquerda) */
-  .search {
-    position: relative !important; /* TRUQUE PARA A LUPA NÃO FUGIR */
-    flex: 1 1 auto !important;
-    order: 1 !important;
-    margin: 0 !important;
-    height: 44px !important;
-    display: flex !important;
-    align-items: center !important;
-    background: rgba(0, 0, 0, 0.4) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 999px !important;
-    overflow: hidden !important;
-  }
+  
 
   /* O botão do WhatsApp (colado à direita) */
-  .btn--header {
-    flex: 0 0 auto !important;
-    order: 2 !important;
-    margin: 0 !important;
-    height: 44px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 14px !important;
-    border-radius: 999px !important;
-    font-size: 13px !important;
-    white-space: nowrap !important;
-  }
+  
 }
 
 /* A LUPA (Trancada à esquerda) */
@@ -5443,69 +4738,20 @@ body[data-category="moda"] .scroll-arrows {
    ============================================================ */
 @media (max-width: 700px) {
   /* Header: Logo em cima, Pesquisa e WA em baixo */
-  .header-main {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    padding: 12px 16px !important;
-    gap: 12px 10px !important;
-  }
+  
 
-  .brand {
-    flex: 1 1 auto !important;
-    order: 1 !important;
-    margin: 0 !important;
-  }
+  
 
-  .menu-toggle {
-    flex: 0 0 auto !important;
-    order: 2 !important;
-    position: static !important;
-    margin: 0 !important;
-  }
+  
 
   /* Linha de baixo: Pesquisa e WhatsApp */
-  .search-row {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-    order: 3 !important;
-    margin-top: 8px !important;
-    gap: 8px !important;
-  }
+  
 
   /* A caixa de pesquisa (ocupa o espaço da esquerda) */
-  .search {
-    position: relative !important; /* TRUQUE PARA A LUPA NÃO FUGIR */
-    flex: 1 1 auto !important;
-    order: 1 !important;
-    margin: 0 !important;
-    height: 44px !important;
-    display: flex !important;
-    align-items: center !important;
-    background: rgba(0, 0, 0, 0.4) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 999px !important;
-    overflow: hidden !important;
-  }
+  
 
   /* O botão do WhatsApp (colado à direita) */
-  .btn--header {
-    flex: 0 0 auto !important;
-    order: 2 !important;
-    margin: 0 !important;
-    height: 44px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 14px !important;
-    border-radius: 999px !important;
-    font-size: 13px !important;
-    white-space: nowrap !important;
-  }
+  
 }
 
 /* A LUPA (Trancada à esquerda) */
@@ -5561,45 +4807,17 @@ body[data-category="moda"] .scroll-arrows {
    O VERDADEIRO FIX DO HEADER (SEM CONFLITOS)
    ============================================================ */
 @media (max-width: 700px) {
-  .header-main {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    padding: 12px 16px !important;
-    gap: 12px !important;
-    align-items: center !important;
-  }
-
-  .brand { flex: 1 1 auto !important; margin: 0 !important; }
   
-  .menu-toggle { 
-    flex: 0 0 auto !important; 
-    margin-left: auto !important; 
-    position: static !important; 
-  }
+
+  
+  
+  
 
   /* A linha de baixo inteira */
-  .header-main .search-row {
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+  .header-main 
 
   /* A caixa de pesquisa */
-  .header-main .search-row .search {
-    position: relative !important;
-    flex: 1 1 auto !important;
-    height: 44px !important;
-    background: rgba(0, 0, 0, 0.4) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 999px !important;
-    display: flex !important;
-    align-items: center !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-  }
+  .header-main .search-row 
 
   /* A Lupa da esquerda */
   .header-main .search-row .search .search-icon {
@@ -5645,17 +4863,7 @@ body[data-category="moda"] .scroll-arrows {
   }
 
   /* O botão do WhatsApp */
-  .header-main .search-row .btn--header {
-    flex: 0 0 auto !important;
-    height: 44px !important;
-    padding: 0 14px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border-radius: 999px !important;
-    font-size: 13px !important;
-    margin: 0 !important;
-  }
+  .header-main .search-row 
 }
 
 /* ============================================================
@@ -5673,15 +4881,6 @@ body[data-category="moda"] .scroll-arrows {
 /* ============================================================
    MENU LATERAL: EFEITO DE VIDRO FOSCO (TRANSPARENTE)
    ============================================================ */
-.mobile-menu {
-  /* Fundo semi-transparente em vez de preto sólido */
-  background: rgba(18, 18, 24, 0.75) !important; 
-  /* Desfoque do que está atrás do menu */
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5) !important;
-}
 
 /* Garantir que o fundo interior não volta a pintar de preto */
 .mobile-menu__inner {
@@ -5724,13 +4923,6 @@ body {
 }
 
 /* 2. O Menu Lateral (Fundo premium, sem ser preto puro) */
-.mobile-menu {
-  background: linear-gradient(180deg, #1c1c24 0%, #121217 100%) !important;
-  border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
-  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: none !important; /* Tira o blur que estava a deixar tudo preto */
-  -webkit-backdrop-filter: none !important;
-}
 
 /* 3. As Secções do Menu (Para separar visualmente as áreas) */
 .mobile-menu__section {
@@ -5829,12 +5021,6 @@ body {
    ============================================================ */
 
 /* 1. Devolver o vidro fosco ao menu (sem ser preto sólido) */
-.mobile-menu {
-  background: rgba(16, 16, 24, 0.75) !important; /* Transparente */
-  backdrop-filter: blur(24px) saturate(140%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
-  border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
 
 /* 2. Remover os retângulos de fundo dos botões */
 .quick-btn {
@@ -5983,11 +5169,6 @@ html, body {
 }
 
 /* 3. (Opcional) Se o menu de três barras for um elemento separado, ele também precisa de ficar preso */
-.mobile-menu {
-  position: fixed !important;
-  top: 0 !important;
-  height: 100vh !important; /* Ocupa o ecrã todo em altura */
-}
 
 /* ============================================================
    PÁGINA DE POLÍTICAS E PRIVACIDADE
@@ -6158,9 +5339,7 @@ html, body {
 }
 
 /* Melhorar o scroll da barra para não cortar a última categoria */
-.catnav__inner {
-  padding-right: 20px !important; /* Dá um respiro no fim */
-}
+
 
 /* ============================================================
    CONSERTAR O FUNDO DO CARTÃO DE CATEGORIA
@@ -6178,10 +5357,7 @@ html, body {
 }
 
 /* Limpar o texto que ficou solto na barra de categorias */
-.catnav__inner a {
-  display: inline-flex !important;
-  align-items: center !important;
-}
+
 
 /* ============================================================
    NOVO TÍTULO DA CATEGORIA (ABAIXO DA PESQUISA)
@@ -6253,10 +5429,7 @@ html, body {
 }
 
 /* 3. Limpar a barra de categorias (remover o YU-YU de lá) */
-.catnav__inner a {
-  font-size: 13.5px !important;
-  padding: 12px 16px !important;
-}
+
 
 /* 4. Corrigir o Banner Collection (Yunnited Collection e Acessórios empilhados) */
 .accessories-hero,
@@ -6790,6 +5963,759 @@ html, body {
 }
 
 /* 3. Garantir que o menu lateral (se estiver aberto) também não tapa o modal */
-.mobile-menu {
-  z-index: 9000 !important;
+
+/* ============================================================
+   GARANTIR QUE A JANELA DE PESQUISA FUNCIONA
+   ============================================================ */
+
+/* ============================================================
+   FIX ABSOLUTO: JANELA DE PESQUISA POR CIMA DO CABEÇALHO
+   ============================================================ */
+
+/* Força o cabeçalho a ficar numa camada inferior */
+header.site-header, .site-header {
+  z-index: 100 !important;
 }
+
+/* Força a janela de pesquisa a ficar na camada superior (Acima do header, menu, etc) */
+
+/* O contentor da barra de pesquisa dentro da subjanela */
+
+/* ============================================================
+   CSS INQUEBRÁVEL PARA A JANELA DE PESQUISA
+   ============================================================ */
+
+/* ============================================================
+   CORREÇÃO DAS CAMADAS (Z-INDEX) E POSIÇÕES
+   ============================================================ */
+
+/* 1. Cabeçalho normal */
+header.site-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+}
+
+/* 2. O Menu Lateral (Gaveta) */
+#siteMenu
+
+#siteMenu.mobile-menu.menu-open {
+  transform: translateX(0) !important;
+}
+
+/* 3. O Botão do Menu (3 barras / X) - FICA ACIMA DO MENU E DO HEADER */
+
+/* 4. A Janela de Pesquisa (Overlay) */
+
+/* 5. O fundo da pesquisa e o botão de fechar */
+
+/* ============================================================
+   ESTILO DO BOTÃO FECHAR (X) DO MENU
+   ============================================================ */
+.mobile-menu__close {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  z-index: 99999 !important;
+}
+
+.mobile-menu__close .material-symbols-outlined {
+  font-size: 22px !important;
+}
+
+/* ============================================================
+   CIRURGIA CSS: SOBREPOSIÇÃO E BOTÃO X DO MENU
+   ============================================================ */
+
+/* 1. Forçar o overlay da pesquisa a ficar acima de TUDO */
+
+/* Estilo da barra dentro do overlay */
+
+/* 2. O Botão X do Menu (Injetado dentro do painel) */
+.mobile-menu__close {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  z-index: 99999 !important;
+}
+
+.mobile-menu__close .material-symbols-outlined {
+  font-size: 22px !important;
+}
+
+/* CORREÇÃO FINAL — BOTÃO DO MENU YUNNITED CREW */
+
+/* O overlay deve receber os cliques acima do cabeçalho */
+html 
+
+html 
+
+html 
+
+/* CORREÇÃO DO OVERLAY DE PESQUISA */
+html body 
+
+html body 
+
+html body 
+
+/* BOTÃO HAMBÚRGUER: TRÊS BARRAS SIMÉTRICAS */
+
+/* ============================================================
+   RESOLUÇÃO DOS DOIS BUGS VISUAIS
+   ============================================================ */
+
+/* 1. Esconder o botão original (3 barras) quando o menu está aberto */
+
+/* 2. Esconder o "X" nativo do browser no campo de pesquisa */
+
+/* Opcional: Garantir que o campo de pesquisa não tem cantos estranhos */
+
+/* ============================================================
+   FIX FINAL: BOTÃO ORIGINAL (3 BARRAS / X) POR CIMA DO MENU
+   ============================================================ */
+
+/* 1. Esconder o botão X injetado (caso ainda exista no CSS) */
+.mobile-menu__close {
+  display: none !important;
+}
+
+/* 2. Forçar o botão original a ficar fixo e visível */
+
+/* Animação do botão para X */
+
+/* ============================================================
+   LEI MARCAL FINAL: OVERLAY DA PESQUISA NO TOPO
+   ============================================================ */
+
+/* 1. O Fundo Escuro (Forçar a começar do topo) */
+
+/* 2. A Barra de Pesquisa (Colada ao topo) */
+
+/* 3. O Cabeçalho da Barra (O input e o X) */
+
+/* 4. Os Resultados (Ficam por baixo da barra) */
+
+/* ============================================================
+   FIX REAL: FORÇAR A BARRA DE PESQUISA AO TOPO
+   ============================================================ */
+
+/* 1. Mudar o fundo para block. Isto mata qualquer tentativa do flex de centrar o conteúdo */
+
+/* 2. Forçar a barra a ser absolute, colada no topo do ecrã */
+
+/* ============================================================
+   LEI MARCAL FINAL: MENU, BOTÃO E PESQUISA (CÓDIGO LIMPO)
+   ============================================================ */
+
+/* 1. BOTÃO DO MENU (3 barras / X) */
+#menuToggle {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 5px !important;
+  width: 44px !important;
+  height: 44px !important;
+  background: transparent !important;
+  border: none !important;
+  position: relative !important;
+  z-index: 100000 !important;
+  cursor: pointer !important;
+}
+
+#menuToggle span {
+  display: block !important;
+  width: 24px !important;
+  height: 2px !important;
+  background: #fff !important;
+  transition: 0.3s !important;
+}
+
+/* Animação do X */
+#menuToggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg) !important; }
+#menuToggle.is-open span:nth-child(2) { opacity: 0 !important; }
+#menuToggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg) !important; }
+
+/* 2. MENU LATERAL (Gaveta) */
+#siteMenu.mobile-menu {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  height: 100vh !important;
+  width: 80vw !important;
+  max-width: 320px !important;
+  background: #101015 !important;
+  z-index: 99999 !important;
+  transform: translateX(100%) !important; /* Escondido */
+  transition: transform 0.3s ease !important;
+  display: block !important;
+}
+
+#siteMenu.mobile-menu.menu-open {
+  transform: translateX(0) !important; /* Aberto */
+}
+
+/* 3. PESQUISA OVERLAY (Fundo escuro) */
+#searchOverlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  background: rgba(0, 0, 0, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  z-index: 999999 !important;
+  display: none !important;
+}
+
+#searchOverlay.is-open {
+  display: block !important;
+}
+
+/* 4. BARRA DE PESQUISA (Colada ao topo) */
+#searchOverlay .search-overlay__inner {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  background: #101015 !important;
+  padding: 20px 16px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transform: none !important;
+}
+
+#searchOverlay .search-overlay__head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  background: #1a1a22 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  padding: 10px 16px !important;
+}
+
+#searchOverlay input {
+  flex: 1 !important;
+  background: transparent !important;
+  border: 0 !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  outline: none !important;
+}
+
+/* ============================================================
+   CSS FINAL: OVERLAY NO TOPO (SEM "RELATIVE")
+   ============================================================ */
+#searchOverlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important; /* Ajuda com o teclado no mobile */
+  background: rgba(0, 0, 0, 0.9) !important;
+  z-index: 999999 !important;
+  display: none !important;
+}
+
+#searchOverlay.is-open {
+  display: block !important;
+}
+
+#searchOverlay .search-overlay__inner {
+  position: absolute !important; /* A chave para colar no topo */
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  transform: none !important; /* Remove animações que possam empurrar */
+  background: #101015 !important;
+  padding: 20px 16px !important;
+  border-radius: 0 0 20px 20px !important;
+}
+
+/* ============================================================
+   MATAR O FLEXBOX E FORÇAR A BARRA AO TOPO (FIX TECLADO ANDROID)
+   ============================================================ */
+
+/* 1. O Fundo escuro deixa de ser flex (deixa de centrar coisas) */
+#searchOverlay,
+#searchOverlay.is-open {
+  display: block !important; 
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 2. A Barra da pesquisa fica colada no topo do fundo escuro */
+#searchOverlay .search-overlay__inner {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 20px 16px !important;
+  transform: none !important; /* Remove animações antigas que a puxam */
+  box-sizing: border-box !important;
+}
+
+/* 3. Os resultados ficam logo abaixo da barra */
+#searchOverlay .search-overlay__body {
+  position: absolute !important;
+  top: 90px !important; /* Altura aproximada da barra + margem */
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  overflow-y: auto !important;
+  padding: 16px !important;
+}
+
+/* ============================================================
+   MATAR O FLEXBOX E FORÇAR A BARRA AO TOPO (FIX TECLADO ANDROID)
+   ============================================================ */
+
+/* 1. O Fundo escuro deixa de ser flex (deixa de centrar coisas) */
+#searchOverlay,
+#searchOverlay.is-open {
+  display: block !important; 
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 2. A Barra da pesquisa fica colada no topo do fundo escuro */
+#searchOverlay .search-overlay__inner {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 20px 16px !important;
+  transform: none !important; /* Remove animações antigas que a puxam */
+  box-sizing: border-box !important;
+}
+
+/* 3. Os resultados ficam logo abaixo da barra */
+#searchOverlay .search-overlay__body {
+  position: absolute !important;
+  top: 90px !important; /* Altura aproximada da barra + margem */
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  overflow-y: auto !important;
+  padding: 16px !important;
+}
+
+/* ============================================================
+   A VITÓRIA FINAL: MATAR O FLEX E FORÇAR O TOPO
+   ============================================================ */
+html body #searchOverlay.is-open {
+  display: block !important; /* Mata o Flexbox que estava a centrar */
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html body #searchOverlay .search-overlay__inner {
+  position: fixed !important; /* Força a barra a flutuar em relação ao ecrã */
+  top: 0 !important;          /* Cola no topo absoluto */
+  left: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  transform: none !important; /* Remove o transform que o diagnóstico detetou */
+  display: block !important;
+  background: #101015 !important;
+  padding: 20px 16px !important;
+  border-radius: 0 0 20px 20px !important;
+  z-index: 9999999 !important;
+}
+
+/* ============================================================
+   FIX DEFINITIVO: CHROME, BRAVE E TECLADO ANDROID
+   ============================================================ */
+html body #searchOverlay.is-open {
+  display: block !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important; /* Força o Chrome a ignorar o teclado */
+  background: rgba(10, 10, 15, 0.95) !important;
+  z-index: 9999999 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Força a barra a ficar absoluta no topo do overlay */
+html body #searchOverlay .search-overlay__inner {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  transform: none !important;
+  display: block !important;
+  background: #101015 !important;
+  padding: 20px 16px !important;
+  border-radius: 0 0 20px 20px !important;
+  z-index: 1 !important;
+}
+
+/* Arrancar o estilo "branco" nativo do botão X no Brave */
+#searchOverlay .search-overlay__close {
+  background: transparent !important;
+  border: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  color: #fff !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  cursor: pointer !important;
+}
+
+#searchOverlay .search-overlay__close span {
+  font-size: 24px !important;
+}
+
+/* ============================================================
+   GARANTIR QUE O OVERLAY COMEÇA ESCONDIDO
+   ============================================================ */
+html body #searchOverlay {
+  display: none !important; /* Escondido por defeito no arranque */
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+html body #searchOverlay.is-open {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* ============================================================
+   VISUAL DA BUSCA: CHIPS E LISTA DE RESULTADOS
+   ============================================================ */
+
+/* 1. O corpo da busca (Onde os resultados aparecem) */
+#searchOverlay .search-overlay__body {
+  position: absolute !important;
+  top: 140px !important; /* Fica por baixo da barra e dos chips */
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  background: #101015 !important; /* Fundo sólido para não parecer fechado */
+  overflow-y: auto !important;
+  padding: 20px 16px !important;
+  z-index: 1 !important;
+}
+
+/* 2. Os botões de Categoria (Chips) */
+#searchOverlay .search-overlay__chips {
+  display: flex !important;
+  overflow-x: auto !important;
+  gap: 8px !important;
+  padding: 12px 16px !important;
+  position: absolute !important;
+  top: 80px !important; /* Fica logo abaixo da barra de pesquisa */
+  width: 100% !important;
+  background: #101015 !important;
+  scrollbar-width: none !important;
+  z-index: 2 !important;
+}
+#searchOverlay .search-overlay__chips::-webkit-scrollbar { display: none; }
+
+.search-chip {
+  padding: 8px 16px !important;
+  background: #1a1a22 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  color: #a5a5ad !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+
+.search-chip.is-active {
+  background: #7c5cff !important;
+  border-color: #7c5cff !important;
+  color: #fff !important;
+}
+
+/* 3. O cartão do produto nos resultados */
+.search-result-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 12px !important;
+  background: #15151b !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  transition: border-color 0.2s !important;
+}
+
+.search-result-item:hover {
+  border-color: rgba(124, 92, 255, 0.5) !important;
+}
+
+/* ============================================================
+   GRELHA DE RESULTADOS DA PESQUISA (4x4 / 2x2)
+   ============================================================ */
+
+/* O corpo da pesquisa */
+#searchOverlay .search-overlay__body {
+  position: absolute !important;
+  top: 80px !important; /* Fica logo abaixo da barra */
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  background: #101015 !important;
+  overflow-y: auto !important;
+  padding: 20px 16px !important;
+  z-index: 1 !important;
+}
+
+/* Se a página tiver filtros (Home), o corpo desce um pouco */
+#searchOverlay .search-overlay__chips[style*="flex"] + .search-overlay__body {
+  top: 140px !important;
+}
+
+/* A Grelha de Resultados */
+
+@media (min-width: 600px) {
+  
+}
+
+/* O Cartão de Produto dentro da grelha */
+
+/* Imagem do Cartão */
+
+/* Informação do Cartão */
+
+/* ============================================================
+   CORREÇÃO URGENTE: 4 PRODUTOS POR LINHA NO TELEMÓVEL
+   ============================================================ */
+
+/* O cartão do produto */
+
+/* A imagem do produto (quadrada e pequena) */
+
+/* A caixa de texto por baixo da imagem */
+
+
+/* ============================================================
+   A REGRA DEFINITIVA: 4 COLUNAS NA PESQUISA
+   ============================================================ */
+.search-results-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important; /* 4 colunas iguais */
+  gap: 8px !important;
+  width: 100% !important;
+  padding: 10px !important;
+}
+
+.search-result-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: #1a1a22 !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  width: 100% !important;
+  min-width: 0 !important; /* O SEGREDO PARA A GRELHA NÃO QUEBRAR */
+}
+
+.search-result-img {
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  background: #000 !important;
+}
+
+.search-result-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.search-result-info {
+  padding: 6px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.search-result-info h4 {
+  color: #fff !important;
+  font-size: 10px !important; /* Fonte pequena para caber em 4 colunas */
+  font-weight: 700 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.search-result-info span {
+  color: #7c5cff !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+}
+
+/* ============================================================
+   BARRA DE ARRASTAR (DRAG HANDLE) DA PESQUISA
+   ============================================================ */
+.search-drag-handle {
+  width: 100%;
+  padding: 12px 0; /* Área de toque generosa */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  touch-action: none; /* Impede o scroll da página enquanto arrasta */
+}
+
+.search-drag-handle::after {
+  content: '';
+  width: 44px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+
+.search-drag-handle:active::after {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Animação suave para quando a barra volta ao lugar */
+#searchOverlay .search-overlay__inner.is-dragging {
+  transition: none !important;
+}
+#searchOverlay .search-overlay__inner {
+  transition: transform 0.3s ease-out !important;
+}
+
+/* Yu Cleaner: Regra otimizada */
+.header-main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    padding: 12px 16px !important;
+    gap: 12px !important;
+    align-items: center !important;
+  }
+
+/* Yu Cleaner: Regra otimizada */
+.brand { flex: 1 1 auto !important; margin: 0 !important; }
+
+/* Yu Cleaner: Regra otimizada */
+.search {
+    position: relative !important;
+    flex: 1 1 auto !important;
+    height: 44px !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 999px !important;
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+/* Yu Cleaner: Regra otimizada */
+.btn--header {
+    flex: 0 0 auto !important;
+    height: 44px !important;
+    padding: 0 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 999px !important;
+    font-size: 13px !important;
+    margin: 0 !important;
+  }
+
+/* Yu Cleaner: Regra otimizada */
+.catnav__inner {
+  padding-right: 20px !important; /* Dá um respiro no fim */
+}
+
+/* Yu Cleaner: Regra otimizada */
+.catnav__inner a {
+  font-size: 13.5px !important;
+  padding: 12px 16px !important;
+}
+
+/* Yu Cleaner: Regra otimizada */
+.section__head h2 {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.4px !important;
+  margin: 0 !important;
+  color: var(--text) !important;
+  white-space: nowrap !important;
+}
+
+/* Yu Cleaner: Regra otimizada */
+.search-row {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+/* Yu Cleaner: Regra otimizada */
+.search-row .search button {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }

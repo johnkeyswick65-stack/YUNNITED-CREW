@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>World Library | YUNNITED-CREW</title>
+  <meta name="description" content="Explore a nossa coleção de livros digitais, romances, e-books e material escolar na Yunnited Crew.">
+  <link rel="stylesheet" href="universal.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script>
@@ -13,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body data-category="world-library">
 
@@ -59,7 +62,11 @@
       </div>
     </div>
     </div>
-    <div class="mobile-menu" id="siteMenu" aria-hidden="true">
+    <!-- MENU FLUTUANTE -->
+        <div class="mobile-menu" id="siteMenu" aria-hidden="true">
+    <button type="button" class="mobile-menu__close" id="closeMenuBtn" aria-label="Fechar menu">
+      <span class="material-symbols-outlined">close</span>
+    </button>
       <nav class="mobile-menu__inner">
         <div class="mobile-menu__quick">
           <button type="button" class="quick-btn" data-quick="share" aria-label="Partilhar site">
@@ -104,20 +111,21 @@
 
 <div class="mobile-menu__section">
           <span class="mobile-menu__label">Navegar</span>
-          <a href="index.html"><span class="material-symbols-outlined">home</span><span>Início</a>
-          <a href="world-library.html"><span class="material-symbols-outlined">menu_book</span><span>World Library</a>
-          <a href="acessorios.html"><span class="material-symbols-outlined">headphones</span><span>Acessórios</a>
-          <a href="moda.html"><span class="material-symbols-outlined">checkroom</span><span>Moda</a>
-          <a href="nhonga.html"><span class="material-symbols-outlined">storefront</span><span>Nhonga</a>
+          <a href="index.html"><span class="material-symbols-outlined">home</span><span>Início</span></a>
+          <a href="world-library.html"><span class="material-symbols-outlined">menu_book</span><span>World Library</span></a>
+          <a href="acessorios.html"><span class="material-symbols-outlined">headphones</span><span>Acessórios</span></a>
+          <a href="moda.html"><span class="material-symbols-outlined">checkroom</span><span>Moda</span></a>
+          <a href="nhonga.html"><span class="material-symbols-outlined">storefront</span><span>Nhonga</span></a>
         </div>
 
         <div class="mobile-menu__section">
           <span class="mobile-menu__label">Informação</span>
-          <a href="politicas-privacidade.html"><span class="material-symbols-outlined">verified_user</span><span>Políticas e Privacidade</a>
+          <a href="politicas-privacidade.html"><span class="material-symbols-outlined">verified_user</span><span>Políticas e Privacidade</span></a>
         </div>
 
         <a class="mobile-menu__wa" href="https://wa.me/258856178099?text=Ol%C3%A1%20YUNNITED%20CREW!%20Vim%20pelo%20site." target="_blank" rel="noopener">
-          <span class="material-symbols-outlined">chat_bubble</span><span>Falar no WhatsApp</a>
+          <span class="material-symbols-outlined">chat_bubble</span><span>Falar no WhatsApp</span>
+        </a>
       </nav>
     </div>
 
