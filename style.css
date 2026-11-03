@@ -7012,3 +7012,48 @@ a.btn--header svg {
     height: 35px !important;
   }
 }
+
+/* ============================================================
+   YU BOT FIX: RESTAURAR LOGO E DESCRIÇÃO ORIGINAL
+   ============================================================ */
+.brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+}
+
+.brand__mark {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #fff !important;
+  color: #000 !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+}
+
+.brand__mark svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.brand__text {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.brand__text strong {
+  font-size: 16px !important;
+  color: #fff !important;
+  line-height: 1.2 !important;
+}
+
+.brand__text small {
+  display: block !important; /* Volta a mostrar a descrição */
+  font-size: 10px !important;
+  color: #a5a5ad !important;
+  line-height: 1.2 !important;
+  margin-top: 2px !important;
+}
