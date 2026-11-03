@@ -6947,3 +6947,68 @@ header.site-header {
 .search input {
   padding-left: 44px !important; 
 }
+
+
+/* ============================================================
+   YU BOT FIX: MOSTRAR A DESCRIÇÃO NO CABEÇALHO
+   ============================================================ */
+.brand__text small {
+  display: block !important; /* Cancela o "display: none" */
+  font-size: 10px !important; /* Letra pequena para caber no telemóvel */
+  line-height: 1.2 !important;
+  color: #a5a5ad !important;
+  margin-top: 2px !important;
+  white-space: nowrap !important; /* Impede que o texto quebre para a linha de baixo */
+}
+
+/* ============================================================
+   YU BOT FIX: BOTÃO DO WHATSAPP NO CABEÇALHO
+   ============================================================ */
+a.btn--header, 
+.header-main .search-row .btn--header {
+  background-color: #25d366 !important; /* O verde oficial */
+  color: #ffffff !important;            /* Texto branco */
+  border: 0 !important;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3) !important; /* Um brilho suave */
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+a.btn--header svg {
+  fill: #ffffff !important; /* Garante que o ícone fica branco */
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   YU BOT FIX: BOTÃO DO WHATSAPP NO CABEÇALHO
+   ============================================================ */
+a.btn--header, 
+.header-main .search-row .btn--header {
+  background-color: #25d366 !important; /* O verde oficial */
+  color: #ffffff !important;            /* Texto branco */
+  border: 0 !important;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3) !important; /* Um brilho suave */
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+a.btn--header svg {
+  fill: #ffffff !important; /* Garante que o ícone fica branco */
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   YU BOT FIX: ALINHAMENTO DA NOVA LOGO
+   ============================================================ */
+.brand {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+}
+
+/* No telemóvel, a logo fica um pouco mais pequena */
+@media (max-width: 600px) {
+  .brand svg {
+    height: 35px !important;
+  }
+}
