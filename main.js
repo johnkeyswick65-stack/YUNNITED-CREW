@@ -365,22 +365,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!menuToggle || !siteMenu) return;
 
-  menuToggle.addEventListener('click', () => {
-    const aberto = siteMenu.classList.toggle('menu-open');
-
+  function atualizarMenu(aberto) {
+    siteMenu.classList.toggle('menu-open', aberto);
     menuToggle.classList.toggle('is-open', aberto);
+
     menuToggle.setAttribute('aria-expanded', String(aberto));
+    menuToggle.setAttribute(
+      'aria-label',
+      aberto ? 'Fechar menu' : 'Abrir menu'
+    );
+
     siteMenu.setAttribute('aria-hidden', String(!aberto));
+  }
+
+  menuToggle.addEventListener('click', () => {
+    const aberto = !siteMenu.classList.contains('menu-open');
+    atualizarMenu(aberto);
   });
 
   siteMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      siteMenu.classList.remove('menu-open');
-      menuToggle.classList.remove('is-open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      siteMenu.setAttribute('aria-hidden', 'true');
-    });
+    link.addEventListener('click', () => atualizarMenu(false));
   });
+
+  document.addEventListener('keydown', evento => {
+    if (evento.key === 'Escape' &&
+        siteMenu.classList.contains('menu-open')) {
+      atualizarMenu(false);
+      menuToggle.focus();
+    }
+  });
+
+  atualizarMenu(false);
 });
 
 /* ================= SEARCH OVERLAY ================= */
@@ -923,7 +938,13 @@ function iniciarHeroStories() {
     if (!doCat.length) return;
     const apiProducts = doCat.filter(p => String(p.id).length === 24);
     const maisRecente = apiProducts.length ? apiProducts[0] : doCat[doCat.length - 1];
-    stories.push({ ...c, produto: maisRecente });
+    stories.push({
+      ...c,
+      produto: maisRecente,
+      imagem: c.slug === 'world-library'
+        ? 'imagens/livros-todos-generos.jpg'
+        : maisRecente.imagem
+    });
   });
 
   if (!stories.length) { document.getElementById('heroStories')?.remove(); return; }
@@ -940,7 +961,7 @@ function iniciarHeroStories() {
   stage.innerHTML = stories.map((s, i) => {
     const p = s.produto;
     const preco = p.preco === 0 ? 'Grátis' : `${p.preco.toFixed(2).replace('.', ',')} MT`;
-    const media = p.imagem
+    const media = s.imagem
       ? `<img src="${escapeHtml(p.imagem)}" alt="${escapeHtml(p.nome)}" loading="lazy">`
       : `<span class="material-symbols-outlined">${escapeHtml(s.icon)}</span>`;
     return `
@@ -1341,26 +1362,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = 'hidden'; // Bloquear o scroll de fundo
   });
 });
-
-
-/* ================= FECHAR MENU PELO BOTÃO X ================= */
-document.addEventListener('DOMContentLoaded', () => {
-  const closeMenuBtn = document.getElementById('closeMenuBtn');
-  const siteMenu = document.getElementById('siteMenu');
-  const menuToggle = document.getElementById('menuToggle');
-
-  if (closeMenuBtn && siteMenu) {
-    closeMenuBtn.addEventListener('click', () => {
-      siteMenu.classList.remove('menu-open');
-      if (menuToggle) {
-        menuToggle.classList.remove('is-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      }
-      siteMenu.setAttribute('aria-hidden', 'true');
-    });
-  }
-});
-
 
 
 /* ================= LIMPEZA DO OVERLAY AO CARREGAR ================= */

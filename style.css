@@ -7057,3 +7057,10 @@ a.btn--header svg {
   line-height: 1.2 !important;
   margin-top: 2px !important;
 }
+
+
+/* WHATSAPP FLUTUANTE — VISÍVEL SOBRE O ANÚNCIO */
+html body a.fab {
+  position: fixed !important;
+  z-index: 2147483001 !important;
+}

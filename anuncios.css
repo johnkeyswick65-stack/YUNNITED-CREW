@@ -1,0 +1,230 @@
+/* ===== NHONGA | ANÚNCIO DE AFILIADOS ===== */
+
+.yc-anuncio-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background: rgba(8, 5, 15, .72);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.yc-anuncio-overlay.aberto {
+  display: flex;
+}
+
+.yc-anuncio {
+  position: relative;
+  width: min(30vw, 390px);
+  min-width: 320px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 15px;
+  background: #f5efff;
+  color: #211333;
+  box-shadow: 0 24px 80px rgba(0,0,0,.4);
+  border: 1px solid rgba(255,255,255,.35);
+  animation: ycEntrada .3s ease;
+}
+
+@keyframes ycEntrada {
+  from { opacity: 0; transform: translateY(14px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.yc-anuncio-onda {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.yc-anuncio-fechar {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  z-index: 5;
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 8px;
+  background: rgba(55, 20, 100, .35);
+  color: white;
+  font-size: 19px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.yc-anuncio-fechar:hover {
+  background: rgba(35, 10, 70, .7);
+}
+
+.yc-anuncio-topo {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  right: 48px;
+  color: white;
+}
+
+.yc-anuncio-marca {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  opacity: .85;
+}
+
+.yc-anuncio-titulo {
+  margin: 9px 0 0;
+  font-size: clamp(21px, 2.1vw, 27px);
+  line-height: 1.05;
+  font-weight: 850;
+  color: white;
+}
+
+.yc-anuncio-bolhas {
+  position: absolute;
+  top: 17%;
+  right: 9%;
+  width: 43%;
+  height: 29%;
+  pointer-events: none;
+}
+
+.yc-anuncio-bolhas circle {
+  fill: none;
+  stroke: rgba(255,255,255,.22);
+  stroke-width: 1.5;
+}
+
+.yc-anuncio-carrinho {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  color: rgba(255,255,255,.9);
+}
+
+.yc-anuncio-carrinho.um {
+  top: 23%;
+  right: 19%;
+}
+
+.yc-anuncio-carrinho.dois {
+  top: 37%;
+  right: 8%;
+  width: 25px;
+  height: 25px;
+  opacity: .65;
+}
+
+.yc-anuncio-conteudo {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 51%;
+}
+
+.yc-anuncio-descricao {
+  margin: 0;
+  max-width: 100%;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #514263;
+}
+
+.yc-anuncio-destaque {
+  margin-top: 7px;
+  font-size: 12px;
+  font-weight: 750;
+  color: #6633a0;
+}
+
+.yc-anuncio-icones {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-top: 12px;
+}
+
+.yc-anuncio-icone {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  color: #7443a9;
+  background: rgba(255,255,255,.65);
+  border: 1px solid rgba(116,67,169,.13);
+  border-radius: 9px;
+}
+
+.yc-anuncio-icone svg {
+  width: 21px;
+  height: 21px;
+}
+
+.yc-anuncio-acoes {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 15px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.yc-anuncio-afiliar {
+  min-width: 112px;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 9px;
+  background: #168a48;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 750;
+  transition: background .2s, transform .2s;
+}
+
+.yc-anuncio-afiliar:hover {
+  background: #116d39;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 700px) {
+  .yc-anuncio {
+    width: min(90vw, 360px);
+    min-width: 0;
+  }
+
+  .yc-anuncio-titulo {
+    font-size: 24px;
+  }
+
+  .yc-anuncio-descricao {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 350px) {
+  .yc-anuncio-topo,
+  .yc-anuncio-conteudo {
+    left: 15px;
+  }
+
+  .yc-anuncio-conteudo {
+    right: 15px;
+  }
+
+  .yc-anuncio-acoes {
+    left: 15px;
+  }
+}

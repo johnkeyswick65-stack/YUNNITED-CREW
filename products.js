@@ -10,9 +10,9 @@ const CATEGORIAS = [
 const PRODUTOS = [
   // World Library
   { id: 1, nome: 'Livro Digital PDF', categoria: 'world-library', preco: 79.9, imagem: 'imagens/livro-digital-produto.jpg', desc: 'Qualquer género, entrega imediata.', icone: '📕', badge: 'Popular', popular: true },
-  { id: 2, nome: 'Livro Escolar', categoria: 'world-library', preco: 19.9, imagem: 'imagens/livro-escolar-produto.jpg', desc: 'Material didáctico da 1ª à 12ª classe.', icone: '📘', badge: '', popular: true },
+  { id: 2, nome: 'Livro Escolar', categoria: 'world-library', preco: 19.9, imagem: 'imagens/livros-escolares-nova.jpg', desc: 'Material didáctico da 1ª à 12ª classe.', icone: '📘', badge: '', popular: true },
   { id: 3, nome: 'E-book', categoria: 'world-library', preco: 69.9, imagem: 'imagens/ebook-produto.jpg', desc: 'E-books exclusivos e best-sellers.', icone: '📖', badge: 'Novo', popular: false },
-  { id: 4, nome: 'Pack 3 Livros Digitais', categoria: 'world-library', preco: 199.9, imagem: 'imagens/pack-livros-produto.jpg', desc: 'Escolha 3 títulos e poupe.', icone: '📚', badge: 'Promo', popular: true },
+  { id: 4, nome: 'Pack 3 Livros Digitais', categoria: 'world-library', preco: 199.9, imagem: 'imagens/pack-tres-livros.jpg', desc: 'Escolha 3 títulos e poupe.', icone: '📚', badge: 'Promo', popular: true },
 
   // Acessórios
   { id: 5, nome: 'Cabo USB-C', categoria: 'acessorios', preco: 250, imagem: 'imagens/pexels-omer-yilmaz-13142647-6726749.jpg', desc: 'Cabo rápido e durável.', icone: '🔌', svg: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="8" rx="2"/><path d="M9 11v4a3 3 0 0 0 6 0v-4"/><path d="M12 18v3"/></svg>', badge: '', popular: true },
